@@ -24,11 +24,12 @@ export PACKAGES="\
 	cifs-utils \
 	cpupower \
 	diffutils \
-	dconf-editor \
 	dkms \
+	discover \
 	distrobox \
 	dmidecode \
 	dosbox \
+	dolphin \
 	efibootmgr \
 	epiphany \
 	ethtool \
@@ -41,6 +42,7 @@ export PACKAGES="\
 	ffmpegthumbnailer \
 	firejail \
 	flatpak \
+	flatpak-kcm \
 	fmt \
 	fuse-zip \
 	fuse2 \
@@ -48,20 +50,6 @@ export PACKAGES="\
 	f2fs-tools \
 	gamemode \
 	git \
-	gnome-browser-connector \
-	gnome-console \
-	gnome-control-center \
-	gnome-disk-utility \
-	gnome-keyring \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-system-monitor \
-	gnome-text-editor \
-	gnome-icon-theme-extras \
-	gnome-tweaks \
-	gnome-shell-extensions \
-	gnome-menus \
 	gst-plugin-pipewire \
 	gparted \
 	gzip \
@@ -77,6 +65,13 @@ export PACKAGES="\
 	intel-ucode \
 	intel-undervolt \
 	jq \
+	kde-gtk-config \
+	kdeplasma-addons \
+	kgamma \
+	konsole \
+	kpipewire \
+	kscreen \
+	ksshaskpass \
 	less \
 	lib32-curl \
 	lib32-fontconfig \
@@ -141,6 +136,13 @@ export PACKAGES="\
 	pipewire-alsa \
 	pipewire-jack \
 	pipewire-pulse \
+	plasma-browser-integration \
+	plasma-desktop \
+	plasma-nm \
+	plasma-pa \
+	plasma-pass \
+	plasma-thunderbolt \
+	plasma-wayland-session \
 	podman \
 	pulsemixer \
 	python \
@@ -174,7 +176,7 @@ export PACKAGES="\
 	wireplumber \
 	wqy-microhei \
 	xdg-desktop-portal \
-	xdg-desktop-portal-gnome \
+	xdg-desktop-portal-kde \
 	xdg-desktop-portal-wlr \
 	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
@@ -216,10 +218,6 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
-	gnome-shell-extension-clipboard-indicator-git \
-	gnome-shell-extension-desktop-icons-ng-git \
-	gnome-shell-extension-dash-to-dock \
-	gnome-shell-extension-transparent-top-bar-git \
 	hhfc-git \
 	legendary \
 	lib32-gperftools \
@@ -364,19 +362,9 @@ postinstallhook() {
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
 	find /usr/share/applications/* | \
 	grep -v anydesk.desktop | \
-	grep -v ca.desrt.dconf-editor.desktop | \
 	grep -v gparted.desktop | \
 	grep -v org.chimeraos.Gamescope.desktop | \
 	grep -v org.chimeraos.app.desktop | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
-	grep -v org.gnome.tweaks.desktop | \
-	grep -v org.gnome.Extensions.desktop | \
 	grep -v protonup-qt.desktop | \
 	grep -v protontricks.desktop | \
 	grep -v steam.desktop | \
