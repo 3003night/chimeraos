@@ -19,10 +19,12 @@ export PACKAGES="\
 	alsa-utils \
 	amd-ucode \
 	bash-completion \
+	bluedevil \
 	broadcom-wl-dkms \
 	bzip2 \
 	cifs-utils \
 	cpupower \
+	deepin-wallpapers \
 	diffutils \
 	dkms \
 	discover \
@@ -31,16 +33,13 @@ export PACKAGES="\
 	dosbox \
 	dolphin \
 	efibootmgr \
-	epiphany \
 	ethtool \
 	evtest \
 	efibootmgr \
 	expect \
 	exfatprogs \
-	fcitx5 \
+	fcitx5-im \
 	fcitx5-chinese-addons \
-	fcitx5-qt \
-	fcitx5-gtk \
 	ffmpeg \
 	file \
 	ffmpegthumbnailer \
@@ -69,6 +68,7 @@ export PACKAGES="\
 	intel-ucode \
 	intel-undervolt \
 	jq \
+	kate \
 	kde-gtk-config \
 	kdeplasma-addons \
 	kgamma \
@@ -76,6 +76,7 @@ export PACKAGES="\
 	kpipewire \
 	kscreen \
 	ksshaskpass \
+	kwallet-pam \
 	less \
 	lib32-curl \
 	lib32-fontconfig \
@@ -119,7 +120,6 @@ export PACKAGES="\
 	liquidctl \
 	logrotate \
 	lrzip \
-	loupe \
 	lshw \
 	lzip \
 	mesa-demos \
@@ -177,7 +177,6 @@ export PACKAGES="\
 	xdg-desktop-portal \
 	xdg-desktop-portal-kde \
 	xdg-desktop-portal-wlr \
-	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
 	xorg-server \
 	xorg-server-xvfb \
@@ -361,8 +360,9 @@ postinstallhook() {
 	grep -v gparted.desktop | \
 	grep -v org.chimeraos.Gamescope.desktop | \
 	grep -v org.chimeraos.app.desktop | \
+	grep -v "org.kde\..*\.desktop" | \
+	grep -v "org.fcitx\..*\.desktop" | \
 	grep -v protonup-qt.desktop | \
-	grep -v protontricks.desktop | \
 	grep -v steam.desktop | \
 	grep -v sk-chos-tool.desktop | \
 	grep -v sk-chos-tool-command.desktop | \
