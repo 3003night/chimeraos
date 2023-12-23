@@ -125,11 +125,9 @@ export PACKAGES="\
 	mesa-demos \
 	modemmanager \
 	nano \
-	nautilus \
 	networkmanager \
 	nfs-utils \
 	nmon \
-	noto-fonts-cjk \
 	noto-fonts-emoji \
 	nss-mdns \
 	ntfs-3g \
@@ -144,14 +142,11 @@ export PACKAGES="\
 	plasma-desktop \
 	plasma-nm \
 	plasma-pa \
-	plasma-pass \
-	plasma-thunderbolt \
 	plasma-wayland-session \
 	podman \
 	pulsemixer \
 	python \
 	python-inotify-simple \
-	papirus-icon-theme \
 	retroarch \
 	rsync \
 	screen \
@@ -230,12 +225,10 @@ export AUR_PACKAGES="\
 	libretro-prosystem-git \
 	libretro-stella2014-git \
 	libretro-virtualjaguar-git \
-	mutter-x11-scaling \
 	nintendo-udev \
 	opengamepadui-bin \
 	opengamepadui-session-git \
 	onedrive-abraunegg \
-	pikaur \
 	powerstation-bin \
 	python-pyclip \
 	python-vdf \
@@ -265,7 +258,6 @@ export PACKAGES_TO_DELETE="\
 	jack2 \
 	pulseaudio \
 	pulseaudio-alsa \
-	mutter \
 	amdvlk \
 	lib32-amdvlk \
 "
