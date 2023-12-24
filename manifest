@@ -288,6 +288,7 @@ export SERVICES="\
 	auto-expand-home \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
+	getty@tty3 \
 	handycon \
 	haveged \
 	hostname-fix \
