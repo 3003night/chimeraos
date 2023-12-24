@@ -20,6 +20,7 @@ export PACKAGES="\
 	amd-ucode \
 	bash-completion \
 	bluedevil \
+	breeze-gtk \
 	broadcom-wl-dkms \
 	bzip2 \
 	cifs-utils \
@@ -53,8 +54,8 @@ export PACKAGES="\
 	f2fs-tools \
 	gamemode \
 	git \
+	gnome-disk-utility \
 	gst-plugin-pipewire \
-	gparted \
 	gzip \
 	haveged \
 	htop \
@@ -72,6 +73,7 @@ export PACKAGES="\
 	kde-gtk-config \
 	kdeplasma-addons \
 	kgamma \
+	kinfocenter \
 	konsole \
 	kpipewire \
 	kscreen \
@@ -131,17 +133,21 @@ export PACKAGES="\
 	noto-fonts-emoji \
 	nss-mdns \
 	ntfs-3g \
+	onboard \
 	openal \
 	openssh \
 	p7zip \
+	partitionmanager \
 	pipewire \
 	pipewire-alsa \
 	pipewire-jack \
 	pipewire-pulse \
 	plasma-browser-integration \
 	plasma-desktop \
+	plasma-disks \
 	plasma-nm \
 	plasma-pa \
+	plasma-vault \
 	plasma-wayland-session \
 	podman \
 	pulsemixer \
@@ -180,6 +186,7 @@ export PACKAGES="\
 	xf86-video-amdgpu \
 	xorg-server \
 	xorg-server-xvfb \
+	xorg-xinit \
 	xz \
 	zip \
 	zram-generator \
@@ -357,7 +364,7 @@ postinstallhook() {
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
 	find /usr/share/applications/* | \
 	grep -v anydesk.desktop | \
-	grep -v gparted.desktop | \
+	grep -v "ibus*\.desktop" | \
 	grep -v org.chimeraos.Gamescope.desktop | \
 	grep -v org.chimeraos.app.desktop | \
 	grep -v "org.kde\..*\.desktop" | \

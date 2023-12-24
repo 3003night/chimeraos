@@ -4,8 +4,8 @@ if [ waydroid &> /dev/null ]; then
   waydroid session stop
 fi
 
-sudo sed -i "s/^NoDisplay=true/#NoDisplay=true/" /usr/share/applications/gnome-x11.desktop
-if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+sudo sed -i "s/^NoDisplay=true/#NoDisplay=true/" /usr/share/applications/plasma-wayland.desktop
+if [ "$XDG_SESSION_TYPE" = "x11" ]; then
   qdbus org.kde.ksmserver /KSMServer logout 0 0 0
 else
   plasma-session-oneshot
