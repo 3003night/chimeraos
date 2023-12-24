@@ -33,12 +33,14 @@ export PACKAGES="\
 	dmidecode \
 	dosbox \
 	dolphin \
+	dolphin-plugins \
 	efibootmgr \
 	ethtool \
 	evtest \
 	efibootmgr \
 	expect \
 	exfatprogs \
+	falkon \
 	fcitx5-im \
 	fcitx5-chinese-addons \
 	ffmpeg \
@@ -71,7 +73,9 @@ export PACKAGES="\
 	jq \
 	kate \
 	kde-gtk-config \
+	kdeconnect \
 	kdeplasma-addons \
+	kfind \
 	kgamma \
 	kinfocenter \
 	konsole \
@@ -147,9 +151,11 @@ export PACKAGES="\
 	plasma-disks \
 	plasma-nm \
 	plasma-pa \
+	plasma-thunderbolt \
 	plasma-vault \
 	plasma-wayland-session \
 	podman \
+	power-profiles-daemon \
 	pulsemixer \
 	python \
 	python-inotify-simple \
@@ -181,12 +187,14 @@ export PACKAGES="\
 	wireplumber \
 	wqy-microhei \
 	xdg-desktop-portal \
+	xdg-desktop-portal-gtk \
 	xdg-desktop-portal-kde \
 	xdg-desktop-portal-wlr \
 	xf86-video-amdgpu \
 	xorg-server \
 	xorg-server-xvfb \
 	xorg-xinit \
+	xsettingsd \
 	xz \
 	zip \
 	zram-generator \
