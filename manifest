@@ -134,6 +134,7 @@ export PACKAGES="\
 	openal \
 	openssh \
 	p7zip \
+	papirus-icon-theme \
 	pipewire \
 	pipewire-alsa \
 	pipewire-jack \
@@ -144,6 +145,7 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-inotify-simple \
+	qt5ct \
 	retroarch \
 	rsync \
 	screen \
@@ -212,6 +214,8 @@ export PACKAGE_OVERRIDES="\
 # Which is often the same as the package name but it can be different.
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
+	adwaita-qt5-git \
+	adwaita-qt6-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
 	boxtron \
