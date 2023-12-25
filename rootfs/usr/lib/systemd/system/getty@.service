@@ -1,0 +1,13 @@
+[Unit]
+Description=Autologin on %I
+After=systemd-user-sessions.service
+ConditionPathExists=/home/gamer
+OnFailure=emergency.target
+
+[Service]
+Type=simple
+ExecStartPre=+/usr/sbin/rm -f /run/nologin
+ExecStart=-/usr/sbin/agetty --noclear --autologin gamer %I $TERM
+
+[Install]
+WantedBy=graphical.target

@@ -7,9 +7,9 @@ REPO="honjow/chimeraos"
 if [[ $# -eq 1 ]]; then
   case "$1" in
     "-c")
-      branch=$(cat "$BRANCH_PATH" 2> /dev/null | sed -n 's/^honjow\/chimeraos://; /^stable$\|^unstable$\|^testing$/{p;q};')
+      branch=$(cat "$BRANCH_PATH" 2> /dev/null | sed -n 's/^honjow\/chimeraos://; /^stable$\|^plasma$\|^unstable$\|^plasma-dev$\|^testing$/{p;q};')
       case "$branch" in
-        "stable" | "unstable" | "testing")
+        "stable" | "plasma" | "unstable" | "plasma-dev" | "testing")
           echo "$branch"
           exit 0
           ;;
@@ -24,13 +24,15 @@ if [[ $# -eq 1 ]]; then
       ;;
     "-l")
       echo stable
+      echo plasma
       echo unstable
+      echo plasma-dev
       echo testing
     # echo USB
     # echo Network
       exit 0
       ;;
-    "stable" | "unstable" | "testing")
+    "stable" | "plasma" | "unstable" | "plasma-dev" | "testing")
       echo "$REPO:$1" > "$BRANCH_PATH"
       exit 0
       ;;
@@ -43,4 +45,4 @@ if [[ $# -eq 1 ]]; then
   esac
 fi
 
-echo "Usage: steamos-select-branch <-stable|unstable|testing>" 1>&2
+echo "Usage: steamos-select-branch <-stable|plasma|unstable|plasma-dev|testing>" 1>&2

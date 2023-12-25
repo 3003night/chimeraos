@@ -24,18 +24,22 @@ export PACKAGES="\
 	cifs-utils \
 	cpupower \
 	diffutils \
-	dconf-editor \
 	dkms \
+	discover \
 	distrobox \
 	dmidecode \
 	dosbox \
+	dolphin \
+	dolphin-plugins \
 	efibootmgr \
-	epiphany \
 	ethtool \
 	evtest \
 	efibootmgr \
 	expect \
 	exfatprogs \
+	falkon \
+	fcitx5-im \
+	fcitx5-chinese-addons \
 	ffmpeg \
 	file \
 	ffmpegthumbnailer \
@@ -48,20 +52,7 @@ export PACKAGES="\
 	f2fs-tools \
 	gamemode \
 	git \
-	gnome-browser-connector \
-	gnome-console \
-	gnome-control-center \
 	gnome-disk-utility \
-	gnome-keyring \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-system-monitor \
-	gnome-text-editor \
-	gnome-icon-theme-extras \
-	gnome-tweaks \
-	gnome-shell-extensions \
-	gnome-menus \
 	gst-plugin-pipewire \
 	gparted \
 	gzip \
@@ -77,6 +68,9 @@ export PACKAGES="\
 	intel-ucode \
 	intel-undervolt \
 	jq \
+	kate \
+	kdeconnect \
+	kfind \
 	less \
 	lib32-curl \
 	lib32-fontconfig \
@@ -120,17 +114,14 @@ export PACKAGES="\
 	liquidctl \
 	logrotate \
 	lrzip \
-	loupe \
 	lshw \
 	lzip \
 	mesa-demos \
 	modemmanager \
 	nano \
-	nautilus \
 	networkmanager \
 	nfs-utils \
 	nmon \
-	noto-fonts-cjk \
 	noto-fonts-emoji \
 	nss-mdns \
 	ntfs-3g \
@@ -145,7 +136,6 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-inotify-simple \
-	papirus-icon-theme \
 	retroarch \
 	rsync \
 	screen \
@@ -174,12 +164,12 @@ export PACKAGES="\
 	wireplumber \
 	wqy-microhei \
 	xdg-desktop-portal \
-	xdg-desktop-portal-gnome \
+	xdg-desktop-portal-gtk \
 	xdg-desktop-portal-wlr \
-	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
 	xorg-server \
 	xorg-server-xvfb \
+	xorg-xinit \
 	xz \
 	zip \
 	zram-generator \
@@ -216,10 +206,7 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
-	gnome-shell-extension-clipboard-indicator-git \
-	gnome-shell-extension-desktop-icons-ng-git \
-	gnome-shell-extension-dash-to-dock \
-	gnome-shell-extension-transparent-top-bar-git \
+	hyprland-git \
 	hhfc-git \
 	legendary \
 	lib32-gperftools \
@@ -228,12 +215,10 @@ export AUR_PACKAGES="\
 	libretro-prosystem-git \
 	libretro-stella2014-git \
 	libretro-virtualjaguar-git \
-	mutter-x11-scaling \
 	nintendo-udev \
 	opengamepadui-bin \
 	opengamepadui-session-git \
 	onedrive-abraunegg \
-	pikaur \
 	powerstation-bin \
 	python-pyclip \
 	python-vdf \
@@ -263,7 +248,6 @@ export PACKAGES_TO_DELETE="\
 	jack2 \
 	pulseaudio \
 	pulseaudio-alsa \
-	mutter \
 	amdvlk \
 	lib32-amdvlk \
 "
@@ -280,6 +264,7 @@ export SERVICES="\
 	auto-expand-home \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
+	getty@tty3 \
 	handycon \
 	haveged \
 	hostname-fix \
@@ -362,31 +347,23 @@ postinstallhook() {
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* | \
-	grep -v anydesk.desktop | \
-	grep -v ca.desrt.dconf-editor.desktop | \
-	grep -v gparted.desktop | \
-	grep -v org.chimeraos.Gamescope.desktop | \
-	grep -v org.chimeraos.app.desktop | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
-	grep -v org.gnome.tweaks.desktop | \
-	grep -v org.gnome.Extensions.desktop | \
-	grep -v protonup-qt.desktop | \
-	grep -v protontricks.desktop | \
-	grep -v steam.desktop | \
-	grep -v sk-chos-tool.desktop | \
-	grep -v sk-chos-tool-command.desktop | \
-	grep -v com.github.tchx84.Flatseal.desktop | \
-	grep -v waydroid.app.install.desktop | \
-	grep -v waydroid.market.desktop | \
-	grep -v Waydroid.desktop | \
-	xargs -I {} sh -c "echo NoDisplay=true >> {}"
+	# find /usr/share/applications/* | \
+	# grep -v anydesk.desktop | \
+	# grep -v "ibus*\.desktop" | \
+	# grep -v "onboard.*\.desktop" | \
+	# grep -v org.chimeraos.Gamescope.desktop | \
+	# grep -v org.chimeraos.app.desktop | \
+	# grep -v "org.kde\..*\.desktop" | \
+	# grep -v "org.fcitx\..*\.desktop" | \
+	# grep -v protonup-qt.desktop | \
+	# grep -v steam.desktop | \
+	# grep -v sk-chos-tool.desktop | \
+	# grep -v sk-chos-tool-command.desktop | \
+	# grep -v v2raya.desktop | \
+	# grep -v waydroid.app.install.desktop | \
+	# grep -v waydroid.market.desktop | \
+	# grep -v Waydroid.desktop | \
+	# xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
