@@ -133,6 +133,7 @@ export PACKAGES="\
 	lrzip \
 	lshw \
 	lzip \
+	mako \
 	mesa-demos \
 	modemmanager \
 	nano \
@@ -194,7 +195,6 @@ export PACKAGES="\
 	wget \
 	which \
 	wireplumber \
-	wofi \
 	wqy-microhei \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gtk \
@@ -276,6 +276,7 @@ export AUR_PACKAGES="\
 	sk-chos-tool \
 	sk-boot-to-windows \
 	system76-scheduler-git \
+	tofi \
 	waydroid \
 	waydroid-script-git \
 	wlogout-git \
