@@ -33,7 +33,6 @@ export PACKAGES="\
 	dosbox \
 	dolphin \
 	dolphin-plugins \
-	dunst \
 	efibootmgr \
 	ethtool \
 	evtest \
@@ -121,6 +120,7 @@ export PACKAGES="\
 	lrzip \
 	lshw \
 	lzip \
+	mako \
 	mesa-demos \
 	modemmanager \
 	nano \
@@ -139,6 +139,7 @@ export PACKAGES="\
 	pipewire-jack \
 	pipewire-pulse \
 	podman \
+	polkit-kde-agent \
 	power-profiles-daemon \
 	pulsemixer \
 	python \
@@ -172,7 +173,6 @@ export PACKAGES="\
 	wget \
 	which \
 	wireplumber \
-	wofi \
 	wqy-microhei \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gtk \
@@ -228,6 +228,7 @@ export AUR_PACKAGES="\
 	libretro-prosystem-git \
 	libretro-stella2014-git \
 	libretro-virtualjaguar-git \
+	nerd-fonts-sarasa-term \
 	nintendo-udev \
 	nerd-fonts-sarasa-term \
 	opengamepadui-bin \
@@ -252,6 +253,7 @@ export AUR_PACKAGES="\
 	sk-chos-tool \
 	sk-boot-to-windows \
 	system76-scheduler-git \
+	tofi \
 	waydroid \
 	waydroid-script-git \
 	wlogout-git \

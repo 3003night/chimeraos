@@ -4,6 +4,4 @@ if [ waydroid &> /dev/null ]; then
   waydroid session stop
 fi
 
-# hyprland-session-oneshot
-# sudo chimera-session-use-lightdm steamos
-hyprctl dispatch exit
+loginctl terminate-user $USER
