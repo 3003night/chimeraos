@@ -170,9 +170,11 @@ export PACKAGES="\
 	v2ray \
 	waybar \
 	wavpack \
+	waybar \
 	wget \
 	which \
 	wireplumber \
+	wofi \
 	wqy-microhei \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gtk \
