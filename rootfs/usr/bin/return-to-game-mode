@@ -5,9 +5,8 @@ if [ waydroid &> /dev/null ]; then
 fi
 
 sudo sed -i "s/^NoDisplay=true/#NoDisplay=true/" /usr/share/applications/gnome-x11.desktop
-#[ "$XDG_SESSION_TYPE" = "wayland" ] && gnome-session-quit --no-prompt || gnome-session-oneshot
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-  gnome-session-quit --no-prompt
+  qdbus org.kde.ksmserver /KSMServer logout 0 0 0
 else
-  gnome-session-oneshot
+  plasma-session-oneshot
 fi
