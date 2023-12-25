@@ -25,12 +25,14 @@ export PACKAGES="\
 	bash-completion \
 	bat \
 	bluez-utils \
+	brightnessctl \
 	bluedevil \
 	breeze-gtk \
 	broadcom-wl-dkms \
 	bzip2 \
 	cage \
 	cifs-utils \
+	cliphist \
 	cpupower \
 	ddcutil \
 	deepin-wallpapers \
@@ -72,6 +74,7 @@ export PACKAGES="\
 	gzip \
 	haveged \
 	htop \
+	hyprpaper \
 	ibus-libpinyin \
 	ibus-table-chinese \
 	ibus-anthy \
@@ -83,6 +86,7 @@ export PACKAGES="\
 	intel-undervolt \
 	imagemagick \
 	jq \
+	kitty \
 	kate \
 	kde-gtk-config \
 	kdeconnect \
@@ -124,12 +128,14 @@ export PACKAGES="\
 	lrzip \
 	lshw \
 	lzip \
+	mako \
 	mangohud \
 	mesa-demos \
 	modemmanager \
 	mpv \
 	nano \
 	networkmanager \
+	network-manager-applet \
 	nfs-utils \
 	nmon \
 	noto-fonts-emoji \
@@ -172,6 +178,8 @@ export PACKAGES="\
 	sshfs \
 	steam \
 	sudo \
+	swayidle \
+	swaylock \
 	switcheroo-control \
 	s-tui \
 	tree \
@@ -188,6 +196,7 @@ export PACKAGES="\
 	vulkan-icd-loader \
 	v2ray \
 	wavpack \
+	waybar \
 	wget \
 	which \
 	wireplumber \
@@ -197,6 +206,7 @@ export PACKAGES="\
 	xdg-desktop-portal \
 	xdg-desktop-portal-gtk \
 	xdg-desktop-portal-kde \
+	xdg-desktop-portal-hyprland \
 	xdg-desktop-portal-wlr \
 	xf86-video-amdgpu \
 	xorg-server \
@@ -261,6 +271,8 @@ export AUR_PACKAGES="\
 	hhd \
 	hhd-ui \
 	hhfc-git \
+	hyprshot \
+	hyprland-git \
 	ibus-pinyin \
 	inputplumber-bin \
 	kanit-font \
@@ -279,6 +291,7 @@ export AUR_PACKAGES="\
 	protonup-qt \
 	python-pyclip \
 	python-vdf \
+	pw-volume \
 	r8152-dkms \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
@@ -289,8 +302,10 @@ export AUR_PACKAGES="\
 	steam_notif_daemon \
 	tsukimi-bin \
 	v4l-utils-git \
+	tofi \
 	waydroid \
 	waydroid-script-git \
+	wlogout-git \
 	yay-git \
 	zenergy-dkms-git \
 "
