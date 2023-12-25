@@ -19,9 +19,11 @@ export PACKAGES="\
 	alsa-utils \
 	amd-ucode \
 	bash-completion \
+	brightnessctl \
 	broadcom-wl-dkms \
 	bzip2 \
 	cifs-utils \
+	cliphist \
 	cpupower \
 	diffutils \
 	dkms \
@@ -31,6 +33,7 @@ export PACKAGES="\
 	dosbox \
 	dolphin \
 	dolphin-plugins \
+	dunst \
 	efibootmgr \
 	ethtool \
 	evtest \
@@ -58,6 +61,7 @@ export PACKAGES="\
 	gzip \
 	haveged \
 	htop \
+	hyprpaper \
 	ibus-pinyin \
 	ibus-libpinyin \
 	ibus-table-chinese \
@@ -71,6 +75,7 @@ export PACKAGES="\
 	kate \
 	kdeconnect \
 	kfind \
+	kitty \
 	less \
 	lib32-curl \
 	lib32-fontconfig \
@@ -120,6 +125,7 @@ export PACKAGES="\
 	modemmanager \
 	nano \
 	networkmanager \
+	network-manager-applet \
 	nfs-utils \
 	nmon \
 	noto-fonts-emoji \
@@ -133,6 +139,7 @@ export PACKAGES="\
 	pipewire-jack \
 	pipewire-pulse \
 	podman \
+	power-profiles-daemon \
 	pulsemixer \
 	python \
 	python-inotify-simple \
@@ -145,6 +152,8 @@ export PACKAGES="\
 	sshfs \
 	steam \
 	sudo \
+	swayidle \
+	swaylock \
 	s-tui \
 	tree \
 	tar \
@@ -163,14 +172,17 @@ export PACKAGES="\
 	wget \
 	which \
 	wireplumber \
+	wofi \
 	wqy-microhei \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gtk \
+	xdg-desktop-portal-hyprland \
 	xdg-desktop-portal-wlr \
 	xf86-video-amdgpu \
 	xorg-server \
 	xorg-server-xvfb \
 	xorg-xinit \
+	xorg-xwayland \
 	xz \
 	zip \
 	zram-generator \
@@ -206,8 +218,9 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
-	hyprland-git \
 	hhfc-git \
+	hyprland-git \
+	hyprshot \
 	legendary \
 	lib32-gperftools \
 	libretro-dosbox-pure-git \
@@ -224,6 +237,7 @@ export AUR_PACKAGES="\
 	python-pyclip \
 	python-vdf \
 	protonup-qt-bin \
+	pw-volume \
 	r8152-dkms \
 	r8168-dkms \
 	retroarch-autoconfig-udev-git \
@@ -240,6 +254,7 @@ export AUR_PACKAGES="\
 	system76-scheduler-git \
 	waydroid \
 	waydroid-script-git \
+	wlogout \
 	wyvern \
 	yay-bin \
 	zenergy-dkms-git \
