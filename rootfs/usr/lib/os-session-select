@@ -60,13 +60,13 @@ fi
 # We use "plasma" as "desktop" to hook up to SteamOS's scripts
 case "$session" in
   plasma-wayland-persistent)
-    session_launcher="gnome-session"
+    session_launcher="hyprland"
   ;;
   plasma-x11-persistent)
-    session_launcher="gnome-session"
+    session_launcher="hyprland"
   ;;
   desktop|plasma)
-    session_launcher="gnome-session-oneshot"
+    session_launcher="hyprland-session-oneshot"
     create_sentinel=1
   ;;
   opengamepadui|gamescope-session-opengamepadui)
