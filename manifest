@@ -364,22 +364,23 @@ postinstallhook() {
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* | \
-	grep -v anydesk.desktop | \
-	grep -v "ibus*\.desktop" | \
-	grep -v org.chimeraos.Gamescope.desktop | \
-	grep -v org.chimeraos.app.desktop | \
-	grep -v "org.kde\..*\.desktop" | \
-	grep -v "org.fcitx\..*\.desktop" | \
-	grep -v protonup-qt.desktop | \
-	grep -v steam.desktop | \
-	grep -v sk-chos-tool.desktop | \
-	grep -v sk-chos-tool-command.desktop | \
-	grep -v com.github.tchx84.Flatseal.desktop | \
-	grep -v waydroid.app.install.desktop | \
-	grep -v waydroid.market.desktop | \
-	grep -v Waydroid.desktop | \
-	xargs -I {} sh -c "echo NoDisplay=true >> {}"
+	# find /usr/share/applications/* | \
+	# grep -v anydesk.desktop | \
+	# grep -v "ibus*\.desktop" | \
+	# grep -v "onboard.*\.desktop" | \
+	# grep -v org.chimeraos.Gamescope.desktop | \
+	# grep -v org.chimeraos.app.desktop | \
+	# grep -v "org.kde\..*\.desktop" | \
+	# grep -v "org.fcitx\..*\.desktop" | \
+	# grep -v protonup-qt.desktop | \
+	# grep -v steam.desktop | \
+	# grep -v sk-chos-tool.desktop | \
+	# grep -v sk-chos-tool-command.desktop | \
+	# grep -v v2raya.desktop | \
+	# grep -v waydroid.app.install.desktop | \
+	# grep -v waydroid.market.desktop | \
+	# grep -v Waydroid.desktop | \
+	# xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
