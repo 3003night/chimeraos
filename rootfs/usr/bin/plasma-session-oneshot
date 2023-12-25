@@ -73,8 +73,9 @@ if CONFIGURED_CHAINED_SESSION=$(check_sentinel); then
   # We found and consumed the oneshot sentinel, proceed to launch plasma
   echo >&2 "$0: Found and removed sentinel file for one-shot desktop, proceeding to launch"
   # exec "$CONFIGURED_CHAINED_SESSION"
-  sudo cp "$SESSION_FILE" "${SESSION_FILE}.bak" && \
-  sudo chimera-session-use-lightdm plasma && \
+  sudo cp "$SESSION_FILE" "${SESSION_FILE}.bak"
+  sudo chimera-session-use-lightdm plasma
+  sleep 1
   sudo cp "${SESSION_FILE}.bak" "$SESSION_FILE"
 else
   if CONFIGURED_RETURN_SESSION=$(check_return); then
