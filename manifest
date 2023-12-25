@@ -254,7 +254,7 @@ export AUR_PACKAGES="\
 	system76-scheduler-git \
 	waydroid \
 	waydroid-script-git \
-	wlogout \
+	wlogout-git \
 	wyvern \
 	yay-bin \
 	zenergy-dkms-git \
