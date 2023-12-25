@@ -8,7 +8,7 @@ on:
   push:
     branches:
       # - master
-      - dev
+      - kde
   workflow_dispatch:
 
 jobs:
