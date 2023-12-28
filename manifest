@@ -234,7 +234,6 @@ export AUR_PACKAGES="\
 	libretro-virtualjaguar-git \
 	nerd-fonts-sarasa-term \
 	nintendo-udev \
-	nerd-fonts-sarasa-term \
 	opengamepadui-bin \
 	opengamepadui-session-git \
 	onedrive-abraunegg \
