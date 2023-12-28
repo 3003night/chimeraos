@@ -161,7 +161,6 @@ export PACKAGES="\
 	plasma-vault \
 	plasma-wayland-session \
 	podman \
-	power-profiles-daemon \
 	pulsemixer \
 	python \
 	python-inotify-simple \
