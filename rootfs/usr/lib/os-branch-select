@@ -2,47 +2,39 @@
 set -e
 
 BRANCH_PATH="/frzr_root/source"
-REPO="honjow/chimeraos"
+REPO="3003n/chimeraos"
+
+VALID_BRANCHES=("stable" "unstable" "testing" "plasma")
 
 if [[ $# -eq 1 ]]; then
   case "$1" in
     "-c")
-      branch=$(cat "$BRANCH_PATH" 2> /dev/null | sed -n 's/^honjow\/chimeraos://; /^stable$\|^plasma$\|^unstable$\|^plasma-dev$\|^testing$/{p;q};')
-      case "$branch" in
-        "stable" | "plasma" | "unstable" | "plasma-dev" | "testing")
-          echo "$branch"
-          exit 0
-          ;;
-        *)
-          # This can happen on CI builds or when downgrading from a newer build that knows of more branches.  The update
-          # path should decide how to handle it.
-          echo >&2 "Warning: Unrecognized currently selected branch name '$branch', updates may not succeed."
-          echo "$branch"
-          exit 0
-          ;;
-      esac
+      branch=$(cat "$BRANCH_PATH" 2> /dev/null | sed -n 's/^honjow\|3003n\/chimeraos://p')
+      if [[ " ${VALID_BRANCHES[*]} " =~ "$branch" ]]; then
+        echo "$branch"
+        exit 0
+      else
+        echo >&2 "Warning: Unrecognized currently selected branch name '$branch', updates may not succeed."
+        echo "$branch"
+        exit 0
+      fi
       ;;
     "-l")
-      echo stable
-      echo plasma
-      echo unstable
-      echo plasma-dev
-      echo testing
-    # echo USB
-    # echo Network
+      for b in "${VALID_BRANCHES[@]}"; do
+        echo "$b"
+      done
       exit 0
       ;;
-    "stable" | "plasma" | "unstable" | "plasma-dev" | "testing")
-      echo "$REPO:$1" > "$BRANCH_PATH"
-      exit 0
-      ;;
-    "unstable")
-      echo "The unstable branch has a high risk of breaking."
-      echo "Do NOT use it unless you know what you are doing."
-      echo "$REPO:$1" > "$BRANCH_PATH"
-      exit 0
+    *)
+      if [[ " ${VALID_BRANCHES[*]} " =~ "$1" ]]; then
+        echo "Setting branch to $1"
+        echo "$REPO:$1" > "$BRANCH_PATH"
+        exit 0
+      fi
       ;;
   esac
 fi
 
-echo "Usage: steamos-select-branch <-stable|plasma|unstable|plasma-dev|testing>" 1>&2
+IFS="|"
+echo "Usage: steamos-select-branch <-${VALID_BRANCHES[*]}>" 1>&2
+IFS=" "
