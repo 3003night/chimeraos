@@ -141,7 +141,6 @@ export PACKAGES="\
 	pipewire-pulse \
 	podman \
 	polkit-kde-agent \
-	power-profiles-daemon \
 	pulsemixer \
 	python \
 	python-inotify-simple \
