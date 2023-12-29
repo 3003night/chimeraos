@@ -228,7 +228,6 @@ export AUR_PACKAGES="\
 	boxtron \
 	chimera \
 	downgrade \
-	fcitx5-input-support \
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
