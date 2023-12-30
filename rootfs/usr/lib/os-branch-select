@@ -4,12 +4,12 @@ set -e
 BRANCH_PATH="/frzr_root/source"
 REPO="3003n/chimeraos"
 
-VALID_BRANCHES=("stable" "unstable" "testing" "plasma")
+VALID_BRANCHES=("stable" "unstable" "testing" "plasma" "plasma-dev")
 
 if [[ $# -eq 1 ]]; then
   case "$1" in
     "-c")
-      branch=$(cat "$BRANCH_PATH" 2> /dev/null | sed -n 's/^honjow\|3003n\/chimeraos://p')
+      branch=$(cat "$BRANCH_PATH" 2> /dev/null | sed -n 's/^\(honjow\|3003n\)\/chimeraos://p')
       if [[ " ${VALID_BRANCHES[*]} " =~ "$branch" ]]; then
         echo "$branch"
         exit 0
