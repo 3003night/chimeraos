@@ -335,7 +335,7 @@ postinstallhook() {
 	" > /etc/sudoers.d/chimera
 	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/${USERNAME}"
 
-	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim90/defaults.vim
+	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
 
 	# sed -i "s#/home/${USERNAME}:/bin/bash#/home/${USERNAME}:/bin/zsh#" /etc/passwd
