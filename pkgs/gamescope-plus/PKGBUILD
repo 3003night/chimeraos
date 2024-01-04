@@ -7,7 +7,7 @@
 
 _pkgname=gamescope
 pkgname=gamescope-plus
-pkgver=3.13.5.plus2.18.g518e633
+pkgver=3.13.16.4.modeline.plus3
 pkgrel=1
 pkgdesc='SteamOS session compositing window manager with added patches'
 arch=(x86_64)
@@ -16,69 +16,72 @@ license=(BSD)
 conflicts=(gamescope)
 provides=(gamescope)
 depends=(
-    # gamescope
-    "libxcomposite" "libxtst" "libxres" "sdl2" "pipewire" "libxmu" "glm" "benchmark" "libliftoff" "libdisplay-info"
-    # wlroots
-    "libdrm" "libxkbcommon" "libinput" "pixman" "xorg-xwayland" "xcb-util-renderutil" "xcb-util-wm" "xcb-util-errors" "seatd"
+  gcc-libs
+  glibc
+  glm
+  libcap.so
+  libdisplay-info.so
+  libdrm
+  libliftoff.so
+  libpipewire-0.3.so
+  libvulkan.so
+  libwlroots.so
+  libx11
+  libxcb
+  libxcomposite
+  libxdamage
+  libxext
+  libxfixes
+  libxkbcommon.so
+  libxmu
+  libxrender
+  libxres
+  libxtst
+  libxxf86vm
+  openvr
+  sdl2
+  vulkan-icd-loader
+  wayland
+  xorg-server-xwayland
 )
+
 makedepends=(
-  base-devel
   benchmark
   git
+  glslang
   meson
   ninja
-  cmake
-  glslang
   vulkan-headers
   wayland-protocols
 )
-_tag=3d5b7bcd1c24e4ff224c40a023b579ad82f0a853
+
+_tag=4baa1f044452bfd74dd267a035b394a1a850ac69
 source=("git+https://github.com/3003n/gamescope.git#commit=${_tag}"
-        "git+https://gitlab.freedesktop.org/wlroots/wlroots.git"
-        "git+https://gitlab.freedesktop.org/emersion/libliftoff.git"
-        "git+https://gitlab.freedesktop.org/emersion/libdisplay-info.git"
-        "git+https://github.com/ValveSoftware/openvr.git"
-        "git+https://github.com/Joshua-Ashton/vkroots.git"
-        "git+https://github.com/nothings/stb.git"
-        "git+https://github.com/Joshua-Ashton/reshade.git"
+        "git+https://github.com/nothings/stb.git#commit=af1a5bc352164740c1cc1354942b1c6b72eacb8a"
         "git+https://github.com/Joshua-Ashton/GamescopeShaders.git#tag=v0.1"
+        "git+https://github.com/Joshua-Ashton/reshade.git"
+        "git+https://github.com/KhronosGroup/SPIRV-Headers.git"
         )
 
 b2sums=('SKIP'
         'SKIP'
         'SKIP'
         'SKIP'
-        'SKIP'
-        'SKIP'
-        'SKIP'
-        'SKIP'
-        'SKIP'
-)
+        'SKIP')
 
 prepare() {
   cd "$srcdir/$_pkgname"
-
-  for src in "${source[@]}"; do
-      src="${src%%::*}"
-      src="${src##*/}"
-      [[ $src = *.patch ]] || continue
-      echo "Applying patch $src..."
-      git apply "../$src"
-  done
-
-  git submodule init
-  git config submodule.subprojects/wlroots.url "$srcdir/wlroots"
-  git config submodule.subprojects/libliftoff.url "$srcdir/libliftoff"
-  git config submodule.subprojects/libdisplay-info.url "$srcdir/libdisplay-info"
-  git config submodule.subprojects/openvr.url "$srcdir/openvr"
-  git config submodule.subprojects/vkroots.url "$srcdir/vkroots"
+  meson subprojects download
+  git submodule init src/reshade
   git config submodule.src/reshade.url "$srcdir/reshade"
+  git submodule init thirdparty/SPIRV-Headers
+  git config submodule.thirdparty/SPIRV-Headers.url ../SPIRV-Headers
   git -c protocol.file.allow=always submodule update
 
   # make stb.wrap use our local clone
-  sed -i "s|https://github.com/nothings/stb.git|$srcdir/stb|" "subprojects/stb.wrap"
-
-  meson subprojects download
+  rm -rf subprojects/stb
+  git clone "$srcdir/stb" subprojects/stb
+  cp -av subprojects/packagefiles/stb/* subprojects/stb/ # patch from the .wrap we elided
 }
 
 pkgver() {
