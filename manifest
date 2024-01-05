@@ -294,6 +294,7 @@ export SERVICES="\
 	haveged \
 	hostname-fix \
 	lightdm \
+	overlay-fonts \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
