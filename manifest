@@ -217,6 +217,7 @@ export AUR_PACKAGES="\
 	gnome-shell-extension-desktop-icons-ng-git \
 	gnome-shell-extension-dash-to-dock \
 	gnome-shell-extension-transparent-top-bar-git \
+	hhd \
 	hhfc-git \
 	legendary \
 	lib32-gperftools \
@@ -279,7 +280,6 @@ export SERVICES="\
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
 	getty@tty3 \
-	handycon \
 	haveged \
 	hostname-fix \
 	lightdm \
@@ -299,6 +299,7 @@ export USER_SERVICES="\
 	clear-gamescope-modes \
 	pipewire \
 	steam-patch.service \
+	hhd-user \
 "
 
 export FILES_TO_DELETE="\

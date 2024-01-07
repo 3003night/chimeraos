@@ -8,7 +8,7 @@ on:
   push:
     branches:
       # - master
-      - dev
+      - hhd
   workflow_dispatch:
 
 jobs:
@@ -93,4 +93,4 @@ jobs:
     name: Build ChimeraOS UNSTABLE image
     uses: ./.github/workflows/build-system-image.yml
     with:
-      postfix: "[UNSTABLE]"
+      postfix: "[HHD]"
