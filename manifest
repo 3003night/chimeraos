@@ -52,7 +52,6 @@ export PACKAGES="\
 	fuse2 \
 	fwupd \
 	f2fs-tools \
-	gamemode \
 	git \
 	gnome-disk-utility \
 	gst-plugin-pipewire \
@@ -79,7 +78,6 @@ export PACKAGES="\
 	lib32-curl \
 	lib32-fontconfig \
 	lib32-freetype2 \
-	lib32-gamemode \
 	lib32-libgpg-error \
 	lib32-libnm \
 	lib32-libxinerama \
@@ -290,6 +288,7 @@ export SERVICES="\
 	haveged \
 	hostname-fix \
 	lightdm \
+	overlay-fonts \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
@@ -303,7 +302,6 @@ export SERVICES="\
 export USER_SERVICES="\
 	chimera.service \
 	clear-gamescope-modes \
-	gamemoded.service \
 	pipewire \
 	steam-patch.service \
 "
@@ -331,7 +329,7 @@ postinstallhook() {
 	" > /etc/sudoers.d/chimera
 	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/${USERNAME}"
 
-	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim90/defaults.vim
+	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
 
 	# sed -i "s#/home/${USERNAME}:/bin/bash#/home/${USERNAME}:/bin/zsh#" /etc/passwd
