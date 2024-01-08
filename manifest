@@ -282,6 +282,7 @@ export SERVICES="\
 	frzr_root-swap-swapfile.swap \
 	getty@tty3 \
 	haveged \
+	hhd@{USERNAME} \
 	hostname-fix \
 	lightdm \
 	overlay-fonts \
@@ -300,7 +301,6 @@ export USER_SERVICES="\
 	clear-gamescope-modes \
 	pipewire \
 	steam-patch.service \
-	hhd-user \
 "
 
 export FILES_TO_DELETE="\
