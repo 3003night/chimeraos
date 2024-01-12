@@ -209,8 +209,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.6.8.chos1-2-x86_64.pkg.tar.zst \
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.6.8.chos1-2-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.6.8.chos1-6-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.6.8.chos1-6-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.1-chos1-1/lib32-libva-mesa-driver-1--23.3.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.1-chos1-1/lib32-mesa-1--23.3.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.1-chos1-1/lib32-mesa-vdpau-1--23.3.1.chos1-1-x86_64.pkg.tar.zst \
@@ -223,6 +223,7 @@ export PACKAGE_OVERRIDES="\
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.1-chos1-1/vulkan-radeon-1--23.3.1.chos1-1-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/repos/2023/06/28/extra/os/x86_64/libretro-pcsx2-11900-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/l/libretro-mame/libretro-mame-85763-1-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/pkgs/wyvern-1.4.1-3-x86_64.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
@@ -238,6 +239,8 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	hhd \
+	hhd-user \
 	hhfc-git \
 	hyprshot \
 	hyprland-git \
@@ -276,7 +279,6 @@ export AUR_PACKAGES="\
 	waydroid \
 	waydroid-script-git \
 	wlogout-git \
-	wyvern \
 	yay-bin \
 	zenergy-dkms-git \
 "
