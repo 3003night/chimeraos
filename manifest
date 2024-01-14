@@ -230,7 +230,6 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
-	hhd \
 	hhd-user \
 	hhfc-git \
 	legendary \
