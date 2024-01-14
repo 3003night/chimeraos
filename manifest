@@ -294,6 +294,7 @@ export SERVICES="\
 	hostname-fix \
 	lightdm \
 	overlay-fonts \
+	overlay-root-home \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
