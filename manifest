@@ -399,9 +399,6 @@ postinstallhook() {
 	# remove r8169 blacklist in /usr, leave it up to the user
 	rm /usr/lib/modprobe.d/r8168-dkms.conf
 
-	# copy system76-scheduler files
-	rsync -rvl /usr/share/system76-scheduler/ /etc/system76-scheduler/
-
 	# siglivel never
 	sed -i 's/^SigLevel.*/SigLevel = Never/' /etc/pacman.conf
 }
