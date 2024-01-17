@@ -12,8 +12,8 @@ provides=('hhd')
 conflicts=('hhd')
 optdepends=('hhd-user: allows running hhd as a user service.')
 makedepends=('python-'{'build','installer','setuptools','wheel'})
-_commit=05b0329ea6e8cd4998fec224a5097f759c821219
-source=("git+https://github.com/3003n/hhd.git#commit=$_commit")
+# _commit=05b0329ea6e8cd4998fec224a5097f759c821219
+source=("git+https://github.com/3003n/hhd.git")
 sha512sums=('SKIP')
 
 build() {

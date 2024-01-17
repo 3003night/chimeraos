@@ -55,7 +55,7 @@ makedepends=(
   wayland-protocols
 )
 
-_tag=d77b2674cd3f5e83463c77b6cd0f4c9daeb6aec5
+_tag=722077359bbadb0eca55a5aeedf5b3f9dd533da6
 source=("git+https://github.com/3003n/gamescope.git#commit=${_tag}"
         "git+https://github.com/nothings/stb.git#commit=af1a5bc352164740c1cc1354942b1c6b72eacb8a"
         "git+https://github.com/Joshua-Ashton/GamescopeShaders.git#tag=v0.1"
