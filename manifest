@@ -1,11 +1,11 @@
 #! /bin/bash
 
-export VERSION="45"
+export VERSION="46"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="10000MB"
-export ARCHIVE_DATE="2023/12/17"
+export ARCHIVE_DATE="2024/01/18"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -24,6 +24,7 @@ export PACKAGES="\
 	cifs-utils \
 	cpupower \
 	diffutils \
+	dconf-editor \
 	dkms \
 	distrobox \
 	dmidecode \
@@ -32,6 +33,9 @@ export PACKAGES="\
 	epiphany \
 	ethtool \
 	evtest \
+	efibootmgr \
+	expect \
+	exfatprogs \
 	ffmpeg \
 	file \
 	ffmpegthumbnailer \
@@ -41,6 +45,7 @@ export PACKAGES="\
 	fuse-zip \
 	fuse2 \
 	fwupd \
+	f2fs-tools \
 	git \
 	gnome-browser-connector \
 	gnome-console \
@@ -52,6 +57,10 @@ export PACKAGES="\
 	gnome-software \
 	gnome-system-monitor \
 	gnome-text-editor \
+	gnome-icon-theme-extras \
+	gnome-tweaks \
+	gnome-shell-extensions \
+	gnome-menus \
 	gst-plugin-pipewire \
 	gzip \
 	haveged \
@@ -60,6 +69,7 @@ export PACKAGES="\
 	intel-media-driver \
 	intel-ucode \
 	intel-undervolt \
+	jq \
 	less \
 	lib32-curl \
 	lib32-fontconfig \
@@ -104,14 +114,17 @@ export PACKAGES="\
 	lrzip \
 	loupe \
 	lshw \
+	lzip \
 	mesa-demos \
 	modemmanager \
 	nano \
 	nautilus \
 	networkmanager \
 	nfs-utils \
+	nmon \
 	noto-fonts-emoji \
 	nss-mdns \
+	ntfs-3g \
 	openal \
 	openssh \
 	p7zip \
@@ -123,13 +136,18 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-inotify-simple \
+	papirus-icon-theme \
 	retroarch \
 	rsync \
+	screen \
+	smartmontools \
 	smbclient \
 	sof-firmware \
 	sshfs \
 	steam \
 	sudo \
+	s-tui \
+	tree \
 	tar \
 	tree \
 	ttf-liberation \
@@ -140,24 +158,28 @@ export PACKAGES="\
 	usbutils \
 	vim \
 	vulkan-icd-loader \
+	v2ray \
 	wavpack \
 	wget \
 	which \
 	wireplumber \
-	wqy-zenhei \
+	wqy-microhei \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gnome \
 	xdg-desktop-portal-wlr \
 	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
 	xorg-server \
+	xorg-server-xvfb \
 	xz \
 	zip \
+	zram-generator \
+	zsh \
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.6.10-chos1-2/linux-chimeraos-6.6.10.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.6.10-chos1-2/linux-chimeraos-headers-6.6.10.chos1-2-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.6.10.chos1-2-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.6.10.chos1-2-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/lib32-libva-mesa-driver-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/lib32-mesa-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/lib32-mesa-vdpau-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
@@ -219,24 +241,47 @@ export AUR_PACKAGES="\
 	zenergy-dkms-git \
 "
 
+export PACKAGES_TO_DELETE="\
+	jack2 \
+	pulseaudio \
+	pulseaudio-alsa \
+	mutter \
+	amdvlk \
+	lib32-amdvlk \
+"
+
+export AUR_PACKAGES_TO_DELETE="\
+	gamescope-session-git-r*.pkg.tar.zst \
+"
+
 export SERVICES="\
 	NetworkManager \
 	avahi-daemon \
 	bluetooth \
 	bluetooth-workaround \
+	auto-expand-home \
 	fstrim.timer \
+	frzr_root-swap-swapfile.swap \
 	handycon \
 	haveged \
-	home-swapfile.swap \
+	hostname-fix \
 	lightdm \
+	overlay-fonts \
+	overlay-root-home \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
+	sk-auto-keep-boot-entry \
+	sk-bind-mount \
+	sk-update-boot-entry \
+	sk-resume \
+	waydroid-container \
 "
 
 export USER_SERVICES="\
 	chimera.service \
+	clear-gamescope-modes \
 	pipewire \
 	steam-patch.service \
 "
@@ -262,6 +307,16 @@ postinstallhook() {
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
 	" > /etc/sudoers.d/chimera
+
+	# sk chimeraos
+	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/${USERNAME}"
+
+	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
+	ln -s -f /usr/bin/vim /usr/bin/vi
+	
+	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
+	sed -i "s/# export STEAM_GAMESCOPE_COLOR_MANAGED=1/export STEAM_GAMESCOPE_COLOR_MANAGED=1/" /usr/share/gamescope-session-plus/gamescope-session-plus
+	sed -i "s/#SuspendEstimationSec=60min/SuspendEstimationSec=30min/" /etc/systemd/sleep.conf
 
 	# disable retroarch menu in joypad configs
 	find /usr/share/libretro/autoconfig -type f -name '*.cfg' | xargs -d '\n' sed -i '/input_menu_toggle_btn/d'
@@ -289,6 +344,9 @@ postinstallhook() {
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
 	find /usr/share/applications/* | \
+	grep -v anydesk.desktop | \
+	grep -v ca.desrt.dconf-editor.desktop | \
+	grep -v gparted.desktop | \
 	grep -v org.chimeraos.Gamescope.desktop | \
 	grep -v org.chimeraos.app.desktop | \
 	grep -v org.gnome.Console.desktop | \
@@ -298,7 +356,15 @@ postinstallhook() {
 	grep -v org.gnome.Settings.desktop | \
 	grep -v org.gnome.Software.desktop | \
 	grep -v org.gnome.TextEditor.desktop | \
+	grep -v org.gnome.tweaks.desktop | \
+	grep -v org.gnome.Extensions.desktop | \
 	grep -v steam.desktop | \
+	grep -v sk-chos-tool.desktop | \
+	grep -v sk-chos-tool-command.desktop | \
+	grep -v com.github.tchx84.Flatseal.desktop | \
+	grep -v waydroid.app.install.desktop | \
+	grep -v waydroid.market.desktop | \
+	grep -v Waydroid.desktop | \
 	xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates
@@ -309,4 +375,7 @@ postinstallhook() {
 
 	# remove r8169 blacklist in /usr, leave it up to the user
 	rm /usr/lib/modprobe.d/r8168-dkms.conf
+
+	# siglivel never
+	sed -i 's/^SigLevel.*/SigLevel = Never/' /etc/pacman.conf
 }
