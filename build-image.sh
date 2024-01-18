@@ -106,9 +106,32 @@ fi
 pacman --noconfirm -U --overwrite '*' /own_pkgs/*
 rm -rf /var/cache/pacman/pkg
 
+# delete packages
+for package in ${PACKAGES_TO_DELETE}; do
+    echo "Checking if \$package is installed"
+	if [[ \$(pacman -Qq \$package) == "\$package" ]]; then
+		echo "\$package is installed, deleting"
+		pacman --noconfirm -Rnsdd \$package || true
+	fi
+done
+
 # install packages
 pacman --noconfirm -S --overwrite '*' --disable-download-timeout ${PACKAGES}
 rm -rf /var/cache/pacman/pkg
+
+# delete packages
+for package in ${PACKAGES_TO_DELETE}; do
+    echo "Checking if \$package is installed"
+	if [[ \$(pacman -Qq \$package) == "\$package" ]]; then
+		echo "\$package is installed, deleting"
+		pacman --noconfirm -Rnsdd \$package || true
+	fi
+done
+
+# remove AUR packages
+for package in ${AUR_PACKAGES_TO_DELETE}; do
+	rm -f /extra_pkgs/\${package} || true
+done
 
 # install AUR packages
 pacman --noconfirm -U --overwrite '*' /extra_pkgs/*
@@ -125,7 +148,7 @@ passwd --lock root
 
 # create user
 groupadd -r autologin
-useradd -m ${USERNAME} -G autologin,wheel
+useradd -m ${USERNAME} -G autologin,wheel,i2c,input
 echo "${USERNAME}:${USERNAME}" | chpasswd
 
 # set the default editor, so visudo works
@@ -226,9 +249,15 @@ rm ${BUILD_PATH}/manifest
 # if no archive date is set
 if [ -z "${ARCHIVE_DATE}" ]; then
 	export TODAY_DATE=$(date +%Y/%m/%d)
-	echo "Server=https://archive.archlinux.org/repos/${TODAY_DATE}/\$repo/os/\$arch" > \
+	echo "Server=https://asia.archive.pkgbuild.com/repos/${TODAY_DATE}/\$repo/os/\$arch" > \
+	${BUILD_PATH}/etc/pacman.d/mirrorlist
+	echo "Server=https://archive.archlinux.org/repos/${TODAY_DATE}/\$repo/os/\$arch" >> \
 	${BUILD_PATH}/etc/pacman.d/mirrorlist
 fi
+
+# show free space before snapshot
+echo "Free space"
+df -h
 
 btrfs subvolume snapshot -r ${BUILD_PATH} ${SNAP_PATH}
 btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
@@ -243,7 +272,8 @@ rm -rf ${BUILD_IMG}
 
 IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.xz"
 if [ -z "${NO_COMPRESS}" ]; then
-	tar -c -I'xz -8 -T4' -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
+	proc=$(cat /proc/cpuinfo | grep processor | wc -l)
+	tar -c -I"xz -9 -T${proc}" -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
 	rm ${SYSTEM_NAME}-${VERSION}.img
 
 	sha256sum ${SYSTEM_NAME}-${VERSION}.img.tar.xz > sha256sum.txt
