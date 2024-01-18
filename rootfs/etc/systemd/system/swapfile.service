@@ -10,16 +10,16 @@
 [Unit]
 Description=Create Swap File
 DefaultDependencies=no
-Before=shutdown.target home-swapfile.swap
+Before=shutdown.target frzr_swap-swap-swapfile.swap
 Conflicts=shutdown.target
-ConditionFileIsExecutable=/usr/bin/mkswapfile
-ConditionPathExists=!/home/swapfile
-RequiresMountsFor=/home/swapfile
+ConditionFileIsExecutable=/usr/bin/sk-mkswapfile
+ConditionPathExists=!/frzr_root/swap/swapfile
+RequiresMountsFor=/frzr_root/swap/swapfile
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/mkswapfile /home/swapfile 1024
+ExecStart=/usr/bin/sk-mkswapfile
 
 [Install]
 WantedBy=swap.target

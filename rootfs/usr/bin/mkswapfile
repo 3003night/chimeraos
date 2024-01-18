@@ -29,4 +29,4 @@ usage() { echo >&2 "Usage: $(basename $0) FILE SIZE"; exit 1; }
 
 dd if=/dev/zero of="$SWAPFILE" bs=1M count="$SWAPSIZE"
 chmod 600 "$SWAPFILE"
-mkswap "$SWAPFILE"
+mkswap -U clear "$SWAPFILE" 
