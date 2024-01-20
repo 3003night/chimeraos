@@ -391,6 +391,5 @@ postinstallhook() {
 
 	# siglivel never
 	sed -i 's/^SigLevel.*/SigLevel = Never/' /etc/pacman.conf
-
-	mkdir -p /nix
+	
 }
