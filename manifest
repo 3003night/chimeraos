@@ -301,6 +301,7 @@ export SERVICES="\
 	swapfile \
 	sk-auto-keep-boot-entry \
 	sk-bind-mount \
+	sk-chos-tool-autoupdate.timer \
 	sk-update-boot-entry \
 	sk-resume \
 	waydroid-container \

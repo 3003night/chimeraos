@@ -1,7 +1,7 @@
 # Maintainer: Antheas Kapenekakis <aur at antheas dot dev>
 pkgname=hhd-git
 _pkgname=hhd
-pkgver=v1.0.7.2.gd7353ed
+pkgver=v1.0.8.6.g8e02e6b
 pkgrel=1
 pkgdesc='Handheld Daemon. A tool for managing the quirks of handheld devices.'
 arch=('x86_64')
@@ -13,8 +13,25 @@ conflicts=('hhd')
 optdepends=('hhd-user: allows running hhd as a user service.')
 makedepends=('python-'{'build','installer','setuptools','wheel'})
 # _commit=05b0329ea6e8cd4998fec224a5097f759c821219
-source=("git+https://github.com/3003n/hhd.git")
-sha512sums=('SKIP')
+source=("git+https://github.com/3003n/hhd.git" "000-rog-ally.patch")
+sha512sums=('SKIP' 'SKIP')
+
+prepare() {
+  # patch
+  cd "$srcdir/$_pkgname"
+
+  echo "Preparing..."
+
+  local src
+  for src in "${source[@]}"; do
+    src="${src%%::*}"
+    src="${src##*/}"
+    [[ $src = *.patch ]] || continue
+    echo "Applying patch $src..."
+    patch -Np1 < "../$src"
+  done
+
+}
 
 build() {
   cd "$srcdir/$_pkgname"
