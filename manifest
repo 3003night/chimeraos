@@ -250,7 +250,6 @@ export AUR_PACKAGES="\
 	libretro-stella2014-git \
 	libretro-virtualjaguar-git \
 	nintendo-udev \
-	nerd-fonts-sarasa-term \
 	opengamepadui-bin \
 	opengamepadui-session-git \
 	onedrive-abraunegg \
