@@ -235,6 +235,7 @@ rm -rf ${FILES_TO_DELETE}
 mkdir /home
 mkdir /var
 mkdir /frzr_root
+mkdir /nix
 EOF
 
 # copy files into chroot again

@@ -57,6 +57,7 @@ export PACKAGES="\
 	git \
 	gnome-disk-utility \
 	gst-plugin-pipewire \
+	gvfs-smb \
 	gzip \
 	haveged \
 	htop \
@@ -200,18 +201,24 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.6.10.chos1-2-x86_64.pkg.tar.zst \
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.6.10.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/lib32-libva-mesa-driver-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/lib32-mesa-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/lib32-mesa-vdpau-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/lib32-vulkan-intel-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/lib32-vulkan-radeon-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/libva-mesa-driver-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/mesa-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/mesa-vdpau-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/vulkan-intel-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.3-chos1-1/vulkan-radeon-1--23.3.3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.6.13-chos1-2/linux-chimeraos-6.6.13.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.6.13-chos1-2/linux-chimeraos-headers-6.6.13.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-libva-mesa-driver-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-mesa-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-mesa-vdpau-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-opencl-rusticl-mesa-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-vulkan-intel-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-vulkan-mesa-layers-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-vulkan-radeon-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-vulkan-swrast-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/libva-mesa-driver-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/mesa-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/mesa-vdpau-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/opencl-rusticl-mesa-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/vulkan-intel-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/vulkan-mesa-layers-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/vulkan-radeon-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/vulkan-swrast-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/repos/2023/06/28/extra/os/x86_64/libretro-pcsx2-11900-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/l/libretro-mame/libretro-mame-85763-1-x86_64.pkg.tar.zst \
 	http://honjow.cn:5044/file/Cloud189/pkgs/wyvern-1.4.1-3-x86_64.pkg.tar.zst \
@@ -221,10 +228,12 @@ export PACKAGE_OVERRIDES="\
 # Which is often the same as the package name but it can be different.
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
+	asusctl \
+	antimicrox \
 	anydesk-bin \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
-	bmi260-dkms \
+  	bmi260-dkms \
 	boxtron \
 	chimera \
 	downgrade \
