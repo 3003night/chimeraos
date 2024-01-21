@@ -5,8 +5,8 @@
 # Contributor: PedroHLC <root@pedrohlc.com>
 
 _pkgname=gamescope
-pkgname=lib32-gamescope-plus
-pkgver=3.13.16.4.modeline.plus3
+pkgname=lib32-gamescope-plus-git
+pkgver=3.13.19.15.g1a05968
 pkgrel=1
 pkgdesc='SteamOS session compositing window manager with added patches (32-bit)'
 arch=(x86_64)
@@ -30,8 +30,7 @@ makedepends=(
   vulkan-headers
   wayland-protocols
 )
-_tag=722077359bbadb0eca55a5aeedf5b3f9dd533da6
-source=("git+https://github.com/3003n/gamescope.git#commit=${_tag}"
+source=("git+https://github.com/3003n/gamescope.git#branch=custom-modeline-plus-re"
         "git+https://gitlab.freedesktop.org/wlroots/wlroots.git"
         "git+https://gitlab.freedesktop.org/emersion/libliftoff.git"
         "git+https://gitlab.freedesktop.org/emersion/libdisplay-info.git"
@@ -72,8 +71,8 @@ prepare() {
 }
 
 pkgver() {
-  cd gamescope
-  git describe --tags | sed 's/\-/\./g'
+    cd "$srcdir/$_pkgname"
+    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
