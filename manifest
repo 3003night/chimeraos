@@ -66,6 +66,11 @@ export PACKAGES="\
 	gzip \
 	haveged \
 	htop \
+	ibus-pinyin \
+	ibus-libpinyin \
+	ibus-table-chinese \
+	ibus-anthy \
+	ibus-hangul \
 	intel-gpu-tools \
 	intel-media-driver \
 	intel-ucode \
@@ -199,6 +204,7 @@ export PACKAGE_OVERRIDES="\
 # Which is often the same as the package name but it can be different.
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
+	antimicrox \
 	anydesk-bin \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
