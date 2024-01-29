@@ -15,6 +15,7 @@ export KERNEL_PACKAGE_ORIGIN="local"
 
 export PACKAGES="\
 	accountsservice \
+	acpi_call-dkms \
 	alsa-firmware \
 	alsa-utils \
 	amd-ucode \
@@ -246,7 +247,6 @@ export AUR_PACKAGES="\
 	rtl8814au-dkms-git \
 	rtl88x2bu-dkms-git \
 	rtl8821au-dkms-git \
-	rtw89-dkms-git \
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
