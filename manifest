@@ -278,11 +278,14 @@ export AUR_PACKAGES="\
 "
 
 export PACKAGES_TO_DELETE="\
+	amdvlk \
+	clang \
+	gcc \
 	jack2 \
+	lib32-amdvlk \
+	lib32-clang \
 	pulseaudio \
 	pulseaudio-alsa \
-	amdvlk \
-	lib32-amdvlk \
 "
 
 export AUR_PACKAGES_TO_DELETE="\
@@ -348,9 +351,6 @@ postinstallhook() {
 
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
-
-	# sed -i "s#/home/${USERNAME}:/bin/bash#/home/${USERNAME}:/bin/zsh#" /etc/passwd
-	# sed -i "s#/root:/bin/bash#/root:/bin/zsh#" /etc/passwd
 	
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
 
@@ -372,7 +372,7 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
+	pacman --noconfirm -Rnsdd make gcc dkms clang ${KERNEL_PACKAGE}-headers || true
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	rm /usr/bin/dolphin-emu
