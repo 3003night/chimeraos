@@ -5,7 +5,7 @@ export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="10000MB"
-export ARCHIVE_DATE="2024/01/20"
+export ARCHIVE_DATE="2024/01/28"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -20,48 +20,43 @@ export PACKAGES="\
 	alsa-utils \
 	amd-ucode \
 	bash-completion \
+	bluedevil \
+	breeze-gtk \
 	broadcom-wl-dkms \
 	bzip2 \
 	cifs-utils \
 	cpupower \
+	deepin-wallpapers \
 	diffutils \
-	dconf-editor \
 	dkms \
+	discover \
 	distrobox \
 	dmidecode \
 	dosbox \
+	dolphin \
+	dolphin-plugins \
 	efibootmgr \
-	epiphany \
 	ethtool \
 	evtest \
 	efibootmgr \
 	expect \
 	exfatprogs \
+	falkon \
+	fcitx5-im \
+	fcitx5-chinese-addons \
 	ffmpeg \
 	file \
 	ffmpegthumbnailer \
 	firejail \
 	flatpak \
+	flatpak-kcm \
 	fmt \
 	fuse-zip \
 	fuse2 \
 	fwupd \
 	f2fs-tools \
 	git \
-	gnome-browser-connector \
-	gnome-console \
-	gnome-control-center \
 	gnome-disk-utility \
-	gnome-keyring \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-system-monitor \
-	gnome-text-editor \
-	gnome-icon-theme-extras \
-	gnome-tweaks \
-	gnome-shell-extensions \
-	gnome-menus \
 	gst-plugin-pipewire \
 	gvfs-smb \
 	gzip \
@@ -77,6 +72,18 @@ export PACKAGES="\
 	intel-ucode \
 	intel-undervolt \
 	jq \
+	kate \
+	kde-gtk-config \
+	kdeconnect \
+	kdeplasma-addons \
+	kfind \
+	kgamma \
+	kinfocenter \
+	konsole \
+	kpipewire \
+	kscreen \
+	ksshaskpass \
+	kwallet-pam \
 	less \
 	lib32-curl \
 	lib32-fontconfig \
@@ -119,31 +126,39 @@ export PACKAGES="\
 	liquidctl \
 	logrotate \
 	lrzip \
-	loupe \
 	lshw \
 	lzip \
 	mesa-demos \
 	modemmanager \
 	nano \
-	nautilus \
 	networkmanager \
 	nfs-utils \
 	nmon \
 	noto-fonts-emoji \
 	nss-mdns \
 	ntfs-3g \
+	onboard \
 	openal \
 	openssh \
 	p7zip \
+	partitionmanager \
 	pipewire \
 	pipewire-alsa \
 	pipewire-jack \
 	pipewire-pulse \
+	plasma-browser-integration \
+	plasma-desktop \
+	plasma-disks \
+	plasma-nm \
+	plasma-pa \
+	plasma-thunderbolt \
+	plasma-vault \
+	plasma-wayland-session \
 	podman \
+	power-profiles-daemon \
 	pulsemixer \
 	python \
 	python-inotify-simple \
-	papirus-icon-theme \
 	retroarch \
 	rsync \
 	screen \
@@ -172,12 +187,14 @@ export PACKAGES="\
 	wireplumber \
 	wqy-microhei \
 	xdg-desktop-portal \
-	xdg-desktop-portal-gnome \
+	xdg-desktop-portal-gtk \
+	xdg-desktop-portal-kde \
 	xdg-desktop-portal-wlr \
-	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
 	xorg-server \
 	xorg-server-xvfb \
+	xorg-xinit \
+	xsettingsd \
 	xz \
 	zip \
 	zram-generator \
@@ -216,10 +233,6 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
-	gnome-shell-extension-clipboard-indicator-git \
-	gnome-shell-extension-desktop-icons-ng-git \
-	gnome-shell-extension-dash-to-dock \
-	gnome-shell-extension-transparent-top-bar-git \
 	hhd-user \
 	hhfc-git \
 	legendary \
@@ -229,19 +242,15 @@ export AUR_PACKAGES="\
 	libretro-prosystem-git \
 	libretro-stella2014-git \
 	libretro-virtualjaguar-git \
-	mutter-x11-scaling \
 	nintendo-udev \
-	nerd-fonts-sarasa-term \
 	opengamepadui-bin \
 	opengamepadui-session-git \
 	onedrive-abraunegg \
-	pikaur \
 	powerstation-bin \
 	python-pyclip \
 	python-vdf \
 	protonup-qt-bin \
 	r8152-dkms \
-	r8168-dkms \
 	retroarch-autoconfig-udev-git \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
@@ -362,41 +371,34 @@ postinstallhook() {
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* | \
-	grep -v anydesk.desktop | \
-	grep -v ca.desrt.dconf-editor.desktop | \
-	grep -v gparted.desktop | \
-	grep -v org.chimeraos.Gamescope.desktop | \
-	grep -v org.chimeraos.app.desktop | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
-	grep -v org.gnome.tweaks.desktop | \
-	grep -v org.gnome.Extensions.desktop | \
-	grep -v protonup-qt.desktop | \
-	grep -v steam.desktop | \
-	grep -v sk-chos-tool.desktop | \
-	grep -v sk-chos-tool-command.desktop | \
-	grep -v com.github.tchx84.Flatseal.desktop | \
-	grep -v waydroid.app.install.desktop | \
-	grep -v waydroid.market.desktop | \
-	grep -v Waydroid.desktop | \
-	xargs -I {} sh -c "echo NoDisplay=true >> {}"
+	# find /usr/share/applications/* | \
+	# grep -v anydesk.desktop | \
+	# grep -v ca.desrt.dconf-editor.desktop | \
+	# grep -v gparted.desktop | \
+	# grep -v org.chimeraos.Gamescope.desktop | \
+	# grep -v org.chimeraos.app.desktop | \
+	# grep -v org.gnome.Console.desktop | \
+	# grep -v org.gnome.DiskUtility.desktop | \
+	# grep -v org.gnome.FileRoller.desktop | \
+	# grep -v org.gnome.Nautilus.desktop | \
+	# grep -v org.gnome.Settings.desktop | \
+	# grep -v org.gnome.Software.desktop | \
+	# grep -v org.gnome.TextEditor.desktop | \
+	# grep -v org.gnome.tweaks.desktop | \
+	# grep -v org.gnome.Extensions.desktop | \
+	# grep -v protonup-qt.desktop | \
+	# grep -v steam.desktop | \
+	# grep -v sk-chos-tool.desktop | \
+	# grep -v sk-chos-tool-command.desktop | \
+	# grep -v com.github.tchx84.Flatseal.desktop | \
+	# grep -v waydroid.app.install.desktop | \
+	# grep -v waydroid.market.desktop | \
+	# grep -v Waydroid.desktop | \
+	# xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
 
 	# set permissions for intel_gpu_top and mangohud
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
-
-	# remove r8169 blacklist in /usr, leave it up to the user
-	rm /usr/lib/modprobe.d/r8168-dkms.conf
-
-	# siglivel never
-	sed -i 's/^SigLevel.*/SigLevel = Never/' /etc/pacman.conf
-	
 }

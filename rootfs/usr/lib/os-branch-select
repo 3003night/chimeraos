@@ -4,7 +4,7 @@ set -e
 BRANCH_PATH="/frzr_root/source"
 REPO="3003n/chimeraos"
 
-VALID_BRANCHES=("stable" "unstable" "testing" "plasma" "plasma-dev")
+VALID_BRANCHES=("stable" "unstable" "testing" "plasma" "plasma-pre" "plasma-dev")
 
 if [[ $# -eq 1 ]]; then
   case "$1" in
