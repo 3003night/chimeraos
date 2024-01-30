@@ -15,6 +15,7 @@ export KERNEL_PACKAGE_ORIGIN="local"
 
 export PACKAGES="\
 	accountsservice \
+	acpi_call-dkms \
 	alsa-firmware \
 	alsa-utils \
 	amd-ucode \
@@ -201,24 +202,24 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.8.rc1.chos2-3-x86_64.pkg.tar.zst \
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.8.rc1.chos2-3-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-libva-mesa-driver-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-mesa-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-mesa-vdpau-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-opencl-rusticl-mesa-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-vulkan-intel-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-vulkan-mesa-layers-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-vulkan-radeon-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/lib32-vulkan-swrast-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/libva-mesa-driver-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/mesa-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/mesa-vdpau-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/opencl-rusticl-mesa-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/vulkan-intel-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/vulkan-mesa-layers-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/vulkan-radeon-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc2-chos1-1/vulkan-swrast-1--24.0.0.rc2.chos1-1-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.8.rc2.chos1-2-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.8.rc2.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-libva-mesa-driver-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-mesa-vdpau-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-opencl-rusticl-mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-vulkan-intel-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-vulkan-mesa-layers-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-vulkan-radeon-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-vulkan-swrast-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/libva-mesa-driver-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/mesa-vdpau-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/opencl-rusticl-mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/vulkan-intel-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/vulkan-mesa-layers-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/vulkan-radeon-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/vulkan-swrast-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/repos/2023/06/28/extra/os/x86_64/libretro-pcsx2-11900-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/l/libretro-mame/libretro-mame-85763-1-x86_64.pkg.tar.zst \
 	http://honjow.cn:5044/file/Cloud189/pkgs/wyvern-1.4.1-3-x86_64.pkg.tar.zst \
@@ -259,13 +260,11 @@ export AUR_PACKAGES="\
 	python-vdf \
 	protonup-qt-bin \
 	r8152-dkms \
-	r8168-dkms \
 	retroarch-autoconfig-udev-git \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
 	rtl88x2bu-dkms-git \
 	rtl8821au-dkms-git \
-	rtw89-dkms-git \
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
@@ -407,11 +406,5 @@ postinstallhook() {
 
 	# set permissions for intel_gpu_top and mangohud
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
-
-	# remove r8169 blacklist in /usr, leave it up to the user
-	rm /usr/lib/modprobe.d/r8168-dkms.conf
-
-	# siglivel never
-	sed -i 's/^SigLevel.*/SigLevel = Never/' /etc/pacman.conf
 }
 
