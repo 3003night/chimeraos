@@ -245,7 +245,6 @@ export AUR_PACKAGES="\
 	hhfc-git \
 	legendary \
 	lib32-gperftools \
-	lib32-vulkan-nouveau-git \
 	libretro-dosbox-pure-git \
 	libretro-opera-git \
 	libretro-prosystem-git \
@@ -270,7 +269,6 @@ export AUR_PACKAGES="\
 	steam-removable-media-git \
 	sk-chos-tool \
 	sk-boot-to-windows \
-	vulkan-nouveau-git \
 	waydroid \
 	waydroid-script-git \
 	yay-bin \
