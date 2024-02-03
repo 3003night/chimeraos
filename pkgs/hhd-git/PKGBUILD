@@ -11,10 +11,9 @@ depends=('python' python-setuptools 'python-evdev' 'python-rich' 'python-yaml')
 provides=('hhd')
 conflicts=('hhd')
 optdepends=('hhd-user: allows running hhd as a user service.')
-makedepends=('python-'{'build','installer','setuptools','wheel'} 'patch')
-# _commit=05b0329ea6e8cd4998fec224a5097f759c821219
-source=("git+https://github.com/3003n/hhd.git" "000-rog-ally.patch")
-sha512sums=('SKIP' 'SKIP')
+makedepends=('python-'{'build','installer','setuptools','wheel'})
+source=("git+https://github.com/3003n/hhd.git")
+sha512sums=('SKIP')
 
 prepare() {
   # patch
