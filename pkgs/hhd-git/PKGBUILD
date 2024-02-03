@@ -12,7 +12,7 @@ provides=('hhd')
 conflicts=('hhd')
 optdepends=('hhd-user: allows running hhd as a user service.')
 makedepends=('python-'{'build','installer','setuptools','wheel'})
-source=("git+https://github.com/3003n/hhd.git")
+source=("git+https://github.com/hhd-dev/hhd.git")
 sha512sums=('SKIP')
 
 prepare() {
