@@ -12,8 +12,8 @@ provides=('hhd')
 conflicts=('hhd')
 optdepends=('hhd-user: allows running hhd as a user service.')
 makedepends=('python-'{'build','installer','setuptools','wheel'})
-source=("git+https://github.com/hhd-dev/hhd.git" "000-rog-ally.patch")
-sha512sums=('SKIP' 'SKIP')
+source=("git+https://github.com/hhd-dev/hhd.git")
+sha512sums=('SKIP')
 
 prepare() {
   # patch
