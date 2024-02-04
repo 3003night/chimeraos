@@ -271,12 +271,15 @@ export AUR_PACKAGES="\
 "
 
 export PACKAGES_TO_DELETE="\
+	amdvlk \
+	clang \
+	gcc \
 	jack2 \
+	lib32-amdvlk \
+	lib32-clang \
+	mutter \
 	pulseaudio \
 	pulseaudio-alsa \
-	mutter \
-	amdvlk \
-	lib32-amdvlk \
 "
 
 export AUR_PACKAGES_TO_DELETE="\
