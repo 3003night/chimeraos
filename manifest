@@ -207,6 +207,7 @@ export PACKAGE_OVERRIDES="\
 export AUR_PACKAGES="\
 	antimicrox \
 	anydesk-bin \
+	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
 	bmi260-dkms \
