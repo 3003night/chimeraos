@@ -356,7 +356,7 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
+	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers || true
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	rm /usr/bin/dolphin-emu
