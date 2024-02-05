@@ -1,0 +1,74 @@
+#!/bin/bash
+
+set -e
+set -x
+
+postinstall_download() {
+    # pre download some
+	pre_path=/usr/local/share/sk-pre
+	decky_path=$pre_path/decky
+	decky_file=$decky_path/PluginLoader
+	decky_version_file=$decky_path/.loader.version
+	decky_plugin_path=$pre_path/decky-plugins
+	decky_plugin_hhd_path=$pre_path/decky-plugin-hhd
+	css_path=$pre_path/css
+	css_hhd_path=$pre_path/css-hhd
+
+	# pre download decky
+	mkdir -p $decky_path
+	DECKY_RELEASE=$(curl -s 'https://api.github.com/repos/SteamDeckHomebrew/decky-loader/releases' | jq -r "first(.[] | select(.prerelease == "true"))")
+	DECKY_VERSION=$(jq -r '.tag_name' <<< ${DECKY_RELEASE} )
+	DECKY_DOWNLOADURL=$(jq -r '.assets[].browser_download_url | select(endswith("PluginLoader"))' <<< ${DECKY_RELEASE})
+	curl -L $DECKY_DOWNLOADURL --output $decky_file
+	echo $DECKY_VERSION > $decky_version_file
+
+	# pre download HHD-Dekcy plugin
+	mkdir -p $decky_plugin_hhd_path
+	temp_hhd=$(mktemp -d)
+	curl -L $(curl -s "https://api.github.com/repos/hhd-dev/hhd-decky/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_hhd/hhd-decky.tar.gz
+	tar -xzvf $temp_hhd/hhd-decky.tar.gz -C $decky_plugin_hhd_path
+	rm -rf $temp_hhd
+
+	# pre download decky plugins
+	mkdir -p $decky_plugin_path
+	temp_decky=$(mktemp -d)
+	# PowerControl
+	curl -L $(curl -s "https://api.github.com/repos/mengmeet/PowerControl/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_decky/powercontrol.tar.gz
+	tar -xzvf $temp_decky/powercontrol.tar.gz -C $decky_plugin_path
+	# AyaLed
+	curl -L $(curl -s "https://api.github.com/repos/honjow/ayaled/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_decky/ayaled.tar.gz
+	tar -xzvf $temp_decky/ayaled.tar.gz -C $decky_plugin_path
+
+	rm -rf $temp_decky
+
+	# pre download css themes
+
+	# pre download hhd css themes
+	mkdir -p $css_hhd_path
+	temp_css_hhd=$(mktemp -d)
+	# SBP-ROG-Ally
+	git_url="https://github.com/semakusut/SBP-ROG-Ally.git"
+	commit_id="fd803c1bb95eedf98df749460d96e980de3d45d2"
+	git clone $git_url $temp_css_hhd/SBP-ROG-Ally
+	cd $temp_css_hhd/SBP-ROG-Ally && git checkout $commit_id && cd -
+	cp -r $temp_css_hhd/* $css_hhd_path
+
+	# SBP-Legion-Go-Theme
+	git_url="https://github.com/frazse/SBP-Legion-Go-Theme.git"
+	if [ -d $css_hhd_path/SBP-Legion-Go-Theme ]; then
+		rm -rf $css_hhd_path/SBP-Legion-Go-Theme
+	fi
+	git clone --depth 1 $git_url $css_hhd_path/SBP-Legion-Go-Theme
+	echo '{"active": true, "Apply": "Legion-Go-Theme"}' > $css_hhd_path/SBP-Legion-Go-Theme/config_USER.json
+
+	# PS5-to-Xbox-glyphs
+	git_url="https://github.com/honjow/PS5-to-Xbox-glyphs.git"
+	if [ -d $css_hhd_path/PS5-to-Xbox-glyphs ]; then
+		rm -rf $css_hhd_path/PS5-to-Xbox-glyphs
+	fi
+	git clone --depth 1 $git_url $css_hhd_path/PS5-to-Xbox-glyphs
+	echo '{"active": true, "Apply": "PS5-to-Xbox-glyphs"}' > $css_hhd_path/PS5-to-Xbox-glyphs/config_USER.json
+	# sed -i 's/Legion Go - PS5 controller emulator to xbox glyphs/PS5 controller emulator to xbox glyphs/g' $css_hhd_path/PS5-to-Xbox-glyphs/theme.json
+
+	rm -rf $temp_css_hhd
+}

@@ -58,7 +58,7 @@ mkdir -p rootfs/etc/pacman.d
 cp /etc/pacman.d/mirrorlist rootfs/etc/pacman.d/mirrorlist
 
 # copy files into chroot
-cp -R manifest rootfs/. ${BUILD_PATH}/
+cp -R manifest postinstall rootfs/. ${BUILD_PATH}/
 
 mkdir ${BUILD_PATH}/own_pkgs
 mkdir ${BUILD_PATH}/extra_pkgs
@@ -205,6 +205,10 @@ trust anchor --store /extra_certs/*.crt
 
 # run post install hook
 postinstallhook
+
+# pre-download
+source /postinstall
+postinstall_download
 
 # record installed packages & versions
 pacman -Q > /manifest
