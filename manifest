@@ -323,6 +323,7 @@ export USER_SERVICES="\
 	chimera.service \
 	clear-gamescope-modes \
 	pipewire \
+	sk-first-run-daemon \
 	steam-patch.service \
 "
 
