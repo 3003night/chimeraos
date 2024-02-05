@@ -273,7 +273,6 @@ export AUR_PACKAGES="\
 export PACKAGES_TO_DELETE="\
 	amdvlk \
 	clang \
-	gcc \
 	jack2 \
 	lib32-amdvlk \
 	lib32-clang \
