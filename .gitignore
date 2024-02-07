@@ -5,3 +5,4 @@
 output/*
 rootfs/etc/makepkg.conf
 *.tar.zst
+/*.diff
