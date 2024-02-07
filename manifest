@@ -202,8 +202,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.6.14-chos1-2/linux-chimeraos-6.6.14.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.6.14-chos1-2/linux-chimeraos-headers-6.6.14.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.rc2-chos1-2/linux-chimeraos-6.8.rc2.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.rc2-chos1-2/linux-chimeraos-headers-6.8.rc2.chos1-2-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-libva-mesa-driver-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-mesa-vdpau-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
@@ -238,6 +238,7 @@ export AUR_PACKAGES="\
 	boxtron \
 	chimera \
 	downgrade \
+	ds-inhibit \
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
@@ -295,9 +296,10 @@ export AUR_PACKAGES_TO_DELETE="\
 export SERVICES="\
 	NetworkManager \
 	avahi-daemon \
+	auto-expand-home \
 	bluetooth \
 	bluetooth-workaround \
-	auto-expand-home \
+	ds-inhibit \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
 	getty@tty3 \
