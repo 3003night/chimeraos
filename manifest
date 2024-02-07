@@ -229,6 +229,7 @@ export AUR_PACKAGES="\
 	boxtron \
 	chimera \
 	downgrade \
+	ds-inhibit \
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
@@ -286,9 +287,10 @@ export AUR_PACKAGES_TO_DELETE="\
 export SERVICES="\
 	NetworkManager \
 	avahi-daemon \
+	auto-expand-home \
 	bluetooth \
 	bluetooth-workaround \
-	auto-expand-home \
+	ds-inhibit \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
 	handycon \

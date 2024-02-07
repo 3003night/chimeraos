@@ -157,3 +157,6 @@
 [submodule "aur-pkgs/hhd"]
 	path = aur-pkgs/hhd
 	url = https://aur.archlinux.org/hhd.git
+[submodule "aur-pkgs/ds-inhibit"]
+	path = aur-pkgs/ds-inhibit
+	url = https://aur.archlinux.org/ds-inhibit.git
