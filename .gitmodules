@@ -100,27 +100,12 @@
 [submodule "aur-pkgs/frzr-sk"]
 	path = aur-pkgs/frzr-sk
 	url = https://aur.archlinux.org/frzr-sk.git
-[submodule "aur-pkgs/gnome-shell-extension-clipboard-indicator-git"]
-	path = aur-pkgs/gnome-shell-extension-clipboard-indicator-git
-	url = https://aur.archlinux.org/gnome-shell-extension-clipboard-indicator-git.git
-[submodule "aur-pkgs/gnome-shell-extension-desktop-icons-ng-git"]
-	path = aur-pkgs/gnome-shell-extension-desktop-icons-ng-git
-	url = https://aur.archlinux.org/gnome-shell-extension-desktop-icons-ng-git.git
-[submodule "aur-pkgs/gnome-shell-extension-dash-to-dock"]
-	path = aur-pkgs/gnome-shell-extension-dash-to-dock
-	url = https://aur.archlinux.org/gnome-shell-extension-dash-to-dock.git
-[submodule "aur-pkgs/gnome-shell-extension-transparent-top-bar-git"]
-	path = aur-pkgs/gnome-shell-extension-transparent-top-bar-git
-	url = https://aur.archlinux.org/gnome-shell-extension-transparent-top-bar-git.git
 [submodule "aur-pkgs/hhd-user"]
 	path = aur-pkgs/hhd-user
 	url = https://aur.archlinux.org/hhd-user.git
 [submodule "aur-pkgs/mutter-x11-scaling"]
 	path = aur-pkgs/mutter-x11-scaling
 	url = https://aur.archlinux.org/mutter-x11-scaling.git
-[submodule "aur-pkgs/nerd-fonts-sarasa-term"]
-	path = aur-pkgs/nerd-fonts-sarasa-term
-	url = https://aur.archlinux.org/nerd-fonts-sarasa-term.git
 [submodule "aur-pkgs/onedrive-abraunegg"]
 	path = aur-pkgs/onedrive-abraunegg
 	url = https://aur.archlinux.org/onedrive-abraunegg.git
