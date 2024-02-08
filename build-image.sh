@@ -238,7 +238,6 @@ rm -rf ${FILES_TO_DELETE}
 mkdir /home
 mkdir /var
 mkdir /frzr_root
-mkdir /nix
 EOF
 
 # copy files into chroot again
@@ -264,17 +263,12 @@ fi
 echo "Free space"
 df -h
 
-IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.xz"
+IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.xz"
 
 btrfs subvolume snapshot -r ${BUILD_PATH} ${SNAP_PATH}
 
 if [ -z "${NO_COMPRESS}" ]; then
-	mkdir /tmpfs
-	sudo mount -t tmpfs -o size=4096M tmpfs /tmpfs
-
-	btrfs send -f /tmpfs/${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
-	tar -c -I'xz -9 -T0' -f ${IMG_FILENAME} /tmpfs/${SYSTEM_NAME}-${VERSION}.img
-	umount /tmpfs
+	btrfs send ${SNAP_PATH} | xz -9 -T0 > ${IMG_FILENAME}
 else
 	btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
 fi
