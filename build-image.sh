@@ -238,6 +238,7 @@ rm -rf ${FILES_TO_DELETE}
 mkdir /home
 mkdir /var
 mkdir /frzr_root
+mkdir /nix
 EOF
 
 # copy files into chroot again
@@ -263,15 +264,8 @@ fi
 echo "Free space"
 df -h
 
-IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.xz"
-
 btrfs subvolume snapshot -r ${BUILD_PATH} ${SNAP_PATH}
-
-if [ -z "${NO_COMPRESS}" ]; then
-	btrfs send ${SNAP_PATH} | xz -9 -T0 > ${IMG_FILENAME}
-else
-	btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
-fi
+btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
 
 cp ${BUILD_PATH}/build_info build_info.txt
 
@@ -281,8 +275,13 @@ umount -l ${MOUNT_PATH}
 rm -rf ${MOUNT_PATH}
 rm -rf ${BUILD_IMG}
 
+IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.xz"
 if [ -z "${NO_COMPRESS}" ]; then
-	sha256sum ${IMG_FILENAME} > sha256sum.txt
+	proc=$(cat /proc/cpuinfo | grep processor | wc -l)
+	tar -c -I"xz -9 -T${proc}" -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
+	rm ${SYSTEM_NAME}-${VERSION}.img
+
+	sha256sum ${SYSTEM_NAME}-${VERSION}.img.tar.xz > sha256sum.txt
 	cat sha256sum.txt
 
 	# Move the image to the output directory, if one was specified.
