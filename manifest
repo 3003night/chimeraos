@@ -282,6 +282,7 @@ export PACKAGES_TO_DELETE="\
 
 export AUR_PACKAGES_TO_DELETE="\
 	gamescope-session-git-r*.pkg.tar.zst \
+	*-debug-*.pkg.tar.zst \
 "
 
 export SERVICES="\
