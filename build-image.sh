@@ -102,6 +102,10 @@ else
 	pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 fi
 
+for package in ${AUR_PACKAGES_TO_DELETE}; do
+	rm -f /own_pkgs/\${package} || true
+done
+
 # install own override packages
 pacman --noconfirm -U --overwrite '*' /own_pkgs/*
 rm -rf /var/cache/pacman/pkg
