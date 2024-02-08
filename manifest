@@ -280,6 +280,10 @@ export PACKAGES_TO_DELETE="\
 	pulseaudio-alsa \
 "
 
+export OWN_PACKAGES_TO_DELETE="\
+	*-debug-*.pkg.tar.zst \
+"
+
 export AUR_PACKAGES_TO_DELETE="\
 	gamescope-session-git-r*.pkg.tar.zst \
 	*-debug-*.pkg.tar.zst \

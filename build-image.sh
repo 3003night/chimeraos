@@ -102,7 +102,7 @@ else
 	pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 fi
 
-for package in ${AUR_PACKAGES_TO_DELETE}; do
+for package in ${OWN_PACKAGES_TO_DELETE}; do
 	rm -f /own_pkgs/\${package} || true
 done
 
