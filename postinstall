@@ -38,6 +38,9 @@ postinstall_download() {
 	# AyaLed
 	curl -L $(curl -s "https://api.github.com/repos/honjow/ayaled/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_decky/ayaled.tar.gz
 	tar -xzvf $temp_decky/ayaled.tar.gz -C $decky_plugin_path
+	# SDH-CssLoader
+	curl -L $(curl -s "https://api.github.com/repos/DeckThemes/SDH-CssLoader/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4 | grep "SDH-CSSLoader-Decky.zip") -o $temp_decky/SDH-CSSLoader-Decky.zip
+	unzip -o $temp_decky/SDH-CSSLoader-Decky.zip -d $decky_plugin_path
 
 	rm -rf $temp_decky
 
