@@ -9,6 +9,7 @@ RUN echo -e "keyserver-options auto-key-retrieve" >> /etc/pacman.d/gnupg/gpg.con
     pacman --noconfirm -S \
     arch-install-scripts \
     btrfs-progs \
+    base-devel \
     fmt \
     xcb-util-wm \
     wget \
@@ -36,12 +37,17 @@ RUN echo -e "#!/bin/bash\nif [[ \"$1\" == \"--version\" ]]; then echo 'fake 244 
     chmod +x /usr/bin/systemd-run
 
 # substitute check with !check to avoid running software from AUR in the build machine
-RUN sed -i -e 's/BUILDENV=(!distcc color !ccache check !sign)/BUILDENV=(!distcc color !ccache !check !sign)/g' /etc/makepkg.conf
+# also remove creation of debug packages.
+RUN sed -i '/^BUILDENV/s/check/!check/g' /etc/makepkg.conf && \
+    sed -i '/^OPTIONS/s/debug/!debug/g' /etc/makepkg.conf
 
 COPY manifest /manifest
 # Freeze packages and overwrite with overrides when needed
 RUN source /manifest && \
-    echo "Server=https://archive.archlinux.org/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist && \
+    echo "Server=https://asia.archive.pkgbuild.com/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" > \
+    /etc/pacman.d/mirrorlist && \
+    echo "Server=https://archive.archlinux.org/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" >> \
+    /etc/pacman.d/mirrorlist && \
     pacman --noconfirm -Syyuu; if [ -n "${PACKAGE_OVERRIDES}" ]; then wget --directory-prefix=/tmp/extra_pkgs ${PACKAGE_OVERRIDES}; pacman --noconfirm -U --overwrite '*' /tmp/extra_pkgs/*; rm -rf /tmp/extra_pkgs; fi
 
 USER build
