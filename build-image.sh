@@ -170,7 +170,7 @@ sed -i "/^hosts:/ s/resolve/mdns resolve/" /etc/nsswitch.conf
 # configure ssh
 echo "
 AuthorizedKeysFile	.ssh/authorized_keys
-PasswordAuthentication no
+PasswordAuthentication yes
 ChallengeResponseAuthentication no
 UsePAM yes
 PrintMotd no # pam does that
