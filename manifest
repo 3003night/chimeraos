@@ -155,6 +155,7 @@ export PACKAGES="\
 	xorg-server \
 	xz \
 	zip \
+	zsh \
 "
 
 export PACKAGE_OVERRIDES="\
