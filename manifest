@@ -25,6 +25,7 @@ export PACKAGES="\
 	cifs-utils \
 	cpupower \
 	diffutils \
+	dconf-editor \
 	dkms \
 	distrobox \
 	dmidecode \
@@ -127,6 +128,7 @@ export PACKAGES="\
 	python-inotify-simple \
 	retroarch \
 	rsync \
+	screen \
 	smbclient \
 	sof-firmware \
 	sshfs \
@@ -198,6 +200,8 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	hhd-git \
+	hhd-user \
 	handygccs-git \
 	hhfc-git \
 	legendary \
@@ -225,6 +229,8 @@ export AUR_PACKAGES="\
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
+	sk-chos-tool \
+	sk-boot-to-windows \
 	vulkan-nouveau-git \
 	wyvern \
 	yay-bin \
@@ -234,6 +240,7 @@ export AUR_PACKAGES="\
 export SERVICES="\
 	NetworkManager \
 	avahi-daemon \
+	auto-expand-home \
 	bluetooth \
 	bluetooth-workaround \
 	fstrim.timer \
@@ -241,10 +248,17 @@ export SERVICES="\
 	haveged \
 	home-swapfile.swap \
 	lightdm \
+	overlay-fonts \
+	overlay-root-home \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
+	sk-auto-keep-boot-entry \
+	sk-bind-mount \
+	sk-chos-tool-autoupdate.timer \
+	sk-update-boot-entry \
+	sk-resume \
 "
 
 export USER_SERVICES="\
