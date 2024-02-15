@@ -158,8 +158,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.8-rc2-chos1-1/linux-chimeraos-6.8.rc2.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.8-rc2-chos1-1/linux-chimeraos-headers-6.8.rc2.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.rc4-chos1-2/linux-chimeraos-6.8.rc4.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.rc4-chos1-2/linux-chimeraos-headers-6.8.rc4.chos1-2-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-libva-mesa-driver-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-mesa-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-mesa-vdpau-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
@@ -194,7 +194,7 @@ export AUR_PACKAGES="\
 	chimera \
 	chimeraos-device-quirks-git \
 	downgrade \
-	frzr \
+	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
 	handygccs-git \
@@ -226,6 +226,7 @@ export AUR_PACKAGES="\
 	steam-removable-media-git \
 	vulkan-nouveau-git \
 	wyvern \
+	yay-bin \
 	zenergy-dkms-git \
 "
 
@@ -272,6 +273,11 @@ postinstallhook() {
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
 	" > /etc/sudoers.d/chimera
+	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/${USERNAME}"
+
+	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
+	ln -s -f /usr/bin/vim /usr/bin/vi
+	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
 
 	# disable retroarch menu in joypad configs
 	find /usr/share/libretro/autoconfig -type f -name '*.cfg' | xargs -d '\n' sed -i '/input_menu_toggle_btn/d'
