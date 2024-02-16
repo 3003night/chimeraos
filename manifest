@@ -34,8 +34,6 @@ export PACKAGES="\
 	epiphany \
 	ethtool \
 	evtest \
-	efibootmgr \
-	expect \
 	exfatprogs \
 	ffmpeg \
 	file \
@@ -77,7 +75,6 @@ export PACKAGES="\
 	intel-media-driver \
 	intel-ucode \
 	intel-undervolt \
-	jq \
 	less \
 	lib32-curl \
 	lib32-fontconfig \
@@ -233,6 +230,7 @@ export AUR_PACKAGES="\
 	hhd-git \
 	hhd-user \
 	hhfc-git \
+	kanit-font \
 	legendary \
 	lib32-gperftools \
 	libretro-dosbox-pure-git \
@@ -260,9 +258,10 @@ export AUR_PACKAGES="\
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
-	sk-chos-addon \
-	sk-chos-tool \
+	sk-chos-addon-git \
+	sk-chos-tool-git \
 	sk-boot-to-windows \
+	vulkan-nouveau-git \
 	waydroid \
 	waydroid-script-git \
 	wyvern \
@@ -280,13 +279,10 @@ export PACKAGES_TO_DELETE="\
 	pulseaudio \
 	pulseaudio-alsa \
 "
-export OWN_PACKAGES_TO_DELETE="\
-	*-debug-*.pkg.tar.zst \
-"
+export OWN_PACKAGES_TO_DELETE=""
 
 export AUR_PACKAGES_TO_DELETE="\
 	gamescope-session-git-r*.pkg.tar.zst \
-	*-debug-*.pkg.tar.zst \
 "
 
 export SERVICES="\
@@ -298,7 +294,6 @@ export SERVICES="\
 	ds-inhibit \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
-	getty@tty3 \
 	handycon \
 	haveged \
 	hostname-fix \
@@ -350,11 +345,7 @@ postinstallhook() {
 
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
-	
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
-
-	sed -i "s/# export STEAM_GAMESCOPE_COLOR_MANAGED=1/export STEAM_GAMESCOPE_COLOR_MANAGED=1/" /usr/share/gamescope-session-plus/gamescope-session-plus
-
 	sed -i "s/#SuspendEstimationSec=60min/SuspendEstimationSec=30min/" /etc/systemd/sleep.conf
 
 	# disable retroarch menu in joypad configs
