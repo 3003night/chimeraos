@@ -260,6 +260,7 @@ export AUR_PACKAGES="\
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
+	sk-chos-addon \
 	sk-chos-tool \
 	sk-boot-to-windows \
 	waydroid \
