@@ -58,7 +58,7 @@ mkdir -p rootfs/etc/pacman.d
 cp /etc/pacman.d/mirrorlist rootfs/etc/pacman.d/mirrorlist
 
 # copy files into chroot
-cp -R manifest rootfs/. ${BUILD_PATH}/
+cp -R manifest postinstall rootfs/. ${BUILD_PATH}/
 
 mkdir ${BUILD_PATH}/own_pkgs
 mkdir ${BUILD_PATH}/extra_pkgs
@@ -143,7 +143,7 @@ sed -i "/^hosts:/ s/resolve/mdns resolve/" /etc/nsswitch.conf
 # configure ssh
 echo "
 AuthorizedKeysFile	.ssh/authorized_keys
-PasswordAuthentication no
+PasswordAuthentication yes
 ChallengeResponseAuthentication no
 UsePAM yes
 PrintMotd no # pam does that
@@ -183,6 +183,10 @@ trust anchor --store /extra_certs/*.crt
 # run post install hook
 postinstallhook
 
+# pre-download
+source /postinstall
+postinstall_download
+
 # record installed packages & versions
 pacman -Q > /manifest
 
@@ -211,6 +215,7 @@ rm -rf ${FILES_TO_DELETE}
 mkdir /home
 mkdir /var
 mkdir /frzr_root
+mkdir /nix
 EOF
 
 # copy files into chroot again
@@ -243,7 +248,7 @@ rm -rf ${BUILD_IMG}
 
 IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.xz"
 if [ -z "${NO_COMPRESS}" ]; then
-	tar -c -I'xz -8 -T4' -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
+	tar -c -I'xz -9 -T0' -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
 	rm ${SYSTEM_NAME}-${VERSION}.img
 
 	sha256sum ${SYSTEM_NAME}-${VERSION}.img.tar.xz > sha256sum.txt

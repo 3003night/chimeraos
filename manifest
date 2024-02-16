@@ -157,6 +157,7 @@ export PACKAGES="\
 	xorg-server \
 	xz \
 	zip \
+	zram-generator \
 	zsh \
 "
 
@@ -229,6 +230,7 @@ export AUR_PACKAGES="\
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
+	sk-chos-addon \
 	sk-chos-tool \
 	sk-boot-to-windows \
 	vulkan-nouveau-git \
@@ -244,8 +246,10 @@ export SERVICES="\
 	bluetooth \
 	bluetooth-workaround \
 	fstrim.timer \
+	frzr_root-swap-swapfile.swap \
 	handycon \
 	haveged \
+	hostname-fix \
 	home-swapfile.swap \
 	lightdm \
 	overlay-fonts \
@@ -263,7 +267,9 @@ export SERVICES="\
 
 export USER_SERVICES="\
 	chimera.service \
+	clear-gamescope-modes \
 	pipewire \
+	sk-first-run-daemon \
 	steam-patch.service \
 "
 
