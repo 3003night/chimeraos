@@ -1,0 +1,13 @@
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+icon-theme='Papirus'
+
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/sk-chos/kay-l.png'
+picture-uri-dark='file:///usr/share/backgrounds/sk-chos/kay-d.png'
+picture-options='scaled'
+primary-color='3071AE'
+secondary-color='000000'
+
+[org/gnome/mutter]
+center-new-windows=true

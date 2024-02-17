@@ -19,9 +19,9 @@
 [submodule "aur-pkgs/downgrade"]
 	path = aur-pkgs/downgrade
 	url = https://aur.archlinux.org/downgrade.git
-[submodule "aur-pkgs/frzr"]
-	path = aur-pkgs/frzr
-	url = https://aur.archlinux.org/frzr.git
+[submodule "aur-pkgs/frzr-sk"]
+	path = aur-pkgs/frzr-sk
+	url = https://aur.archlinux.org/frzr-sk.git
 [submodule "aur-pkgs/gamescope-plus"]
 	path = aur-pkgs/gamescope-plus
 	url = https://aur.archlinux.org/gamescope-plus.git
@@ -124,3 +124,18 @@
 [submodule "aur-pkgs/bmi260-dkms"]
 	path = aur-pkgs/bmi260-dkms
 	url = https://aur.archlinux.org/bmi260-dkms.git
+[submodule "aur-pkgs/hhd"]
+	path = aur-pkgs/hhd
+	url = https://aur.archlinux.org/hhd.git
+[submodule "aur-pkgs/sk-chos-addon"]
+	path = aur-pkgs/sk-chos-addon
+	url = https://aur.archlinux.org/sk-chos-addon.git
+[submodule "aur-pkgs/sk-chos-tool"]
+	path = aur-pkgs/sk-chos-tool
+	url = https://aur.archlinux.org/sk-chos-tool.git
+[submodule "aur-pkgs/sk-boot-to-windows"]
+	path = aur-pkgs/sk-boot-to-windows
+	url = https://aur.archlinux.org/sk-boot-to-windows.git
+[submodule "aur-pkgs/yay-bin"]
+	path = aur-pkgs/yay-bin
+	url = https://aur.archlinux.org/yay-bin.git

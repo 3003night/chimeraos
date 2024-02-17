@@ -5,7 +5,7 @@ export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="10000MB"
-export ARCHIVE_DATE="2023/12/17"
+export ARCHIVE_DATE="2024/02/15"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -127,6 +127,7 @@ export PACKAGES="\
 	python-inotify-simple \
 	retroarch \
 	rsync \
+	screen \
 	smbclient \
 	sof-firmware \
 	sshfs \
@@ -155,11 +156,12 @@ export PACKAGES="\
 	xorg-server \
 	xz \
 	zip \
+	zsh \
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.6.10-chos1-2/linux-chimeraos-6.6.10.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.6.10-chos1-2/linux-chimeraos-headers-6.6.10.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.6.14-chos1-3/linux-chimeraos-6.6.14.chos1-3-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.6.14-chos1-3/linux-chimeraos-headers-6.6.14.chos1-3-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.5-chos1-1/lib32-libva-mesa-driver-1--23.3.5.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.5-chos1-1/lib32-mesa-1--23.3.5.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.5-chos1-1/lib32-mesa-vdpau-1--23.3.5.chos1-1-x86_64.pkg.tar.zst \
@@ -170,7 +172,7 @@ export PACKAGE_OVERRIDES="\
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.5-chos1-1/mesa-vdpau-1--23.3.5.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.5-chos1-1/vulkan-intel-1--23.3.5.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/23.3.5-chos1-1/vulkan-radeon-1--23.3.5.chos1-1-x86_64.pkg.tar.zst \
-	https://archive.archlinux.org/repos/2023/12/17/extra/os/x86_64/pipewire-jack-1%3A1.0.0-2-x86_64.pkg.tar.zst \
+	https://archive.archlinux.org/repos/2024/02/15/extra/os/x86_64/pipewire-jack-1%3A1.0.0-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/repos/2023/06/28/extra/os/x86_64/libretro-pcsx2-11900-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/l/libretro-mame/libretro-mame-85763-1-x86_64.pkg.tar.zst \
 "
@@ -187,10 +189,11 @@ export AUR_PACKAGES="\
 	chimera \
 	chimeraos-device-quirks-git \
 	downgrade \
-	frzr \
+	frzr-sk \
 	gamescope-plus \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	hhd \
 	handygccs-git \
 	hhfc-git \
 	legendary \
@@ -218,29 +221,44 @@ export AUR_PACKAGES="\
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
+	sk-chos-addon \
+	sk-chos-tool \
+	sk-boot-to-windows \
 	wyvern \
+	yay-bin \
 	zenergy-dkms-git \
 "
 
 export SERVICES="\
 	NetworkManager \
 	avahi-daemon \
+	auto-expand-home \
 	bluetooth \
 	bluetooth-workaround \
 	fstrim.timer \
+	frzr_root-swap-swapfile.swap \
 	handycon \
 	haveged \
-	home-swapfile.swap \
+	hostname-fix \
 	lightdm \
+	overlay-fonts \
+	overlay-root-home \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
+	sk-auto-keep-boot-entry \
+	sk-bind-mount \
+	sk-chos-daemon \
+	sk-chos-tool-autoupdate.timer \
+	sk-resume \
 "
 
 export USER_SERVICES="\
 	chimera.service \
 	pipewire \
+	sk-chos-user-daemon \
+	sk-first-run-daemon \
 	steam-patch.service \
 "
 
@@ -265,6 +283,11 @@ postinstallhook() {
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
 	" >/etc/sudoers.d/chimera
+	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >"/etc/sudoers.d/${USERNAME}"
+
+	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
+	ln -s -f /usr/bin/vim /usr/bin/vi
+	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
 
 	# disable retroarch menu in joypad configs
 	find /usr/share/libretro/autoconfig -type f -name '*.cfg' | xargs -d '\n' sed -i '/input_menu_toggle_btn/d'

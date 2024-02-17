@@ -1,0 +1,48 @@
+[org/gnome/desktop/wm/preferences]
+button-layout='appmenu:minimize,maximize,close'
+
+[org/gnome/shell] 
+favorite-apps=['org.gnome.Epiphany.desktop','org.gnome.Nautilus.desktop','org.gnome.Software.desktop', 'org.chimeraos.session-return.desktop','steam.desktop']
+
+[org/gnome/desktop/app-folders]
+folder-children=['Games', 'Utilities', 'Containers', 'Waydroid', 'Wine', 'YaST', 'Pardus']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['yafti.desktop', 'webapp-manager.desktop', 'tuned-gui.desktop', 'fish.desktop', 'tuned-gui.desktop', 'nvtop.desktop', 'yelp.desktop', 'btop.desktop', 'com.github.tchx84.Flatseal.desktop', 'io.github.flattool.Warehouse.desktop', 'it.mijorus.gearlever.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'org.gnome.tweaks.desktop', 'com.github.GradienceTeam.Gradience', 'io.github.fastrizwaan.WineZGUI.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/Pardus]
+categories=['X-Pardus-Apps']
+name='X-Pardus-Apps.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/Waydroid]
+apps=['Waydroid.desktop']
+categories=['X-WayDroid-App']
+name='Waydroid'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/Games]
+excluded-apps=['steam.desktop', 'net.lutris.Lutris.desktop', 'io.github.benjamimgois.goverlay.desktop', 'com.vysp3r.ProtonPlus.desktop', 'io.github.fastrizwaan.WineZGUI.desktop']
+categories=['Game']
+name='Games'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/Containers]
+apps=['com.github.marhkb.Pods.desktop']
+categories=['Distrobox']
+name='Containers'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/Wine]
+apps=['winetricks.desktop']
+categories=['X-Wine', 'wine-wine']
+name='Wine'
+translate=false
