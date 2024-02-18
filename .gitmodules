@@ -160,3 +160,9 @@
 [submodule "aur-pkgs/waydroid-script-git"]
 	path = aur-pkgs/waydroid-script-git
 	url = https://aur.archlinux.org/waydroid-script-git.git
+[submodule "aur-pkgs/sk-chos-addon"]
+	path = aur-pkgs/sk-chos-addon
+	url = https://aur.archlinux.org/sk-chos-addon.git
+[submodule "aur-pkgs/sk-chos-tool"]
+	path = aur-pkgs/sk-chos-tool
+	url = https://aur.archlinux.org/sk-chos-tool.git
