@@ -124,6 +124,7 @@ export PACKAGES="\
 	nautilus \
 	networkmanager \
 	nfs-utils \
+	nmon \
 	noto-fonts-emoji \
 	nss-mdns \
 	openal \
@@ -205,11 +206,9 @@ export AUR_PACKAGES="\
 	bmi260-dkms \
 	boxtron \
 	chimera \
-	chimeraos-device-quirks-git \
 	downgrade \
 	ds-inhibit \
 	frzr-sk \
-	gamescope-plus \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
 	gnome-shell-extension-clipboard-indicator-git \
@@ -217,11 +216,9 @@ export AUR_PACKAGES="\
 	gnome-shell-extension-dash-to-dock \
 	gnome-shell-extension-transparent-top-bar-git \
 	hhd \
-	handygccs-git \
 	hhfc-git \
 	kanit-font \
 	legendary \
-	lib32-gamescope-plus \
 	lib32-gperftools \
 	libretro-dosbox-pure-git \
 	libretro-opera-git \
@@ -336,6 +333,9 @@ postinstallhook() {
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
 	find /usr/share/applications/* |
+		grep -v anydesk.desktop |
+		grep -v ca.desrt.dconf-editor.desktop |
+		grep -v gparted.desktop |
 		grep -v org.chimeraos.Gamescope.desktop |
 		grep -v org.chimeraos.app.desktop |
 		grep -v org.gnome.Console.desktop |
@@ -345,7 +345,15 @@ postinstallhook() {
 		grep -v org.gnome.Settings.desktop |
 		grep -v org.gnome.Software.desktop |
 		grep -v org.gnome.TextEditor.desktop |
+		grep -v org.gnome.tweaks.desktop |
+		grep -v org.gnome.Extensions.desktop |
+		grep -v protonup-qt.desktop |
 		grep -v steam.desktop |
+		grep -v sk-chos-tool.desktop |
+		grep -v sk-chos-tool-command.desktop |
+		grep -v waydroid.app.install.desktop |
+		grep -v waydroid.market.desktop |
+		grep -v Waydroid.desktop |
 		xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates

@@ -13,36 +13,24 @@
 [submodule "aur-pkgs/chimera"]
 	path = aur-pkgs/chimera
 	url = https://aur.archlinux.org/chimera.git
-[submodule "aur-pkgs/chimeraos-device-quirks-git"]
-	path = aur-pkgs/chimeraos-device-quirks-git
-	url = https://aur.archlinux.org/chimeraos-device-quirks-git.git
 [submodule "aur-pkgs/downgrade"]
 	path = aur-pkgs/downgrade
 	url = https://aur.archlinux.org/downgrade.git
 [submodule "aur-pkgs/frzr-sk"]
 	path = aur-pkgs/frzr-sk
 	url = https://aur.archlinux.org/frzr-sk.git
-[submodule "aur-pkgs/gamescope-plus"]
-	path = aur-pkgs/gamescope-plus
-	url = https://aur.archlinux.org/gamescope-plus.git
 [submodule "aur-pkgs/gamescope-session-steam-git"]
 	path = aur-pkgs/gamescope-session-steam-git
 	url = https://aur.archlinux.org/gamescope-session-steam-git.git
 [submodule "aur-pkgs/gamescope-session-steam-plus-git"]
 	path = aur-pkgs/gamescope-session-steam-plus-git
 	url = https://aur.archlinux.org/gamescope-session-steam-plus-git.git
-[submodule "aur-pkgs/handygccs-git"]
-	path = aur-pkgs/handygccs-git
-	url = https://aur.archlinux.org/handygccs-git.git
 [submodule "aur-pkgs/hhfc-git"]
 	path = aur-pkgs/hhfc-git
 	url = https://aur.archlinux.org/hhfc-git.git
 [submodule "aur-pkgs/legendary"]
 	path = aur-pkgs/legendary
 	url = https://aur.archlinux.org/legendary.git
-[submodule "aur-pkgs/lib32-gamescope-plus"]
-	path = aur-pkgs/lib32-gamescope-plus
-	url = https://aur.archlinux.org/lib32-gamescope-plus.git
 [submodule "aur-pkgs/lib32-gperftools"]
 	path = aur-pkgs/lib32-gperftools
 	url = https://aur.archlinux.org/lib32-gperftools.git
