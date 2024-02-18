@@ -127,15 +127,48 @@
 [submodule "aur-pkgs/hhd"]
 	path = aur-pkgs/hhd
 	url = https://aur.archlinux.org/hhd.git
-[submodule "aur-pkgs/sk-chos-addon"]
-	path = aur-pkgs/sk-chos-addon
-	url = https://aur.archlinux.org/sk-chos-addon.git
-[submodule "aur-pkgs/sk-chos-tool"]
-	path = aur-pkgs/sk-chos-tool
-	url = https://aur.archlinux.org/sk-chos-tool.git
 [submodule "aur-pkgs/sk-boot-to-windows"]
 	path = aur-pkgs/sk-boot-to-windows
 	url = https://aur.archlinux.org/sk-boot-to-windows.git
 [submodule "aur-pkgs/yay-bin"]
 	path = aur-pkgs/yay-bin
 	url = https://aur.archlinux.org/yay-bin.git
+[submodule "aur-pkgs/antimicrox"]
+	path = aur-pkgs/antimicrox
+	url = https://aur.archlinux.org/antimicrox.git
+[submodule "aur-pkgs/anydesk-bin"]
+	path = aur-pkgs/anydesk-bin
+	url = https://aur.archlinux.org/anydesk-bin.git
+[submodule "aur-pkgs/ds-inhibit"]
+	path = aur-pkgs/ds-inhibit
+	url = https://aur.archlinux.org/ds-inhibit.git
+[submodule "aur-pkgs/gnome-shell-extension-clipboard-indicator-git"]
+	path = aur-pkgs/gnome-shell-extension-clipboard-indicator-git
+	url = https://aur.archlinux.org/gnome-shell-extension-clipboard-indicator-git.git
+[submodule "aur-pkgs/gnome-shell-extension-desktop-icons-ng-git"]
+	path = aur-pkgs/gnome-shell-extension-desktop-icons-ng-git
+	url = https://aur.archlinux.org/gnome-shell-extension-desktop-icons-ng-git.git
+[submodule "aur-pkgs/gnome-shell-extension-dash-to-dock"]
+	path = aur-pkgs/gnome-shell-extension-dash-to-dock
+	url = https://aur.archlinux.org/gnome-shell-extension-dash-to-dock.git
+[submodule "aur-pkgs/gnome-shell-extension-transparent-top-bar-git"]
+	path = aur-pkgs/gnome-shell-extension-transparent-top-bar-git
+	url = https://aur.archlinux.org/gnome-shell-extension-transparent-top-bar-git.git
+[submodule "aur-pkgs/mutter-x11-scaling"]
+	path = aur-pkgs/mutter-x11-scaling
+	url = https://aur.archlinux.org/mutter-x11-scaling.git
+[submodule "aur-pkgs/onedrive-abraunegg"]
+	path = aur-pkgs/onedrive-abraunegg
+	url = https://aur.archlinux.org/onedrive-abraunegg.git
+[submodule "aur-pkgs/python-pyclip"]
+	path = aur-pkgs/python-pyclip
+	url = https://aur.archlinux.org/python-pyclip.git
+[submodule "aur-pkgs/protonup-qt-bin"]
+	path = aur-pkgs/protonup-qt-bin
+	url = https://aur.archlinux.org/protonup-qt-bin.git
+[submodule "aur-pkgs/waydroid"]
+	path = aur-pkgs/waydroid
+	url = https://aur.archlinux.org/waydroid.git
+[submodule "aur-pkgs/waydroid-script-git"]
+	path = aur-pkgs/waydroid-script-git
+	url = https://aur.archlinux.org/waydroid-script-git.git

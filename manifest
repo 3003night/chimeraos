@@ -25,6 +25,7 @@ export PACKAGES="\
 	cifs-utils \
 	cpupower \
 	diffutils \
+	dconf-editor \
 	dkms \
 	distrobox \
 	dmidecode \
@@ -33,6 +34,8 @@ export PACKAGES="\
 	epiphany \
 	ethtool \
 	evtest \
+	efibootmgr \
+	efibootmgr \
 	ffmpeg \
 	file \
 	ffmpegthumbnailer \
@@ -53,11 +56,20 @@ export PACKAGES="\
 	gnome-software \
 	gnome-system-monitor \
 	gnome-text-editor \
+	gnome-icon-theme-extras \
+	gnome-tweaks \
+	gnome-shell-extensions \
+	gnome-menus \
 	gst-plugin-pipewire \
 	gvfs-smb \
 	gzip \
 	haveged \
 	htop \
+	ibus-pinyin \
+	ibus-libpinyin \
+	ibus-table-chinese \
+	ibus-anthy \
+	ibus-hangul \
 	intel-gpu-tools \
 	intel-media-driver \
 	intel-ucode \
@@ -125,14 +137,18 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-inotify-simple \
+	papirus-icon-theme \
 	retroarch \
 	rsync \
 	screen \
+	smartmontools \
 	smbclient \
 	sof-firmware \
 	sshfs \
 	steam \
 	sudo \
+	s-tui \
+	tree \
 	tar \
 	tree \
 	ttf-liberation \
@@ -147,7 +163,7 @@ export PACKAGES="\
 	wget \
 	which \
 	wireplumber \
-	wqy-zenhei \
+	wqy-microhei \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gnome \
 	xdg-desktop-portal-wlr \
@@ -181,6 +197,8 @@ export PACKAGE_OVERRIDES="\
 # Which is often the same as the package name but it can be different.
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
+	antimicrox \
+	anydesk-bin \
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
@@ -189,13 +207,19 @@ export AUR_PACKAGES="\
 	chimera \
 	chimeraos-device-quirks-git \
 	downgrade \
+	ds-inhibit \
 	frzr-sk \
 	gamescope-plus \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	gnome-shell-extension-clipboard-indicator-git \
+	gnome-shell-extension-desktop-icons-ng-git \
+	gnome-shell-extension-dash-to-dock \
+	gnome-shell-extension-transparent-top-bar-git \
 	hhd \
 	handygccs-git \
 	hhfc-git \
+	kanit-font \
 	legendary \
 	lib32-gamescope-plus \
 	lib32-gperftools \
@@ -204,13 +228,16 @@ export AUR_PACKAGES="\
 	libretro-prosystem-git \
 	libretro-stella2014-git \
 	libretro-virtualjaguar-git \
-	kanit-font \
+	mutter-x11-scaling \
 	nintendo-udev \
 	opengamepadui-bin \
 	opengamepadui-session-git \
+	onedrive-abraunegg \
 	pikaur \
 	powerstation-bin \
+	python-pyclip \
 	python-vdf \
+	protonup-qt-bin \
 	r8152-dkms \
 	r8168-dkms \
 	retroarch-autoconfig-udev-git \
@@ -221,44 +248,39 @@ export AUR_PACKAGES="\
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
-	sk-chos-addon \
-	sk-chos-tool \
 	sk-boot-to-windows \
+	waydroid \
+	waydroid-script-git \
 	wyvern \
 	yay-bin \
 	zenergy-dkms-git \
 "
 
+export PACKAGES_TO_DELETE="\
+       mutter \
+"
+
 export SERVICES="\
 	NetworkManager \
 	avahi-daemon \
-	auto-expand-home \
 	bluetooth \
 	bluetooth-workaround \
+	ds-inhibit \
 	fstrim.timer \
-	frzr_root-swap-swapfile.swap \
 	handycon \
 	haveged \
 	hostname-fix \
 	lightdm \
-	overlay-fonts \
-	overlay-root-home \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
-	sk-auto-keep-boot-entry \
-	sk-bind-mount \
-	sk-chos-daemon \
-	sk-chos-tool-autoupdate.timer \
-	sk-resume \
+	ds-inhibit \
 "
 
 export USER_SERVICES="\
 	chimera.service \
 	pipewire \
-	sk-chos-user-daemon \
-	sk-first-run-daemon \
 	steam-patch.service \
 "
 
