@@ -248,6 +248,7 @@ export AUR_PACKAGES="\
 	opengamepadui-bin \
 	opengamepadui-session-git \
 	onedrive-abraunegg \
+	pikaur \
 	powerstation-bin \
 	python-pyclip \
 	python-vdf \
