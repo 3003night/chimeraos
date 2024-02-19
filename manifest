@@ -215,7 +215,7 @@ export AUR_PACKAGES="\
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
-  	bmi260-dkms \
+	bmi260-dkms \
 	boxtron \
 	chimera \
 	downgrade \
@@ -223,6 +223,7 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	gpdconfig-git \
 	gnome-shell-extension-clipboard-indicator-git \
 	gnome-shell-extension-desktop-icons-ng-git \
 	gnome-shell-extension-dash-to-dock \
@@ -256,11 +257,11 @@ export AUR_PACKAGES="\
 	rtl88x2bu-dkms-git \
 	rtl8821au-dkms-git \
 	ryzenadj-git \
+	sk-boot-to-windows \
 	steam_notif_daemon \
 	steam-removable-media-git \
-	sk-chos-addon-git \
-	sk-chos-tool-git \
-	sk-boot-to-windows \
+	steam_notif_daemon \
+	steam-removable-media-git \
 	vulkan-nouveau-git \
 	waydroid \
 	waydroid-script-git \
@@ -306,6 +307,7 @@ export SERVICES="\
 	swapfile \
 	sk-auto-keep-boot-entry \
 	sk-bind-mount \
+	sk-chos-daemon \
 	sk-chos-tool-autoupdate.timer \
 	sk-update-boot-entry \
 	sk-resume \
@@ -314,8 +316,8 @@ export SERVICES="\
 
 export USER_SERVICES="\
 	chimera.service \
-	clear-gamescope-modes \
 	pipewire \
+	sk-chos-daemon \
 	sk-first-run-daemon \
 	steam-patch.service \
 "
@@ -336,12 +338,12 @@ postinstallhook() {
 	# Add sudo permissions
 	sed -i '/%wheel ALL=(ALL:ALL) ALL/s/^# //g' /etc/sudoers
 	echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/dmidecode -t 11
-	" > /etc/sudoers.d/steam
+	" >/etc/sudoers.d/steam
 	echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-gamescope
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
-	" > /etc/sudoers.d/chimera
-	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/${USERNAME}"
+	" >/etc/sudoers.d/chimera
+	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >"/etc/sudoers.d/${USERNAME}"
 
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
@@ -373,31 +375,29 @@ postinstallhook() {
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* | \
-	grep -v anydesk.desktop | \
-	grep -v ca.desrt.dconf-editor.desktop | \
-	grep -v gparted.desktop | \
-	grep -v org.chimeraos.Gamescope.desktop | \
-	grep -v org.chimeraos.app.desktop | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
-	grep -v org.gnome.tweaks.desktop | \
-	grep -v org.gnome.Extensions.desktop | \
-	grep -v protonup-qt.desktop | \
-	grep -v protontricks.desktop | \
-	grep -v steam.desktop | \
-	grep -v sk-chos-tool.desktop | \
-	grep -v sk-chos-tool-command.desktop | \
-	grep -v com.github.tchx84.Flatseal.desktop | \
-	grep -v waydroid.app.install.desktop | \
-	grep -v waydroid.market.desktop | \
-	grep -v Waydroid.desktop | \
-	xargs -I {} sh -c "echo NoDisplay=true >> {}"
+	find /usr/share/applications/* |
+		grep -v anydesk.desktop |
+		grep -v ca.desrt.dconf-editor.desktop |
+		grep -v gparted.desktop |
+		grep -v org.chimeraos.Gamescope.desktop |
+		grep -v org.chimeraos.app.desktop |
+		grep -v org.gnome.Console.desktop |
+		grep -v org.gnome.DiskUtility.desktop |
+		grep -v org.gnome.FileRoller.desktop |
+		grep -v org.gnome.Nautilus.desktop |
+		grep -v org.gnome.Settings.desktop |
+		grep -v org.gnome.Software.desktop |
+		grep -v org.gnome.TextEditor.desktop |
+		grep -v org.gnome.tweaks.desktop |
+		grep -v org.gnome.Extensions.desktop |
+		grep -v protonup-qt.desktop |
+		grep -v steam.desktop |
+		grep -v sk-chos-tool.desktop |
+		grep -v sk-chos-tool-command.desktop |
+		grep -v waydroid.app.install.desktop |
+		grep -v waydroid.market.desktop |
+		grep -v Waydroid.desktop |
+		xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
@@ -405,4 +405,3 @@ postinstallhook() {
 	# set permissions for intel_gpu_top and mangohud
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
 }
-
