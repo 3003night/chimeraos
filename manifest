@@ -216,6 +216,7 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	gpdconfig-git \
 	gnome-shell-extension-clipboard-indicator-git \
 	gnome-shell-extension-desktop-icons-ng-git \
 	gnome-shell-extension-dash-to-dock \
@@ -253,7 +254,6 @@ export AUR_PACKAGES="\
 	steam-removable-media-git \
 	sk-boot-to-windows \
 	sk-chos-addon \
-	sk-chos-tool \
 	waydroid \
 	waydroid-script-git \
 	wyvern \
@@ -262,7 +262,8 @@ export AUR_PACKAGES="\
 "
 
 export PACKAGES_TO_DELETE="\
-       mutter \
+	gamescope-session-git-r*.pkg.tar.zst \
+	mutter \
 "
 
 export SERVICES="\
