@@ -166,3 +166,6 @@
 [submodule "aur-pkgs/sk-chos-tool"]
 	path = aur-pkgs/sk-chos-tool
 	url = https://aur.archlinux.org/sk-chos-tool.git
+[submodule "aur-pkgs/hhd-user"]
+	path = aur-pkgs/hhd-user
+	url = https://aur.archlinux.org/hhd-user.git
