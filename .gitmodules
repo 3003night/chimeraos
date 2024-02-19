@@ -169,3 +169,6 @@
 [submodule "aur-pkgs/hhd-user"]
 	path = aur-pkgs/hhd-user
 	url = https://aur.archlinux.org/hhd-user.git
+[submodule "aur-pkgs/gpdconfig-git"]
+	path = aur-pkgs/gpdconfig-git
+	url = https://aur.archlinux.org/gpdconfig-git.git
