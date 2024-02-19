@@ -5,7 +5,7 @@ export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="10000MB"
-export ARCHIVE_DATE="2024/02/04"
+export ARCHIVE_DATE="2024/02/15"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -195,7 +195,6 @@ export PACKAGES="\
 	xsettingsd \
 	xz \
 	zip \
-	zram-generator \
 	zsh \
 "
 
@@ -233,9 +232,11 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	gpdconfig-git \
 	hhd \
 	hhd-user \
 	hhfc-git \
+	kanit-font \
 	legendary \
 	lib32-gperftools \
 	libretro-dosbox-pure-git \
@@ -261,8 +262,9 @@ export AUR_PACKAGES="\
 	steam_notif_daemon \
 	steam-removable-media-git \
 	wyvern \
-	sk-chos-tool \
 	sk-boot-to-windows \
+	sk-chos-addon \
+	sk-chos-tool \
 	waydroid \
 	waydroid-script-git \
 	yay-bin \
@@ -280,13 +282,10 @@ export PACKAGES_TO_DELETE="\
 	pulseaudio-alsa \
 "
 
-export OWN_PACKAGES_TO_DELETE="\
-	*-debug-*.pkg.tar.zst \
-"
+export OWN_PACKAGES_TO_DELETE=""
 
 export AUR_PACKAGES_TO_DELETE="\
 	gamescope-session-git-r*.pkg.tar.zst \
-	*-debug-*.pkg.tar.zst \
 "
 
 export SERVICES="\
@@ -310,16 +309,16 @@ export SERVICES="\
 	swapfile \
 	sk-auto-keep-boot-entry \
 	sk-bind-mount \
+	sk-chos-daemon \
 	sk-chos-tool-autoupdate.timer \
 	sk-update-boot-entry \
 	sk-resume \
-	waydroid-container \
 "
 
 export USER_SERVICES="\
 	chimera.service \
-	clear-gamescope-modes \
 	pipewire \
+	sk-chos-user-daemon \
 	sk-first-run-daemon \
 	steam-patch.service \
 "
@@ -344,16 +343,13 @@ postinstallhook() {
 	echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-gamescope
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
-	" > /etc/sudoers.d/chimera
+	" >/etc/sudoers.d/chimera
 
 	# sk chimeraos
-	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/${USERNAME}"
-
+	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >"/etc/sudoers.d/${USERNAME}"
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
-	
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
-	sed -i "s/# export STEAM_GAMESCOPE_COLOR_MANAGED=1/export STEAM_GAMESCOPE_COLOR_MANAGED=1/" /usr/share/gamescope-session-plus/gamescope-session-plus
 	sed -i "s/#SuspendEstimationSec=60min/SuspendEstimationSec=30min/" /etc/systemd/sleep.conf
 
 	# disable retroarch menu in joypad configs
