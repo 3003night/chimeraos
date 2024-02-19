@@ -319,7 +319,7 @@ export SERVICES="\
 export USER_SERVICES="\
 	chimera.service \
 	pipewire \
-	sk-chos-daemon \
+	sk-chos-user-daemon \
 	sk-first-run-daemon \
 	steam-patch.service \
 "
