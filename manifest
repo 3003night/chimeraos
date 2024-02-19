@@ -5,7 +5,7 @@ export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="10000MB"
-export ARCHIVE_DATE="2024/02/04"
+export ARCHIVE_DATE="2024/02/15"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -180,7 +180,6 @@ export PACKAGES="\
 	xorg-server-xvfb \
 	xz \
 	zip \
-	zram-generator \
 	zsh \
 "
 
@@ -218,6 +217,7 @@ export AUR_PACKAGES="\
 	frzr-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	gpdconfig-git \
 	gnome-shell-extension-clipboard-indicator-git \
 	gnome-shell-extension-desktop-icons-ng-git \
 	gnome-shell-extension-dash-to-dock \
@@ -225,6 +225,7 @@ export AUR_PACKAGES="\
 	hhd \
 	hhd-user \
 	hhfc-git \
+	kanit-font \
 	legendary \
 	lib32-gperftools \
 	libretro-dosbox-pure-git \
@@ -234,7 +235,6 @@ export AUR_PACKAGES="\
 	libretro-virtualjaguar-git \
 	mutter-x11-scaling \
 	nintendo-udev \
-	nerd-fonts-sarasa-term \
 	opengamepadui-bin \
 	opengamepadui-session-git \
 	onedrive-abraunegg \
@@ -253,8 +253,9 @@ export AUR_PACKAGES="\
 	steam_notif_daemon \
 	steam-removable-media-git \
 	wyvern \
-	sk-chos-tool \
 	sk-boot-to-windows \
+	sk-chos-addon \
+	sk-chos-tool \
 	waydroid \
 	waydroid-script-git \
 	yay-bin \
@@ -272,13 +273,10 @@ export PACKAGES_TO_DELETE="\
 	pulseaudio-alsa \
 "
 
-export OWN_PACKAGES_TO_DELETE="\
-	*-debug-*.pkg.tar.zst \
-"
+export OWN_PACKAGES_TO_DELETE=""
 
 export AUR_PACKAGES_TO_DELETE="\
 	gamescope-session-git-r*.pkg.tar.zst \
-	*-debug-*.pkg.tar.zst \
 "
 
 export SERVICES="\
@@ -302,16 +300,16 @@ export SERVICES="\
 	swapfile \
 	sk-auto-keep-boot-entry \
 	sk-bind-mount \
+	sk-chos-daemon \
 	sk-chos-tool-autoupdate.timer \
 	sk-update-boot-entry \
 	sk-resume \
-	waydroid-container \
 "
 
 export USER_SERVICES="\
 	chimera.service \
-	clear-gamescope-modes \
 	pipewire \
+	sk-chos-user-daemon \
 	sk-first-run-daemon \
 	steam-patch.service \
 "
@@ -336,16 +334,13 @@ postinstallhook() {
 	echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-gamescope
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
-	" > /etc/sudoers.d/chimera
+	" >/etc/sudoers.d/chimera
 
 	# sk chimeraos
-	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/${USERNAME}"
-
+	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >"/etc/sudoers.d/${USERNAME}"
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
-	
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
-	sed -i "s/# export STEAM_GAMESCOPE_COLOR_MANAGED=1/export STEAM_GAMESCOPE_COLOR_MANAGED=1/" /usr/share/gamescope-session-plus/gamescope-session-plus
 	sed -i "s/#SuspendEstimationSec=60min/SuspendEstimationSec=30min/" /etc/systemd/sleep.conf
 
 	# disable retroarch menu in joypad configs
@@ -373,30 +368,30 @@ postinstallhook() {
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* | \
-	grep -v anydesk.desktop | \
-	grep -v ca.desrt.dconf-editor.desktop | \
-	grep -v gparted.desktop | \
-	grep -v org.chimeraos.Gamescope.desktop | \
-	grep -v org.chimeraos.app.desktop | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
-	grep -v org.gnome.tweaks.desktop | \
-	grep -v org.gnome.Extensions.desktop | \
-	grep -v protonup-qt.desktop | \
-	grep -v steam.desktop | \
-	grep -v sk-chos-tool.desktop | \
-	grep -v sk-chos-tool-command.desktop | \
-	grep -v com.github.tchx84.Flatseal.desktop | \
-	grep -v waydroid.app.install.desktop | \
-	grep -v waydroid.market.desktop | \
-	grep -v Waydroid.desktop | \
-	xargs -I {} sh -c "echo NoDisplay=true >> {}"
+	find /usr/share/applications/* |
+		grep -v anydesk.desktop |
+		grep -v ca.desrt.dconf-editor.desktop |
+		grep -v gparted.desktop |
+		grep -v org.chimeraos.Gamescope.desktop |
+		grep -v org.chimeraos.app.desktop |
+		grep -v org.gnome.Console.desktop |
+		grep -v org.gnome.DiskUtility.desktop |
+		grep -v org.gnome.FileRoller.desktop |
+		grep -v org.gnome.Nautilus.desktop |
+		grep -v org.gnome.Settings.desktop |
+		grep -v org.gnome.Software.desktop |
+		grep -v org.gnome.TextEditor.desktop |
+		grep -v org.gnome.tweaks.desktop |
+		grep -v org.gnome.Extensions.desktop |
+		grep -v protonup-qt.desktop |
+		grep -v steam.desktop |
+		grep -v sk-chos-tool.desktop |
+		grep -v sk-chos-tool-command.desktop |
+		grep -v com.github.tchx84.Flatseal.desktop |
+		grep -v waydroid.app.install.desktop |
+		grep -v waydroid.market.desktop |
+		grep -v Waydroid.desktop |
+		xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop

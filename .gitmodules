@@ -160,3 +160,9 @@
 [submodule "aur-pkgs/ds-inhibit"]
 	path = aur-pkgs/ds-inhibit
 	url = https://aur.archlinux.org/ds-inhibit.git
+[submodule "aur-pkgs/gpdconfig-git"]
+	path = aur-pkgs/gpdconfig-git
+	url = https://aur.archlinux.org/gpdconfig-git.git
+[submodule "aur-pkgs/kanit-font"]
+	path = aur-pkgs/kanit-font
+	url = https://aur.archlinux.org/kanit-font.git
