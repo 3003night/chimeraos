@@ -100,9 +100,6 @@
 [submodule "aur-pkgs/frzr-sk"]
 	path = aur-pkgs/frzr-sk
 	url = https://aur.archlinux.org/frzr-sk.git
-[submodule "aur-pkgs/gnome-shell-extension-clipboard-indicator-git"]
-	path = aur-pkgs/gnome-shell-extension-clipboard-indicator-git
-	url = https://aur.archlinux.org/gnome-shell-extension-clipboard-indicator-git.git
 [submodule "aur-pkgs/gnome-shell-extension-desktop-icons-ng-git"]
 	path = aur-pkgs/gnome-shell-extension-desktop-icons-ng-git
 	url = https://aur.archlinux.org/gnome-shell-extension-desktop-icons-ng-git.git
@@ -169,3 +166,6 @@
 [submodule "aur-pkgs/sk-chos-addon"]
 	path = aur-pkgs/sk-chos-addon
 	url = https://aur.archlinux.org/sk-chos-addon.git
+[submodule "aur-pkgs/gnome-shell-extension-screen-autorotate"]
+	path = aur-pkgs/gnome-shell-extension-screen-autorotate
+	url = https://aur.archlinux.org/gnome-shell-extension-screen-autorotate.git
