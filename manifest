@@ -212,6 +212,7 @@ export AUR_PACKAGES="\
 	asusctl \
 	antimicrox \
 	anydesk-bin \
+	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
 	bmi260-dkms \
@@ -365,7 +366,7 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers libretro-mame
+	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	rm /usr/bin/dolphin-emu
