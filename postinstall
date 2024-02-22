@@ -35,12 +35,15 @@ postinstall_download() {
 	# PowerControl
 	curl -L $(curl -s "https://api.github.com/repos/mengmeet/PowerControl/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_decky/powercontrol.tar.gz
 	tar -xzvf $temp_decky/powercontrol.tar.gz -C $decky_plugin_path
-	# AyaLed
-	curl -L $(curl -s "https://api.github.com/repos/honjow/ayaled/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_decky/ayaled.tar.gz
-	tar -xzvf $temp_decky/ayaled.tar.gz -C $decky_plugin_path
+	# HueSync
+	curl -L $(curl -s "https://api.github.com/repos/honjow/HueSync/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_decky/huesync.tar.gz
+	tar -xzvf $temp_decky/huesync.tar.gz -C $decky_plugin_path
 	# SDH-CssLoader
 	curl -L $(curl -s "https://api.github.com/repos/DeckThemes/SDH-CssLoader/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4 | grep "SDH-CSSLoader-Decky.zip") -o $temp_decky/SDH-CSSLoader-Decky.zip
 	unzip -o $temp_decky/SDH-CSSLoader-Decky.zip -d $decky_plugin_path
+	# ToMoon
+	curl -L $(curl -s "https://api.github.com/repos/YukiCoco/ToMoon/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4 | grep "tomoon.*\.zip") -o $temp_decky/tomoon.zip
+	unzip -o $temp_decky/tomoon.zip -d $decky_plugin_path
 
 	rm -rf $temp_decky
 
