@@ -51,13 +51,11 @@ postinstall_download() {
 
 	# pre download hhd css themes
 	mkdir -p $css_hhd_path
-	temp_css_hhd=$(mktemp -d)
+
 	# SBP-ROG-Ally
 	git_url="https://github.com/semakusut/SBP-ROG-Ally.git"
-	commit_id="fd803c1bb95eedf98df749460d96e980de3d45d2"
-	git clone $git_url $temp_css_hhd/SBP-ROG-Ally
-	cd $temp_css_hhd/SBP-ROG-Ally && git checkout $commit_id && cd -
-	cp -r $temp_css_hhd/* $css_hhd_path
+	git clone --depth 1 $git_url $css_hhd_path/SBP-ROG-Ally
+	sed -i 's/Armoury_Crate.png/Menu.png/g' $css_hhd_path/SBP-ROG-Ally/ally.css
 
 	# SBP-Legion-Go-Theme
 	git_url="https://github.com/frazse/SBP-Legion-Go-Theme.git"
@@ -67,14 +65,10 @@ postinstall_download() {
 	git clone --depth 1 $git_url $css_hhd_path/SBP-Legion-Go-Theme
 	echo '{"active": true, "Apply": "Legion-Go-Theme"}' > $css_hhd_path/SBP-Legion-Go-Theme/config_USER.json
 
-	# PS5-to-Xbox-glyphs
-	git_url="https://github.com/honjow/PS5-to-Xbox-glyphs.git"
-	if [ -d $css_hhd_path/PS5-to-Xbox-glyphs ]; then
-		rm -rf $css_hhd_path/PS5-to-Xbox-glyphs
+	# PSBP-PS5-to-Handheld
+	git_url="https://github.com/honjow/SBP-PS5-to-Handheld.git"
+	if [ -d $css_hhd_path/SBP-PS5-to-Handheld ]; then
+		rm -rf $css_hhd_path/SBP-PS5-to-Handheld
 	fi
-	git clone --depth 1 $git_url $css_hhd_path/PS5-to-Xbox-glyphs
-	echo '{"active": true, "Apply": "PS5-to-Xbox-glyphs"}' > $css_hhd_path/PS5-to-Xbox-glyphs/config_USER.json
-	# sed -i 's/Legion Go - PS5 controller emulator to xbox glyphs/PS5 controller emulator to xbox glyphs/g' $css_hhd_path/PS5-to-Xbox-glyphs/theme.json
-
-	rm -rf $temp_css_hhd
+	git clone --depth 1 $git_url $css_hhd_path/SBP-PS5-to-Handheld
 }
