@@ -370,7 +370,7 @@ postinstallhook() {
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* |
+	find /usr/share/applications/* -type f |
 		grep -v anydesk.desktop |
 		grep -v ca.desrt.dconf-editor.desktop |
 		grep -v gparted.desktop |
