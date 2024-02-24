@@ -169,3 +169,6 @@
 [submodule "aur-pkgs/gnome-shell-extension-screen-autorotate"]
 	path = aur-pkgs/gnome-shell-extension-screen-autorotate
 	url = https://aur.archlinux.org/gnome-shell-extension-screen-autorotate.git
+[submodule "aur-pkgs/hhd-ui"]
+	path = aur-pkgs/hhd-ui
+	url = https://aur.archlinux.org/hhd-ui.git
