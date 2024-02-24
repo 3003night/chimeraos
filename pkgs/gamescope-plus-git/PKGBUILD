@@ -61,9 +61,11 @@ source=("git+https://github.com/3003n/gamescope.git#branch=custom-modeline-plus-
         "git+https://github.com/Joshua-Ashton/GamescopeShaders.git#tag=v0.1"
         "git+https://github.com/Joshua-Ashton/reshade.git"
         "git+https://github.com/KhronosGroup/SPIRV-Headers.git"
+        "000-env-to-disable-touch-gestures.patch"
         )
 
 b2sums=('SKIP'
+        'SKIP'
         'SKIP'
         'SKIP'
         'SKIP'
@@ -82,6 +84,15 @@ prepare() {
   git submodule init thirdparty/SPIRV-Headers
   git config submodule.thirdparty/SPIRV-Headers.url ../SPIRV-Headers
   git -c protocol.file.allow=always submodule update
+
+  local src
+  for src in "${source[@]}"; do
+    src="${src%%::*}"
+    src="${src##*/}"
+    [[ $src = *.patch ]] || continue
+    echo "Applying patch $src..."
+    patch -Np1 < "../$src"
+  done
 
   # make stb.wrap use our local clone
   rm -rf subprojects/stb

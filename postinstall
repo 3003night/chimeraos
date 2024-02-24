@@ -71,4 +71,13 @@ postinstall_download() {
 		rm -rf $css_hhd_path/SBP-PS5-to-Handheld
 	fi
 	git clone --depth 1 $git_url $css_hhd_path/SBP-PS5-to-Handheld
+
+
+	# 其它操作
+	GAMESCOPE_SESSION_PLUS_FILE="/usr/share/gamescope-session-plus/gamescope-session-plus"
+	if [[ -f "$GAMESCOPE_SESSION_PLUS_FILE" ]]; then
+		# 关闭触摸手势
+		sed -i '/export GAMESCOPE_DISABLE_ASYNC_FLIPS/a\\n# disable touch gestures\nexport GAMESCOPE_DISABLE_TOUCH_GESTURES=1' $GAMESCOPE_SESSION_PLUS_FILE
+	fi
+
 }
