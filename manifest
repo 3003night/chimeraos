@@ -225,7 +225,6 @@ export AUR_PACKAGES="\
 	gnome-shell-extension-transparent-top-bar-git \
 	hhd \
 	hhd-user \
-	hhd-ui \
 	hhfc-git \
 	kanit-font \
 	legendary \
