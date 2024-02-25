@@ -154,6 +154,3 @@
 [submodule "aur-pkgs/sk-chos-addon"]
 	path = aur-pkgs/sk-chos-addon
 	url = https://aur.archlinux.org/sk-chos-addon.git
-[submodule "aur-pkgs/hhd-ui"]
-	path = aur-pkgs/hhd-ui
-	url = https://aur.archlinux.org/hhd-ui.git
