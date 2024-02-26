@@ -178,7 +178,6 @@ export PACKAGES="\
 	xorg-server-xvfb \
 	xz \
 	zip \
-	zram-generator \
 	zsh \
 "
 
@@ -224,9 +223,10 @@ export AUR_PACKAGES="\
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
 	gpdconfig-git \
-	gnome-shell-extension-clipboard-indicator-git \
+	gnome-shell-extension-clipboard-indicator \
 	gnome-shell-extension-desktop-icons-ng-git \
 	gnome-shell-extension-dash-to-dock \
+	gnome-shell-extension-screen-autorotate \
 	gnome-shell-extension-transparent-top-bar-git \
 	hhd-git \
 	hhd-user \
@@ -241,7 +241,6 @@ export AUR_PACKAGES="\
 	libretro-virtualjaguar-git \
 	mutter-x11-scaling \
 	nintendo-udev \
-	nerd-fonts-sarasa-term \
 	opengamepadui-bin \
 	opengamepadui-session-git \
 	onedrive-abraunegg \
@@ -260,8 +259,6 @@ export AUR_PACKAGES="\
 	sk-boot-to-windows \
 	sk-chos-addon-git \
 	sk-chos-tool-git \
-	steam_notif_daemon \
-	steam-removable-media-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
 	waydroid \
@@ -312,7 +309,6 @@ export SERVICES="\
 	sk-chos-tool-autoupdate.timer \
 	sk-update-boot-entry \
 	sk-resume \
-	waydroid-container \
 "
 
 export USER_SERVICES="\
@@ -365,7 +361,7 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
+	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers libretro-mame
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	rm /usr/bin/dolphin-emu
@@ -376,7 +372,7 @@ postinstallhook() {
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* |
+	find /usr/share/applications/* -type f |
 		grep -v anydesk.desktop |
 		grep -v ca.desrt.dconf-editor.desktop |
 		grep -v gparted.desktop |
