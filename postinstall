@@ -16,7 +16,7 @@ postinstall_download() {
 
 	# pre download decky
 	mkdir -p $decky_path
-	DECKY_RELEASE=$(curl -s 'https://api.github.com/repos/SteamDeckHomebrew/decky-loader/releases' | jq -r "first(.[] | select(.prerelease == "true"))")
+	DECKY_RELEASE=$(curl -s 'https://api.github.com/repos/SteamDeckHomebrew/decky-loader/releases' | jq -r "first(.[])")
 	DECKY_VERSION=$(jq -r '.tag_name' <<< ${DECKY_RELEASE} )
 	DECKY_DOWNLOADURL=$(jq -r '.assets[].browser_download_url | select(endswith("PluginLoader"))' <<< ${DECKY_RELEASE})
 	curl -L $DECKY_DOWNLOADURL --output $decky_file
@@ -53,9 +53,9 @@ postinstall_download() {
 	mkdir -p $css_hhd_path
 
 	# SBP-ROG-Ally
-	git_url="https://github.com/semakusut/SBP-ROG-Ally.git"
-	git clone --depth 1 $git_url $css_hhd_path/SBP-ROG-Ally
-	sed -i 's/Armoury_Crate.png/Menu.png/g' $css_hhd_path/SBP-ROG-Ally/ally.css
+	# git_url="https://github.com/semakusut/SBP-ROG-Ally.git"
+	# git clone --depth 1 $git_url $css_hhd_path/SBP-ROG-Ally
+	# sed -i 's/Armoury_Crate.png/Menu.png/g' $css_hhd_path/SBP-ROG-Ally/ally.css
 
 	# SBP-Legion-Go-Theme
 	git_url="https://github.com/frazse/SBP-Legion-Go-Theme.git"
@@ -76,7 +76,7 @@ postinstall_download() {
 	# 其它操作
 	GAMESCOPE_SESSION_PLUS_FILE="/usr/share/gamescope-session-plus/gamescope-session-plus"
 	if [[ -f "$GAMESCOPE_SESSION_PLUS_FILE" ]]; then
-		# 关闭触摸手势
+		# 关闭 gamescope 触摸手势
 		sed -i '/export GAMESCOPE_DISABLE_ASYNC_FLIPS/a\\n# disable touch gestures\nexport GAMESCOPE_DISABLE_TOUCH_GESTURES=1' $GAMESCOPE_SESSION_PLUS_FILE
 	fi
 
