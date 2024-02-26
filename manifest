@@ -152,7 +152,6 @@ export PACKAGES="\
 	plasma-vault \
 	plasma-wayland-session \
 	podman \
-	power-profiles-daemon \
 	pulsemixer \
 	python \
 	python-inotify-simple \
@@ -194,31 +193,31 @@ export PACKAGES="\
 	xsettingsd \
 	xz \
 	zip \
-	zram-generator \
 	zsh \
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.rc4-chos1-2/linux-chimeraos-6.8.rc4.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.rc4-chos1-2/linux-chimeraos-headers-6.8.rc4.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-libva-mesa-driver-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-mesa-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-mesa-vdpau-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-opencl-rusticl-mesa-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-vulkan-intel-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-vulkan-mesa-layers-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-vulkan-radeon-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/lib32-vulkan-swrast-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/libva-mesa-driver-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/mesa-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/mesa-vdpau-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/opencl-rusticl-mesa-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/vulkan-intel-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/vulkan-mesa-layers-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/vulkan-radeon-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0-chos1-1/vulkan-swrast-1--24.0.0.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.8-rc5-chos1-2/linux-chimeraos-6.8.rc5.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.8-rc5-chos1-2/linux-chimeraos-headers-6.8.rc5.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-libva-mesa-driver-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-mesa-vdpau-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-opencl-rusticl-mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-intel-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-mesa-layers-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-radeon-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-swrast-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/libva-mesa-driver-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/mesa-vdpau-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/opencl-rusticl-mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-intel-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-mesa-layers-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-radeon-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-swrast-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/repos/2023/06/28/extra/os/x86_64/libretro-pcsx2-11900-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/l/libretro-mame/libretro-mame-85763-1-x86_64.pkg.tar.zst \
+	https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steamdeck-kde-presets-0.21-1-any.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
@@ -272,9 +271,6 @@ export AUR_PACKAGES="\
 	sk-chos-tool-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
-	steam_notif_daemon \
-	steam-removable-media-git \
-	vulkan-nouveau-git \
 	waydroid \
 	waydroid-script-git \
 	wyvern \
@@ -323,7 +319,6 @@ export SERVICES="\
 	sk-chos-tool-autoupdate.timer \
 	sk-update-boot-entry \
 	sk-resume \
-	waydroid-container \
 "
 
 export USER_SERVICES="\
@@ -376,7 +371,7 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
+	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers libretro-mame
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	rm /usr/bin/dolphin-emu
