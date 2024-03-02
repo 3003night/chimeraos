@@ -261,7 +261,6 @@ export AUR_PACKAGES="\
 	sk-chos-addon-git \
 	sk-chos-tool-git \
 	steam_notif_daemon \
-	steam-removable-media-git \
 	waydroid \
 	waydroid-script-git \
 	wyvern \
