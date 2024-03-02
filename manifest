@@ -302,11 +302,11 @@ export SERVICES="\
 	powerstation \
 	sshd \
 	systemd-timesyncd \
-	swapfile \
 	sk-auto-keep-boot-entry \
 	sk-bind-mount \
 	sk-chos-daemon \
 	sk-chos-tool-autoupdate.timer \
+	sk-mkswapfile \
 	sk-update-boot-entry \
 	sk-resume \
 "
