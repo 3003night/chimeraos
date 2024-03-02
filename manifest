@@ -214,12 +214,14 @@ export PACKAGE_OVERRIDES="\
 	https://archive.archlinux.org/repos/2023/06/28/extra/os/x86_64/libretro-pcsx2-11900-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/l/libretro-mame/libretro-mame-85763-1-x86_64.pkg.tar.zst \
 	https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steamdeck-kde-presets-0.21-1-any.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/pkgs/gamescope-plus-git-3.13.19.15.g1a05968-1-x86_64.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
 # Which is often the same as the package name but it can be different.
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
+	asusctl \
 	antimicrox \
 	anydesk-bin \
 	ayaneo-platform-dkms-git \
