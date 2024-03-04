@@ -233,6 +233,7 @@ export AUR_PACKAGES="\
 	downgrade \
 	ds-inhibit \
 	frzr-sk \
+	gamescope-sk \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
 	gpdconfig-git \
