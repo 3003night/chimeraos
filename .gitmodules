@@ -169,3 +169,6 @@
 [submodule "aur-pkgs/asusctl"]
 	path = aur-pkgs/asusctl
 	url = https://aur.archlinux.org/asusctl.git
+[submodule "aur-pkgs/gamescope-sk"]
+	path = aur-pkgs/gamescope-sk
+	url = https://aur.archlinux.org/gamescope-sk.git
