@@ -63,15 +63,15 @@ prepare() {
   meson subprojects download
 
   # meson subprojects
-  ln -svf "$srcdir/imgui-1.89.9" subprojects
-  ln -svf "$srcdir/spdlog-1.12.0" subprojects
-  ln -svf "$srcdir/implot-0.16" subprojects
-  mkdir -p subprojects/nlohmann_json-3.10.5
-  ln -svf "$srcdir/include" subprojects/nlohmann_json-3.10.5/
-  ln -svf "$srcdir/single_include" subprojects/nlohmann_json-3.10.5/
-  ln -svf "$srcdir/LICENSE.MIT" subprojects/nlohmann_json-3.10.5/
-  ln -svf "$srcdir/meson.build" subprojects/nlohmann_json-3.10.5/
-  ln -svf "$srcdir/Vulkan-Headers-1.2.158" subprojects
+  # ln -svf "$srcdir/imgui-1.89.9" subprojects
+  # ln -svf "$srcdir/spdlog-1.12.0" subprojects
+  # ln -svf "$srcdir/implot-0.16" subprojects
+  # mkdir -p subprojects/nlohmann_json-3.10.5
+  # ln -svf "$srcdir/include" subprojects/nlohmann_json-3.10.5/
+  # ln -svf "$srcdir/single_include" subprojects/nlohmann_json-3.10.5/
+  # ln -svf "$srcdir/LICENSE.MIT" subprojects/nlohmann_json-3.10.5/
+  # ln -svf "$srcdir/meson.build" subprojects/nlohmann_json-3.10.5/
+  # ln -svf "$srcdir/Vulkan-Headers-1.2.158" subprojects
 }
 
 build() {
