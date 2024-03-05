@@ -35,6 +35,12 @@ if [ -n "$1" ]; then
 	BUILD_ID="${1}"
 fi
 
+export BUILD_ID=${BUILD_ID}
+export VERSION=${VERSION}
+export DISPLAY_VERSION=${DISPLAY_VERSION}
+export LSB_VERSION=${LSB_VERSION}
+export VERSION_NUMBER=${VERSION_NUMBER}
+
 MOUNT_PATH=/tmp/${SYSTEM_NAME}-build
 BUILD_PATH=${MOUNT_PATH}/subvolume
 SNAP_PATH=${MOUNT_PATH}/${SYSTEM_NAME}-${VERSION}
@@ -100,12 +106,20 @@ fi
 echo "Free space"
 df -h
 
-IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.xz"
+COMRESS_ON_THE_FLY=false
 
 btrfs subvolume snapshot -r ${BUILD_PATH} ${SNAP_PATH}
 
 if [ -z "${NO_COMPRESS}" ]; then
-	btrfs send ${SNAP_PATH} | xz -9 -T0 > ${IMG_FILENAME}
+	if [[ $COMRESS_ON_THE_FLY == true ]];then
+		IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.xz"
+		btrfs send ${SNAP_PATH} | xz -9 -T0 > ${IMG_FILENAME}
+	else
+		IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.gz"
+		btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
+		tar -c -I"xz -9 -T0" -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
+		rm ${SYSTEM_NAME}-${VERSION}.img
+	fi
 else
 	btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
 fi
