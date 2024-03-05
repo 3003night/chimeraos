@@ -115,7 +115,7 @@ if [ -z "${NO_COMPRESS}" ]; then
 		IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.xz"
 		btrfs send ${SNAP_PATH} | xz -9 -T0 > ${IMG_FILENAME}
 	else
-		IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.gz"
+		IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.xz"
 		btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
 		tar -c -I"xz -9 -T0" -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
 		rm ${SYSTEM_NAME}-${VERSION}.img
