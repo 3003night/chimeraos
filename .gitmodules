@@ -160,3 +160,6 @@
 [submodule "aur-pkgs/gamescope-sk"]
 	path = aur-pkgs/gamescope-sk
 	url = https://aur.archlinux.org/gamescope-sk.git
+[submodule "aur-pkgs/bmi160-aya-neo-dkms-git"]
+	path = aur-pkgs/bmi160-aya-neo-dkms-git
+	url = https://aur.archlinux.org/bmi160-aya-neo-dkms-git.git
