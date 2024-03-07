@@ -157,6 +157,7 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-inotify-simple \
+	qtractor \
 	retroarch \
 	rsync \
 	screen \
