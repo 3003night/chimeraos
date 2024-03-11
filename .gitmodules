@@ -7,9 +7,6 @@
 [submodule "aur-pkgs/boxtron"]
 	path = aur-pkgs/boxtron
 	url = https://aur.archlinux.org/boxtron.git
-[submodule "aur-pkgs/chimera"]
-	path = aur-pkgs/chimera
-	url = https://aur.archlinux.org/chimera.git
 [submodule "aur-pkgs/downgrade"]
 	path = aur-pkgs/downgrade
 	url = https://aur.archlinux.org/downgrade.git
@@ -28,21 +25,6 @@
 [submodule "aur-pkgs/lib32-gperftools"]
 	path = aur-pkgs/lib32-gperftools
 	url = https://aur.archlinux.org/lib32-gperftools.git
-[submodule "aur-pkgs/libretro-dosbox-pure-git"]
-	path = aur-pkgs/libretro-dosbox-pure-git
-	url = https://aur.archlinux.org/libretro-dosbox-pure-git.git
-[submodule "aur-pkgs/libretro-opera-git"]
-	path = aur-pkgs/libretro-opera-git
-	url = https://aur.archlinux.org/libretro-opera-git.git
-[submodule "aur-pkgs/libretro-prosystem-git"]
-	path = aur-pkgs/libretro-prosystem-git
-	url = https://aur.archlinux.org/libretro-prosystem-git.git
-[submodule "aur-pkgs/libretro-stella2014-git"]
-	path = aur-pkgs/libretro-stella2014-git
-	url = https://aur.archlinux.org/libretro-stella2014-git.git
-[submodule "aur-pkgs/libretro-virtualjaguar-git"]
-	path = aur-pkgs/libretro-virtualjaguar-git
-	url = https://aur.archlinux.org/libretro-virtualjaguar-git.git
 [submodule "aur-pkgs/nintendo-udev"]
 	path = aur-pkgs/nintendo-udev
 	url = https://aur.archlinux.org/nintendo-udev.git
