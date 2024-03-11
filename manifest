@@ -184,8 +184,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.8.rc6.chos1-2-x86_64.pkg.tar.zst \
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.8.rc6.chos1-2-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.8.sk.chos1-1-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.8.sk.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-libva-mesa-driver-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-mesa-vdpau-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
