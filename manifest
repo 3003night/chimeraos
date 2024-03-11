@@ -213,7 +213,6 @@ export AUR_PACKAGES="\
 	bmi160-aya-neo-dkms-git \
 	bmi260-dkms \
 	boxtron \
-	chimera \
 	downgrade \
 	ds-inhibit \
 	frzr-sk \
@@ -313,7 +312,6 @@ export SERVICES="\
 "
 
 export USER_SERVICES="\
-	chimera.service \
 	pipewire \
 	sk-chos-user-daemon \
 	sk-first-run-daemon \
