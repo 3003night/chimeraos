@@ -117,6 +117,7 @@ export PACKAGES="\
 	networkmanager \
 	nfs-utils \
 	nmon \
+	noto-fonts-cjk \
 	noto-fonts-emoji \
 	nss-mdns \
 	ntfs-3g \
@@ -153,6 +154,7 @@ export PACKAGES="\
 	tree \
 	tar \
 	tree \
+	ttf-dejavu \
 	ttf-liberation \
 	unace \
 	unrar \
@@ -242,7 +244,6 @@ export AUR_PACKAGES="\
 	ryzenadj-git \
 	steam_notif_daemon \
 	steam-removable-media-git \
-	wyvern \
 	sk-boot-to-windows \
 	sk-chos-addon \
 	sk-chos-tool \
