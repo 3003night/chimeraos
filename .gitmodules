@@ -94,9 +94,6 @@
 [submodule "aur-pkgs/mutter-x11-scaling"]
 	path = aur-pkgs/mutter-x11-scaling
 	url = https://aur.archlinux.org/mutter-x11-scaling.git
-[submodule "aur-pkgs/nerd-fonts-sarasa-term"]
-	path = aur-pkgs/nerd-fonts-sarasa-term
-	url = https://aur.archlinux.org/nerd-fonts-sarasa-term.git
 [submodule "aur-pkgs/onedrive-abraunegg"]
 	path = aur-pkgs/onedrive-abraunegg
 	url = https://aur.archlinux.org/onedrive-abraunegg.git
