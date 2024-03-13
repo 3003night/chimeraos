@@ -235,7 +235,6 @@ export AUR_PACKAGES="\
 	steam_notif_daemon \
 	steam-removable-media-git \
 	sk-boot-to-windows \
-	sk-chos-addon \
 	sk-chos-tool \
 	waydroid \
 	waydroid-script-git \

@@ -139,9 +139,6 @@
 [submodule "aur-pkgs/kanit-font"]
 	path = aur-pkgs/kanit-font
 	url = https://aur.archlinux.org/kanit-font.git
-[submodule "aur-pkgs/sk-chos-addon"]
-	path = aur-pkgs/sk-chos-addon
-	url = https://aur.archlinux.org/sk-chos-addon.git
 [submodule "aur-pkgs/gnome-shell-extension-screen-autorotate"]
 	path = aur-pkgs/gnome-shell-extension-screen-autorotate
 	url = https://aur.archlinux.org/gnome-shell-extension-screen-autorotate.git
