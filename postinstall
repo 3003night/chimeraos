@@ -54,11 +54,6 @@ postinstall_download() {
 	# pre download hhd css themes
 	mkdir -p $css_hhd_path
 
-	# SBP-ROG-Ally
-	# git_url="https://github.com/semakusut/SBP-ROG-Ally.git"
-	# git clone --depth 1 $git_url $css_hhd_path/SBP-ROG-Ally
-	# sed -i 's/Armoury_Crate.png/Menu.png/g' $css_hhd_path/SBP-ROG-Ally/ally.css
-
 	# SBP-Legion-Go-Theme
 	git_url="https://github.com/frazse/SBP-Legion-Go-Theme.git"
 	if [ -d $css_hhd_path/SBP-Legion-Go-Theme ]; then
