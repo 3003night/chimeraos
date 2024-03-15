@@ -3,6 +3,8 @@
 set -e
 set -x
 
+source manifest
+
 pacman-key --populate
 
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
@@ -101,7 +103,7 @@ Subsystem	sftp	/usr/lib/ssh/sftp-server
 " > /etc/ssh/sshd_config
 
 echo "
-LABEL=frzr_root /          btrfs subvol=deployments/${SYSTEM_NAME}-${VERSION},ro,noatime,compress=zstd:3 0 0
+LABEL=frzr_root /          btrfs subvol=deployments/${SYSTEM_NAME}-${FULL_VERSION},ro,noatime,compress=zstd:3 0 0
 LABEL=frzr_root /var       btrfs subvol=var,rw,noatime 0 0
 LABEL=frzr_root /home      btrfs subvol=home,rw,noatime 0 0
 LABEL=frzr_root /frzr_root btrfs subvol=/,rw,noatime 0 0
