@@ -16,6 +16,11 @@ function download_decky_plugin() {
 	fi
 
 	download_url=$(curl -s $git_api_url | grep "browser_download_url" | cut -d '"' -f 4 | grep $grep_expression)
+	if [ -z "$download_url" ]; then
+		echo "download_url is empty"
+		return
+	fi
+
 	basename=$(basename $download_url)
 	ext=${basename##*.}
 	curl -L $download_url -o "${temp_decky}/${basename}"
