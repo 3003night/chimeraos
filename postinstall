@@ -15,7 +15,8 @@ function download_decky_plugin() {
 		return
 	fi
 
-	download_url=$(curl -s $git_api_url | grep "browser_download_url" | cut -d '"' -f 4 | grep $grep_expression)
+	download_url=$(curl -s $git_api_url | grep "browser_download_url" | cut -d '"' -f 4 | grep $grep_expression) || true
+	echo "download_url: $download_url"
 	if [ -z "$download_url" ]; then
 		echo "download_url is empty"
 		return
@@ -57,6 +58,9 @@ postinstall_download() {
 	# pre download decky plugins
 	mkdir -p $decky_plugin_path
 
+	# SDH-CssLoader
+	download_decky_plugin "DeckThemes/SDH-CssLoader" $decky_plugin_path "SDH-CSSLoader-Decky.zip"
+
 	# HHD-Decky
 	download_decky_plugin "hhd-dev/hhd-decky" $decky_plugin_path
 
@@ -65,9 +69,6 @@ postinstall_download() {
 
 	# HueSync
 	download_decky_plugin "honjow/HueSync" $decky_plugin_path
-
-	# SDH-CssLoader
-	download_decky_plugin "DeckThemes/SDH-CssLoader" $decky_plugin_path "SDH-CSSLoader-Decky.zip"
 
 	# ToMoon
 	download_decky_plugin "YukiCoco/ToMoon" $decky_plugin_path "tomoon.*\.zip"
