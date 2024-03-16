@@ -168,6 +168,7 @@ export PACKAGES="\
 	which \
 	wireplumber \
 	wqy-microhei \
+	xdelta3 \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gtk \
 	xdg-desktop-portal-kde \
