@@ -156,6 +156,7 @@ export PACKAGES="\
 	which \
 	wireplumber \
 	wqy-microhei \
+	xdelta3 \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gnome \
 	xdg-desktop-portal-wlr \
