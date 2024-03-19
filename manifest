@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export VERSION="46-2"
+export VERSION="46-3"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
@@ -337,7 +337,7 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
+	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers retroarch
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	# rm /usr/bin/dolphin-emu
