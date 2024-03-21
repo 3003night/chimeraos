@@ -111,7 +111,6 @@ export PACKAGES="\
 	network-manager-applet \
 	nfs-utils \
 	nmon \
-	noto-fonts-cjk \
 	noto-fonts-emoji \
 	nss-mdns \
 	ntfs-3g \
@@ -226,7 +225,6 @@ export AUR_PACKAGES="\
 	hyprshot \
 	legendary \
 	lib32-gperftools \
-	nerd-fonts-sarasa-term \
 	nintendo-udev \
 	opengamepadui-bin \
 	opengamepadui-session-git \
