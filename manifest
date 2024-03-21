@@ -4,7 +4,7 @@ export VERSION="46"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
-export SIZE="10000MB"
+export SIZE="12000MB"
 export ARCHIVE_DATE=$(date -d 'yesterday' +%Y/%m/%d)
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
@@ -71,7 +71,6 @@ export PACKAGES="\
 	intel-media-driver \
 	intel-ucode \
 	intel-undervolt \
-	jq \
 	kate \
 	kdeconnect \
 	kfind \
@@ -93,22 +92,6 @@ export PACKAGES="\
 	lib32-vulkan-icd-loader \
 	libcurl-gnutls \
 	libidn11 \
-	libretro-beetle-pce-fast \
-	libretro-beetle-psx-hw \
-	libretro-citra \
-	libretro-desmume \
-	libretro-dolphin \
-	libretro-flycast \
-	libretro-genesis-plus-gx \
-	libretro-kronos \
-	libretro-mesen-s\
-	libretro-mgba \
-	libretro-mupen64plus-next \
-	libretro-nestopia \
-	libretro-picodrive \
-	libretro-ppsspp \
-	libretro-shaders-slang \
-	libretro-snes9x \
 	libva-intel-driver \
 	libva-vdpau-driver \
 	libxcrypt-compat \
@@ -128,6 +111,7 @@ export PACKAGES="\
 	network-manager-applet \
 	nfs-utils \
 	nmon \
+	noto-fonts-cjk \
 	noto-fonts-emoji \
 	nss-mdns \
 	ntfs-3g \
@@ -145,7 +129,6 @@ export PACKAGES="\
 	python \
 	python-inotify-simple \
 	qt5ct \
-	retroarch \
 	rsync \
 	screen \
 	smartmontools \
@@ -160,6 +143,7 @@ export PACKAGES="\
 	tree \
 	tar \
 	tree \
+	ttf-dejavu \
 	ttf-liberation \
 	unace \
 	unrar \
@@ -177,6 +161,7 @@ export PACKAGES="\
 	wireplumber \
 	wofi \
 	wqy-microhei \
+	xdelta3 \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gtk \
 	xdg-desktop-portal-hyprland \
@@ -188,31 +173,28 @@ export PACKAGES="\
 	xorg-xwayland \
 	xz \
 	zip \
-	zram-generator \
 	zsh \
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.rc2-chos1-2/linux-chimeraos-6.8.rc2.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.rc2-chos1-2/linux-chimeraos-headers-6.8.rc2.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-libva-mesa-driver-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-mesa-vdpau-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-opencl-rusticl-mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-vulkan-intel-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-vulkan-mesa-layers-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-vulkan-radeon-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/lib32-vulkan-swrast-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/libva-mesa-driver-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/mesa-vdpau-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/opencl-rusticl-mesa-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/vulkan-intel-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/vulkan-mesa-layers-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/vulkan-radeon-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.0.rc3-chos1-1/vulkan-swrast-1--24.0.0.rc3.chos1-1-x86_64.pkg.tar.zst \
-	https://archive.archlinux.org/repos/2023/06/28/extra/os/x86_64/libretro-pcsx2-11900-2-x86_64.pkg.tar.zst \
-	https://archive.archlinux.org/packages/l/libretro-mame/libretro-mame-85763-1-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.8.sk.chos1-3-x86_64.pkg.tar.zst \
+	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.8.sk.chos1-3-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-libva-mesa-driver-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-mesa-vdpau-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-opencl-rusticl-mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-intel-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-mesa-layers-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-radeon-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-swrast-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/libva-mesa-driver-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/mesa-vdpau-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/opencl-rusticl-mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-intel-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-mesa-layers-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-radeon-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-swrast-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
@@ -225,26 +207,25 @@ export AUR_PACKAGES="\
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
-  	bmi260-dkms \
+	bmi160-aya-neo-dkms-git \
+	bmi260-dkms \
 	boxtron \
-	chimera \
 	downgrade \
 	ds-inhibit \
 	frzr-sk \
+	gamescope-sk \
+	gamescope-session-sk-git \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	gpdconfig-git \
 	hhd-git \
 	hhd-user \
 	hhfc-git \
+	kanit-font \
 	hyprland-git \
 	hyprshot \
 	legendary \
 	lib32-gperftools \
-	libretro-dosbox-pure-git \
-	libretro-opera-git \
-	libretro-prosystem-git \
-	libretro-stella2014-git \
-	libretro-virtualjaguar-git \
 	nerd-fonts-sarasa-term \
 	nintendo-udev \
 	opengamepadui-bin \
@@ -262,15 +243,13 @@ export AUR_PACKAGES="\
 	rtl88x2bu-dkms-git \
 	rtl8821au-dkms-git \
 	ryzenadj-git \
-	steam_notif_daemon \
-	steam-removable-media-git \
-	sk-chos-tool \
 	sk-boot-to-windows \
+	sk-chos-tool-git \
+	steam_notif_daemon \
 	tofi \
 	waydroid \
 	waydroid-script-git \
 	wlogout-git \
-	wyvern \
 	yay-bin \
 	zenergy-dkms-git \
 "
@@ -285,6 +264,7 @@ export PACKAGES_TO_DELETE="\
 	pulseaudio \
 	pulseaudio-alsa \
 "
+export OWN_PACKAGES_TO_DELETE=""
 
 export AUR_PACKAGES_TO_DELETE="\
 	gamescope-session-git-r*.pkg.tar.zst \
@@ -299,7 +279,6 @@ export SERVICES="\
 	ds-inhibit \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
-	getty@tty3 \
 	handycon \
 	haveged \
 	hostname-fix \
@@ -312,18 +291,16 @@ export SERVICES="\
 	swapfile \
 	sk-auto-keep-boot-entry \
 	sk-bind-mount \
+	sk-chos-daemon \
 	sk-chos-tool-autoupdate.timer \
 	sk-update-boot-entry \
 	sk-resume \
-	waydroid-container \
 "
 
 export USER_SERVICES="\
-	chimera.service \
-	clear-gamescope-modes \
 	pipewire \
+	sk-chos-user-daemon \
 	sk-first-run-daemon \
-	steam-patch.service \
 "
 
 export FILES_TO_DELETE="\
@@ -342,20 +319,16 @@ postinstallhook() {
 	# Add sudo permissions
 	sed -i '/%wheel ALL=(ALL:ALL) ALL/s/^# //g' /etc/sudoers
 	echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/dmidecode -t 11
-	" > /etc/sudoers.d/steam
+	" >/etc/sudoers.d/steam
 	echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-gamescope
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
-	" > /etc/sudoers.d/chimera
-	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/${USERNAME}"
+	" >/etc/sudoers.d/chimera
+	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >"/etc/sudoers.d/${USERNAME}"
 
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
-	
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
-
-	sed -i "s/# export STEAM_GAMESCOPE_COLOR_MANAGED=1/export STEAM_GAMESCOPE_COLOR_MANAGED=1/" /usr/share/gamescope-session-plus/gamescope-session-plus
-
 	sed -i "s/#SuspendEstimationSec=60min/SuspendEstimationSec=30min/" /etc/systemd/sleep.conf
 
 	# disable retroarch menu in joypad configs
@@ -372,34 +345,42 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
+	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers retroarch
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
-	rm /usr/bin/dolphin-emu
-	rm /usr/bin/dolphin-emu-nogui
+	# rm /usr/bin/dolphin-emu
+	# rm /usr/bin/dolphin-emu-nogui
 	# dolphin-tool is no longer created in new builds?
-	#rm /usr/bin/dolphin-tool
-	rm /usr/share/applications/dolphin-emu.desktop
+	# rm /usr/bin/dolphin-tool
+	# rm /usr/share/applications/dolphin-emu.desktop
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	# find /usr/share/applications/* | \
-	# grep -v anydesk.desktop | \
-	# grep -v "ibus*\.desktop" | \
-	# grep -v "onboard.*\.desktop" | \
-	# grep -v org.chimeraos.Gamescope.desktop | \
-	# grep -v org.chimeraos.app.desktop | \
-	# grep -v "org.kde\..*\.desktop" | \
-	# grep -v "org.fcitx\..*\.desktop" | \
-	# grep -v protonup-qt.desktop | \
-	# grep -v steam.desktop | \
-	# grep -v sk-chos-tool.desktop | \
-	# grep -v sk-chos-tool-command.desktop | \
-	# grep -v v2raya.desktop | \
-	# grep -v waydroid.app.install.desktop | \
-	# grep -v waydroid.market.desktop | \
-	# grep -v Waydroid.desktop | \
-	# xargs -I {} sh -c "echo NoDisplay=true >> {}"
+	find /usr/share/applications/* | \
+	grep -v anydesk.desktop | \
+	grep -v ca.desrt.dconf-editor.desktop | \
+	grep -v gparted.desktop | \
+	grep -v org.chimeraos.Gamescope.desktop | \
+	grep -v org.chimeraos.app.desktop | \
+	grep -v org.gnome.Console.desktop | \
+	grep -v org.gnome.DiskUtility.desktop | \
+	grep -v org.gnome.FileRoller.desktop | \
+	grep -v org.gnome.Nautilus.desktop | \
+	grep -v org.gnome.Settings.desktop | \
+	grep -v org.gnome.Software.desktop | \
+	grep -v org.gnome.TextEditor.desktop | \
+	grep -v org.gnome.tweaks.desktop | \
+	grep -v org.gnome.Extensions.desktop | \
+	grep -v protonup-qt.desktop | \
+	grep -v protontricks.desktop | \
+	grep -v steam.desktop | \
+	grep -v sk-chos-tool.desktop | \
+	grep -v sk-chos-tool-command.desktop | \
+	grep -v com.github.tchx84.Flatseal.desktop | \
+	grep -v waydroid.app.install.desktop | \
+	grep -v waydroid.market.desktop | \
+	grep -v Waydroid.desktop | \
+	xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
@@ -407,4 +388,3 @@ postinstallhook() {
 	# set permissions for intel_gpu_top and mangohud
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
 }
-
