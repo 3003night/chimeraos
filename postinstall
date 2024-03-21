@@ -3,14 +3,45 @@
 set -e
 set -x
 
+function download_decky_plugin() {
+	local git_api_url="https://api.github.com/repos/$1/releases/latest"
+	local decky_plugin_path=$2
+	local grep_expression=${3:-".tar.gz"}
+
+	local temp_decky=$(mktemp -d)
+
+	if [ -z "$temp_decky" ]; then
+		echo "temp_decky is empty"
+		return
+	fi
+
+	download_url=$(curl -s $git_api_url | grep "browser_download_url" | cut -d '"' -f 4 | grep $grep_expression) || true
+	echo "download_url: $download_url"
+	if [ -z "$download_url" ]; then
+		echo "download_url is empty"
+		return
+	fi
+
+	basename=$(basename $download_url)
+	ext=${basename##*.}
+	curl -L $download_url -o "${temp_decky}/${basename}"
+
+	if [[ "$ext" == "gz" && "$basename" =~ ".tar.gz" ]]; then
+		tar -xzvf "${temp_decky}/${basename}" -C $decky_plugin_path
+	elif [ "$ext" == "zip" ]; then
+		unzip -o "${temp_decky}/${basename}" -d $decky_plugin_path
+	fi
+
+	rm -rf $temp_decky
+}
+
 postinstall_download() {
-    # pre download some
+	# pre download some
 	pre_path=/usr/local/share/sk-pre
 	decky_path=$pre_path/decky
 	decky_file=$decky_path/PluginLoader
 	decky_version_file=$decky_path/.loader.version
 	decky_plugin_path=$pre_path/decky-plugins
-	decky_plugin_hhd_path=$pre_path/decky-plugin-hhd
 	css_path=$pre_path/css
 	css_hhd_path=$pre_path/css-hhd
 
@@ -19,45 +50,36 @@ postinstall_download() {
 	# pre download decky
 	mkdir -p $decky_path
 	DECKY_RELEASE=$(curl -s 'https://api.github.com/repos/SteamDeckHomebrew/decky-loader/releases' | jq -r "first(.[])")
-	DECKY_VERSION=$(jq -r '.tag_name' <<< ${DECKY_RELEASE} )
-	DECKY_DOWNLOADURL=$(jq -r '.assets[].browser_download_url | select(endswith("PluginLoader"))' <<< ${DECKY_RELEASE})
+	DECKY_VERSION=$(jq -r '.tag_name' <<<${DECKY_RELEASE})
+	DECKY_DOWNLOADURL=$(jq -r '.assets[].browser_download_url | select(endswith("PluginLoader"))' <<<${DECKY_RELEASE})
 	curl -L $DECKY_DOWNLOADURL --output $decky_file
-	echo $DECKY_VERSION > $decky_version_file
-
-	# pre download HHD-Dekcy plugin
-	mkdir -p $decky_plugin_hhd_path
-	temp_hhd=$(mktemp -d)
-	curl -L $(curl -s "https://api.github.com/repos/hhd-dev/hhd-decky/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_hhd/hhd-decky.tar.gz
-	tar -xzvf $temp_hhd/hhd-decky.tar.gz -C $decky_plugin_hhd_path
-	rm -rf $temp_hhd
+	echo $DECKY_VERSION >$decky_version_file
 
 	# pre download decky plugins
 	mkdir -p $decky_plugin_path
-	temp_decky=$(mktemp -d)
-	# PowerControl
-	curl -L $(curl -s "https://api.github.com/repos/mengmeet/PowerControl/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_decky/powercontrol.tar.gz
-	tar -xzvf $temp_decky/powercontrol.tar.gz -C $decky_plugin_path
-	# HueSync
-	curl -L $(curl -s "https://api.github.com/repos/honjow/HueSync/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4) -o $temp_decky/huesync.tar.gz
-	tar -xzvf $temp_decky/huesync.tar.gz -C $decky_plugin_path
-	# SDH-CssLoader
-	curl -L $(curl -s "https://api.github.com/repos/DeckThemes/SDH-CssLoader/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4 | grep "SDH-CSSLoader-Decky.zip") -o $temp_decky/SDH-CSSLoader-Decky.zip
-	unzip -o $temp_decky/SDH-CSSLoader-Decky.zip -d $decky_plugin_path
-	# ToMoon
-	curl -L $(curl -s "https://api.github.com/repos/YukiCoco/ToMoon/releases/latest" | grep "browser_download_url" | cut -d '"' -f 4 | grep "tomoon.*\.zip") -o $temp_decky/tomoon.zip
-	unzip -o $temp_decky/tomoon.zip -d $decky_plugin_path
 
-	rm -rf $temp_decky
+	# SDH-CssLoader
+	download_decky_plugin "DeckThemes/SDH-CssLoader" $decky_plugin_path "SDH-CSSLoader-Decky.zip"
+
+	# HHD-Decky
+	download_decky_plugin "hhd-dev/hhd-decky" $decky_plugin_path
+
+	# PowerControl
+	download_decky_plugin "mengmeet/PowerControl" $decky_plugin_path
+
+	# HueSync
+	download_decky_plugin "honjow/HueSync" $decky_plugin_path
+
+	# ToMoon
+	download_decky_plugin "YukiCoco/ToMoon" $decky_plugin_path "tomoon.*\.zip"
+
+	# GPD-WinControl
+	download_decky_plugin "honjow/GPD-WinControl" $decky_plugin_path
 
 	# pre download css themes
 
 	# pre download hhd css themes
 	mkdir -p $css_hhd_path
-
-	# SBP-ROG-Ally
-	# git_url="https://github.com/semakusut/SBP-ROG-Ally.git"
-	# git clone --depth 1 $git_url $css_hhd_path/SBP-ROG-Ally
-	# sed -i 's/Armoury_Crate.png/Menu.png/g' $css_hhd_path/SBP-ROG-Ally/ally.css
 
 	# SBP-Legion-Go-Theme
 	git_url="https://github.com/frazse/SBP-Legion-Go-Theme.git"
@@ -65,7 +87,7 @@ postinstall_download() {
 		rm -rf $css_hhd_path/SBP-Legion-Go-Theme
 	fi
 	git clone --depth 1 $git_url $css_hhd_path/SBP-Legion-Go-Theme
-	echo '{"active": true, "Apply": "Legion-Go-Theme"}' > $css_hhd_path/SBP-Legion-Go-Theme/config_USER.json
+	echo '{"active": true, "Apply": "Legion-Go-Theme"}' >$css_hhd_path/SBP-Legion-Go-Theme/config_USER.json
 
 	# PSBP-PS5-to-Handheld
 	git_url="https://github.com/honjow/SBP-PS5-to-Handheld.git"
@@ -74,15 +96,14 @@ postinstall_download() {
 	fi
 	git clone --depth 1 $git_url $css_hhd_path/SBP-PS5-to-Handheld
 
-
 	# zsh pre download
 	mkdir -p $zsh_path
+	rm -rf $zsh_path/*
 	git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git $zsh_path/ohmyzsh
 	git clone --depth 1 https://github.com/zdharma-continuum/fast-syntax-highlighting "$zsh_path/ohmyzsh/custom/plugins/fast-syntax-highlighting"
 	cp $zsh_path/ohmyzsh/templates/zshrc.zsh-template $zsh_path/.zshrc
 	sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' $zsh_path/.zshrc
 	sed -i 's/plugins=(git)/plugins=(git sudo z fast-syntax-highlighting)/g' $zsh_path/.zshrc
-
 
 	# 其它操作
 	GAMESCOPE_SESSION_PLUS_FILE="/usr/share/gamescope-session-plus/gamescope-session-plus"
