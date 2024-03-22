@@ -136,6 +136,7 @@ export PACKAGES="\
 	plasma-pa \
 	plasma-thunderbolt \
 	plasma-vault \
+	plasma-wayland-session \
 	podman \
 	pulsemixer \
 	python \
