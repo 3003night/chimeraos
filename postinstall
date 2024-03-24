@@ -76,6 +76,9 @@ postinstall_download() {
 	# GPD-WinControl
 	download_decky_plugin "honjow/GPD-WinControl" $decky_plugin_path
 
+	# decky-sk-box
+	download_decky_plugin "honjow/decky-sk-box" $decky_plugin_path
+
 	# pre download css themes
 
 	# pre download hhd css themes
