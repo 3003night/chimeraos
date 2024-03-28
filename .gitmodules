@@ -142,3 +142,6 @@
 [submodule "aur-pkgs/bmi160-aya-neo-dkms-git"]
 	path = aur-pkgs/bmi160-aya-neo-dkms-git
 	url = https://aur.archlinux.org/bmi160-aya-neo-dkms-git.git
+[submodule "aur-pkgs/evdev-keepalive"]
+	path = aur-pkgs/evdev-keepalive
+	url = https://aur.archlinux.org/evdev-keepalive.git

@@ -141,6 +141,7 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-inotify-simple \
+	qtractor \
 	rsync \
 	screen \
 	smartmontools \
@@ -214,6 +215,7 @@ export AUR_PACKAGES="\
 	boxtron \
 	downgrade \
 	ds-inhibit \
+	evdev-keepalive \
 	frzr-sk \
 	gamescope-sk \
 	gamescope-session-sk-git \
