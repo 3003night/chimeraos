@@ -129,6 +129,7 @@ export PACKAGES="\
 	python \
 	python-inotify-simple \
 	papirus-icon-theme \
+	qtractor \
 	rsync \
 	screen \
 	smartmontools \
