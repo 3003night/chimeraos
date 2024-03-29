@@ -24,7 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: recursive 
+          submodules: recursive
+      - run: git submodule update --recursive --remote aur-pkgs 
       - id: set-aur-pkgs
         run: echo "matrix=$(ls -d aur-pkgs/*/ | jq -R -s -c 'split("\n")[:-1]')" >> $GITHUB_OUTPUT
         shell: bash
