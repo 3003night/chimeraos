@@ -62,6 +62,7 @@ export PACKAGES="\
 	gnome-tweaks \
 	gnome-shell-extensions \
 	gnome-menus \
+	gparted \
 	gst-plugin-pipewire \
 	gvfs-smb \
 	gzip \
