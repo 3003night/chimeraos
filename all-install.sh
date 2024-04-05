@@ -151,6 +151,7 @@ if [ ${KERNEL_PACKAGE} != 'linux' ] ; then
 	mv /boot/vmlinuz-${KERNEL_PACKAGE} /boot/vmlinuz-linux
 	mv /boot/initramfs-${KERNEL_PACKAGE}.img /boot/initramfs-linux.img
 	mv /boot/initramfs-${KERNEL_PACKAGE}-fallback.img /boot/initramfs-linux-fallback.img
+	rm /etc/mkinitcpio.d/${KERNEL_PACKAGE}.preset
 fi
 
 # clean up/remove unnecessary files
