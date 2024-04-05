@@ -123,6 +123,7 @@ export PACKAGES="\
 	ntfs-3g \
 	onboard \
 	openal \
+	openrazer-daemon \
 	openssh \
 	p7zip \
 	partitionmanager \
@@ -142,6 +143,7 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-inotify-simple \
+	python-notify2 \
 	qtractor \
 	rsync \
 	screen \
