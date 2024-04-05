@@ -77,7 +77,7 @@ passwd --lock root
 
 # create user
 groupadd -r autologin
-useradd -m ${USERNAME} -G autologin,wheel,i2c,input
+useradd -m ${USERNAME} -G autologin,wheel,i2c,input,plugdev
 echo "${USERNAME}:${USERNAME}" | chpasswd
 
 # set the default editor, so visudo works
@@ -103,11 +103,10 @@ Subsystem	sftp	/usr/lib/ssh/sftp-server
 " > /etc/ssh/sshd_config
 
 echo "
-LABEL=frzr_root /          btrfs subvol=deployments/${SYSTEM_NAME}-${FULL_VERSION},ro,noatime,nodatacow 0 0
 LABEL=frzr_root /var       btrfs subvol=var,rw,noatime,nodatacow 0 0
 LABEL=frzr_root /home      btrfs subvol=home,rw,noatime,nodatacow 0 0
 LABEL=frzr_root /frzr_root btrfs subvol=/,rw,noatime,nodatacow 0 0
-LABEL=frzr_efi  /boot      vfat  rw,noatime,nofail  0 0
+overlayfs       /etc       overlayfs defaults,x-depends-on=/frzr_root,lowerdir=/etc,upperdir=/frzr_root/etc,workdir=/frzr_root/.etc,comment=etcoverlay 0 2
 " > /etc/fstab
 
 echo "
@@ -151,6 +150,7 @@ if [ ${KERNEL_PACKAGE} != 'linux' ] ; then
 	mv /boot/vmlinuz-${KERNEL_PACKAGE} /boot/vmlinuz-linux
 	mv /boot/initramfs-${KERNEL_PACKAGE}.img /boot/initramfs-linux.img
 	mv /boot/initramfs-${KERNEL_PACKAGE}-fallback.img /boot/initramfs-linux-fallback.img
+	rm /etc/mkinitcpio.d/${KERNEL_PACKAGE}.preset
 fi
 
 # clean up/remove unnecessary files
@@ -164,7 +164,8 @@ rm -rf \
 rm -rf ${FILES_TO_DELETE}
 
 # create necessary directories
-mkdir /home
-mkdir /var
-mkdir /frzr_root
-mkdir /nix
+mkdir -p /home
+mkdir -p /var
+mkdir -p /frzr_root
+mkdir -p /efi
+mkdir -p /nix

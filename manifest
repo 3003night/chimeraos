@@ -119,6 +119,7 @@ export PACKAGES="\
 	nss-mdns \
 	ntfs-3g \
 	openal \
+	openrazer-daemon \
 	openssh \
 	p7zip \
 	pipewire \
@@ -129,6 +130,7 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-inotify-simple \
+	python-notify2 \
 	papirus-icon-theme \
 	qtractor \
 	rsync \
