@@ -103,10 +103,10 @@ Subsystem	sftp	/usr/lib/ssh/sftp-server
 " > /etc/ssh/sshd_config
 
 echo "
-LABEL=frzr_root /var       btrfs subvol=var,rw,noatime,nodatacow 0 0
-LABEL=frzr_root /home      btrfs subvol=home,rw,noatime,nodatacow 0 0
-LABEL=frzr_root /frzr_root btrfs subvol=/,rw,noatime,nodatacow 0 0
-overlayfs       /etc       overlayfs defaults,x-depends-on=/frzr_root,lowerdir=/etc,upperdir=/frzr_root/etc,workdir=/frzr_root/.etc,comment=etcoverlay 0 2
+LABEL=frzr_root /var       btrfs subvol=var,rw,noatime,nodatacow,nofail  0 0
+LABEL=frzr_root /home      btrfs subvol=home,rw,noatime,nodatacow,nofail  0 0
+LABEL=frzr_root /frzr_root btrfs subvol=/,rw,noatime,nodatacow,x-initrd  0 2
+overlay         /etc       overlay noauto,x-depends-on=/frzr_root,x-systemd.automount,lowerdir=/etc,upperdir=/frzr_root/etc,workdir=/frzr_root/.etc,comment=etcoverlay    0   0
 " > /etc/fstab
 
 echo "
