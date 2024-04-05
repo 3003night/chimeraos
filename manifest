@@ -368,6 +368,7 @@ postinstallhook() {
 		grep -v org.gnome.tweaks.desktop |
 		grep -v org.gnome.Extensions.desktop |
 		grep -v protonup-qt.desktop |
+		grep -v rog-control-center.desktop |
 		grep -v steam.desktop |
 		grep -v sk-chos-tool.desktop |
 		grep -v sk-chos-tool-command.desktop |
