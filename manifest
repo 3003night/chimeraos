@@ -315,7 +315,6 @@ export FILES_TO_DELETE="\
 	/usr/share/libretro/autoconfig/udev/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg \
 	/usr/share/libretro/autoconfig/udev/Xbox_360_Wireless_Receiver_Chinese01.cfg \
 	/usr/share/man \
-	/etc/xdg/kcm-about-distrorc \
 "
 
 postinstallhook() {
@@ -350,6 +349,13 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
 	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers retroarch gnome-shell-extension-asusctl-gnome
+
+	# Remove files from steamdeck-kde-presets
+	rm -f /etc/xdg/kcm-about-distrorc || true
+	rm -f /etc/xdg/plasma-workspace/env/ibus.sh || true
+	rm -f /etc/xdg/autostart/ibus.desktop || true
+	rm -f /etc/X11/Xsession.d/50rotate-screen || true
+	rm -f /etc/sddm.conf.d/steamdeck.conf || true
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	# rm /usr/bin/dolphin-emu
