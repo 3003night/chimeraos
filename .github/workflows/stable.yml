@@ -7,7 +7,7 @@ env:
 on:
   push:
     branches:
-      - 'sk-plasma-**'
+      - 'sk-plasma*-**'
   workflow_dispatch:
 
 jobs:
@@ -98,4 +98,4 @@ jobs:
     name: Build ChimeraOS STABLE image
     uses: ./.github/workflows/build-system-image.yml
     with:
-      postfix: "[PLASMA-PRE]"
+      postfix: "[PLASMA6-PRE]"
