@@ -70,7 +70,6 @@ function check_sentinel()
 if CONFIGURED_CHAINED_SESSION=$(check_sentinel); then
   # We found and consumed the oneshot sentinel, proceed to launch plasma
   echo >&2 "$0: Found and removed sentinel file for one-shot desktop, proceeding to launch"
-  PRODUCT_NAME="$(cat /sys/devices/virtual/dmi/id/product_name)"
   exec "$CONFIGURED_CHAINED_SESSION"
 else
   if CONFIGURED_RETURN_SESSION=$(check_return); then
