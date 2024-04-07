@@ -1,0 +1,9 @@
+#! /bin/bash
+
+sed -i "/Session/c\Session=$1" /etc/sddm.conf.d/10-chimeraos-session.conf
+# if lightdm is enabled, disable it
+if systemctl is-enabled lightdm &> /dev/null; then
+    systemctl disable lightdm
+fi
+systemctl enable sddm
+setsid sh -c 'exec systemctl restart sddm <> /dev/tty6 >&0 2>&1'

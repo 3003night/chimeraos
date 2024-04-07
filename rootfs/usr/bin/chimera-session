@@ -3,7 +3,7 @@
 DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 SESSION_CONFIG="${CONFIG_HOME}/environment.d/01-chimera-session.conf"
-SESSION_LIGHTDM_CONFIG="/etc/lightdm/lightdm.conf.d/10-chimeraos-session.conf"
+SESSION_LIGHTDM_CONFIG="/etc/sddm.conf.d/10-chimeraos-session.conf"
 SESSION_LIST=('desktop' 'desktop-xorg' 'steam' 'steam-plus' 'opengamepadui')
 SELECTED_SESSION="$1"
 
@@ -53,34 +53,34 @@ function desktop() {
 	clean_steam_shortcuts
 
 	# switch to Desktop
-	sudo chimera-session-use-lightdm plasmawayland
+	sudo chimera-session-use-sddm plasma
 }
 
 function desktop_xorg() {
 	clean_steam_shortcuts
 
 	# switch to Desktop (Xorg)
-	sudo chimera-session-use-lightdm plasma
+	sudo chimera-session-use-sddm plasmax11
 }
 
 function gamescope_steam() {
 	# switch to Steam Big Picture UI (Gamescope/Wayland)
 	echo '' > ${SESSION_CONFIG}
-	sudo chimera-session-use-lightdm gamescope-session-steam
+	sudo chimera-session-use-sddm gamescope-session-steam
 	# sudo systemctl enable --now handycon
 }
 
 function gamescope_opengamepadui() {
 	# switch to OpengamepadUI (Gamescope/Wayland)
 	echo '' > ${SESSION_CONFIG}
-	sudo chimera-session-use-lightdm gamescope-session-opengamepadui
+	sudo chimera-session-use-sddm gamescope-session-opengamepadui
 	# sudo systemctl disable --now handycon
 }
 
 function gamescope_steam_plus() {
 	# switch to Steam plus OpengamepadUI overlay (Gamescope/Wayland)
 	echo '' > ${SESSION_CONFIG}
-	sudo chimera-session-use-lightdm gamescope-session-steam-plus
+	sudo chimera-session-use-sddm gamescope-session-steam-plus
 	# sudo systemctl disable --now handycon
 }
 
