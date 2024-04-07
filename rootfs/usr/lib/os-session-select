@@ -7,12 +7,12 @@ die() {
 	exit 1
 }
 
-CONF_FILE="/etc/lightdm/lightdm.conf.d/10-chimeraos-session.conf"
+CONF_FILE="/etc/sddm.conf.d/10-chimeraos-session.conf"
 SENTINEL_FILE="steamos-session-select"
 RETURN_SESSION_FILE="chimeraos-session-return"
 
 # For sanity this shipped file must be present, to ensure we're still on a normal-looking Chimeraos setup.
-CHECK_FILE="/etc/lightdm/lightdm.conf.d/10-chimeraos-session.conf"
+CHECK_FILE="/etc/sddm.conf.d/10-chimeraos-session.conf"
 
 session="${1:-gamescope-session-steam}"
 session_type="wayland"
@@ -98,12 +98,9 @@ if [[ $EUID != 0 ]]; then
 	exit 1
 fi
 
-{
-	echo "[Seat:*]"
-	echo "autologin-session=$session_launcher"
-} >"$CONF_FILE"
+echo -e "[Autologin]\nUser=gamer\nSession=$session_launcher" >"$CONF_FILE"
 
 echo "Updated system autologin session to $session_launcher"
-systemctl reset-failed lightdm
-setsid sh -c 'exec systemctl restart lightdm <> /dev/tty6 >&0 2>&1'
-echo "Restarted LightDM"
+systemctl reset-failed sddm
+setsid sh -c 'exec systemctl restart sddm <> /dev/tty6 >&0 2>&1'
+echo "Restarted SDDM"
