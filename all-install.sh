@@ -105,8 +105,8 @@ Subsystem	sftp	/usr/lib/ssh/sftp-server
 echo "
 LABEL=frzr_root /var       btrfs subvol=var,rw,noatime,nodatacow,nofail 0 0
 LABEL=frzr_root /home      btrfs subvol=home,rw,noatime,nodatacow,nofail 0 0
-LABEL=frzr_root /frzr_root btrfs subvol=/,rw,noatime,nodatacow,nofail 0 0
-overlay         /etc       overlay noauto,x-systemd.requires=/frzr_root,x-systemd.rw-only,lowerdir=/etc,upperdir=/frzr_root/etc,workdir=/frzr_root/.etc,comment=etcoverlay    0   0
+LABEL=frzr_root /frzr_root btrfs subvol=/,rw,noatime,nodatacow,x-initrd 0 2
+overlay         /etc       overlay noauto,x-systemd.requires=/frzr_root,x-systemd.rw-only,lowerdir=/etc,upperdir=/frzr_root/etc,workdir=/frzr_root/.etc,index=off,metacopy=off,comment=etcoverlay    0   0
 " > /etc/fstab
 
 echo "
