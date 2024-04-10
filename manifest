@@ -285,6 +285,7 @@ export SERVICES="\
 	haveged \
 	hostname-fix \
 	lightdm \
+	nix-daemon-restart \
 	overlay-fonts \
 	overlay-root-home \
 	powerstation \

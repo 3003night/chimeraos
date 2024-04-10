@@ -115,4 +115,30 @@ postinstall_download() {
 		sed -i '/export GAMESCOPE_DISABLE_ASYNC_FLIPS/a\\n# disable touch gestures\nexport GAMESCOPE_DISABLE_TOUCH_GESTURES=1' $GAMESCOPE_SESSION_PLUS_FILE
 	fi
 
+	# decky
+	HOMEBREW_FOLDER="/home/${USERNAME}/homebrew"
+	cat >"/etc/systemd/system/plugin_loader.service" <<-EOM
+[Unit]
+Description=SteamDeck Plugin Loader
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=root
+Restart=always
+ExecStart=${HOMEBREW_FOLDER}/services/PluginLoader
+WorkingDirectory=${HOMEBREW_FOLDER}/services
+KillSignal=SIGKILL
+Environment=PLUGIN_PATH=${HOMEBREW_FOLDER}/plugins
+Environment=UNPRIVILEGED_PATH=${HOMEBREW_FOLDER}
+Environment=PRIVILEGED_PATH=${HOMEBREW_FOLDER}
+Environment=LOG_LEVEL=INFO
+[Install]
+WantedBy=multi-user.target
+EOM
+
+	# 强制软链接
+	ln -sf "/usr/lib/systemd/system/hhd@.service" "/etc/systemd/system/multi-user.target.wants/hhd@${USERNAME}.service"
+	ln -sf "/etc/systemd/system/plugin_loader.service" "/etc/systemd/system/multi-user.target.wants/plugin_loader.service"
+
 }
