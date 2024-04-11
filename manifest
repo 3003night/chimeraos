@@ -172,18 +172,24 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-6.8.5.sk.chos1-2-x86_64.pkg.tar.zst \
-	http://honjow.cn:5044/file/Cloud189/sk-kernel/linux-chimeraos-headers-6.8.5.sk.chos1-2-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-libva-mesa-driver-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-mesa-vdpau-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-intel-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/lib32-vulkan-radeon-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/libva-mesa-driver-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/mesa-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/mesa-vdpau-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-intel-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.1-chos1-1/vulkan-radeon-1--24.0.1.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.5.sk-chos1-2/linux-chimeraos-6.8.5.sk.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.8.5.sk-chos1-2/linux-chimeraos-headers-6.8.5.sk.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/lib32-libva-mesa-driver-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/lib32-mesa-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/lib32-mesa-vdpau-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/lib32-opencl-rusticl-mesa-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/lib32-vulkan-intel-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/lib32-vulkan-mesa-layers-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/lib32-vulkan-radeon-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/lib32-vulkan-swrast-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/libva-mesa-driver-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/mesa-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/mesa-vdpau-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/opencl-rusticl-mesa-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/vulkan-intel-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/vulkan-mesa-layers-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/vulkan-radeon-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.0.4-chos1-1/vulkan-swrast-1--24.0.4.chos1-1-x86_64.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
