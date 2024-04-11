@@ -58,7 +58,6 @@ export PACKAGES="\
 	gnome-software \
 	gnome-system-monitor \
 	gnome-text-editor \
-	gnome-icon-theme-extras \
 	gnome-tweaks \
 	gnome-shell-extensions \
 	gnome-menus \
