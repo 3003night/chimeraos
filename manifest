@@ -69,7 +69,6 @@ export PACKAGES="\
 	gzip \
 	haveged \
 	htop \
-	ibus-pinyin \
 	ibus-libpinyin \
 	ibus-table-chinese \
 	ibus-anthy \
@@ -224,6 +223,7 @@ export AUR_PACKAGES="\
 	hhd-git \
 	hhd-user \
 	hhfc-git \
+	ibus-pinyin \
 	kanit-font \
 	legendary \
 	lib32-gperftools \
