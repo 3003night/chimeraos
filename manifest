@@ -5,7 +5,7 @@ export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="12000MB"
-export ARCHIVE_DATE="2024/03/01"
+export ARCHIVE_DATE="2024/04/10"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -19,6 +19,7 @@ export PACKAGES="\
 	alsa-firmware \
 	alsa-utils \
 	amd-ucode \
+	at \
 	bash-completion \
 	bluedevil \
 	breeze-gtk \
@@ -59,10 +60,10 @@ export PACKAGES="\
 	gparted \
 	gst-plugin-pipewire \
 	gvfs-smb \
+	gvfs-nfs \
 	gzip \
 	haveged \
 	htop \
-	ibus-pinyin \
 	ibus-libpinyin \
 	ibus-table-chinese \
 	ibus-anthy \
@@ -211,7 +212,6 @@ export AUR_PACKAGES="\
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
-	bmi160-aya-neo-dkms-git \
 	bmi260-dkms \
 	boxtron \
 	downgrade \
@@ -226,6 +226,7 @@ export AUR_PACKAGES="\
 	hhd \
 	hhd-user \
 	hhfc-git \
+	ibus-pinyin \
 	kanit-font \
 	legendary \
 	lib32-gperftools \
@@ -274,6 +275,7 @@ export AUR_PACKAGES_TO_DELETE="\
 
 export SERVICES="\
 	NetworkManager \
+	atd \
 	avahi-daemon \
 	auto-expand-home \
 	bluetooth \
