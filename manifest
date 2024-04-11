@@ -281,6 +281,7 @@ export AUR_PACKAGES_TO_DELETE="\
 
 export SERVICES="\
 	NetworkManager \
+	atd \
 	avahi-daemon \
 	auto-expand-home \
 	bluetooth \
