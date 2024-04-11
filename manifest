@@ -27,6 +27,7 @@ export PACKAGES="\
 	bzip2 \
 	cifs-utils \
 	cpupower \
+	deepin-wallpapers \
 	diffutils \
 	dkms \
 	discover \
@@ -138,11 +139,11 @@ export PACKAGES="\
 	plasma-pa \
 	plasma-thunderbolt \
 	plasma-vault \
-	plasma-wayland-session \
 	podman \
 	pulsemixer \
 	python \
 	python-inotify-simple \
+	python-notify2 \
 	qtractor \
 	rsync \
 	screen \
@@ -357,14 +358,17 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers retroarch gnome-shell-extension-asusctl-gnome
 
 	# Remove files from steamdeck-kde-presets
 	rm -f /etc/xdg/kcm-about-distrorc || true
 	rm -f /etc/xdg/plasma-workspace/env/ibus.sh || true
 	rm -f /etc/xdg/autostart/ibus.desktop || true
+	rm -f /etc/xdg/autostart/jupiter-plasma-bootstrap.desktop || true
 	rm -f /etc/X11/Xsession.d/50rotate-screen || true
 	rm -f /etc/sddm.conf.d/steamdeck.conf || true
+	rm -f /usr/bin/jupiter-plasma-bootstrap || true
+
+	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers retroarch gnome-shell-extension-asusctl-gnome
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	# rm /usr/bin/dolphin-emu
