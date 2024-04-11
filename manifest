@@ -19,6 +19,7 @@ export PACKAGES="\
 	alsa-firmware \
 	alsa-utils \
 	amd-ucode \
+	at \
 	bash-completion \
 	broadcom-wl-dkms \
 	bzip2 \
@@ -64,6 +65,7 @@ export PACKAGES="\
 	gparted \
 	gst-plugin-pipewire \
 	gvfs-smb \
+	gvfs-nfs \
 	gzip \
 	haveged \
 	htop \
@@ -263,6 +265,7 @@ export AUR_PACKAGES_TO_DELETE="\
 
 export SERVICES="\
 	NetworkManager \
+	atd \
 	avahi-daemon \
 	auto-expand-home \
 	bluetooth \
