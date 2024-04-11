@@ -288,13 +288,13 @@ export SERVICES="\
 	handycon \
 	haveged \
 	hostname-fix \
-	lightdm \
 	overlay-fonts \
 	overlay-root-home \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
+	sddm \
 	sk-auto-keep-boot-entry \
 	sk-bind-mount \
 	sk-chos-daemon \
