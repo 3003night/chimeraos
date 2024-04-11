@@ -104,7 +104,6 @@ export PACKAGES="\
 	libva-vdpau-driver \
 	libxcrypt-compat \
 	libxss \
-	lightdm \
 	linux-firmware \
 	liquidctl \
 	logrotate \
@@ -145,6 +144,7 @@ export PACKAGES="\
 	qtractor \
 	rsync \
 	screen \
+	sddm \
 	smartmontools \
 	smbclient \
 	sof-firmware \

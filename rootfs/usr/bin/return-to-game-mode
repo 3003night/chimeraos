@@ -5,4 +5,5 @@ if [ waydroid &> /dev/null ]; then
 fi
 
 sudo sed -i "s/^NoDisplay=true/#NoDisplay=true/" /usr/share/applications/plasma-wayland.desktop
-plasma-session-oneshot
+# plasma-session-oneshot
+qdbus6 org.kde.Shutdown /Shutdown org.kde.Shutdown.logout
