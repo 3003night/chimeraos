@@ -103,11 +103,10 @@ Subsystem	sftp	/usr/lib/ssh/sftp-server
 " > /etc/ssh/sshd_config
 
 echo "
-LABEL=frzr_root /          btrfs subvol=deployments/${SYSTEM_NAME}-${FULL_VERSION},ro,noatime,nodatacow 0 0
-LABEL=frzr_root /var       btrfs subvol=var,rw,noatime,nodatacow 0 0
-LABEL=frzr_root /home      btrfs subvol=home,rw,noatime,nodatacow 0 0
-LABEL=frzr_root /frzr_root btrfs subvol=/,rw,noatime,nodatacow 0 0
-LABEL=frzr_efi  /boot      vfat  rw,noatime,nofail  0 0
+LABEL=frzr_root /var       btrfs     defaults,subvolid=256,rw,noatime,nodatacow,nofail                                                                                  0   0
+LABEL=frzr_root /home      btrfs     defaults,subvolid=257,rw,noatime,nodatacow,nofail                                                                                  0   0
+LABEL=frzr_root /frzr_root btrfs     defaults,subvolid=5,rw,noatime,nodatacow,x-initrd                                                                                  0   2
+overlay         /etc       overlay   noauto,x-systemd.requires=/frzr_root,x-systemd.rw-only,lowerdir=/etc,upperdir=/frzr_root/etc,workdir=/frzr_root/.etc,index=off,metacopy=off,comment=etcoverlay    0   0
 " > /etc/fstab
 
 echo "
@@ -151,6 +150,7 @@ if [ ${KERNEL_PACKAGE} != 'linux' ] ; then
 	mv /boot/vmlinuz-${KERNEL_PACKAGE} /boot/vmlinuz-linux
 	mv /boot/initramfs-${KERNEL_PACKAGE}.img /boot/initramfs-linux.img
 	mv /boot/initramfs-${KERNEL_PACKAGE}-fallback.img /boot/initramfs-linux-fallback.img
+	rm /etc/mkinitcpio.d/${KERNEL_PACKAGE}.preset
 fi
 
 # clean up/remove unnecessary files
@@ -164,7 +164,8 @@ rm -rf \
 rm -rf ${FILES_TO_DELETE}
 
 # create necessary directories
-mkdir /home
-mkdir /var
-mkdir /frzr_root
-mkdir /nix
+mkdir -p /home
+mkdir -p /var
+mkdir -p /frzr_root
+mkdir -p /efi
+mkdir -p /nix
