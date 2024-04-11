@@ -1,0 +1,16 @@
+[Desktop Entry]
+Exec=/usr/bin/update-return-session
+GenericName[en_US]=Update Return Session
+GenericName=Update Return Session
+Icon=system-run
+MimeType=
+Name[en_US]=Update Return Session
+Name=Update Return Session
+Path=
+StartupNotify=true
+Terminal=false
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+SESSION_FILE="/etc/lightdm/lightdm.conf.d/10-chimeraos-session.conf"
+RETURN_SESSION_FILE="$HOME/.config/chimeraos-session-return"
+
+if [[ ! -f $RETURN_SESSION_FILE ]]; then
+    echo "No return session file found"
+    exit 1
+fi
+
+RETURN_SESSION=$(cat $RETURN_SESSION_FILE)
+if [[ -z $RETURN_SESSION ]]; then
+    echo "No return session found"
+    exit 1
+fi
+echo -e "[Seat:*]\nautologin-session=$1" | sudo tee "$SESSION_FILE"

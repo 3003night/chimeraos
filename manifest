@@ -19,6 +19,7 @@ export PACKAGES="\
 	alsa-firmware \
 	alsa-utils \
 	amd-ucode \
+	at \
 	bash-completion \
 	bluedevil \
 	breeze-gtk \
@@ -214,6 +215,7 @@ export AUR_PACKAGES="\
 	asusctl \
 	antimicrox \
 	anydesk-bin \
+	atd \
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
