@@ -5,7 +5,7 @@ export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="12000MB"
-export ARCHIVE_DATE="2024/03/01"
+export ARCHIVE_DATE="2024/04/10"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -58,7 +58,6 @@ export PACKAGES="\
 	gnome-software \
 	gnome-system-monitor \
 	gnome-text-editor \
-	gnome-icon-theme-extras \
 	gnome-tweaks \
 	gnome-shell-extensions \
 	gnome-menus \
