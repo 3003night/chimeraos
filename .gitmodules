@@ -142,3 +142,6 @@
 [submodule "aur-pkgs/ibus-pinyin"]
 	path = aur-pkgs/ibus-pinyin
 	url = https://aur.archlinux.org/ibus-pinyin.git
+[submodule "aur-pkgs/moonlight-qt"]
+	path = aur-pkgs/moonlight-qt
+	url = https://aur.archlinux.org/moonlight-qt.git

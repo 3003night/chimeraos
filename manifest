@@ -239,6 +239,7 @@ export AUR_PACKAGES="\
 	kanit-font \
 	legendary \
 	lib32-gperftools \
+	moonlight-qt \
 	nintendo-udev \
 	opengamepadui-bin \
 	opengamepadui-session-git \
