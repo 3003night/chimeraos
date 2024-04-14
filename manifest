@@ -364,6 +364,8 @@ postinstallhook() {
 	find /usr/share/applications/* -type f |
 		grep -v anydesk.desktop |
 		grep -v ca.desrt.dconf-editor.desktop |
+		grep -v com.github.tchx84.Flatseal.desktop |
+		grep -v com.moonlight_stream.Moonlight.desktop |
 		grep -v gparted.desktop |
 		grep -v org.chimeraos.Gamescope.desktop |
 		grep -v org.chimeraos.app.desktop |
@@ -381,7 +383,6 @@ postinstallhook() {
 		grep -v steam.desktop |
 		grep -v sk-chos-tool.desktop |
 		grep -v sk-chos-tool-command.desktop |
-		grep -v com.github.tchx84.Flatseal.desktop |
 		grep -v waydroid.app.install.desktop |
 		grep -v waydroid.market.desktop |
 		grep -v Waydroid.desktop |
