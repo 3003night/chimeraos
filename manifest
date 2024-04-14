@@ -227,6 +227,7 @@ export AUR_PACKAGES="\
 	kanit-font \
 	legendary \
 	lib32-gperftools \
+	moonlight-qt \
 	mutter-x11-scaling \
 	nintendo-udev \
 	opengamepadui-bin \

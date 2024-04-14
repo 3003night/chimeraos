@@ -6,3 +6,4 @@ output/*
 rootfs/etc/makepkg.conf
 ./*.patch
 ./*.diff
+.history
