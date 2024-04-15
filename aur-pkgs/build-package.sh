@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 set -x
 
 sudo chown -R build:build /workdir/aur-pkgs
@@ -7,5 +8,10 @@ sudo chown -R build:build /workdir/aur-pkgs
 PIKAUR_CMD="PKGDEST=/workdir/aur-pkgs pikaur --noconfirm --build-gpgdir /etc/pacman.d/gnupg -S -P /workdir/${1}/PKGBUILD"
 PIKAUR_RUN=(bash -c "${PIKAUR_CMD}")
 "${PIKAUR_RUN[@]}"
+# if aur package is not successfully built, exit
+if [ $? -ne 0 ]; then
+    echo "Build failed. Stopping..."
+    exit -1
+fi
 # remove any epoch (:) in name, replace with -- since not allowed in artifacts
 find /workdir/aur-pkgs/*.pkg.tar* -type f -name '*:*' -execdir bash -c 'mv "$1" "${1//:/--}"' bash {} \;
