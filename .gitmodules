@@ -85,9 +85,6 @@
 [submodule "aur-pkgs/gnome-shell-extension-dash-to-dock"]
 	path = aur-pkgs/gnome-shell-extension-dash-to-dock
 	url = https://aur.archlinux.org/gnome-shell-extension-dash-to-dock.git
-[submodule "aur-pkgs/gnome-shell-extension-transparent-top-bar-git"]
-	path = aur-pkgs/gnome-shell-extension-transparent-top-bar-git
-	url = https://aur.archlinux.org/gnome-shell-extension-transparent-top-bar-git.git
 [submodule "aur-pkgs/hhd-user"]
 	path = aur-pkgs/hhd-user
 	url = https://aur.archlinux.org/hhd-user.git
