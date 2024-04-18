@@ -160,3 +160,6 @@
 [submodule "aur-pkgs/moonlight-qt"]
 	path = aur-pkgs/moonlight-qt
 	url = https://aur.archlinux.org/moonlight-qt.git
+[submodule "aur-pkgs/gnome-shell-extension-blur-my-shell"]
+	path = aur-pkgs/gnome-shell-extension-blur-my-shell
+	url = https://aur.archlinux.org/gnome-shell-extension-blur-my-shell.git

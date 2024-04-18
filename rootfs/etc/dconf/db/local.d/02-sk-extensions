@@ -1,6 +1,6 @@
 [org/gnome/shell]
 disable-user-extensions=false
-enabled-extensions=['dash-to-dock@micxgx.gmail.com','apps-menu@gnome-shell-extensions.gcampax.github.com','clipboard-indicator@tudmotu.com','ding@rastersoft.com','transparent-top-bar@ftpix.com','screen-rotate@shyzus.github.io']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com','apps-menu@gnome-shell-extensions.gcampax.github.com','clipboard-indicator@tudmotu.com','ding@rastersoft.com','transparent-top-bar@ftpix.com','screen-rotate@shyzus.github.io','blur-my-shell@aunetx']
 
 [org/gnome/shell/extensions/dash-to-dock]
 show-mounts=false

@@ -215,6 +215,7 @@ export AUR_PACKAGES="\
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
 	gpdconfig-git \
+	gnome-shell-extension-blur-my-shell \
 	gnome-shell-extension-clipboard-indicator \
 	gnome-shell-extension-desktop-icons-ng-git \
 	gnome-shell-extension-dash-to-dock \
