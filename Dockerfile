@@ -1,6 +1,15 @@
 FROM archlinux:base-devel
 LABEL contributor="shadowapex@gmail.com"
+
 COPY rootfs/etc/pacman.conf /etc/pacman.conf
+
+COPY manifest /manifest
+RUN source /manifest && \
+    echo "Server=https://asia.archive.pkgbuild.com/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" > \
+    /etc/pacman.d/mirrorlist && \
+    echo "Server=https://archive.archlinux.org/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" >> \
+    /etc/pacman.d/mirrorlist
+
 RUN echo -e "keyserver-options auto-key-retrieve" >> /etc/pacman.d/gnupg/gpg.conf && \
     # Cannot check space in chroot
     sed -i '/CheckSpace/s/^/#/g' /etc/pacman.conf && \
