@@ -226,6 +226,7 @@ export AUR_PACKAGES="\
 	ibus-pinyin \
 	kanit-font \
 	legendary \
+	lib32-extest \
 	lib32-gperftools \
 	moonlight-qt \
 	mutter-x11-scaling \
