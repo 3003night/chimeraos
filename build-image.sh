@@ -35,7 +35,9 @@ if [ -n "$1" ]; then
 	BUILD_ID="${1}"
 fi
 
-export BUILD_ID=${BUILD_ID}
+BUILD_DATE=$(date +%Y%m%d)
+
+export BUILD_ID=${BUILD_DATE}_${BUILD_ID}
 export FULL_VERSION=${VERSION}
 export DISPLAY_VERSION=${DISPLAY_VERSION}
 export LSB_VERSION=${LSB_VERSION}
