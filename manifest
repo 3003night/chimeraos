@@ -390,7 +390,8 @@ postinstallhook() {
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
 
-	cat <<EOF >/usr/bin/steam-runtime
+	# use 'EOF' to prevent shell expansion
+	cat <<'EOF' >/usr/bin/steam-runtime
 #!/bin/sh
 if [ "$XDG_SESSION_TYPE" = "wayland" ] && [ -f "/usr/lib32/libextest.so" ]; then
 	exec env LD_PRELOAD=/usr/lib32/libextest.so /usr/lib/steam/steam "$@"
