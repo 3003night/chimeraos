@@ -235,8 +235,10 @@ export AUR_PACKAGES="\
 	hhd-user \
 	hhfc-git \
 	ibus-pinyin \
+	inputplumber-bin \
 	kanit-font \
 	legendary \
+	lib32-extest \
 	lib32-gperftools \
 	moonlight-qt \
 	nintendo-udev \
@@ -384,6 +386,16 @@ postinstallhook() {
 
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
+
+	# use 'EOF' to prevent shell expansion
+	cat <<'EOF' >/usr/bin/steam-runtime
+#!/bin/sh
+if [ "$XDG_SESSION_TYPE" = "wayland" ] && [ -f "/usr/lib32/libextest.so" ]; then
+	exec env LD_PRELOAD=/usr/lib32/libextest.so /usr/lib/steam/steam "$@"
+else
+	exec /usr/lib/steam/steam "$@"
+fi
+EOF
 
 	# set permissions for intel_gpu_top and mangohud
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
