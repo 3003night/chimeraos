@@ -284,9 +284,9 @@ export SERVICES="\
 	ds-inhibit \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
-	handycon \
 	haveged \
 	hostname-fix \
+	inputplumber \
 	lightdm \
 	overlay-fonts \
 	overlay-root-home \
