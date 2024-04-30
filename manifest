@@ -224,6 +224,7 @@ export AUR_PACKAGES="\
 	hhd-user \
 	hhfc-git \
 	ibus-pinyin \
+	inputplumber-bin \
 	kanit-font \
 	legendary \
 	lib32-extest \

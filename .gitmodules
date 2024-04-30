@@ -163,3 +163,6 @@
 [submodule "aur-pkgs/lib32-extest"]
 	path = aur-pkgs/lib32-extest
 	url = https://aur.archlinux.org/lib32-extest.git
+[submodule "aur-pkgs/inputplumber-bin"]
+	path = aur-pkgs/inputplumber-bin
+	url = https://aur.archlinux.org/inputplumber-bin.git
