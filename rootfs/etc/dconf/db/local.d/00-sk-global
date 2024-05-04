@@ -27,3 +27,7 @@ download-updates-notify=false
 [org/gnome/Prompt]
 restore-session=false
 restore-window-size=false
+
+# natural-scroll 
+[org/gnome/desktop/peripherals/mouse]
+natural-scroll=true
