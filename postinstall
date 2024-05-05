@@ -109,11 +109,11 @@ postinstall_download() {
 	sed -i 's/plugins=(git)/plugins=(git sudo z fast-syntax-highlighting)/g' $zsh_path/.zshrc
 
 	# 其它操作
-	GAMESCOPE_SESSION_PLUS_FILE="/usr/share/gamescope-session-plus/gamescope-session-plus"
-	if [[ -f "$GAMESCOPE_SESSION_PLUS_FILE" ]]; then
-		# 关闭 gamescope 触摸手势
-		sed -i '/export GAMESCOPE_DISABLE_ASYNC_FLIPS/a\\n# disable touch gestures\nexport GAMESCOPE_DISABLE_TOUCH_GESTURES=1' $GAMESCOPE_SESSION_PLUS_FILE
-	fi
+	# GAMESCOPE_SESSION_PLUS_FILE="/usr/share/gamescope-session-plus/gamescope-session-plus"
+	# if [[ -f "$GAMESCOPE_SESSION_PLUS_FILE" ]]; then
+	# 	# 关闭 gamescope 触摸手势
+	# 	sed -i '/export GAMESCOPE_DISABLE_ASYNC_FLIPS/a\\n# disable touch gestures\nexport GAMESCOPE_DISABLE_TOUCH_GESTURES=1' $GAMESCOPE_SESSION_PLUS_FILE
+	# fi
 
 	# decky
 	HOMEBREW_FOLDER="/home/${USERNAME}/homebrew"
