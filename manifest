@@ -23,6 +23,7 @@ export PACKAGES="\
 	bash-completion \
 	broadcom-wl-dkms \
 	bzip2 \
+	cage \
 	cifs-utils \
 	cpupower \
 	diffutils \
