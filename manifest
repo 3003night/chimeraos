@@ -220,6 +220,7 @@ export AUR_PACKAGES="\
 	gnome-shell-extension-clipboard-indicator \
 	gnome-shell-extension-desktop-icons-ng-git \
 	gnome-shell-extension-dash-to-dock \
+	gnome-shell-extension-enhanced-osk-git \
 	gnome-shell-extension-screen-autorotate \
 	hhd \
 	hhd-user \
