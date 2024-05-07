@@ -106,9 +106,6 @@
 [submodule "aur-pkgs/yay-bin"]
 	path = aur-pkgs/yay-bin
 	url = https://aur.archlinux.org/yay-bin.git
-[submodule "aur-pkgs/bmi260-dkms"]
-	path = aur-pkgs/bmi260-dkms
-	url = https://aur.archlinux.org/bmi260-dkms.git
 [submodule "aur-pkgs/antimicrox"]
 	path = aur-pkgs/antimicrox
 	url = https://aur.archlinux.org/antimicrox.git
@@ -127,9 +124,6 @@
 [submodule "aur-pkgs/kanit-font"]
 	path = aur-pkgs/kanit-font
 	url = https://aur.archlinux.org/kanit-font.git
-[submodule "aur-pkgs/asusctl"]
-	path = aur-pkgs/asusctl
-	url = https://aur.archlinux.org/asusctl.git
 [submodule "aur-pkgs/gamescope-session-sk-git"]
 	path = aur-pkgs/gamescope-session-sk-git
 	url = https://aur.archlinux.org/gamescope-session-sk-git.git
