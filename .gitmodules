@@ -136,9 +136,6 @@
 [submodule "aur-pkgs/gnome-shell-extension-screen-autorotate"]
 	path = aur-pkgs/gnome-shell-extension-screen-autorotate
 	url = https://aur.archlinux.org/gnome-shell-extension-screen-autorotate.git
-[submodule "aur-pkgs/asusctl"]
-	path = aur-pkgs/asusctl
-	url = https://aur.archlinux.org/asusctl.git
 [submodule "aur-pkgs/gamescope-session-sk-git"]
 	path = aur-pkgs/gamescope-session-sk-git
 	url = https://aur.archlinux.org/gamescope-session-sk-git.git
