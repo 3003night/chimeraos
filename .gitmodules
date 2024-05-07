@@ -115,9 +115,6 @@
 [submodule "aur-pkgs/yay-bin"]
 	path = aur-pkgs/yay-bin
 	url = https://aur.archlinux.org/yay-bin.git
-[submodule "aur-pkgs/bmi260-dkms"]
-	path = aur-pkgs/bmi260-dkms
-	url = https://aur.archlinux.org/bmi260-dkms.git
 [submodule "aur-pkgs/antimicrox"]
 	path = aur-pkgs/antimicrox
 	url = https://aur.archlinux.org/antimicrox.git
