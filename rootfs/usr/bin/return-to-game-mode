@@ -4,6 +4,7 @@ if [ waydroid &> /dev/null ]; then
   waydroid session stop
 fi
 
-sudo sed -i "s/^NoDisplay=true/#NoDisplay=true/" /usr/share/applications/plasma-wayland.desktop
+# sudo sed -i "s/^NoDisplay=true/#NoDisplay=true/" /usr/share/applications/plasma-wayland.desktop
+
 plasma-session-oneshot
 # sudo chimera-session-use-lightdm gamescope-session-steam
