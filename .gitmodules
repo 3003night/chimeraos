@@ -148,6 +148,3 @@
 [submodule "aur-pkgs/inputplumber-bin"]
 	path = aur-pkgs/inputplumber-bin
 	url = https://aur.archlinux.org/inputplumber-bin.git
-[submodule "aur-pkgs/gnome-shell-extension-enhanced-osk-git"]
-	path = aur-pkgs/gnome-shell-extension-enhanced-osk-git
-	url = https://aur.archlinux.org/gnome-shell-extension-enhanced-osk-git.git
