@@ -366,7 +366,12 @@ postinstallhook() {
 	rm -f /etc/sddm.conf.d/steamdeck.conf || true
 	rm -f /usr/bin/jupiter-plasma-bootstrap || true
 
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers retroarch ardour
+	# pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers retroarch ardour
+
+	remove_packages=(make gcc dkms ${KERNEL_PACKAGE}-headers ardour)
+	for package in "${remove_packages[@]}"; do
+		pacman --noconfirm -Rnsdd "$package" || true
+	done
 
 	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
 	# rm /usr/bin/dolphin-emu
