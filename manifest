@@ -102,6 +102,7 @@ export PACKAGES="\
 	lib32-pipewire \
 	lib32-systemd \
 	lib32-vulkan-icd-loader \
+	libcec \
 	libcurl-gnutls \
 	libidn11 \
 	libva-intel-driver \
@@ -292,6 +293,9 @@ export SERVICES="\
 	auto-expand-home \
 	bluetooth \
 	bluetooth-workaround \
+	cec-onboot.service \
+	cec-onpoweroff.service \
+	cec-onsleep.service \
 	ds-inhibit \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
