@@ -243,7 +243,6 @@ export AUR_PACKAGES="\
 	python-vdf \
 	protonup-qt-bin \
 	r8152-dkms \
-	retroarch-autoconfig-udev-git \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
 	rtl88x2bu-dkms-git \
@@ -316,9 +315,6 @@ export FILES_TO_DELETE="\
 	/usr/share/doc \
 	/usr/share/gtk-doc \
 	/usr/share/help \
-	/usr/share/libretro/autoconfig/udev/Gasia_PS_Gamepad_USB.cfg \
-	/usr/share/libretro/autoconfig/udev/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg \
-	/usr/share/libretro/autoconfig/udev/Xbox_360_Wireless_Receiver_Chinese01.cfg \
 	/usr/share/man \
 "
 
@@ -338,9 +334,6 @@ postinstallhook() {
 	ln -s -f /usr/bin/vim /usr/bin/vi
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
 	sed -i "s/#SuspendEstimationSec=60min/SuspendEstimationSec=30min/" /etc/systemd/sleep.conf
-
-	# disable retroarch menu in joypad configs
-	find /usr/share/libretro/autoconfig -type f -name '*.cfg' | xargs -d '\n' sed -i '/input_menu_toggle_btn/d'
 
 	# download and add racing wheel udev rules
 	pushd /usr/lib/udev/rules.d
