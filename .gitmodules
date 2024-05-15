@@ -160,3 +160,6 @@
 [submodule "aur-pkgs/linux-firmware-valve"]
 	path = aur-pkgs/linux-firmware-valve
 	url = https://aur.archlinux.org/linux-firmware-valve.git
+[submodule "aur-pkgs/gpd-fan-driver-dkms-git"]
+	path = aur-pkgs/gpd-fan-driver-dkms-git
+	url = https://aur.archlinux.org/gpd-fan-driver-dkms-git.git
