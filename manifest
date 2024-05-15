@@ -130,6 +130,7 @@ export PACKAGES="\
 	podman \
 	pulsemixer \
 	python \
+	python-pyudev \
 	papirus-icon-theme \
 	qtractor \
 	rsync \
