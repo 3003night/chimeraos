@@ -22,9 +22,6 @@
 [submodule "aur-pkgs/legendary"]
 	path = aur-pkgs/legendary
 	url = https://aur.archlinux.org/legendary.git
-[submodule "aur-pkgs/lib32-gperftools"]
-	path = aur-pkgs/lib32-gperftools
-	url = https://aur.archlinux.org/lib32-gperftools.git
 [submodule "aur-pkgs/nintendo-udev"]
 	path = aur-pkgs/nintendo-udev
 	url = https://aur.archlinux.org/nintendo-udev.git
@@ -145,3 +142,9 @@
 [submodule "aur-pkgs/inputplumber-bin"]
 	path = aur-pkgs/inputplumber-bin
 	url = https://aur.archlinux.org/inputplumber-bin.git
+[submodule "aur-pkgs/linux-firmware-valve"]
+	path = aur-pkgs/linux-firmware-valve
+	url = https://aur.archlinux.org/linux-firmware-valve.git
+[submodule "aur-pkgs/gpd-fan-driver-dkms-git"]
+	path = aur-pkgs/gpd-fan-driver-dkms-git
+	url = https://aur.archlinux.org/gpd-fan-driver-dkms-git.git
