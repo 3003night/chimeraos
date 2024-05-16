@@ -348,7 +348,6 @@ postinstallhook() {
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
-	sed -i "s/#SuspendEstimationSec=60min/SuspendEstimationSec=30min/" /etc/systemd/sleep.conf
 
 	# download and add racing wheel udev rules
 	pushd /usr/lib/udev/rules.d
