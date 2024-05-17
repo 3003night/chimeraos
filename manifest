@@ -144,6 +144,7 @@ export PACKAGES="\
 	podman \
 	pulsemixer \
 	python \
+	python-pyudev \
 	python-notify2 \
 	qtractor \
 	rsync \
