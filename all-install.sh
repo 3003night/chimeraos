@@ -28,7 +28,7 @@ else
 fi
 
 for package in ${OWN_PACKAGES_TO_DELETE}; do
-	rm -f /own_pkgs/\${package} || true
+	rm -f "/own_pkgs/${package}" || true
 done
 
 # install own override packages
@@ -39,7 +39,7 @@ rm -rf /var/cache/pacman/pkg
 for package in ${PACKAGES_TO_DELETE}; do
     echo "Checking if $package is installed"
 	if [[ $(pacman -Qq $package) == "$package" ]]; then
-		echo "\$package is installed, deleting"
+		echo "$package is installed, deleting"
 		pacman --noconfirm -Rnsdd $package || true
 	fi
 done
@@ -52,14 +52,14 @@ rm -rf /var/cache/pacman/pkg
 for package in ${PACKAGES_TO_DELETE}; do
     echo "Checking if $package is installed"
 	if [[ $(pacman -Qq $package) == "$package" ]]; then
-		echo "\$package is installed, deleting"
+		echo "$package is installed, deleting"
 		pacman --noconfirm -Rnsdd $package || true
 	fi
 done
 
 # remove AUR packages
 for package in ${AUR_PACKAGES_TO_DELETE}; do
-	rm -f /extra_pkgs/\${package} || true
+	rm -f "/extra_pkgs/${package}" || true
 done
 
 # install AUR packages
