@@ -46,6 +46,7 @@ package() {
 
 	install -dm755 "${pkgdir}/usr/lib/firmware/aw87xxx"
 	cp -rv usr/lib/firmware/aw87xxx/* "${pkgdir}/usr/lib/firmware/aw87xxx/."
+	ln -sf /etc/device-quirks/firmware/aw87xxx_acf.bin "${pkgdir}/usr/lib/firmware/aw87xxx_acf.bin"
 
 	# Install sysctl configurations
 	install -v -m644 -D -t "${pkgdir}/usr/lib/sysctl.d/" usr/lib/sysctl.d/*
