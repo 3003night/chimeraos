@@ -304,7 +304,7 @@ export SERVICES="\
 	sk-bind-mount \
 	sk-chos-daemon \
 	sk-chos-tool-autoupdate.timer \
-	sk-update-boot-entry \
+	sk-setup-kernel-options \
 	sk-resume \
 "
 
