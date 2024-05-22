@@ -141,4 +141,8 @@ EOM
 	ln -sf "/usr/lib/systemd/system/hhd@.service" "/etc/systemd/system/multi-user.target.wants/hhd@${USERNAME}.service"
 	ln -sf "/etc/systemd/system/plugin_loader.service" "/etc/systemd/system/multi-user.target.wants/plugin_loader.service"
 
+
+	# UniversalAMDFormBrowser
+	curl -sL "https://github.com/DavidS95/Smokeless_UMAF/raw/main/UniversalAMDFormBrowser.zip" -o "$pre_path/UMAF.zip"
+
 }
