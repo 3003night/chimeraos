@@ -166,3 +166,6 @@
 [submodule "aur-pkgs/asusctl"]
 	path = aur-pkgs/asusctl
 	url = https://aur.archlinux.org/asusctl.git
+[submodule "aur-pkgs/mission-center"]
+	path = aur-pkgs/mission-center
+	url = https://aur.archlinux.org/mission-center.git

@@ -234,6 +234,7 @@ export AUR_PACKAGES="\
 	lib32-extest \
 	lib32-gperftools \
 	linux-firmware-valve \
+	mission-center \
 	moonlight-qt \
 	mutter-x11-scaling \
 	nintendo-udev \
