@@ -169,3 +169,6 @@
 [submodule "aur-pkgs/mission-center"]
 	path = aur-pkgs/mission-center
 	url = https://aur.archlinux.org/mission-center.git
+[submodule "aur-pkgs/amdgpu-test-scripts-git"]
+	path = aur-pkgs/amdgpu-test-scripts-git
+	url = https://aur.archlinux.org/amdgpu-test-scripts-git.git

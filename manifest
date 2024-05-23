@@ -131,6 +131,7 @@ export PACKAGES="\
 	pulsemixer \
 	python \
 	python-pyudev \
+	python-systemd \
 	papirus-icon-theme \
 	qtractor \
 	rsync \
@@ -204,6 +205,7 @@ export AUR_PACKAGES="\
 	asusctl \
 	antimicrox \
 	anydesk-bin \
+	amdgpu-test-scripts-git \
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
