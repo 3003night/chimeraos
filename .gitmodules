@@ -73,9 +73,6 @@
 [submodule "aur-pkgs/frzr-sk"]
 	path = aur-pkgs/frzr-sk
 	url = https://aur.archlinux.org/frzr-sk.git
-[submodule "aur-pkgs/hhd-user"]
-	path = aur-pkgs/hhd-user
-	url = https://aur.archlinux.org/hhd-user.git
 [submodule "aur-pkgs/onedrive-abraunegg"]
 	path = aur-pkgs/onedrive-abraunegg
 	url = https://aur.archlinux.org/onedrive-abraunegg.git
@@ -109,9 +106,6 @@
 [submodule "aur-pkgs/hhd"]
 	path = aur-pkgs/hhd
 	url = https://aur.archlinux.org/hhd.git
-[submodule "aur-pkgs/ds-inhibit"]
-	path = aur-pkgs/ds-inhibit
-	url = https://aur.archlinux.org/ds-inhibit.git
 [submodule "aur-pkgs/gpdconfig-git"]
 	path = aur-pkgs/gpdconfig-git
 	url = https://aur.archlinux.org/gpdconfig-git.git
