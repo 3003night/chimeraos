@@ -227,7 +227,6 @@ export AUR_PACKAGES="\
 	gnome-shell-extension-enhanced-osk-git \
 	gnome-shell-extension-screen-autorotate \
 	hhd \
-	hhd-user \
 	hhfc-git \
 	ibus-pinyin \
 	inputplumber-bin \

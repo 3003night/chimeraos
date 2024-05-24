@@ -79,9 +79,6 @@
 [submodule "aur-pkgs/gnome-shell-extension-dash-to-dock"]
 	path = aur-pkgs/gnome-shell-extension-dash-to-dock
 	url = https://aur.archlinux.org/gnome-shell-extension-dash-to-dock.git
-[submodule "aur-pkgs/hhd-user"]
-	path = aur-pkgs/hhd-user
-	url = https://aur.archlinux.org/hhd-user.git
 [submodule "aur-pkgs/mutter-x11-scaling"]
 	path = aur-pkgs/mutter-x11-scaling
 	url = https://aur.archlinux.org/mutter-x11-scaling.git
