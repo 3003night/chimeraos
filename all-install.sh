@@ -28,7 +28,7 @@ else
 fi
 
 for package in ${OWN_PACKAGES_TO_DELETE}; do
-	rm -f /own_pkgs/\${package} || true
+	rm -f "/own_pkgs/${package}" || true
 done
 
 # install own override packages
@@ -39,7 +39,7 @@ rm -rf /var/cache/pacman/pkg
 for package in ${PACKAGES_TO_DELETE}; do
     echo "Checking if $package is installed"
 	if [[ $(pacman -Qq $package) == "$package" ]]; then
-		echo "\$package is installed, deleting"
+		echo "$package is installed, deleting"
 		pacman --noconfirm -Rnsdd $package || true
 	fi
 done
@@ -52,14 +52,14 @@ rm -rf /var/cache/pacman/pkg
 for package in ${PACKAGES_TO_DELETE}; do
     echo "Checking if $package is installed"
 	if [[ $(pacman -Qq $package) == "$package" ]]; then
-		echo "\$package is installed, deleting"
+		echo "$package is installed, deleting"
 		pacman --noconfirm -Rnsdd $package || true
 	fi
 done
 
 # remove AUR packages
 for package in ${AUR_PACKAGES_TO_DELETE}; do
-	rm -f /extra_pkgs/\${package} || true
+	rm -f "/extra_pkgs/${package}" || true
 done
 
 # install AUR packages
@@ -103,10 +103,10 @@ Subsystem	sftp	/usr/lib/ssh/sftp-server
 " > /etc/ssh/sshd_config
 
 echo "
-LABEL=frzr_root /var       btrfs     defaults,subvolid=256,rw,noatime,nodatacow,nofail                                                                                  0   0
-LABEL=frzr_root /home      btrfs     defaults,subvolid=257,rw,noatime,nodatacow,nofail                                                                                  0   0
-LABEL=frzr_root /frzr_root btrfs     defaults,subvolid=5,rw,noatime,nodatacow,x-initrd                                                                                  0   2
-overlay         /etc       overlay   noauto,x-systemd.requires=/frzr_root,x-systemd.rw-only,lowerdir=/etc,upperdir=/frzr_root/etc,workdir=/frzr_root/.etc,index=off,metacopy=off,comment=etcoverlay    0   0
+LABEL=frzr_root /var       btrfs     defaults,subvol=var,rw,noatime,nodatacow,nofail		0	0
+LABEL=frzr_root /home      btrfs     defaults,subvol=home,rw,noatime,nodatacow,nofail		0	0
+LABEL=frzr_root /frzr_root btrfs     defaults,subvol=/,rw,noatime,nodatacow,x-initrd.mount	0	2
+overlay         /etc       overlay   defaults,x-systemd.requires-mounts-for=/frzr_root,x-systemd.requires-mounts-for=/sysroot/frzr_root,x-systemd.rw-only,lowerdir=/sysroot/etc,upperdir=/sysroot/frzr_root/etc,workdir=/sysroot/frzr_root/.etc,index=off,metacopy=off,comment=etcoverlay,x-initrd.mount	0	0
 " > /etc/fstab
 
 echo "
@@ -117,8 +117,10 @@ DISTRIB_DESCRIPTION=${SYSTEM_DESC}
 " > /etc/lsb-release
 
 echo "NAME=\"${SYSTEM_DESC}\"
+VERSION_CODENAME=sk-chos
 VERSION=\"${DISPLAY_VERSION}\"
 VERSION_ID=\"${VERSION_NUMBER}\"
+VARIANT_ID=sk-chimeraos
 BUILD_ID=\"${BUILD_ID}\"
 PRETTY_NAME=\"${SYSTEM_DESC} ${DISPLAY_VERSION}\"
 ID=\"${SYSTEM_NAME}\"
