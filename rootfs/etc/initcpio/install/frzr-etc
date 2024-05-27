@@ -1,6 +1,6 @@
 #!/bin/bash
 build() {
-	  add_binary findmnt
+	add_binary findmnt
     add_runscript
 }
 help() {

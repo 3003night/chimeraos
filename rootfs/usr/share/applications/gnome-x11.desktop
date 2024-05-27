@@ -6,4 +6,4 @@ Icon=/usr/share/icons/chimeraos/scalable/actions/x11-mode.svg
 Terminal=false
 Type=Application
 StartupNotify=false
-#NoDisplay=true
+NoDisplay=true
