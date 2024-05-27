@@ -35,7 +35,9 @@ if [ -n "$1" ]; then
 	BUILD_ID="${1}"
 fi
 
-export BUILD_ID=${BUILD_ID}
+BUILD_DATE=$(date +%Y%m%d)
+
+export BUILD_ID=${BUILD_DATE}_${BUILD_ID}
 export FULL_VERSION=${VERSION}
 export DISPLAY_VERSION=${DISPLAY_VERSION}
 export LSB_VERSION=${LSB_VERSION}
@@ -50,7 +52,7 @@ mkdir -p ${MOUNT_PATH}
 
 fallocate -l ${SIZE} ${BUILD_IMG}
 mkfs.btrfs -f ${BUILD_IMG}
-mount -t btrfs -o loop,compress-force=zstd:15 ${BUILD_IMG} ${MOUNT_PATH}
+mount -t btrfs -o loop,nodatacow ${BUILD_IMG} ${MOUNT_PATH}
 btrfs subvolume create ${BUILD_PATH}
 
 # copy the makepkg.conf into chroot
@@ -97,9 +99,7 @@ rm ${BUILD_PATH}/manifest
 # if no archive date is set
 if [ -z "${ARCHIVE_DATE}" ]; then
 	export TODAY_DATE=$(date +%Y/%m/%d)
-	echo "Server=https://asia.archive.pkgbuild.com/repos/${TODAY_DATE}/\$repo/os/\$arch" > \
-	${BUILD_PATH}/etc/pacman.d/mirrorlist
-	echo "Server=https://archive.archlinux.org/repos/${TODAY_DATE}/\$repo/os/\$arch" >> \
+	echo "Server=https://archive.archlinux.org/repos/${TODAY_DATE}/\$repo/os/\$arch" > \
 	${BUILD_PATH}/etc/pacman.d/mirrorlist
 fi
 
