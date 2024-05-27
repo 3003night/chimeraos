@@ -228,7 +228,6 @@ export AUR_PACKAGES="\
 	boxtron \
 	downgrade \
 	evdev-keepalive \
-	fcitx5-input-support \
 	frzr-sk \
 	gamescope-sk \
 	gamescope-session-sk-git \

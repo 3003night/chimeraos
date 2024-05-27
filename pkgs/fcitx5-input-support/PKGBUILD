@@ -1,0 +1,37 @@
+# Maintainer: star2000 <i@star2000.work>
+# Contributor: Sam L. Yes <manjaroyes123@outlook.com>
+# Contributor: Stefano Capitani <stefanoatmanjarodororg>
+
+pkgname=fcitx5-input-support
+pkgver=2021.09
+pkgrel=1
+pkgdesc='Asian input support for fcitx5'
+arch=('any')
+url="https://gitlab.manjaro.org/packages/community/manjaro-asian-input-support"
+license=('GPL')
+pkgdesc='Asian input support from Manjaro'
+source=(
+	'enable-fcitx.sh'
+	'fcitx5.profile'
+)
+md5sums=('SKIP'
+         'SKIP')
+install=input-support.install
+depends=(
+		'fcitx5-qt'  # QT input module
+		'fcitx5-gtk' # GTK input module
+	)
+optdepends=(
+		'fcitx5-configtool: Configuration tool based on Qt5'
+		'fcitx5-chinese-addons: 简体中文 | Simplified Chinese'
+		'fcitx5-rime: 繁體中文 | Traditional Chinese'
+		'fcitx5-anthy: 日本語 | Japanese'
+		'fcitx5-hangul: 한국어 | Korean'
+		'fcitx5-unikey: Tiếng Việt | Vietnamese'
+		'fcitx5-m17n: other languages provided by M17n(http://www.nongnu.org/m17n/)'
+	)
+
+package() {
+	install -Dm644 "$srcdir/enable-fcitx.sh" "$pkgdir/etc/profile.d/input-support.sh"
+	install -Dm644 "$srcdir/fcitx5.profile" "$pkgdir/etc/xdg/fcitx5/profile"
+}
