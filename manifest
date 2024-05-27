@@ -146,6 +146,7 @@ export PACKAGES="\
 	python \
 	python-pyudev \
 	python-systemd \
+	python-notify2 \
 	qtractor \
 	rsync \
 	screen \
@@ -211,7 +212,6 @@ export PACKAGE_OVERRIDES="\
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.0-chos1-1/vulkan-radeon-1--24.1.0.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.0-chos1-1/vulkan-nouveau-1--24.1.0.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.0-chos1-1/vulkan-swrast-1--24.1.0.chos1-1-x86_64.pkg.tar.zst \
-	https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steamdeck-kde-presets-0.21-1-any.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
@@ -235,8 +235,7 @@ export AUR_PACKAGES="\
 	gamescope-session-steam-plus-git \
 	gpdconfig-git \
 	gpd-fan-driver-dkms-git \
-	hhd-git \
-	hhd-user \
+	hhd \
 	hhfc-git \
 	ibus-pinyin \
 	inputplumber-bin \
@@ -252,6 +251,7 @@ export AUR_PACKAGES="\
 	opengamepadui-session-git \
 	onedrive-abraunegg \
 	pikaur \
+	plasma5-themes-vapor-steamos \
 	powerstation-bin \
 	python-pyclip \
 	python-vdf \
@@ -349,7 +349,6 @@ postinstallhook() {
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
-	sed -i "s/#SuspendEstimationSec=60min/SuspendEstimationSec=30min/" /etc/systemd/sleep.conf
 
 	# download and add racing wheel udev rules
 	pushd /usr/lib/udev/rules.d
