@@ -1,6 +1,13 @@
 FROM archlinux:base-devel
 LABEL contributor="shadowapex@gmail.com"
+
 COPY rootfs/etc/pacman.conf /etc/pacman.conf
+
+COPY manifest /manifest
+RUN source /manifest && \
+    echo "Server=https://archive.archlinux.org/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" > \
+    /etc/pacman.d/mirrorlist
+
 RUN echo -e "keyserver-options auto-key-retrieve" >> /etc/pacman.d/gnupg/gpg.conf && \
     # Cannot check space in chroot
     sed -i '/CheckSpace/s/^/#/g' /etc/pacman.conf && \
@@ -44,9 +51,7 @@ RUN sed -i '/^BUILDENV/s/check/!check/g' /etc/makepkg.conf && \
 COPY manifest /manifest
 # Freeze packages and overwrite with overrides when needed
 RUN source /manifest && \
-    echo "Server=https://asia.archive.pkgbuild.com/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" > \
-    /etc/pacman.d/mirrorlist && \
-    echo "Server=https://archive.archlinux.org/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" >> \
+    echo "Server=https://archive.archlinux.org/repos/${ARCHIVE_DATE}/\$repo/os/\$arch" > \
     /etc/pacman.d/mirrorlist && \
     pacman --noconfirm -Syyuu; if [ -n "${PACKAGE_OVERRIDES}" ]; then wget --directory-prefix=/tmp/extra_pkgs ${PACKAGE_OVERRIDES}; pacman --noconfirm -U --overwrite '*' /tmp/extra_pkgs/*; rm -rf /tmp/extra_pkgs; fi
 
