@@ -91,6 +91,7 @@ export PACKAGES="\
 	lib32-libva \
 	lib32-libva-intel-driver \
 	lib32-libva-vdpau-driver \
+	lib32-mangohud \
 	lib32-openal \
 	lib32-pipewire \
 	lib32-systemd \
@@ -110,6 +111,7 @@ export PACKAGES="\
 	loupe \
 	lshw \
 	lzip \
+	mangohud \
 	mesa-demos \
 	modemmanager \
 	nano \
