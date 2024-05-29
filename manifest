@@ -233,8 +233,8 @@ export AUR_PACKAGES="\
 	gamescope-session-sk-git \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
-	gpdconfig-git \
 	gpd-fan-driver-dkms-git \
+	gpdconfig-git \
 	hhd \
 	hhfc-git \
 	ibus-pinyin \
