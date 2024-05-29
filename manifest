@@ -218,10 +218,10 @@ export PACKAGE_OVERRIDES="\
 # Which is often the same as the package name but it can be different.
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
-	asusctl \
+	amdgpu-test-scripts-git \
 	antimicrox \
 	anydesk-bin \
-	amdgpu-test-scripts-git \
+	asusctl \
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
@@ -230,7 +230,6 @@ export AUR_PACKAGES="\
 	ds-inhibit \
 	evdev-keepalive \
 	frzr-sk \
-	gamescope-sk \
 	gamescope-session-sk-git \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
@@ -243,20 +242,19 @@ export AUR_PACKAGES="\
 	kanit-font \
 	legendary \
 	lib32-extest \
-	lib32-gperftools \
 	linux-firmware-valve \
 	mission-center \
 	moonlight-qt \
 	nintendo-udev \
+	onedrive-abraunegg \
 	opengamepadui-bin \
 	opengamepadui-session-git \
-	onedrive-abraunegg \
 	pikaur \
 	plasma5-themes-vapor-steamos \
 	powerstation-bin \
+	protonup-qt-bin \
 	python-pyclip \
 	python-vdf \
-	protonup-qt-bin \
 	r8152-dkms \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \

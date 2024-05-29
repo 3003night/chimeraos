@@ -61,9 +61,6 @@
 [submodule "aur-pkgs/steam_notif_daemon"]
 	path = aur-pkgs/steam_notif_daemon
 	url = https://aur.archlinux.org/steam_notif_daemon.git
-[submodule "aur-pkgs/wyvern"]
-	path = aur-pkgs/wyvern
-	url = https://aur.archlinux.org/wyvern.git
 [submodule "aur-pkgs/zenergy-dkms-git"]
 	path = aur-pkgs/zenergy-dkms-git
 	url = https://aur.archlinux.org/zenergy-dkms-git.git
