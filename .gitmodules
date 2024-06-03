@@ -25,12 +25,6 @@
 [submodule "aur-pkgs/nintendo-udev"]
 	path = aur-pkgs/nintendo-udev
 	url = https://aur.archlinux.org/nintendo-udev.git
-[submodule "aur-pkgs/opengamepadui-bin"]
-	path = aur-pkgs/opengamepadui-bin
-	url = https://aur.archlinux.org/opengamepadui-bin.git
-[submodule "aur-pkgs/opengamepadui-session-git"]
-	path = aur-pkgs/opengamepadui-session-git
-	url = https://aur.archlinux.org/opengamepadui-session-git.git
 [submodule "aur-pkgs/pikaur"]
 	path = aur-pkgs/pikaur
 	url = https://aur.archlinux.org/pikaur.git

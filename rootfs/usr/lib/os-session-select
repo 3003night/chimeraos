@@ -72,14 +72,6 @@ desktop | plasma)
 	session_launcher="gnome-session-oneshot"
 	create_sentinel=1
 	;;
-opengamepadui | gamescope-session-opengamepadui)
-	session_launcher="gamescope-session-opengamepadui"
-	create_sentinel=1
-	;;
-steam-plus | gamescope-session-steam-plus)
-	session_launcher="gamescope-session-steam-plus"
-	create_sentinel=1
-	;;
 steam | gamescope-session-steam)
 	session_launcher="gamescope-session-steam"
 	create_sentinel=1
