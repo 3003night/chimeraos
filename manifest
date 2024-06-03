@@ -240,8 +240,6 @@ export AUR_PACKAGES="\
 	mutter-x11-scaling \
 	nintendo-udev \
 	onedrive-abraunegg \
-	opengamepadui-bin \
-	opengamepadui-session-git \
 	pikaur \
 	powerstation-bin \
 	protonup-qt-bin \
