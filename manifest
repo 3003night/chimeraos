@@ -99,6 +99,7 @@ export PACKAGES="\
 	lib32-libva \
 	lib32-libva-intel-driver \
 	lib32-libva-vdpau-driver \
+	lib32-mangohud \
 	lib32-openal \
 	lib32-pipewire \
 	lib32-systemd \
@@ -117,6 +118,7 @@ export PACKAGES="\
 	lrzip \
 	lshw \
 	lzip \
+	mangohud \
 	mesa-demos \
 	modemmanager \
 	nano \
@@ -193,8 +195,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://ns.switchsystem.eu.org/d/guest/stos/kernel/linux-chimeraos-6.9.2.sk.chos3-1-x86_64.pkg.tar.zst \
-	https://ns.switchsystem.eu.org/d/guest/stos/kernel/linux-chimeraos-headers-6.9.2.sk.chos3-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.9.3.sk-chos1-1/linux-chimeraos-6.9.3.sk.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.9.3.sk-chos1-1/linux-chimeraos-headers-6.9.3.sk.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.0-chos1-1/lib32-libva-mesa-driver-1--24.1.0.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.0-chos1-1/lib32-mesa-1--24.1.0.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.0-chos1-1/lib32-mesa-vdpau-1--24.1.0.chos1-1-x86_64.pkg.tar.zst \
