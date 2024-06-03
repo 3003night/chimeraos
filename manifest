@@ -250,8 +250,6 @@ export AUR_PACKAGES="\
 	moonlight-qt \
 	nintendo-udev \
 	onedrive-abraunegg \
-	opengamepadui-bin \
-	opengamepadui-session-git \
 	pikaur \
 	plasma5-themes-vapor-steamos \
 	powerstation-bin \
