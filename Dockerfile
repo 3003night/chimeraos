@@ -12,10 +12,6 @@ RUN echo -e "keyserver-options auto-key-retrieve" >> /etc/pacman.d/gnupg/gpg.con
     # Cannot check space in chroot
     sed -i '/CheckSpace/s/^/#/g' /etc/pacman.conf && \
     pacman-key --init && \
-    pacman --noconfirm -Sy \
-    aria2
-
-RUN sed -i 's,#XferCommand = /usr/bin/aria2c,XferCommand = /usr/bin/aria2c,g' /etc/pacman.conf && \
     pacman --noconfirm -Syyuu && \
     pacman --noconfirm -S \
     arch-install-scripts \
