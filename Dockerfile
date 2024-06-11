@@ -15,6 +15,7 @@ RUN echo -e "keyserver-options auto-key-retrieve" >> /etc/pacman.d/gnupg/gpg.con
     pacman --noconfirm -Syyuu && \
     pacman --noconfirm -S \
     arch-install-scripts \
+    aria2 \
     btrfs-progs \
     base-devel \
     fmt \

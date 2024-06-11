@@ -16,6 +16,9 @@ sed -i '/ParallelDownloads/s/^/#/g' /etc/pacman.conf
 # Cannot check space in chroot
 sed -i '/CheckSpace/s/^/#/g' /etc/pacman.conf
 
+# use aria2 for faster downloads
+sed -i 's,#XferCommand = /usr/bin/aria2c,XferCommand = /usr/bin/aria2c,g' /etc/pacman.conf
+
 # update package databases
 pacman --noconfirm -Syy
 
