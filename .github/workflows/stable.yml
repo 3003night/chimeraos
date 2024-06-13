@@ -7,7 +7,7 @@ env:
 on:
   push:
     branches:
-      - 'sk-plasma-**'
+      - stable*
   workflow_dispatch:
 
 jobs:
