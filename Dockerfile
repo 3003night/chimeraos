@@ -18,6 +18,7 @@ RUN echo -e "keyserver-options auto-key-retrieve" >> /etc/pacman.d/gnupg/gpg.con
     btrfs-progs \
     base-devel \
     fmt \
+    glib2-devel \
     xcb-util-wm \
     wget \
     pyalpm \
