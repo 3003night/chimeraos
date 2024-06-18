@@ -7,6 +7,12 @@ if [[ -f $HOME/.local/share/Steam/ubuntu12_32/steamui.so ]]; then
     DECK_OPTION="-steamdeck"
 fi
 
+DGPU_OPTION=""
+# If we're running this on a dGPU, apply workaround for blank Steam window
+if [[ $(switcherooctl list | grep -o 'Device:' | wc -l) -gt 1 ]]; then
+  DGPU_OPTION="-system-composer"
+fi
+
 # https://github.com/Supreeeme/extest
 # Extest is a drop in replacement for the X11 XTEST extension.
 # It creates a virtual device with the uinput kernel module.
@@ -14,7 +20,7 @@ fi
 # on the Steam Controller to work while Steam is open on Wayland.
 # Also supports Steam Input as a whole.
 if [[ "$XDG_SESSION_TYPE" == "wayland" && -f "/usr/lib32/libextest.so" ]]; then
-    exec env LD_PRELOAD=/usr/lib32/libextest.so /usr/lib/steam/steam "$DECK_OPTION" "$@"
+    env LD_PRELOAD=/usr/lib32/libextest.so /usr/lib/steam/steam "$DECK_OPTION" "$DGPU_OPTION" "$@"
 else
-    exec /usr/lib/steam/steam "$DECK_OPTION" "$@"
+    /usr/lib/steam/steam "$DECK_OPTION" "$DGPU_OPTION" "$@"
 fi
