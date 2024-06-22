@@ -40,6 +40,7 @@ export PACKAGES="\
 	efibootmgr \
 	expect \
 	exfatprogs \
+	fakeroot \
 	ffmpeg \
 	file \
 	ffmpegthumbnailer \
@@ -94,6 +95,7 @@ export PACKAGES="\
 	lib32-mangohud \
 	lib32-openal \
 	lib32-pipewire \
+	lib32-sdl2 \
 	lib32-systemd \
 	lib32-vulkan-icd-loader \
 	libcec \
@@ -294,10 +296,12 @@ export SERVICES="\
 	haveged \
 	hostname-fix \
 	inputplumber \
+	inputplumber-resume \
 	lightdm \
 	overlay-fonts \
 	overlay-root-home \
 	powerstation \
+	steam-powerbuttond \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
