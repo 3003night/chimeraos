@@ -312,7 +312,6 @@ export SERVICES="\
 	overlay-fonts \
 	overlay-root-home \
 	powerstation \
-	steam-powerbuttond \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
