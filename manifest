@@ -44,6 +44,7 @@ export PACKAGES="\
 	efibootmgr \
 	expect \
 	exfatprogs \
+	fakeroot \
 	falkon \
 	fcitx5-im \
 	fcitx5-chinese-addons \
@@ -102,6 +103,7 @@ export PACKAGES="\
 	lib32-mangohud \
 	lib32-openal \
 	lib32-pipewire \
+	lib32-sdl2 \
 	lib32-systemd \
 	lib32-vulkan-icd-loader \
 	libcec \
@@ -196,8 +198,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.9.5.sk-chos1-1/linux-chimeraos-6.9.5.sk.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.9.5.sk-chos1-1/linux-chimeraos-headers-6.9.5.sk.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.9.6.sk-chos1-1/linux-chimeraos-6.9.6.sk.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.9.6.sk-chos1-1/linux-chimeraos-headers-6.9.6.sk.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.1-chos1-1/lib32-libva-mesa-driver-1--24.1.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.1-chos1-1/lib32-mesa-1--24.1.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.1-chos1-1/lib32-mesa-vdpau-1--24.1.1.chos1-1-x86_64.pkg.tar.zst \
@@ -305,10 +307,12 @@ export SERVICES="\
 	haveged \
 	hostname-fix \
 	inputplumber \
+	inputplumber-resume \
 	lightdm \
 	overlay-fonts \
 	overlay-root-home \
 	powerstation \
+	steam-powerbuttond \
 	sshd \
 	systemd-timesyncd \
 	swapfile \

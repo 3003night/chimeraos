@@ -1,4 +1,4 @@
-FROM archlinux:base-devel
+FROM greyltc/archlinux-aur:latest
 LABEL contributor="shadowapex@gmail.com"
 
 COPY rootfs/etc/pacman.conf /etc/pacman.conf
@@ -42,12 +42,15 @@ RUN mkdir -p /etc/gnupg/ && echo -e "keyserver-options auto-key-retrieve" >> /et
 
 # Add a fake systemd-run script to workaround pikaur requirement.
 RUN echo -e "#!/bin/bash\nif [[ \"$1\" == \"--version\" ]]; then echo 'fake 244 version'; fi\nmkdir -p /var/cache/pikaur\n" >> /usr/bin/systemd-run && \
-    chmod +x /usr/bin/systemd-run
+  chmod +x /usr/bin/systemd-run
 
 # substitute check with !check to avoid running software from AUR in the build machine
 # also remove creation of debug packages.
 RUN sed -i '/^BUILDENV/s/check/!check/g' /etc/makepkg.conf && \
     sed -i '/^OPTIONS/s/debug/!debug/g' /etc/makepkg.conf
+
+# Install aur dependencies
+RUN aur-install inputplumber-bin
 
 COPY manifest /manifest
 # Freeze packages and overwrite with overrides when needed

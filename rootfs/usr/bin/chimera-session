@@ -7,21 +7,20 @@ SESSION_LIGHTDM_CONFIG="/etc/lightdm/lightdm.conf.d/10-chimeraos-session.conf"
 SESSION_LIST=('desktop' 'desktop-xorg' 'steam')
 SELECTED_SESSION="$1"
 
-
 mkdir -p "${CONFIG_HOME}/environment.d"
 
 function print_session_list() {
 	# detect active session
 	CURRENT_SESSION="unknown"
-	if grep "gnome" ${SESSION_LIGHTDM_CONFIG} &> /dev/null; then
+	if grep "gnome" ${SESSION_LIGHTDM_CONFIG} &>/dev/null; then
 		CURRENT_SESSION="desktop"
 	fi
 
-	if grep "gnome-xorg" ${SESSION_LIGHTDM_CONFIG} &> /dev/null; then
+	if grep "gnome-xorg" ${SESSION_LIGHTDM_CONFIG} &>/dev/null; then
 		CURRENT_SESSION="desktop-xorg"
 	fi
 
-	if grep "gamescope-session-steam" ${SESSION_LIGHTDM_CONFIG} &> /dev/null; then
+	if grep "gamescope-session-steam" ${SESSION_LIGHTDM_CONFIG} &>/dev/null; then
 		CURRENT_SESSION="steam"
 	fi
 
@@ -57,7 +56,7 @@ function desktop_xorg() {
 
 function gamescope_steam() {
 	# switch to Steam Big Picture UI (Gamescope/Wayland)
-	echo '' > ${SESSION_CONFIG}
+	echo '' >${SESSION_CONFIG}
 	sudo chimera-session-use-lightdm gamescope-session-steam
 	# sudo systemctl enable --now handycon
 }
@@ -68,8 +67,6 @@ function print_invalid_session() {
 	echo "Available session types:"
 	print_session_list
 }
-
-
 
 # print current and available sessions when no argument specified
 if [ -z "${SELECTED_SESSION}" ]; then
