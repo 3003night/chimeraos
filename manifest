@@ -200,6 +200,7 @@ export PACKAGE_OVERRIDES="\
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.1-chos1-1/vulkan-radeon-1--24.1.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.1-chos1-1/vulkan-nouveau-1--24.1.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.1-chos1-1/vulkan-swrast-1--24.1.1.chos1-1-x86_64.pkg.tar.zst \
+	https://archive.archlinux.org/packages/l/libdisplay-info/libdisplay-info-0.1.1-3-x86_64.pkg.tar.zst  \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
