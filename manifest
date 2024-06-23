@@ -286,7 +286,9 @@ export PACKAGES_TO_DELETE="\
 	pulseaudio \
 	pulseaudio-alsa \
 "
-export OWN_PACKAGES_TO_DELETE=""
+export OWN_PACKAGES_TO_DELETE="
+	libdisplay-info-0.1.1-3-x86_64.pkg.tar.zst \
+"
 
 export AUR_PACKAGES_TO_DELETE="\
 	gamescope-session-git-r*.pkg.tar.zst \
