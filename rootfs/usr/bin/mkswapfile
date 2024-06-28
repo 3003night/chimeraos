@@ -29,7 +29,6 @@ usage() { echo >&2 "Usage: $(basename $0) FILE SIZE"; exit 1; }
 
 touch "$SWAPFILE"
 chattr +C "$SWAPFILE"
-btrfs property set "$SWAPFILE" compression none
 dd if=/dev/zero of="$SWAPFILE" bs=1M count="$SWAPSIZE"
 chmod 600 "$SWAPFILE"
 mkswap -U clear "$SWAPFILE" 
