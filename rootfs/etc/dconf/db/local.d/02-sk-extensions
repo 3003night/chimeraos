@@ -9,6 +9,7 @@ custom-theme-shrink=true
 apply-custom-theme=true
 
 [org/gnome/shell/extensions/Logo-menu]
-memu-button-icon-image=27
-memu-button-terminal='kgx'
+symbolic-icon=false
+menu-button-icon-image=27
+menu-button-terminal='kgx'
 show-activities-button=true
