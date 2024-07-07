@@ -38,7 +38,7 @@ package() {
     install -d "${pkgdir}/usr/share/glib-2.0/"
     mv "${_destdir}/schemas" \
         "${pkgdir}/usr/share/glib-2.0/"
-    rm "${pkgdir}/usr/share/glib-2.0/schemas/gschemas.compiled"
+    rm "${pkgdir}/usr/share/glib-2.0/schemas/gschemas.compiled" || true
 
     # Move local to system locale directory
     mv "${_destdir}/locale" \
