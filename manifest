@@ -223,6 +223,7 @@ export AUR_PACKAGES="\
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
 	gamescope-sk \
+	gnome-shell-extension-bluetooth-battery-meter-git \
 	gnome-shell-extension-blur-my-shell \
 	gnome-shell-extension-dash-to-dock \
 	gnome-shell-extension-desktop-icons-ng-git \

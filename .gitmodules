@@ -157,3 +157,6 @@
 [submodule "aur-pkgs/amdgpu-test-scripts-git"]
 	path = aur-pkgs/amdgpu-test-scripts-git
 	url = https://aur.archlinux.org/amdgpu-test-scripts-git.git
+[submodule "aur-pkgs/gnome-shell-extension-bluetooth-battery-meter-git"]
+	path = aur-pkgs/gnome-shell-extension-bluetooth-battery-meter-git
+	url = https://aur.archlinux.org/gnome-shell-extension-bluetooth-battery-meter-git.git
