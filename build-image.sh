@@ -143,9 +143,10 @@ rm -rf ${MOUNT_PATH}
 rm -rf ${BUILD_IMG}
 
 if [ -z "${NO_COMPRESS}" ]; then
-	if [ -f ${IMG_FILENAME}-* ]; then
+	if [ -f "${IMG_FILENAME}-000" ]; then
 		for file in ${IMG_FILENAME}-*; do
-			split_serial=$(echo ${file} | awk -F'-' '{print $NF}')
+			# split_serial is the last part of the filename
+			split_serial=$(echo ${file} | sed 's/.*-//')
 			sha256sum ${file} > sha256sum-${split_serial}.txt
 			cat sha256sum-${split_serial}.txt
 		done
