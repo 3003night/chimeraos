@@ -126,11 +126,10 @@ else
 	btrfs send -f ${IMG_FILENAME_WITHOUT_EXT}.img ${SNAP_PATH}
 fi
 
-# 如果文件大于 1.5GiB，那么就分割文件
-# split_size=$((1.5 * 1024 * 1024 * 1024))
-split_size=1610612736
+# 如果文件大于 2GiB，那么就分割文件
+split_size=$((2*1024*1024*1024))
 if [ $(stat -c %s ${IMG_FILENAME}) -gt $split_size ]; then
-	split -b 1536MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME}-
+	split -b 2048MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME}-
 	rm ${IMG_FILENAME}
 fi
 
@@ -143,17 +142,8 @@ rm -rf ${MOUNT_PATH}
 rm -rf ${BUILD_IMG}
 
 if [ -z "${NO_COMPRESS}" ]; then
-	if [ -f "${IMG_FILENAME}-000" ]; then
-		for file in ${IMG_FILENAME}-*; do
-			# split_serial is the last part of the filename
-			split_serial=$(echo ${file} | sed 's/.*-//')
-			sha256sum ${file} > sha256sum-${split_serial}.txt
-			cat sha256sum-${split_serial}.txt
-		done
-	else
-		sha256sum ${IMG_FILENAME} > sha256sum.txt
-		cat sha256sum.txt
-	fi
+	sha256sum ${IMG_FILENAME}* > sha256sum.txt
+	cat sha256sum.txt
 
 	# Move the image to the output directory, if one was specified.
 	if [ -n "${OUTPUT_DIR}" ]; then
