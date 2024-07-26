@@ -126,10 +126,10 @@ else
 	btrfs send -f ${IMG_FILENAME_WITHOUT_EXT}.img ${SNAP_PATH}
 fi
 
-# 如果文件大于 2GiB，那么就分割文件
-split_size=$((2*1024*1024*1024))
+# 如果文件大于 2000M，那么就分割文件
+split_size=$((2000*1024*1024))
 if [ $(stat -c %s ${IMG_FILENAME}) -gt $split_size ]; then
-	split -b 2048MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME}-
+	split -b 2000MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME}-
 	rm ${IMG_FILENAME}
 fi
 
