@@ -111,18 +111,26 @@ COMRESS_ON_THE_FLY=false
 
 btrfs subvolume snapshot -r ${BUILD_PATH} ${SNAP_PATH}
 
+IMG_FILENAME_WITHOUT_EXT="${SYSTEM_NAME}-${VERSION}"
 if [ -z "${NO_COMPRESS}" ]; then
 	if [[ $COMRESS_ON_THE_FLY == true ]];then
-		IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.xz"
+		IMG_FILENAME="${IMG_FILENAME_WITHOUT_EXT}.img.xz"
 		btrfs send ${SNAP_PATH} | xz -9 -T0 > ${IMG_FILENAME}
 	else
-		IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.xz"
-		btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
-		tar -c -I"xz -9 -T0" -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
-		rm ${SYSTEM_NAME}-${VERSION}.img
+		IMG_FILENAME="${IMG_FILENAME_WITHOUT_EXT}.img.tar.xz"
+		btrfs send -f ${IMG_FILENAME_WITHOUT_EXT}.img ${SNAP_PATH}
+		tar -c -I"xz -9 -T0" -f ${IMG_FILENAME} ${IMG_FILENAME_WITHOUT_EXT}.img
+		rm ${IMG_FILENAME_WITHOUT_EXT}.img
 	fi
 else
-	btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
+	btrfs send -f ${IMG_FILENAME_WITHOUT_EXT}.img ${SNAP_PATH}
+fi
+
+# 如果文件大于 2GiB，那么就分割文件
+split_size=$((2*1024*1024*1024))
+if [ $(stat -c %s ${IMG_FILENAME}) -gt $split_size ]; then
+	split -b 2048MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME}-
+	rm ${IMG_FILENAME}
 fi
 
 cp ${BUILD_PATH}/build_info build_info.txt
@@ -134,15 +142,15 @@ rm -rf ${MOUNT_PATH}
 rm -rf ${BUILD_IMG}
 
 if [ -z "${NO_COMPRESS}" ]; then
-	sha256sum ${IMG_FILENAME} > sha256sum.txt
+	sha256sum ${IMG_FILENAME}* > sha256sum.txt
 	cat sha256sum.txt
 
 	# Move the image to the output directory, if one was specified.
 	if [ -n "${OUTPUT_DIR}" ]; then
 		mkdir -p "${OUTPUT_DIR}"
-		mv ${IMG_FILENAME} ${OUTPUT_DIR}
+		mv ${IMG_FILENAME}* ${OUTPUT_DIR} || true
 		mv build_info.txt ${OUTPUT_DIR}
-		mv sha256sum.txt ${OUTPUT_DIR}
+		mv sha256sum*.txt ${OUTPUT_DIR} || true
 	fi
 
 	# set outputs for github actions
@@ -152,7 +160,7 @@ if [ -z "${NO_COMPRESS}" ]; then
 		echo "display_name=${SYSTEM_DESC}" >> "${GITHUB_OUTPUT}"
 		echo "image_filename=${IMG_FILENAME}" >> "${GITHUB_OUTPUT}"
 	else
-		echo "No github output file set"
+		echo "No github output file set"	
 	fi
 else
 	echo "Local build, output IMG directly"
