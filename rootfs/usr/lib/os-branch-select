@@ -14,12 +14,12 @@ VALID_BRANCHES=(
 )
 
 VALID_NV_BRANCHES=(
-  "stable-nvidia"
-  "unstable-nvidia"
-  "testing-nvidia"
-  "plasma-nvidia"
-  "plasma-pre-nvidia"
-  "plasma-dev-nvidia"
+  "stable_nvidia"
+  "unstable_nvidia"
+  "testing_nvidia"
+  "plasma_nvidia"
+  "plasma_nvidia-pre"
+  "plasma_nvidia-dev"
 )
 
 VALID_BRANCHES+=("${VALID_NV_BRANCHES[@]}")
