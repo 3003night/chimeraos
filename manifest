@@ -132,7 +132,7 @@ export PACKAGES="\
 	nss-mdns \
 	ntfs-3g \
 	onboard \
-	nvidia \
+	nvidia-dkms \
 	opencl-nvidia \
 	lib32-opencl-nvidia \
 	nvidia-utils \
@@ -316,6 +316,7 @@ export SERVICES="\
 	inputplumber \
 	inputplumber-resume \
 	lightdm \
+	nvidia-powerd \
 	overlay-fonts \
 	overlay-root-home \
 	powerstation \
