@@ -92,4 +92,4 @@ jobs:
     name: Build ChimeraOS UNSTABLE image
     uses: ./.github/workflows/build-system-image.yml
     with:
-      postfix: "[PLASMA-DEV]"
+      postfix: "[PLASMA_NVIDIA-DEV]"
