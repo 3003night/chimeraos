@@ -215,6 +215,7 @@ export AUR_PACKAGES="\
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
 	boxtron \
+	chimeraos-device-quirks-sk-git \
 	downgrade \
 	ds-inhibit \
 	evdev-keepalive \
