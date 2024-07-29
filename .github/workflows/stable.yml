@@ -69,7 +69,6 @@ jobs:
         with:
             name: AUR-packages-${{ env.PACKAGE_NAME }}
             path: aur-pkgs/*.pkg.tar*
-            compression-level: 0
 
   pkgbuild:
     needs:
@@ -106,7 +105,6 @@ jobs:
         with:
             name: Packages-${{ env.PACKAGE_NAME }}
             path: pkgs/*.pkg.tar*
-            compression-level: 0
 
   build:
     needs:
