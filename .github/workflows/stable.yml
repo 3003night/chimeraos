@@ -68,9 +68,8 @@ jobs:
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
         with:
-            name: AUR-packages-${{ env.PACKAGE_NAME }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
+            name: AUR-packages-${{ env.PACKAGE_NAME }}
             path: aur-pkgs/*.pkg.tar*
-            compression-level: 0
 
   pkgbuild:
     needs:
@@ -105,9 +104,8 @@ jobs:
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
         with:
-            name: Packages-${{ env.PACKAGE_NAME }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
+            name: Packages-${{ env.PACKAGE_NAME }}
             path: pkgs/*.pkg.tar*
-            compression-level: 0
 
   build:
     needs:
