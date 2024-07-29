@@ -4,8 +4,8 @@ export VERSION="47-1"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
-export SIZE="12000MB"
-export ARCHIVE_DATE="2024/07/20"
+export SIZE="15000MB"
+export ARCHIVE_DATE="2024/07/28"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -380,13 +380,6 @@ postinstallhook() {
 	for package in "${remove_packages[@]}"; do
 		pacman --noconfirm -Rnsdd "$package" || true
 	done
-
-	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
-	# rm /usr/bin/dolphin-emu
-	# rm /usr/bin/dolphin-emu-nogui
-	# dolphin-tool is no longer created in new builds?
-	# rm /usr/bin/dolphin-tool
-	# rm /usr/share/applications/dolphin-emu.desktop
 
 	# clean up desktop shortcuts
 	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
