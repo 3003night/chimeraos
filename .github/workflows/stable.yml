@@ -57,10 +57,18 @@ jobs:
         run: |
           docker pull ${{ steps.meta.outputs.tags }}
           docker run --rm -v $(pwd):/workdir --entrypoint=/workdir/aur-pkgs/build-package.sh ${{ steps.meta.outputs.tags }} ${{ matrix.package }}
+      - name: Process package name
+        id: process_package
+        run: |
+          PACKAGE_NAME=${{ matrix.package }}
+          PACKAGE_NAME=${PACKAGE_NAME#pkgs/}
+          PACKAGE_NAME=${PACKAGE_NAME%/}
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+      
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
         with:
-            name: AUR-packages-${{ matrix.package }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
+            name: AUR-packages-${{ env.PACKAGE_NAME }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
             path: aur-pkgs/*.pkg.tar*
             compression-level: 0
 
@@ -85,10 +93,19 @@ jobs:
         run: |
           docker pull ${{ steps.meta.outputs.tags }}
           docker run --rm -v $(pwd):/workdir --entrypoint=/workdir/pkgs/build-package.sh ${{ steps.meta.outputs.tags }} ${{ matrix.package }}
+      
+      - name: Process package name
+        id: process_package
+        run: |
+          PACKAGE_NAME=${{ matrix.package }}
+          PACKAGE_NAME=${PACKAGE_NAME#pkgs/}
+          PACKAGE_NAME=${PACKAGE_NAME%/}
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV 
+     
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
         with:
-            name: Packages-${{ matrix.package }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
+            name: Packages-${{ env.PACKAGE_NAME }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
             path: pkgs/*.pkg.tar*
             compression-level: 0
 
