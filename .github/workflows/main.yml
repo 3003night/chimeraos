@@ -84,7 +84,7 @@ jobs:
         id: process_package
         run: |
           PACKAGE_NAME=${{ matrix.package }}
-          PACKAGE_NAME=${PACKAGE_NAME#pkgs/}
+          PACKAGE_NAME="${PACKAGE_NAME#pkgs/}""
           PACKAGE_NAME=${PACKAGE_NAME%/}
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
 
