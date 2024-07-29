@@ -46,13 +46,13 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       - uses: actions/download-artifact@v4
         with:
-            pattern: AUR-packages*
-            merge-multiple: true
+            name: AUR-packages
+            # merge-multiple: true
             path: aur-pkgs/
       - uses: actions/download-artifact@v4
         with:
-            pattern: Packages*
-            merge-multiple: true
+            name: Packages
+            # merge-multiple: true
             path: pkgs/
       - name: Build system image
         id: build_image
