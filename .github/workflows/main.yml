@@ -52,9 +52,9 @@ jobs:
           docker pull ${{ steps.meta.outputs.tags }}
           docker run --rm -v $(pwd):/workdir --entrypoint=/workdir/aur-pkgs/build-aur-package.sh ${{ steps.meta.outputs.tags }} ${{ matrix.package }}
       - name: Upload Package Archives
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
-            name: AUR-packages-${{ matrix.package }}
+            name: AUR-packages
             path: aur-pkgs/*.pkg.tar*
 
   pkgbuild:
@@ -90,7 +90,7 @@ jobs:
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
         with:
-            name: Packages-${{ env.PACKAGE_NAME }}
+            name: Packages
             path: pkgs/*.pkg.tar*
 
   build:
