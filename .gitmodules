@@ -70,9 +70,6 @@
 [submodule "aur-pkgs/python-pyclip"]
 	path = aur-pkgs/python-pyclip
 	url = https://aur.archlinux.org/python-pyclip.git
-[submodule "aur-pkgs/protonup-qt-bin"]
-	path = aur-pkgs/protonup-qt-bin
-	url = https://aur.archlinux.org/protonup-qt-bin.git
 [submodule "aur-pkgs/sk-chos-tool"]
 	path = aur-pkgs/sk-chos-tool
 	url = https://aur.archlinux.org/sk-chos-tool.git
@@ -133,9 +130,6 @@
 [submodule "aur-pkgs/gpd-fan-driver-dkms-git"]
 	path = aur-pkgs/gpd-fan-driver-dkms-git
 	url = https://aur.archlinux.org/gpd-fan-driver-dkms-git.git
-[submodule "aur-pkgs/asusctl"]
-	path = aur-pkgs/asusctl
-	url = https://aur.archlinux.org/asusctl.git
 [submodule "aur-pkgs/mission-center"]
 	path = aur-pkgs/mission-center
 	url = https://aur.archlinux.org/mission-center.git
