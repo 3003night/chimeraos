@@ -79,9 +79,6 @@
 [submodule "aur-pkgs/python-pyclip"]
 	path = aur-pkgs/python-pyclip
 	url = https://aur.archlinux.org/python-pyclip.git
-[submodule "aur-pkgs/protonup-qt-bin"]
-	path = aur-pkgs/protonup-qt-bin
-	url = https://aur.archlinux.org/protonup-qt-bin.git
 [submodule "aur-pkgs/sk-chos-tool"]
 	path = aur-pkgs/sk-chos-tool
 	url = https://aur.archlinux.org/sk-chos-tool.git

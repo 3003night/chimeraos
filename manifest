@@ -246,7 +246,7 @@ export AUR_PACKAGES="\
 	onedrive-abraunegg \
 	pikaur \
 	powerstation-bin \
-	protonup-qt-bin \
+	protonup-qt \
 	python-pyclip \
 	python-vdf \
 	r8152-dkms \
