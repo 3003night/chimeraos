@@ -139,3 +139,6 @@
 [submodule "aur-pkgs/chimeraos-device-quirks-sk-git"]
 	path = aur-pkgs/chimeraos-device-quirks-sk-git
 	url = https://aur.archlinux.org/chimeraos-device-quirks-sk-git.git
+[submodule "aur-pkgs/hardware-audio-processing-git"]
+	path = aur-pkgs/hardware-audio-processing-git
+	url = https://aur.archlinux.org/hardware-audio-processing-git.git
