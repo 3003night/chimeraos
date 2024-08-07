@@ -231,6 +231,7 @@ export AUR_PACKAGES="\
 	gnome-shell-extension-screen-autorotate \
 	gpd-fan-driver-dkms-git \
 	gpdconfig-git \
+	hardware-audio-processing-git \
 	hhd \
 	hhfc-git \
 	ibus-pinyin \
