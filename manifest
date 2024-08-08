@@ -302,7 +302,6 @@ export SERVICES="\
 	overlay-fonts \
 	overlay-root-home \
 	pipewire-sysconf \
-	pipewire-workaround \
 	powerstation \
 	sshd \
 	systemd-timesyncd \
@@ -312,7 +311,6 @@ export SERVICES="\
 	sk-chos-tool-autoupdate.timer \
 	sk-setup-kernel-options \
 	sk-resume \
-	wireplumber-workaround \
 	wireplumber-sysconf \
 "
 
