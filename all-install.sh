@@ -68,10 +68,16 @@ pacman --noconfirm -U --overwrite '*' /extra_pkgs/*
 rm -rf /var/cache/pacman/pkg
 
 # enable services
-systemctl enable ${SERVICES}
+# systemctl enable ${SERVICES}
+for service in ${SERVICES}; do
+	systemctl enable ${service} || true
+done
 
 # enable user services
-systemctl --global enable ${USER_SERVICES}
+# systemctl --global enable ${USER_SERVICES}
+for service in ${USER_SERVICES}; do
+	systemctl --global enable ${service} || true
+done
 
 # disable root login
 passwd --lock root
@@ -165,7 +171,7 @@ rm -rf \
 /home \
 /var \
 
-rm -rf ${FILES_TO_DELETE}
+rm -rf ${FILES_TO_DELETE} || true
 
 # create necessary directories
 mkdir -p /home
