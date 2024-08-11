@@ -299,7 +299,6 @@ export SERVICES="\
 	haveged \
 	hostname-fix \
 	inputplumber \
-	inputplumber-resume \
 	lightdm \
 	overlay-fonts \
 	overlay-root-home \
