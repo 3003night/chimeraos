@@ -14,9 +14,9 @@ VALID_BRANCHES=(
 )
 
 VALID_NV_BRANCHES=(
-  "stable_nvidia"
-  "unstable_nvidia"
-  "testing_nvidia"
+  "gnome_nvidia"
+  "gnome_nvidia-pre"
+  "gnome_nvidia-dev"
   "plasma_nvidia"
   "plasma_nvidia-pre"
   "plasma_nvidia-dev"
