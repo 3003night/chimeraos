@@ -13,7 +13,7 @@ optdepends=()
 provides=('steam-removable-media')
 makedepends=('git')
 conflicts=('jupiter-hw-support')
-_tag=795b27ec49c0ee786d753478eeb32344556c5bcb
+_tag=d9abab25b2dcd3d6dc8e73c419baca53690c68ed
 source=("${_gitdir}::git+https://github.com/honjow/${_gitdir}.git#tag=${_tag}")
 sha256sums=('SKIP')
 pkgver() {
