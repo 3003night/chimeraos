@@ -1,11 +1,11 @@
 #! /bin/bash
 
-export VERSION="47-1"
+export VERSION="47-2"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="15000MB"
-export ARCHIVE_DATE="2024/07/28"
+export ARCHIVE_DATE="2024/08/15"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
