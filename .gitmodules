@@ -28,9 +28,6 @@
 [submodule "aur-pkgs/pikaur"]
 	path = aur-pkgs/pikaur
 	url = https://aur.archlinux.org/pikaur.git
-[submodule "aur-pkgs/powerstation-bin"]
-	path = aur-pkgs/powerstation-bin
-	url = https://aur.archlinux.org/powerstation-bin.git
 [submodule "aur-pkgs/python-vdf"]
 	path = aur-pkgs/python-vdf
 	url = https://aur.archlinux.org/python-vdf.git

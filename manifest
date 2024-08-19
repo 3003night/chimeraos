@@ -246,7 +246,6 @@ export AUR_PACKAGES="\
 	nintendo-udev \
 	onedrive-abraunegg \
 	pikaur \
-	powerstation-bin \
 	protonup-qt \
 	python-pyclip \
 	python-vdf \
@@ -302,7 +301,6 @@ export SERVICES="\
 	overlay-fonts \
 	overlay-root-home \
 	pipewire-sysconf \
-	powerstation \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
