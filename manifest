@@ -35,7 +35,6 @@ export PACKAGES="\
 	dosbox \
 	efibootmgr \
 	epiphany \
-	ethtool \
 	evtest \
 	efibootmgr \
 	expect \
