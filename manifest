@@ -1,11 +1,11 @@
 #! /bin/bash
 
-export VERSION="47-3"
+export VERSION="47-4"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="15000MB"
-export ARCHIVE_DATE="2024/08/24"
+export ARCHIVE_DATE="2024/08/31"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -39,7 +39,6 @@ export PACKAGES="\
 	dolphin \
 	dolphin-plugins \
 	efibootmgr \
-	ethtool \
 	evtest \
 	efibootmgr \
 	expect \
@@ -197,8 +196,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.10.6.sk-chos2-1/linux-chimeraos-6.10.6.sk.chos2-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.10.6.sk-chos2-1/linux-chimeraos-headers-6.10.6.sk.chos2-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.10.7.sk-chos1-3/linux-chimeraos-6.10.7.sk.chos1-3-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.10.7.sk-chos1-3/linux-chimeraos-headers-6.10.7.sk.chos1-3-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.3-chos1-1/lib32-libva-mesa-driver-1--24.1.3.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.3-chos1-1/lib32-mesa-1--24.1.3.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.1.3-chos1-1/lib32-mesa-vdpau-1--24.1.3.chos1-1-x86_64.pkg.tar.zst \
@@ -352,13 +351,6 @@ postinstallhook() {
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
 	ln -s -f /usr/bin/vim /usr/bin/vi
 	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/" /etc/ssh/sshd_config
-
-	# download and add racing wheel udev rules
-	pushd /usr/lib/udev/rules.d
-	curl -L -O https://raw.githubusercontent.com/berarma/oversteer/master/data/udev/99-fanatec-wheel-perms.rules
-	curl -L -O https://raw.githubusercontent.com/berarma/oversteer/master/data/udev/99-logitech-wheel-perms.rules
-	curl -L -O https://raw.githubusercontent.com/berarma/oversteer/master/data/udev/99-thrustmaster-wheel-perms.rules
-	popd
 
 	# Remove build tools for slimmer image
 	rm /usr/share/libalpm/hooks/70-dkms-install.hook
