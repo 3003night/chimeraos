@@ -1,11 +1,11 @@
 #! /bin/bash
 
-export VERSION="47-5"
+export VERSION="47-6"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="15000MB"
-export ARCHIVE_DATE="2024/08/31"
+export ARCHIVE_DATE="2024/09/10"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -46,6 +46,7 @@ export PACKAGES="\
 	falkon \
 	fcitx5-im \
 	fcitx5-chinese-addons \
+	fd \
 	ffmpeg \
 	file \
 	ffmpegthumbnailer \
@@ -56,6 +57,7 @@ export PACKAGES="\
 	fuse-zip \
 	fuse2 \
 	fwupd \
+	fzf \
 	f2fs-tools \
 	git \
 	gnome-disk-utility \
@@ -74,6 +76,7 @@ export PACKAGES="\
 	intel-media-driver \
 	intel-ucode \
 	intel-undervolt \
+	imagemagick \
 	jq \
 	kate \
 	kde-gtk-config \
@@ -145,12 +148,14 @@ export PACKAGES="\
 	plasma-thunderbolt \
 	plasma-vault \
 	podman \
+	poppler \
 	pulsemixer \
 	python \
 	python-pyudev \
 	python-systemd \
 	python-notify2 \
 	qtractor \
+	ripgrep \
 	rsync \
 	screen \
 	smartmontools \
@@ -191,13 +196,15 @@ export PACKAGES="\
 	xorg-xinit \
 	xsettingsd \
 	xz \
+	yazi \
 	zip \
+	zoxide \
 	zsh \
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.10.10.sk-chos1-1/linux-chimeraos-6.10.10.sk.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.10.10.sk-chos1-1/linux-chimeraos-headers-6.10.10.sk.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.sk-chos2-1/linux-chimeraos-6.11.sk.chos2-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.sk-chos2-1/linux-chimeraos-headers-6.11.sk.chos2-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.2.0-chos1-1/lib32-libva-mesa-driver-1--24.2.0.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.2.0-chos1-1/lib32-mesa-1--24.2.0.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.2.0-chos1-1/lib32-mesa-vdpau-1--24.2.0.chos1-1-x86_64.pkg.tar.zst \
