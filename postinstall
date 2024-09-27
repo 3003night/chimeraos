@@ -113,6 +113,9 @@ postinstall_download() {
 	sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' $zsh_path/.zshrc
 	sed -i 's/plugins=(git)/plugins=(git sudo z fast-syntax-highlighting)/g' $zsh_path/.zshrc
 	cat >>$zsh_path/.zshrc <<-'EOM'
+		
+		######## sk-chimeraos functions ########
+		# yazi
 		function y() {
 		    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 		    yazi "$@" --cwd-file="$tmp"
@@ -121,6 +124,16 @@ postinstall_download() {
 		    fi
 		    rm -f -- "$tmp"
 		}
+		function sy() {
+		    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+		    sudo yazi "$@" --cwd-file="$tmp"
+		    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		    builtin cd -- "$cwd"
+		    fi
+		    rm -f -- "$tmp"
+		}
+		######## sk-chimeraos functions end ########
+		
 	EOM
 
 	# pre download refind themes
