@@ -40,6 +40,7 @@ export PACKAGES="\
 	expect \
 	exfatprogs \
 	fakeroot \
+	fd \
 	ffmpeg \
 	file \
 	ffmpegthumbnailer \
@@ -49,6 +50,7 @@ export PACKAGES="\
 	fuse-zip \
 	fuse2 \
 	fwupd \
+	fzf \
 	f2fs-tools \
 	git \
 	gnome-browser-connector \
@@ -79,6 +81,7 @@ export PACKAGES="\
 	intel-media-driver \
 	intel-ucode \
 	intel-undervolt \
+	imagemagick \
 	jq \
 	less \
 	lib32-curl \
@@ -133,12 +136,14 @@ export PACKAGES="\
 	pipewire-jack \
 	pipewire-pulse \
 	podman \
+	poppler \
 	pulsemixer \
 	python \
 	python-pyudev \
 	python-systemd \
 	papirus-icon-theme \
 	qtractor \
+	ripgrep \
 	rsync \
 	screen \
 	smartmontools \
@@ -177,7 +182,9 @@ export PACKAGES="\
 	xorg-server \
 	xorg-server-xvfb \
 	xz \
+	yazi \
 	zip \
+	zoxide \
 	zsh \
 "
 
