@@ -112,7 +112,7 @@ postinstall_download() {
 	cp $zsh_path/ohmyzsh/templates/zshrc.zsh-template $zsh_path/.zshrc
 	sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' $zsh_path/.zshrc
 	sed -i 's/plugins=(git)/plugins=(git sudo z fast-syntax-highlighting)/g' $zsh_path/.zshrc
-	cat >>$zsh_path/.zshrc <<-EOM
+	cat >>$zsh_path/.zshrc <<-'EOM'
 		function y() {
 		    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 		    yazi "$@" --cwd-file="$tmp"
