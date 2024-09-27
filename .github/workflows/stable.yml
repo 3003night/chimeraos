@@ -114,3 +114,5 @@ jobs:
       - pkgbuild
     name: Build ChimeraOS STABLE image
     uses: ./.github/workflows/build-system-image.yml
+    with:
+      postfix: "[GNOME_NVIDIA-PRE]"
