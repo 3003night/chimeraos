@@ -64,6 +64,7 @@ export PACKAGES="\
 	gnome-text-editor \
 	gnome-tweaks \
 	gnome-shell-extensions \
+	gnome-shell-extension-appindicator \
 	gnome-menus \
 	gparted \
 	gst-plugin-pipewire \
