@@ -234,6 +234,7 @@ export AUR_PACKAGES="\
 	gnome-shell-extension-dash-to-dock \
 	gnome-shell-extension-desktop-icons-ng-git \
 	gnome-shell-extension-enhanced-osk-git \
+	gnome-shell-extension-hibernate-status \
 	gnome-shell-extension-screen-autorotate \
 	gpd-fan-driver-dkms-git \
 	gpdconfig-git \
