@@ -61,9 +61,6 @@
 [submodule "aur-pkgs/frzr-sk"]
 	path = aur-pkgs/frzr-sk
 	url = https://aur.archlinux.org/frzr-sk.git
-[submodule "aur-pkgs/gnome-shell-extension-desktop-icons-ng-git"]
-	path = aur-pkgs/gnome-shell-extension-desktop-icons-ng-git
-	url = https://aur.archlinux.org/gnome-shell-extension-desktop-icons-ng-git.git
 [submodule "aur-pkgs/gnome-shell-extension-dash-to-dock"]
 	path = aur-pkgs/gnome-shell-extension-dash-to-dock
 	url = https://aur.archlinux.org/gnome-shell-extension-dash-to-dock.git
