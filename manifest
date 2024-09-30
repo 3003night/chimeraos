@@ -65,6 +65,7 @@ export PACKAGES="\
 	gnome-tweaks \
 	gnome-shell-extensions \
 	gnome-shell-extension-appindicator \
+	gnome-shell-extension-desktop-icons-ng \
 	gnome-menus \
 	gparted \
 	gst-plugin-pipewire \
