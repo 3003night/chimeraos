@@ -3,10 +3,10 @@ color-scheme='prefer-dark'
 icon-theme='Papirus'
 
 [org/gnome/desktop/background]
-picture-uri='file:///usr/share/backgrounds/sk-chos/kay-l.png'
-picture-uri-dark='file:///usr/share/backgrounds/sk-chos/kay-d.png'
-picture-options='scaled'
-primary-color='3071AE'
+picture-uri='file:///usr/share/backgrounds/gnome/ring-l.jxl'
+picture-uri-dark='file:///usr/share/backgrounds/gnome/ring-d.jxl'
+picture-options='zoom'
+primary-color='26A269'
 secondary-color='000000'
 
 [org/gnome/mutter]
