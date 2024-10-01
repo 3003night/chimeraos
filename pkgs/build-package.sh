@@ -6,10 +6,30 @@ sudo chown -R build:build /workdir/pkgs
 
 PIKAUR_CMD="PKGDEST=/workdir/pkgs pikaur --noconfirm --build-gpgdir /etc/pacman.d/gnupg -S -P /workdir/${1}/PKGBUILD"
 PIKAUR_RUN=(bash -c "${PIKAUR_CMD}")
-"${PIKAUR_RUN[@]}"
-if [ $? -ne 0 ]; then
-    echo "Build failed. Stopping..."
+
+# 重试次数
+MAX_RETRIES=3
+RETRY_COUNT=0
+
+set +e
+while [ ${RETRY_COUNT} -lt ${MAX_RETRIES} ]; do
+    RETRY_COUNT=$((RETRY_COUNT + 1))
+    echo "Build (${RETRY_COUNT}/${MAX_RETRIES})"
+    "${PIKAUR_RUN[@]}"
+    if [ $? -ne 0 ]; then
+        continue
+    fi
+    # remove any epoch (:) in name, replace with -- since not allowed in artifacts
+    find /workdir/pkgs/*.pkg.tar* -type f -name '*:*' -execdir bash -c 'mv "$1" "${1//:/--}"' bash {} \;
+    if [ $? -ne 0 ]; then
+        continue
+    fi
+    break
+done
+set -e
+
+# 如果重试3次后仍然失败，则退出
+if [ ${RETRY_COUNT} -eq ${MAX_RETRIES} ]; then
+    echo "Build failed after ${MAX_RETRIES} attempts. Stopping..."
     exit -1
 fi
-# remove any epoch (:) in name, replace with -- since not allowed in artifacts
-find /workdir/pkgs/*.pkg.tar* -type f -name '*:*' -execdir bash -c 'mv "$1" "${1//:/--}"' bash {} \;
