@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>Pixels</name>
+    <filename>/usr/share/backgrounds/gnome/pixels-l.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/gnome/pixels-d.jpg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#967864</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+</wallpapers>
