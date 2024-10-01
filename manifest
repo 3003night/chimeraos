@@ -149,6 +149,7 @@ export PACKAGES="\
 	smartmontools \
 	smbclient \
 	sof-firmware \
+	solaar \
 	sshfs \
 	steam \
 	sudo \
