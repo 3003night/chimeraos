@@ -76,7 +76,7 @@ postinstall_download() {
 	download_decky_plugin "YukiCoco/ToMoon" $decky_plugin_path "tomoon.*\.zip"
 
 	# GPD-WinControl
-	# download_decky_plugin "honjow/GPD-WinControl" $decky_plugin_path
+	download_decky_plugin "honjow/GPD-WinControl" $decky_plugin_path
 
 	# decky-sk-box
 	download_decky_plugin "honjow/decky-sk-box" $decky_plugin_path
