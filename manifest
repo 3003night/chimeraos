@@ -150,7 +150,7 @@ export PACKAGES="\
 	smbclient \
 	sof-firmware \
 	solaar \
-	sshfs \
+	sshfs \d
 	steam \
 	sudo \
 	switcheroo-control \
@@ -227,6 +227,7 @@ export AUR_PACKAGES="\
 	downgrade \
 	ds-inhibit \
 	evdev-keepalive \
+	fcsolid-backgrounds \
 	frzr-sk \
 	gamescope-session-sk-git \
 	gamescope-session-steam-git \
@@ -297,9 +298,9 @@ export SERVICES="\
 	auto-expand-home \
 	bluetooth \
 	bluetooth-workaround \
-	cec-onboot.service \
-	cec-onpoweroff.service \
-	cec-onsleep.service \
+	cec-onboot \
+	cec-onpoweroff \
+	cec-onsleep \
 	ds-inhibit \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
@@ -307,6 +308,7 @@ export SERVICES="\
 	hostname-fix \
 	inputplumber \
 	lightdm \
+	overlay-fonts-backgrounds \
 	overlay-fonts \
 	overlay-root-home \
 	pipewire-sysconf \
