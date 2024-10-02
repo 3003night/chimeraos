@@ -152,7 +152,7 @@ export PACKAGES="\
 	smbclient \
 	sof-firmware \
 	solaar \
-	sshfs \d
+	sshfs \
 	steam \
 	sudo \
 	switcheroo-control \
