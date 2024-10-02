@@ -14,7 +14,7 @@ RETRY_COUNT=0
 set +e
 while [ ${RETRY_COUNT} -lt ${MAX_RETRIES} ]; do
     RETRY_COUNT=$((RETRY_COUNT + 1))
-    echo "Build (${RETRY_COUNT}/${MAX_RETRIES})"
+    echo ">>>>>> Build (${RETRY_COUNT}/${MAX_RETRIES})"
     "${PIKAUR_RUN[@]}"
     if [ $? -ne 0 ]; then
         continue
@@ -30,6 +30,6 @@ set -e
 
 # 如果重试3次后仍然失败，则退出
 if [ ${RETRY_COUNT} -eq ${MAX_RETRIES} ]; then
-    echo "Build failed after ${MAX_RETRIES} attempts. Stopping..."
+    echo ">>>>>> Build failed after ${MAX_RETRIES} attempts. Stopping..."
     exit -1
 fi
