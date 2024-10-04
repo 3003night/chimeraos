@@ -142,3 +142,6 @@
 [submodule "aur-pkgs/gnome-shell-extension-hibernate-status"]
 	path = aur-pkgs/gnome-shell-extension-hibernate-status
 	url = https://aur.archlinux.org/gnome-shell-extension-hibernate-status.git
+[submodule "aur-pkgs/fcsolid-backgrounds"]
+	path = aur-pkgs/fcsolid-backgrounds
+	url = https://aur.archlinux.org/fcsolid-backgrounds.git

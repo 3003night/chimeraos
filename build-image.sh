@@ -82,7 +82,28 @@ fi
 
 # chroot into target
 mount --bind ${BUILD_PATH} ${BUILD_PATH}
-arch-chroot ${BUILD_PATH} /bin/bash -c "cd / && /all-install.sh"
+# arch-chroot ${BUILD_PATH} /bin/bash -c "cd / && /all-install.sh"
+
+# 重试次数
+MAX_RETRIES=3
+RETRY_COUNT=0
+
+set +e
+while [ ${RETRY_COUNT} -lt ${MAX_RETRIES} ]; do
+	RETRY_COUNT=$((RETRY_COUNT + 1))
+	echo ">>>>>> All install  (${RETRY_COUNT}/${MAX_RETRIES})"
+	arch-chroot ${BUILD_PATH} /bin/bash -c "cd / && /all-install.sh"
+	if [ $? -ne 0 ]; then
+		continue
+	fi
+	break
+done
+set -e
+if [ ${RETRY_COUNT} -eq ${MAX_RETRIES} ]; then
+	echo ">>>>>> All install failed after ${MAX_RETRIES} attempts. Stopping..."
+	exit -1
+fi
+
 rm ${BUILD_PATH}/all-install.sh
 rm ${BUILD_PATH}/postinstall
 
