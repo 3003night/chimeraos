@@ -85,9 +85,6 @@
 [submodule "aur-pkgs/waydroid-script-git"]
 	path = aur-pkgs/waydroid-script-git
 	url = https://aur.archlinux.org/waydroid-script-git.git
-[submodule "aur-pkgs/yay-bin"]
-	path = aur-pkgs/yay-bin
-	url = https://aur.archlinux.org/yay-bin.git
 [submodule "aur-pkgs/antimicrox"]
 	path = aur-pkgs/antimicrox
 	url = https://aur.archlinux.org/antimicrox.git
@@ -160,3 +157,6 @@
 [submodule "aur-pkgs/fcsolid-backgrounds"]
 	path = aur-pkgs/fcsolid-backgrounds
 	url = https://aur.archlinux.org/fcsolid-backgrounds.git
+[submodule "aur-pkgs/yay-git"]
+	path = aur-pkgs/yay-git
+	url = https://aur.archlinux.org/yay-git.git
