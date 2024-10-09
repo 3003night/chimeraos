@@ -245,6 +245,7 @@ export AUR_PACKAGES="\
 	gpdconfig-git \
 	hhd \
 	hhfc-git \
+	hid-msi-claw-dkms-git \
 	ibus-pinyin \
 	inputplumber-bin \
 	kanit-font \
