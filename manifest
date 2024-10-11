@@ -414,6 +414,7 @@ postinstallhook() {
 	curl -Lo /usr/bin/waydroid-choose-gpu https://raw.githubusercontent.com/Quackdoc/waydroid-scripts/main/waydroid-choose-gpu.sh
 	chmod +x /usr/bin/waydroid-choose-gpu
 
-	# set permissions for intel_gpu_top and mangohud
+	# set permissions for intel_gpu_top and gamescope
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
+	setcap 'CAP_SYS_NICE=eip' /usr/bin/gamescope
 }
