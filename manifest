@@ -204,8 +204,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.1.sk-chos1-1/linux-chimeraos-6.11.1.sk.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.1.sk-chos1-1/linux-chimeraos-headers-6.11.1.sk.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.3-sk1-1/linux-chimeraos-6.11.3.sk1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.3-sk1-1/linux-chimeraos-headers-6.11.3.sk1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.4-chos1-1/lib32-libva-mesa-driver-1--24.2.4.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.4-chos1-1/lib32-mesa-1--24.2.4.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.4-chos1-1/lib32-mesa-vdpau-1--24.2.4.chos1-1-x86_64.pkg.tar.zst \
@@ -269,7 +269,6 @@ export AUR_PACKAGES="\
 	r8152-dkms \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
-	rtl88x2bu-dkms-git \
 	rtl8821au-dkms-git \
 	ryzenadj-git \
 	sk-boot-to-windows \
@@ -277,7 +276,7 @@ export AUR_PACKAGES="\
 	steam_notif_daemon \
 	waydroid \
 	waydroid-script-git \
-	yay-bin \
+	yay-git \
 	zenergy-dkms-git \
 "
 
@@ -404,6 +403,7 @@ postinstallhook() {
 	curl -Lo /usr/bin/waydroid-choose-gpu https://raw.githubusercontent.com/Quackdoc/waydroid-scripts/main/waydroid-choose-gpu.sh
 	chmod +x /usr/bin/waydroid-choose-gpu
 
-	# set permissions for intel_gpu_top and mangohud
+	# set permissions for intel_gpu_top and gamescope
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
+	setcap 'CAP_SYS_NICE=eip' /usr/bin/gamescope
 }
