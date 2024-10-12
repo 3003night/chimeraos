@@ -319,7 +319,7 @@ export SERVICES="\
 	hostname-fix \
 	inputplumber \
 	lightdm \
-	overlay-fonts-backgrounds \
+	overlay-backgrounds \
 	overlay-fonts \
 	overlay-root-home \
 	powerstation \
