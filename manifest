@@ -226,6 +226,7 @@ export AUR_PACKAGES="\
 	chimeraos-device-quirks-sk-git \
 	downgrade \
 	ds-inhibit \
+	edid-decode-git \
 	evdev-keepalive \
 	fcsolid-backgrounds \
 	frzr-sk \
