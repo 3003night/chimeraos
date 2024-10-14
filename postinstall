@@ -84,6 +84,9 @@ postinstall_download() {
 	# aarron-lee/DeckyPlumber
 	download_decky_plugin "aarron-lee/DeckyPlumber" $decky_plugin_path
 
+	# honjow/decky-terminal/
+	download_decky_plugin "honjow/decky-terminal" $decky_plugin_path
+
 	# pre download css themes
 
 	# pre download hhd css themes
@@ -143,25 +146,27 @@ postinstall_download() {
 
 	# decky
 	HOMEBREW_FOLDER="/home/${USERNAME}/homebrew"
-	cat >"/etc/systemd/system/plugin_loader.service" <<-EOM
-		[Unit]
-		Description=SteamDeck Plugin Loader
-		After=network-online.target
-		Wants=network-online.target
-		[Service]
-		Type=simple
-		User=root
-		Restart=always
-		ExecStart=${HOMEBREW_FOLDER}/services/PluginLoader
-		WorkingDirectory=${HOMEBREW_FOLDER}/services
-		KillSignal=SIGKILL
-		Environment=PLUGIN_PATH=${HOMEBREW_FOLDER}/plugins
-		Environment=UNPRIVILEGED_PATH=${HOMEBREW_FOLDER}
-		Environment=PRIVILEGED_PATH=${HOMEBREW_FOLDER}
-		Environment=LOG_LEVEL=INFO
-		[Install]
-		WantedBy=multi-user.target
-	EOM
+	# cat >"/etc/systemd/system/plugin_loader.service" <<-EOM
+	# 	[Unit]
+	# 	Description=SteamDeck Plugin Loader
+	# 	After=network-online.target
+	# 	Wants=network-online.target
+	# 	[Service]
+	# 	Type=simple
+	# 	User=root
+	# 	Restart=always
+	# 	ExecStart=${HOMEBREW_FOLDER}/services/PluginLoader
+	# 	WorkingDirectory=${HOMEBREW_FOLDER}/services
+	# 	KillSignal=SIGKILL
+	# 	Environment=PLUGIN_PATH=${HOMEBREW_FOLDER}/plugins
+	# 	Environment=UNPRIVILEGED_PATH=${HOMEBREW_FOLDER}
+	# 	Environment=PRIVILEGED_PATH=${HOMEBREW_FOLDER}
+	# 	Environment=LOG_LEVEL=INFO
+	# 	[Install]
+	# 	WantedBy=multi-user.target
+	# EOM
+	curl -sL https://raw.githubusercontent.com/SteamDeckHomebrew/decky-loader/main/dist/plugin_loader-release.service -o "/etc/systemd/system/plugin_loader.service"
+	sed -i -e "s|\${HOMEBREW_FOLDER}|${HOMEBREW_FOLDER}|" "/etc/systemd/system/plugin_loader.service"
 
 	# 强制软链接
 	ln -sf "/usr/lib/systemd/system/hhd@.service" "/etc/systemd/system/multi-user.target.wants/hhd@${USERNAME}.service"

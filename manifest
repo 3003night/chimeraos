@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export VERSION="47-7"
+export VERSION="47-8"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
@@ -204,8 +204,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.3-sk1-2/linux-chimeraos-6.11.3.sk1-2-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.3-sk1-2/linux-chimeraos-headers-6.11.3.sk1-2-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.3-sk1-3/linux-chimeraos-6.11.3.sk1-3-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.3-sk1-3/linux-chimeraos-headers-6.11.3.sk1-3-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.4-chos1-1/lib32-libva-mesa-driver-1--24.2.4.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.4-chos1-1/lib32-mesa-1--24.2.4.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.4-chos1-1/lib32-mesa-vdpau-1--24.2.4.chos1-1-x86_64.pkg.tar.zst \
@@ -240,6 +240,7 @@ export AUR_PACKAGES="\
 	chimeraos-device-quirks-sk-git \
 	downgrade \
 	ds-inhibit \
+	edid-decode-git \
 	evdev-keepalive \
 	fcsolid-backgrounds \
 	frzr-sk \
@@ -314,7 +315,7 @@ export SERVICES="\
 	hostname-fix \
 	inputplumber \
 	lightdm \
-	overlay-fonts-backgrounds \
+	overlay-backgrounds \
 	overlay-fonts \
 	overlay-root-home \
 	pipewire-sysconf \
