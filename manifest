@@ -182,6 +182,7 @@ export PACKAGES="\
 	xf86-video-amdgpu \
 	xorg-server \
 	xorg-server-xvfb \
+	xwaylandvideobridge \
 	xz \
 	yazi \
 	zip \
