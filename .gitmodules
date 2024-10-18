@@ -136,12 +136,12 @@
 [submodule "aur-pkgs/gnome-shell-extension-hibernate-status"]
 	path = aur-pkgs/gnome-shell-extension-hibernate-status
 	url = https://aur.archlinux.org/gnome-shell-extension-hibernate-status.git
-[submodule "aur-pkgs/fcsolid-backgrounds"]
-	path = aur-pkgs/fcsolid-backgrounds
-	url = https://aur.archlinux.org/fcsolid-backgrounds.git
 [submodule "aur-pkgs/yay-git"]
 	path = aur-pkgs/yay-git
 	url = https://aur.archlinux.org/yay-git.git
 [submodule "aur-pkgs/edid-decode-git"]
 	path = aur-pkgs/edid-decode-git
 	url = https://aur.archlinux.org/edid-decode-git.git
+[submodule "aur-pkgs/hhd-ui"]
+	path = aur-pkgs/hhd-ui
+	url = https://aur.archlinux.org/hhd-ui.git

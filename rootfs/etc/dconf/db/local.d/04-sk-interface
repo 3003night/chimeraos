@@ -1,6 +1,12 @@
+# 显示电量百分比
 [org/gnome/desktop/interface]
 show-battery-percentage=true
 
+# 设置输入法
 [org/gnome/desktop/input-sources]
 sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
 mru-sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
+
+# 关闭自动旋转
+[org/gnome/settings-daemon/peripherals/touchscreen]
+orientation-lock=true
