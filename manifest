@@ -231,7 +231,6 @@ export AUR_PACKAGES="\
 	downgrade \
 	edid-decode-git \
 	evdev-keepalive \
-	fcsolid-backgrounds \
 	frzr-sk \
 	gamescope-session-sk-git \
 	gamescope-session-steam-git \
