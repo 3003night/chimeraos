@@ -244,6 +244,7 @@ export AUR_PACKAGES="\
 	gpdconfig-git \
 	hardware-audio-processing-git \
 	hhd \
+	hhd-ui \
 	hhfc-git \
 	ibus-pinyin \
 	inputplumber-bin \
