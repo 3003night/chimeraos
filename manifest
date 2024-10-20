@@ -352,6 +352,8 @@ postinstallhook() {
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
 	" >/etc/sudoers.d/chimera
 
+	sed -i "s/Defaults secure_path=/# Defaults secure_path=/g" /etc/sudoers
+
 	# sk chimeraos
 	echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >"/etc/sudoers.d/${USERNAME}"
 	sed -i 's/set mouse=a/set mouse-=a/g' /usr/share/vim/vim*/defaults.vim
