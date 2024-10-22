@@ -93,12 +93,12 @@ postinstall_download() {
 	mkdir -p $css_hhd_path
 
 	# SBP-Legion-Go-Theme
-	git_url="https://github.com/frazse/SBP-Legion-Go-Theme.git"
-	if [ -d $css_hhd_path/SBP-Legion-Go-Theme ]; then
-		rm -rf $css_hhd_path/SBP-Legion-Go-Theme
-	fi
-	git clone --depth 1 $git_url $css_hhd_path/SBP-Legion-Go-Theme
-	echo '{"active": true, "Apply": "Legion-Go-Theme"}' >$css_hhd_path/SBP-Legion-Go-Theme/config_USER.json
+	# git_url="https://github.com/frazse/SBP-Legion-Go-Theme.git"
+	# if [ -d $css_hhd_path/SBP-Legion-Go-Theme ]; then
+	# 	rm -rf $css_hhd_path/SBP-Legion-Go-Theme
+	# fi
+	# git clone --depth 1 $git_url $css_hhd_path/SBP-Legion-Go-Theme
+	# echo '{"active": true, "Apply": "Legion-Go-Theme"}' >$css_hhd_path/SBP-Legion-Go-Theme/config_USER.json
 
 	# PSBP-PS5-to-Handheld
 	git_url="https://github.com/honjow/SBP-PS5-to-Handheld.git"
