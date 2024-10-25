@@ -51,7 +51,7 @@ postinstall_download() {
 
 	# pre download decky
 	mkdir -p $decky_path
-	DECKY_RELEASE=$(curl -sLk 'https://api.github.com/repos/SteamDeckHomebrew/decky-loader/releases' | jq -r "first(.[] | select(.prerelease == "false"))")
+	DECKY_RELEASE=$(curl -s 'https://api.github.com/repos/SteamDeckHomebrew/decky-loader/releases' | jq -r "first(.[])")
 	DECKY_VERSION=$(jq -r '.tag_name' <<<${DECKY_RELEASE})
 	DECKY_DOWNLOADURL=$(jq -r '.assets[].browser_download_url | select(endswith("PluginLoader"))' <<<${DECKY_RELEASE})
 	curl -L $DECKY_DOWNLOADURL --output $decky_file
