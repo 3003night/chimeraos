@@ -254,6 +254,7 @@ export AUR_PACKAGES="\
 	linux-firmware-valve \
 	mission-center \
 	moonlight-qt \
+	mutter-x11-scaling \
 	nintendo-udev \
 	onedrive-abraunegg \
 	pikaur \
@@ -280,6 +281,7 @@ export PACKAGES_TO_DELETE="\
 	jack2 \
 	lib32-amdvlk \
 	lib32-clang \
+	mutter \
 	openvr \
 	pulseaudio \
 	pulseaudio-alsa \
