@@ -77,8 +77,15 @@ systemctl --global enable ${USER_SERVICES}
 passwd --lock root
 
 # create user
-groupadd -r autologin
-useradd -m ${USERNAME} -G autologin,wheel,i2c,input
+# groupadd -r autologin
+# if group autologin does not exist, create it
+if ! getent group autologin > /dev/null 2>&1; then
+	groupadd -r autologin
+fi
+# useradd -m ${USERNAME} -G autologin,wheel,i2c,input
+if ! getent passwd ${USERNAME} > /dev/null 2>&1; then
+	useradd -m ${USERNAME} -G autologin,wheel,i2c,input
+fi
 echo "${USERNAME}:${USERNAME}" | chpasswd
 
 # set the default editor, so visudo works
