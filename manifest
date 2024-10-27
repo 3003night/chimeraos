@@ -19,6 +19,7 @@ export PACKAGES="\
 	alsa-firmware \
 	alsa-utils \
 	amd-ucode \
+	antimicrox \
 	aria2 \
 	at \
 	bash-completion \
@@ -220,7 +221,6 @@ export PACKAGE_OVERRIDES="\
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
 	amdgpu-test-scripts-git \
-	antimicrox \
 	anydesk-bin \
 	asusctl \
 	ayaneo-platform-dkms-git \
