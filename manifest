@@ -23,6 +23,7 @@ export PACKAGES="\
 	aria2 \
 	at \
 	bash-completion \
+	bluez-utils \
 	broadcom-wl-dkms \
 	bzip2 \
 	cage \
