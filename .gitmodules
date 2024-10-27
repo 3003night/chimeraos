@@ -82,9 +82,6 @@
 [submodule "aur-pkgs/waydroid-script-git"]
 	path = aur-pkgs/waydroid-script-git
 	url = https://aur.archlinux.org/waydroid-script-git.git
-[submodule "aur-pkgs/antimicrox"]
-	path = aur-pkgs/antimicrox
-	url = https://aur.archlinux.org/antimicrox.git
 [submodule "aur-pkgs/ayaneo-platform-dkms-git"]
 	path = aur-pkgs/ayaneo-platform-dkms-git
 	url = https://aur.archlinux.org/ayaneo-platform-dkms-git.git
