@@ -145,9 +145,6 @@
 [submodule "aur-pkgs/hardware-audio-processing-git"]
 	path = aur-pkgs/hardware-audio-processing-git
 	url = https://aur.archlinux.org/hardware-audio-processing-git.git
-[submodule "aur-pkgs/gnome-shell-extension-hibernate-status"]
-	path = aur-pkgs/gnome-shell-extension-hibernate-status
-	url = https://aur.archlinux.org/gnome-shell-extension-hibernate-status.git
 [submodule "aur-pkgs/yay-git"]
 	path = aur-pkgs/yay-git
 	url = https://aur.archlinux.org/yay-git.git
@@ -157,3 +154,6 @@
 [submodule "aur-pkgs/hhd-ui"]
 	path = aur-pkgs/hhd-ui
 	url = https://aur.archlinux.org/hhd-ui.git
+[submodule "aur-pkgs/gnome-shell-extension-hibernate-status-git"]
+	path = aur-pkgs/gnome-shell-extension-hibernate-status-git
+	url = https://aur.archlinux.org/gnome-shell-extension-hibernate-status-git.git
