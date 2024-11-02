@@ -5,7 +5,7 @@ export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="15000MB"
-export ARCHIVE_DATE="2024/10/24"
+export ARCHIVE_DATE="2024/11/01"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -23,6 +23,7 @@ export PACKAGES="\
 	aria2 \
 	at \
 	bash-completion \
+	bluez-utils \
 	bluedevil \
 	breeze-gtk \
 	broadcom-wl-dkms \
@@ -206,26 +207,26 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.5-sk2-1/linux-chimeraos-6.11.5.sk2-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.5-sk2-1/linux-chimeraos-headers-6.11.5.sk2-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-libva-mesa-driver-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-mesa-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-mesa-vdpau-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-opencl-rusticl-mesa-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-vulkan-intel-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-vulkan-mesa-layers-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-vulkan-radeon-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-vulkan-nouveau-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/lib32-vulkan-swrast-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/libva-mesa-driver-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/mesa-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/mesa-vdpau-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/opencl-rusticl-mesa-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/vulkan-intel-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/vulkan-mesa-layers-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/vulkan-radeon-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/vulkan-nouveau-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.5-chos1-1/vulkan-swrast-1--24.2.5.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.5-sko1-1/linux-chimeraos-6.11.5.sko1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.5-sko1-1/linux-chimeraos-headers-6.11.5.sko1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-libva-mesa-driver-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-mesa-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-mesa-vdpau-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-opencl-rusticl-mesa-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-vulkan-intel-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-vulkan-mesa-layers-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-vulkan-radeon-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-vulkan-nouveau-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-vulkan-swrast-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/libva-mesa-driver-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/mesa-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/mesa-vdpau-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/opencl-rusticl-mesa-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/vulkan-intel-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/vulkan-mesa-layers-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/vulkan-radeon-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/vulkan-nouveau-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/vulkan-swrast-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
@@ -247,6 +248,7 @@ export AUR_PACKAGES="\
 	gamescope-session-sk-git \
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
+	gamescope-sk \
 	gpd-fan-driver-dkms-git \
 	gpdconfig-git \
 	hardware-audio-processing-git \
