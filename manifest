@@ -121,6 +121,7 @@ export PACKAGES="\
 	mangohud \
 	mesa-demos \
 	modemmanager \
+	mpv \
 	nano \
 	nautilus \
 	networkmanager \
