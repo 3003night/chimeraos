@@ -80,6 +80,7 @@ export PACKAGES="\
 	ibus-table-chinese \
 	ibus-anthy \
 	ibus-hangul \
+	ibus-rime \
 	intel-gpu-tools \
 	intel-media-driver \
 	intel-ucode \
