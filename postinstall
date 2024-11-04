@@ -44,10 +44,9 @@ postinstall_download() {
 	decky_plugin_path=$pre_path/decky-plugins
 	css_path=$pre_path/css
 	css_hhd_path=$pre_path/css-hhd
-
 	zsh_path=$pre_path/zsh
-
 	refind_path=$pre_path/refind
+	rime_config_path=$pre_path/rime_config
 
 	# pre download decky
 	mkdir -p $decky_path
@@ -110,6 +109,13 @@ postinstall_download() {
 	fi
 	git clone --depth 1 $git_url $css_hhd_path/SBP-PS5-to-Handheld
 
+	# pre download rime config
+	rime_git_url="https://github.com/iDvel/rime-ice.git"
+	if [ -d $rime_config_path ]; then
+		rm -rf $rime_config_path
+	fi
+	git clone --depth 1 $rime_git_url $rime_config_path
+
 	# zsh pre download
 	mkdir -p $zsh_path
 	rm -rf $zsh_path/*
@@ -149,25 +155,7 @@ postinstall_download() {
 
 	# decky
 	HOMEBREW_FOLDER="/home/${USERNAME}/homebrew"
-	# cat >"/etc/systemd/system/plugin_loader.service" <<-EOM
-	# 	[Unit]
-	# 	Description=SteamDeck Plugin Loader
-	# 	After=network-online.target
-	# 	Wants=network-online.target
-	# 	[Service]
-	# 	Type=simple
-	# 	User=root
-	# 	Restart=always
-	# 	ExecStart=${HOMEBREW_FOLDER}/services/PluginLoader
-	# 	WorkingDirectory=${HOMEBREW_FOLDER}/services
-	# 	KillSignal=SIGKILL
-	# 	Environment=PLUGIN_PATH=${HOMEBREW_FOLDER}/plugins
-	# 	Environment=UNPRIVILEGED_PATH=${HOMEBREW_FOLDER}
-	# 	Environment=PRIVILEGED_PATH=${HOMEBREW_FOLDER}
-	# 	Environment=LOG_LEVEL=INFO
-	# 	[Install]
-	# 	WantedBy=multi-user.target
-	# EOM
+
 	curl -sL https://raw.githubusercontent.com/SteamDeckHomebrew/decky-loader/main/dist/plugin_loader-release.service -o "/etc/systemd/system/plugin_loader.service"
 	sed -i -e "s|\${HOMEBREW_FOLDER}|${HOMEBREW_FOLDER}|" "/etc/systemd/system/plugin_loader.service"
 
