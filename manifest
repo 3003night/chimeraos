@@ -74,6 +74,7 @@ export PACKAGES="\
 	ibus-table-chinese \
 	ibus-anthy \
 	ibus-hangul \
+	ibus-rime \
 	intel-gpu-tools \
 	intel-media-driver \
 	intel-ucode \
@@ -126,6 +127,7 @@ export PACKAGES="\
 	mangohud \
 	mesa-demos \
 	modemmanager \
+	mpv \
 	nano \
 	networkmanager \
 	nfs-utils \
@@ -207,8 +209,8 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.5-sko1-1/linux-chimeraos-6.11.5.sko1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.5-sko1-1/linux-chimeraos-headers-6.11.5.sko1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.6-sko1-1/linux-chimeraos-6.11.6.sko1-1-x86_64.pkg.tar.zst \
+	https://github.com/3003n/linux-chimeraos/releases/download/v6.11.6-sko1-1/linux-chimeraos-headers-6.11.6.sko1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-libva-mesa-driver-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-mesa-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.2.6-chos1-1/lib32-mesa-vdpau-1--24.2.6.chos1-1-x86_64.pkg.tar.zst \
@@ -278,6 +280,7 @@ export AUR_PACKAGES="\
 	sk-boot-to-windows \
 	sk-chos-tool \
 	steam_notif_daemon \
+	tsukimi-bin \
 	waydroid \
 	waydroid-script-git \
 	yay-git \
