@@ -149,6 +149,7 @@ export PACKAGES="\
 	python-systemd \
 	papirus-icon-theme \
 	qtractor \
+	remmina \
 	ripgrep \
 	rsync \
 	screen \
