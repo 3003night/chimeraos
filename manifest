@@ -318,7 +318,6 @@ export SERVICES="\
 	overlay-backgrounds \
 	overlay-fonts \
 	overlay-root-home \
-	powerstation \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
