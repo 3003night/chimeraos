@@ -246,7 +246,6 @@ export AUR_PACKAGES="\
 	gnome-shell-extension-screen-autorotate \
 	gpd-fan-driver-dkms-git \
 	gpdconfig-git \
-	hardware-audio-processing-git \
 	hhd \
 	hhd-ui \
 	hhfc-git \
@@ -317,7 +316,6 @@ export SERVICES="\
 	overlay-backgrounds \
 	overlay-fonts \
 	overlay-root-home \
-	pipewire-sysconf \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
@@ -326,7 +324,6 @@ export SERVICES="\
 	sk-chos-tool-autoupdate.timer \
 	sk-setup-kernel-options \
 	sk-resume \
-	wireplumber-sysconf \
 "
 
 export USER_SERVICES="\
