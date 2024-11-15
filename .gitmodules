@@ -160,3 +160,6 @@
 [submodule "aur-pkgs/paru"]
 	path = aur-pkgs/paru
 	url = https://aur.archlinux.org/paru.git
+[submodule "aur-pkgs/paruz"]
+	path = aur-pkgs/paruz
+	url = https://aur.archlinux.org/paruz.git
