@@ -263,6 +263,7 @@ export AUR_PACKAGES="\
 	moonlight-qt \
 	nintendo-udev \
 	onedrive-abraunegg \
+	paru \
 	pikaur \
 	powerstation-bin \
 	protonup-qt-bin \
