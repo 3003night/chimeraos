@@ -157,3 +157,6 @@
 [submodule "aur-pkgs/tsukimi-bin"]
 	path = aur-pkgs/tsukimi-bin
 	url = https://aur.archlinux.org/tsukimi-bin.git
+[submodule "aur-pkgs/paru"]
+	path = aur-pkgs/paru
+	url = https://aur.archlinux.org/paru.git

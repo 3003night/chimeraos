@@ -261,6 +261,7 @@ export AUR_PACKAGES="\
 	mutter-x11-scaling \
 	nintendo-udev \
 	onedrive-abraunegg \
+	paru \
 	pikaur \
 	protonup-qt \
 	python-pyclip \
