@@ -262,6 +262,7 @@ export AUR_PACKAGES="\
 	nintendo-udev \
 	onedrive-abraunegg \
 	paru \
+	parui \
 	paruz \
 	pikaur \
 	protonup-qt \
