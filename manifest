@@ -141,6 +141,7 @@ export PACKAGES="\
 	pipewire-jack \
 	pipewire-pulse \
 	podman \
+	podman-compose \
 	poppler \
 	pulsemixer \
 	python \
