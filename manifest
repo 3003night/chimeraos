@@ -30,6 +30,7 @@ export PACKAGES="\
 	cage \
 	cifs-utils \
 	cpupower \
+	ddcutil \
 	diffutils \
 	dconf-editor \
 	dkms \
