@@ -260,7 +260,6 @@ export AUR_PACKAGES="\
 	linux-firmware-valve \
 	mission-center \
 	moonlight-qt \
-	mutter-x11-scaling \
 	nintendo-udev \
 	onedrive-abraunegg \
 	paru \
