@@ -219,6 +219,7 @@ export PACKAGE_OVERRIDES="\
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.0.rc1-chos1-1/vulkan-radeon-1--24.3.0.rc1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.0.rc1-chos1-1/vulkan-nouveau-1--24.3.0.rc1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.0.rc1-chos1-1/vulkan-swrast-1--24.3.0.rc1.chos1-1-x86_64.pkg.tar.zst \
+	https://ns.switchsystem.eu.org/d/guest/stos/pkgs/mutter-x11-scaling-47.1-2-x86_64.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
@@ -260,7 +261,6 @@ export AUR_PACKAGES="\
 	linux-firmware-valve \
 	mission-center \
 	moonlight-qt \
-	mutter-x11-scaling \
 	nintendo-udev \
 	onedrive-abraunegg \
 	paru \
