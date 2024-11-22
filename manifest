@@ -110,7 +110,6 @@ export PACKAGES="\
 	libdisplay-info \
 	libidn11 \
 	libva-intel-driver \
-	libva-vdpau-driver \
 	libxcrypt-compat \
 	libxss \
 	lightdm \
