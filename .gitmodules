@@ -127,9 +127,6 @@
 [submodule "aur-pkgs/chimeraos-device-quirks-sk-git"]
 	path = aur-pkgs/chimeraos-device-quirks-sk-git
 	url = https://aur.archlinux.org/chimeraos-device-quirks-sk-git.git
-[submodule "aur-pkgs/hardware-audio-processing-git"]
-	path = aur-pkgs/hardware-audio-processing-git
-	url = https://aur.archlinux.org/hardware-audio-processing-git.git
 [submodule "aur-pkgs/yay-git"]
 	path = aur-pkgs/yay-git
 	url = https://aur.archlinux.org/yay-git.git
@@ -142,3 +139,12 @@
 [submodule "aur-pkgs/tsukimi-bin"]
 	path = aur-pkgs/tsukimi-bin
 	url = https://aur.archlinux.org/tsukimi-bin.git
+[submodule "aur-pkgs/paru"]
+	path = aur-pkgs/paru
+	url = https://aur.archlinux.org/paru.git
+[submodule "aur-pkgs/paruz"]
+	path = aur-pkgs/paruz
+	url = https://aur.archlinux.org/paruz.git
+[submodule "aur-pkgs/parui"]
+	path = aur-pkgs/parui
+	url = https://aur.archlinux.org/parui.git
