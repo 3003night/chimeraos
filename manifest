@@ -139,6 +139,7 @@ export PACKAGES="\
 	onboard \
 	openal \
 	openssh \
+	openrgb \
 	p7zip \
 	partitionmanager \
 	pipewire \
