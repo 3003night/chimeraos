@@ -137,6 +137,7 @@ export PACKAGES="\
 	ntfs-3g \
 	openal \
 	openssh \
+	openrgb \
 	p7zip \
 	pipewire \
 	pipewire-alsa \
