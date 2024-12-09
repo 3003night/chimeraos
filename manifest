@@ -234,7 +234,6 @@ export PACKAGE_OVERRIDES="\
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-radeon-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-swrast-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-virtio-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://ns.switchsystem.eu.org/d/guest/stos/pkgs/mutter-x11-scaling-47.1-2-x86_64.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
@@ -303,6 +302,7 @@ export PACKAGES_TO_DELETE="\
 	lib32-amdvlk \
 	lib32-clang \
 	mutter \
+	mutter-x11-scaling \
 	openvr \
 	pulseaudio \
 	pulseaudio-alsa \
