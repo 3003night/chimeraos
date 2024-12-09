@@ -33,7 +33,7 @@ else
 fi
 
 for package in ${OWN_PACKAGES_TO_DELETE}; do
-	rm -f "/own_pkgs/${package}" || true
+	rm -f /own_pkgs/${package} || true
 done
 
 # install own override packages
@@ -64,7 +64,7 @@ done
 
 # remove AUR packages
 for package in ${AUR_PACKAGES_TO_DELETE}; do
-	rm -f "/extra_pkgs/${package}" || true
+	rm -f /extra_pkgs/${package} || true
 done
 
 # install AUR packages

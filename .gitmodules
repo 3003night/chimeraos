@@ -130,9 +130,6 @@
 [submodule "aur-pkgs/yay-git"]
 	path = aur-pkgs/yay-git
 	url = https://aur.archlinux.org/yay-git.git
-[submodule "aur-pkgs/edid-decode-git"]
-	path = aur-pkgs/edid-decode-git
-	url = https://aur.archlinux.org/edid-decode-git.git
 [submodule "aur-pkgs/hhd-ui"]
 	path = aur-pkgs/hhd-ui
 	url = https://aur.archlinux.org/hhd-ui.git
@@ -148,3 +145,6 @@
 [submodule "aur-pkgs/parui"]
 	path = aur-pkgs/parui
 	url = https://aur.archlinux.org/parui.git
+[submodule "aur-pkgs/v4l-utils-git"]
+	path = aur-pkgs/v4l-utils-git
+	url = https://aur.archlinux.org/v4l-utils-git.git
