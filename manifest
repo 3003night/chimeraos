@@ -279,6 +279,7 @@ export AUR_PACKAGES="\
 	sk-chos-tool \
 	steam_notif_daemon \
 	tsukimi-bin \
+	v4l-utils-git \
 	waydroid \
 	waydroid-script-git \
 	yay-git \
