@@ -296,6 +296,7 @@ export PACKAGES_TO_DELETE="\
 	openvr \
 	pulseaudio \
 	pulseaudio-alsa \
+	v4l-utils \
 "
 export OWN_PACKAGES_TO_DELETE=""
 
