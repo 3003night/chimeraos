@@ -1,11 +1,11 @@
 #! /bin/bash
 
-export VERSION="47-10"
+export VERSION="47-11"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="15000MB"
-export ARCHIVE_DATE="2024/11/20"
+export ARCHIVE_DATE="2024/12/05"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -221,6 +221,8 @@ export PACKAGE_OVERRIDES="\
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-swrast-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
 	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-virtio-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
 	https://ns.switchsystem.eu.org/d/guest/stos/pkgs/mutter-x11-scaling-47.1-2-x86_64.pkg.tar.zst \
+	https://archive.archlinux.org/packages/l/libibus/libibus-1.5.30-3-x86_64.pkg.tar.zst \
+	https://archive.archlinux.org/packages/i/ibus/ibus-1.5.30-3-x86_64.pkg.tar.zst \
 "
 
 # Each entry is the clone url (https://aur.archlinux.org/{AUR_PACKAGE}.git)
