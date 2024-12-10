@@ -1,11 +1,11 @@
 #! /bin/bash
 
-export VERSION="47-10"
+export VERSION="47-11"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="15000MB"
-export ARCHIVE_DATE="2024/11/20"
+export ARCHIVE_DATE="2024/11/09"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -110,6 +110,7 @@ export PACKAGES="\
 	libdisplay-info \
 	libidn11 \
 	libva-intel-driver \
+	libva-vdpau-driver \
 	libxcrypt-compat \
 	libxss \
 	lightdm \
