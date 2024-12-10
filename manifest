@@ -100,7 +100,6 @@ export PACKAGES="\
 	lib32-libxcrypt-compat \
 	lib32-libva \
 	lib32-libva-intel-driver \
-	lib32-libva-vdpau-driver \
 	lib32-mangohud \
 	lib32-openal \
 	lib32-pipewire \
