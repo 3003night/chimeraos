@@ -190,6 +190,7 @@ if [ -z "${NO_COMPRESS}" ]; then
 		echo "display_version=${DISPLAY_VERSION}" >>"${GITHUB_OUTPUT}"
 		echo "display_name=${SYSTEM_DESC}" >>"${GITHUB_OUTPUT}"
 		echo "image_filename=${IMG_FILENAME}" >>"${GITHUB_OUTPUT}"
+		echo "image_filename_without_ext=${IMG_FILENAME_WITHOUT_EXT}" >>"${GITHUB_OUTPUT}"
 	else
 		echo "No github output file set"
 	fi
