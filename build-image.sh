@@ -150,8 +150,15 @@ fi
 # 如果文件大于 2000M，那么就分割文件
 split_size=$((2000*1024*1024))
 if [ $(stat -c %s ${IMG_FILENAME}) -gt $split_size ]; then
-	split -b 2000MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME}-
-	rm ${IMG_FILENAME}
+    # 计算需要分割的总份数
+    total_parts=$(( ($(stat -c %s ${IMG_FILENAME}) + split_size - 1) / split_size ))
+    # 先用临时后缀进行分割
+    split -b 2000MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME}.part
+    # 重命名文件为所需格式
+    for i in $(seq -w 001 $total_parts); do
+        mv ${IMG_FILENAME}.part$(($i-1)) "${IMG_FILENAME%.*}.part${i}-${total_parts}${IMG_FILENAME##*.}"
+    done
+    rm ${IMG_FILENAME}
 fi
 
 cp ${BUILD_PATH}/build_info build_info.txt
