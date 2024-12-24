@@ -70,6 +70,7 @@ export PACKAGES="\
 	gzip \
 	haveged \
 	htop \
+	hyprland \
 	hyprpaper \
 	ibus-libpinyin \
 	ibus-table-chinese \
@@ -252,7 +253,6 @@ export AUR_PACKAGES="\
 	hhd \
 	hhd-ui \
 	hhfc-git \
-	hyprland-git \
 	hyprshot \
 	ibus-pinyin \
 	inputplumber-bin \
