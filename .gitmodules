@@ -52,15 +52,9 @@
 [submodule "aur-pkgs/zenergy-dkms-git"]
 	path = aur-pkgs/zenergy-dkms-git
 	url = https://aur.archlinux.org/zenergy-dkms-git.git
-[submodule "aur-pkgs/anydesk-bin"]
-	path = aur-pkgs/anydesk-bin
-	url = https://aur.archlinux.org/anydesk-bin.git
 [submodule "aur-pkgs/frzr-sk"]
 	path = aur-pkgs/frzr-sk
 	url = https://aur.archlinux.org/frzr-sk.git
-[submodule "aur-pkgs/gnome-shell-extension-dash-to-dock"]
-	path = aur-pkgs/gnome-shell-extension-dash-to-dock
-	url = https://aur.archlinux.org/gnome-shell-extension-dash-to-dock.git
 [submodule "aur-pkgs/onedrive-abraunegg"]
 	path = aur-pkgs/onedrive-abraunegg
 	url = https://aur.archlinux.org/onedrive-abraunegg.git
@@ -91,9 +85,6 @@
 [submodule "aur-pkgs/kanit-font"]
 	path = aur-pkgs/kanit-font
 	url = https://aur.archlinux.org/kanit-font.git
-[submodule "aur-pkgs/gnome-shell-extension-screen-autorotate"]
-	path = aur-pkgs/gnome-shell-extension-screen-autorotate
-	url = https://aur.archlinux.org/gnome-shell-extension-screen-autorotate.git
 [submodule "aur-pkgs/gamescope-session-sk-git"]
 	path = aur-pkgs/gamescope-session-sk-git
 	url = https://aur.archlinux.org/gamescope-session-sk-git.git
@@ -109,18 +100,12 @@
 [submodule "aur-pkgs/moonlight-qt"]
 	path = aur-pkgs/moonlight-qt
 	url = https://aur.archlinux.org/moonlight-qt.git
-[submodule "aur-pkgs/gnome-shell-extension-blur-my-shell"]
-	path = aur-pkgs/gnome-shell-extension-blur-my-shell
-	url = https://aur.archlinux.org/gnome-shell-extension-blur-my-shell.git
 [submodule "aur-pkgs/lib32-extest"]
 	path = aur-pkgs/lib32-extest
 	url = https://aur.archlinux.org/lib32-extest.git
 [submodule "aur-pkgs/inputplumber-bin"]
 	path = aur-pkgs/inputplumber-bin
 	url = https://aur.archlinux.org/inputplumber-bin.git
-[submodule "aur-pkgs/gnome-shell-extension-enhanced-osk-git"]
-	path = aur-pkgs/gnome-shell-extension-enhanced-osk-git
-	url = https://aur.archlinux.org/gnome-shell-extension-enhanced-osk-git.git
 [submodule "aur-pkgs/linux-firmware-valve"]
 	path = aur-pkgs/linux-firmware-valve
 	url = https://aur.archlinux.org/linux-firmware-valve.git
@@ -133,9 +118,6 @@
 [submodule "aur-pkgs/amdgpu-test-scripts-git"]
 	path = aur-pkgs/amdgpu-test-scripts-git
 	url = https://aur.archlinux.org/amdgpu-test-scripts-git.git
-[submodule "aur-pkgs/gnome-shell-extension-bluetooth-battery-meter-git"]
-	path = aur-pkgs/gnome-shell-extension-bluetooth-battery-meter-git
-	url = https://aur.archlinux.org/gnome-shell-extension-bluetooth-battery-meter-git.git
 [submodule "aur-pkgs/chimeraos-device-quirks-sk-git"]
 	path = aur-pkgs/chimeraos-device-quirks-sk-git
 	url = https://aur.archlinux.org/chimeraos-device-quirks-sk-git.git
@@ -145,9 +127,6 @@
 [submodule "aur-pkgs/hhd-ui"]
 	path = aur-pkgs/hhd-ui
 	url = https://aur.archlinux.org/hhd-ui.git
-[submodule "aur-pkgs/gnome-shell-extension-hibernate-status-git"]
-	path = aur-pkgs/gnome-shell-extension-hibernate-status-git
-	url = https://aur.archlinux.org/gnome-shell-extension-hibernate-status-git.git
 [submodule "aur-pkgs/tsukimi-bin"]
 	path = aur-pkgs/tsukimi-bin
 	url = https://aur.archlinux.org/tsukimi-bin.git
@@ -163,3 +142,24 @@
 [submodule "aur-pkgs/v4l-utils-git"]
 	path = aur-pkgs/v4l-utils-git
 	url = https://aur.archlinux.org/v4l-utils-git.git
+[submodule "aur-pkgs/adwaita-qt-git"]
+	path = aur-pkgs/adwaita-qt-git
+	url = https://aur.archlinux.org/adwaita-qt-git.git
+[submodule "aur-pkgs/hyprland-git"]
+	path = aur-pkgs/hyprland-git
+	url = https://aur.archlinux.org/hyprland-git.git
+[submodule "aur-pkgs/hyprshot"]
+	path = aur-pkgs/hyprshot
+	url = https://aur.archlinux.org/hyprshot.git
+[submodule "aur-pkgs/nerd-fonts-sarasa-term"]
+	path = aur-pkgs/nerd-fonts-sarasa-term
+	url = https://aur.archlinux.org/nerd-fonts-sarasa-term.git
+[submodule "aur-pkgs/pw-volume"]
+	path = aur-pkgs/pw-volume
+	url = https://aur.archlinux.org/pw-volume.git
+[submodule "aur-pkgs/tofi"]
+	path = aur-pkgs/tofi
+	url = https://aur.archlinux.org/tofi.git
+[submodule "aur-pkgs/wlogout-git"]
+	path = aur-pkgs/wlogout-git
+	url = https://aur.archlinux.org/wlogout-git.git
