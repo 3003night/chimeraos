@@ -25,24 +25,30 @@ export PACKAGES="\
 	bash-completion \
 	bat \
 	bluez-utils \
+	brightnessctl \
 	broadcom-wl-dkms \
 	bzip2 \
 	cage \
 	cifs-utils \
+	cliphist \
 	cpupower \
 	ddcutil \
 	diffutils \
-	dconf-editor \
 	dkms \
+	discover \
 	distrobox \
 	dmidecode \
 	dosbox \
+	dolphin \
+	dolphin-plugins \
 	efibootmgr \
-	epiphany \
 	evtest \
 	efibootmgr \
 	expect \
 	exfatprogs \
+	falkon \
+	fcitx5-im \
+	fcitx5-chinese-addons \
 	fd \
 	ffmpeg \
 	file \
@@ -56,21 +62,7 @@ export PACKAGES="\
 	fzf \
 	f2fs-tools \
 	git \
-	gnome-browser-connector \
-	gnome-console \
-	gnome-control-center \
 	gnome-disk-utility \
-	gnome-keyring \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-system-monitor \
-	gnome-text-editor \
-	gnome-tweaks \
-	gnome-shell-extensions \
-	gnome-shell-extension-appindicator \
-	gnome-shell-extension-desktop-icons-ng \
-	gnome-menus \
 	gparted \
 	gst-plugin-pipewire \
 	gvfs-smb \
@@ -78,6 +70,7 @@ export PACKAGES="\
 	gzip \
 	haveged \
 	htop \
+	hyprpaper \
 	ibus-libpinyin \
 	ibus-table-chinese \
 	ibus-anthy \
@@ -89,6 +82,10 @@ export PACKAGES="\
 	intel-undervolt \
 	imagemagick \
 	jq \
+	kate \
+	kdeconnect \
+	kfind \
+	kitty \
 	less \
 	lib32-curl \
 	lib32-fontconfig \
@@ -116,16 +113,16 @@ export PACKAGES="\
 	liquidctl \
 	logrotate \
 	lrzip \
-	loupe \
 	lshw \
 	lzip \
+	mako \
 	mangohud \
 	mesa-demos \
 	modemmanager \
 	mpv \
 	nano \
-	nautilus \
 	networkmanager \
+	network-manager-applet \
 	nfs-utils \
 	nmon \
 	noto-fonts-cjk \
@@ -136,19 +133,21 @@ export PACKAGES="\
 	openssh \
 	openrgb \
 	p7zip \
+	papirus-icon-theme \
 	pipewire \
 	pipewire-alsa \
 	pipewire-jack \
 	pipewire-pulse \
 	podman \
 	podman-compose \
+	polkit-kde-agent \
 	poppler \
 	pulsemixer \
 	python \
 	python-pyudev \
 	python-systemd \
-	papirus-icon-theme \
 	qtractor \
+	qt5ct \
 	remmina \
 	ripgrep \
 	rsync \
@@ -160,6 +159,8 @@ export PACKAGES="\
 	sshfs \
 	steam \
 	sudo \
+	swayidle \
+	swaylock \
 	switcheroo-control \
 	s-tui \
 	tree \
@@ -175,7 +176,9 @@ export PACKAGES="\
 	vim \
 	vulkan-icd-loader \
 	v2ray \
+	waybar \
 	wavpack \
+	waybar \
 	wget \
 	which \
 	wireplumber \
@@ -183,13 +186,14 @@ export PACKAGES="\
 	wlr-randr \
 	xdelta3 \
 	xdg-desktop-portal \
-	xdg-desktop-portal-gnome \
+	xdg-desktop-portal-gtk \
+	xdg-desktop-portal-hyprland \
 	xdg-desktop-portal-wlr \
-	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
 	xorg-server \
 	xorg-server-xvfb \
-	xwaylandvideobridge \
+	xorg-xinit \
+	xorg-xwayland \
 	xz \
 	yazi \
 	zip \
@@ -228,8 +232,8 @@ export PACKAGE_OVERRIDES="\
 # Which is often the same as the package name but it can be different.
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
+	adwaita-qt-git \
 	amdgpu-test-scripts-git \
-	anydesk-bin \
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
@@ -243,17 +247,13 @@ export AUR_PACKAGES="\
 	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
 	gamescope-sk \
-	gnome-shell-extension-bluetooth-battery-meter-git \
-	gnome-shell-extension-blur-my-shell \
-	gnome-shell-extension-dash-to-dock \
-	gnome-shell-extension-enhanced-osk-git \
-	gnome-shell-extension-hibernate-status-git \
-	gnome-shell-extension-screen-autorotate \
 	gpd-fan-driver-dkms-git \
 	gpdconfig-git \
 	hhd \
 	hhd-ui \
 	hhfc-git \
+	hyprland-git \
+	hyprshot \
 	ibus-pinyin \
 	inputplumber-bin \
 	kanit-font \
@@ -262,15 +262,16 @@ export AUR_PACKAGES="\
 	linux-firmware-valve \
 	mission-center \
 	moonlight-qt \
+	nerd-fonts-sarasa-term \
 	nintendo-udev \
 	onedrive-abraunegg \
 	paru \
 	parui \
 	paruz \
 	pikaur \
-	protonup-qt \
 	python-pyclip \
 	python-vdf \
+	pw-volume \
 	r8152-dkms \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
@@ -281,8 +282,10 @@ export AUR_PACKAGES="\
 	steam_notif_daemon \
 	tsukimi-bin \
 	v4l-utils-git \
+	tofi \
 	waydroid \
 	waydroid-script-git \
+	wlogout-git \
 	yay-git \
 	zenergy-dkms-git \
 "
