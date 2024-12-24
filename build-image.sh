@@ -11,17 +11,16 @@ fi
 BUILD_USER=${BUILD_USER:-}
 OUTPUT_DIR=${OUTPUT_DIR:-}
 
-
 source manifest
 
 if [ -z "${SYSTEM_NAME}" ]; then
-  echo "SYSTEM_NAME must be specified"
-  exit
+	echo "SYSTEM_NAME must be specified"
+	exit
 fi
 
 if [ -z "${VERSION}" ]; then
-  echo "VERSION must be specified"
-  exit
+	echo "VERSION must be specified"
+	exit
 fi
 
 DISPLAY_VERSION=${VERSION}
@@ -79,7 +78,6 @@ if [ -n "${PACKAGE_OVERRIDES}" ]; then
 	cp -rv /tmp/extra_pkgs/*.pkg.tar* ${BUILD_PATH}/own_pkgs
 fi
 
-
 # chroot into target
 mount --bind ${BUILD_PATH} ${BUILD_PATH}
 # arch-chroot ${BUILD_PATH} /bin/bash -c "cd / && /all-install.sh"
@@ -111,9 +109,9 @@ rm ${BUILD_PATH}/postinstall
 cp -R rootfs/. ${BUILD_PATH}/
 rm -rf ${BUILD_PATH}/extra_certs
 
-echo "${SYSTEM_NAME}-${VERSION}" > ${BUILD_PATH}/build_info
-echo "" >> ${BUILD_PATH}/build_info
-cat ${BUILD_PATH}/manifest >> ${BUILD_PATH}/build_info
+echo "${SYSTEM_NAME}-${VERSION}" >${BUILD_PATH}/build_info
+echo "" >>${BUILD_PATH}/build_info
+cat ${BUILD_PATH}/manifest >>${BUILD_PATH}/build_info
 rm ${BUILD_PATH}/manifest
 
 # freeze archive date of build to avoid package drift on unlock
@@ -121,7 +119,7 @@ rm ${BUILD_PATH}/manifest
 if [ -z "${ARCHIVE_DATE}" ]; then
 	export TODAY_DATE=$(date +%Y/%m/%d)
 	echo "Server=https://archive.archlinux.org/repos/${TODAY_DATE}/\$repo/os/\$arch" > \
-	${BUILD_PATH}/etc/pacman.d/mirrorlist
+		${BUILD_PATH}/etc/pacman.d/mirrorlist
 fi
 
 # show free space before snapshot
@@ -134,9 +132,9 @@ btrfs subvolume snapshot -r ${BUILD_PATH} ${SNAP_PATH}
 
 IMG_FILENAME_WITHOUT_EXT="${SYSTEM_NAME}-${VERSION}"
 if [ -z "${NO_COMPRESS}" ]; then
-	if [[ $COMRESS_ON_THE_FLY == true ]];then
+	if [[ $COMRESS_ON_THE_FLY == true ]]; then
 		IMG_FILENAME="${IMG_FILENAME_WITHOUT_EXT}.img.xz"
-		btrfs send ${SNAP_PATH} | xz -9 -T0 > ${IMG_FILENAME}
+		btrfs send ${SNAP_PATH} | xz -9 -T0 >${IMG_FILENAME}
 	else
 		IMG_FILENAME="${IMG_FILENAME_WITHOUT_EXT}.img.tar.xz"
 		btrfs send -f ${IMG_FILENAME_WITHOUT_EXT}.img ${SNAP_PATH}
@@ -147,18 +145,23 @@ else
 	btrfs send -f ${IMG_FILENAME_WITHOUT_EXT}.img ${SNAP_PATH}
 fi
 
-# 如果文件大于 2000M，那么就分割文件
-split_size=$((2000*1024*1024))
-if [ $(stat -c %s ${IMG_FILENAME}) -gt $split_size ]; then
-    # 计算需要分割的总份数
-    total_parts=$(( ($(stat -c %s ${IMG_FILENAME}) + split_size - 1) / split_size ))
-    # 先用临时后缀进行分割
-    split -b 2000MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME}.part
-    # 重命名文件为所需格式
-    for i in $(seq -w 001 $total_parts); do
-        mv ${IMG_FILENAME}.part$(($i-1)) "${IMG_FILENAME%.*}.part${i}-${total_parts}${IMG_FILENAME##*.}"
-    done
-    rm ${IMG_FILENAME}
+# 分割文件
+split_mb=2000
+split_bytes=$((split_mb * 1024 * 1024))
+file_size=$(stat -c %s ${IMG_FILENAME})
+
+if [ ${file_size} -gt ${split_bytes} ]; then
+	total_parts=$(((file_size + split_bytes - 1) / split_bytes))
+	img_ext=${IMG_FILENAME#${IMG_FILENAME_WITHOUT_EXT}}
+
+	# 临时分割文件（生成 .part000, .part001, ...）
+	split -b ${split_mb}MiB -d -a 3 ${IMG_FILENAME} ${IMG_FILENAME_WITHOUT_EXT}.part
+	# 重命名为最终格式（.part1-3.tar.xz）
+	for i in $(seq 1 $total_parts); do
+		part_num=$(printf "%03d" $((i - 1)))
+		mv "${IMG_FILENAME_WITHOUT_EXT}.part${part_num}" "${IMG_FILENAME_WITHOUT_EXT}.part${i}-${total_parts}${img_ext}"
+	done
+	rm ${IMG_FILENAME}
 fi
 
 cp ${BUILD_PATH}/build_info build_info.txt
@@ -170,25 +173,26 @@ rm -rf ${MOUNT_PATH}
 rm -rf ${BUILD_IMG}
 
 if [ -z "${NO_COMPRESS}" ]; then
-	sha256sum ${IMG_FILENAME}* > sha256sum.txt
+	sha256sum ${IMG_FILENAME_WITHOUT_EXT}* >sha256sum.txt
 	cat sha256sum.txt
 
 	# Move the image to the output directory, if one was specified.
 	if [ -n "${OUTPUT_DIR}" ]; then
 		mkdir -p "${OUTPUT_DIR}"
-		mv ${IMG_FILENAME}* ${OUTPUT_DIR} || true
+		mv ${IMG_FILENAME_WITHOUT_EXT}* ${OUTPUT_DIR} || true
 		mv build_info.txt ${OUTPUT_DIR}
 		mv sha256sum*.txt ${OUTPUT_DIR} || true
 	fi
 
 	# set outputs for github actions
 	if [ -f "${GITHUB_OUTPUT}" ]; then
-		echo "version=${VERSION}" >> "${GITHUB_OUTPUT}"
-		echo "display_version=${DISPLAY_VERSION}" >> "${GITHUB_OUTPUT}"
-		echo "display_name=${SYSTEM_DESC}" >> "${GITHUB_OUTPUT}"
-		echo "image_filename=${IMG_FILENAME}" >> "${GITHUB_OUTPUT}"
+		echo "version=${VERSION}" >>"${GITHUB_OUTPUT}"
+		echo "display_version=${DISPLAY_VERSION}" >>"${GITHUB_OUTPUT}"
+		echo "display_name=${SYSTEM_DESC}" >>"${GITHUB_OUTPUT}"
+		echo "image_filename=${IMG_FILENAME}" >>"${GITHUB_OUTPUT}"
+		echo "image_filename_without_ext=${IMG_FILENAME_WITHOUT_EXT}" >>"${GITHUB_OUTPUT}"
 	else
-		echo "No github output file set"	
+		echo "No github output file set"
 	fi
 else
 	echo "Local build, output IMG directly"
