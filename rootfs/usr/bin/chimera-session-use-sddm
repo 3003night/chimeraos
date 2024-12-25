@@ -1,0 +1,34 @@
+#! /bin/bash
+
+set -e
+
+CONF_FILE="/etc/sddm.conf.d/10-chimeraos-session.conf"
+
+# Check if session name is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <session-name>"
+    exit 1
+fi
+
+# Get current autologin user from SDDM config
+current_user=$(grep "^User=" "$CONF_FILE" | cut -d= -f2)
+
+# If no user is found, use default
+if [ -z "$current_user" ]; then
+    current_user="$USER"
+fi
+
+# Update SDDM configuration
+{
+    echo "[Autologin]"
+    echo "Session=$1"
+    echo "User=$current_user"
+    echo "Relogin=true"
+    echo
+    echo "[General]"
+    echo "HideUsers=true"
+} > "$CONF_FILE"
+
+# Enable and restart SDDM
+systemctl enable sddm
+setsid sh -c 'exec systemctl restart sddm <> /dev/tty2 >&0 2>&1'

@@ -109,7 +109,6 @@ export PACKAGES="\
 	libva-intel-driver \
 	libxcrypt-compat \
 	libxss \
-	lightdm \
 	linux-firmware \
 	liquidctl \
 	logrotate \
@@ -153,6 +152,7 @@ export PACKAGES="\
 	ripgrep \
 	rsync \
 	screen \
+	sddm \
 	smartmontools \
 	smbclient \
 	sof-firmware \
@@ -323,10 +323,10 @@ export SERVICES="\
 	haveged \
 	hostname-fix \
 	inputplumber \
-	lightdm \
 	overlay-backgrounds \
 	overlay-fonts \
 	overlay-root-home \
+	sddm \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
@@ -359,7 +359,7 @@ postinstallhook() {
 	echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/dmidecode -t 11
 	" >/etc/sudoers.d/steam
 	echo "${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-gamescope
-	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
+	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-sddm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
 	" >/etc/sudoers.d/chimera
 
