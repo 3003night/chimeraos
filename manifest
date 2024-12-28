@@ -382,7 +382,6 @@ postinstallhook() {
 	remove_packages=(
 		make
 		gcc
-		dkms
 		${KERNEL_PACKAGE}-headers
 		ardour
 		)
