@@ -343,6 +343,7 @@ export USER_SERVICES="\
 	pipewire \
 	sk-chos-user-daemon \
 	sk-first-run-daemon \
+	sk-audio-setup \
 	monitor-waydroid \
 "
 
