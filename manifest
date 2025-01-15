@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export VERSION="48"
+export VERSION="48-1"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
@@ -119,7 +119,6 @@ export PACKAGES="\
 	loupe \
 	lshw \
 	lzip \
-	mangohud \
 	mesa-demos \
 	modemmanager \
 	mpv \
@@ -261,6 +260,7 @@ export AUR_PACKAGES="\
 	legendary \
 	lib32-extest \
 	linux-firmware-valve \
+	mangohud-git \
 	mission-center \
 	moonlight-qt \
 	nintendo-udev \
@@ -405,4 +405,6 @@ postinstallhook() {
 	# set permissions for intel_gpu_top and gamescope
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
 	setcap 'CAP_SYS_NICE=eip' /usr/bin/gamescope
+
+	setcap cap_perfmon=+ep /usr/bin/mangohud
 }
