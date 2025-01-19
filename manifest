@@ -219,7 +219,6 @@ export PACKAGE_OVERRIDES="\
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-radeon-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-swrast-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-virtio-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
-	https://ns.switchsystem.eu.org/d/guest/stos/pkgs/mutter-x11-scaling-47.1-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/l/libibus/libibus-1.5.30-3-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/i/ibus/ibus-1.5.30-3-x86_64.pkg.tar.zst \
 "

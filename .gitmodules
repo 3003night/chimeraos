@@ -166,3 +166,6 @@
 [submodule "aur-pkgs/mangohud-git"]
 	path = aur-pkgs/mangohud-git
 	url = https://aur.archlinux.org/mangohud-git.git
+[submodule "aur-pkgs/mutter-x11-scaling"]
+	path = aur-pkgs/mutter-x11-scaling
+	url = https://aur.archlinux.org/mutter-x11-scaling.git
