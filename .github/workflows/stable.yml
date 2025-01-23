@@ -68,7 +68,7 @@ jobs:
       - name: Upload Package Archives
         uses: actions/upload-artifact@v3
         with:
-            name: AUR-packages
+            name: AUR-packages-${{ env.PACKAGE_NAME }}
             path: aur-pkgs/*.pkg.tar*
 
   pkgbuild:
@@ -104,7 +104,7 @@ jobs:
       - name: Upload Package Archives
         uses: actions/upload-artifact@v3
         with:
-            name: Packages
+            name: Packages-${{ env.PACKAGE_NAME }}
             path: pkgs/*.pkg.tar*
 
   build:
