@@ -67,6 +67,8 @@ jobs:
       
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
+        env:
+          PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
         with:
             name: AUR-packages-${{ env.PACKAGE_NAME }}
             path: aur-pkgs/*.pkg.tar*
@@ -103,6 +105,8 @@ jobs:
      
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
+        env:
+          PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
         with:
             name: Packages-${{ env.PACKAGE_NAME }}
             path: pkgs/*.pkg.tar*
