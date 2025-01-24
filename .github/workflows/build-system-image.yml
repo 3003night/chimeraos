@@ -22,32 +22,32 @@ jobs:
       display_version: ${{ steps.build_image.outputs.display_version }}
       image_filename: ${{ steps.build_image.outputs.image_filename }}
     steps:
-      # - name: Free Disk Space (Ubuntu)
-      #   uses: jlumbroso/free-disk-space@main
-      #   with:
-      #     # this might remove tools that are actually needed,
-      #     # if set to "true" but frees about 6 GB
-      #     tool-cache: false
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
           
-      #     # all of these default to true, but feel free to set to
-      #     # "false" if necessary for your workflow
-      #     android: true
-      #     dotnet: true
-      #     haskell: true
-      #     large-packages: true
-      #     docker-images: true
-      #     swap-storage: true
-      - name: Maximize build space
-        run: |
-          df -h
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /usr/share/swift
-          sudo rm -rf /usr/share/java
-          sudo rm -rf /usr/local/lib/android
-          sudo rm -rf /opt/ghc
-          sudo rm -rf /opt/hostedtoolcache
-          sudo rm -rf /opt/az
-          df -h
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+      # - name: Maximize build space
+      #   run: |
+      #     df -h
+      #     sudo rm -rf /usr/share/dotnet
+      #     sudo rm -rf /usr/share/swift
+      #     sudo rm -rf /usr/share/java
+      #     sudo rm -rf /usr/local/lib/android
+      #     sudo rm -rf /opt/ghc
+      #     sudo rm -rf /opt/hostedtoolcache
+      #     sudo rm -rf /opt/az
+      #     df -h
 
       - uses: actions/checkout@v4
       - name: Extract metadata (tags, labels) for Docker
