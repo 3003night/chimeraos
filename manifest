@@ -1,11 +1,11 @@
 #! /bin/bash
 
-export VERSION="48"
+export VERSION="48-1"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="15000MB"
-export ARCHIVE_DATE="2024/12/20"
+export ARCHIVE_DATE="2025/01/20"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -124,7 +124,6 @@ export PACKAGES="\
 	lrzip \
 	lshw \
 	lzip \
-	mangohud \
 	mesa-demos \
 	modemmanager \
 	mpv \
@@ -213,27 +212,27 @@ export PACKAGES="\
 "
 
 export PACKAGE_OVERRIDES="\
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.12.6-sko3-2/linux-chimeraos-6.12.6.sko3-2-x86_64.pkg.tar.zst \
-	https://github.com/3003n/linux-chimeraos/releases/download/v6.12.6-sko3-2/linux-chimeraos-headers-6.12.6.sko3-2-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-mesa-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-opencl-clover-mesa-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-opencl-rusticl-mesa-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-vulkan-intel-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-vulkan-mesa-layers-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-vulkan-nouveau-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-vulkan-radeon-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-vulkan-swrast-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/lib32-vulkan-virtio-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/mesa-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/mesa-docs-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/opencl-clover-mesa-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/opencl-rusticl-mesa-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-intel-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-mesa-layers-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-nouveau-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-radeon-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-swrast-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
-	https://github.com/3003n/mesa-chimeraos/releases/download/24.3.1-chos1-1/vulkan-virtio-1--24.3.1.chos1-1-x86_64.pkg.tar.zst \
+	https://ns.switchsystem.eu.org/d/guest/stos/sk-kernel/linux-chimeraos-6.12.10.sko2-1-x86_64.pkg.tar.zst \
+	https://ns.switchsystem.eu.org/d/guest/stos/sk-kernel/linux-chimeraos-headers-6.12.10.sko2-1-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-mesa-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-opencl-clover-mesa-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-opencl-rusticl-mesa-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-vulkan-intel-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-vulkan-mesa-layers-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-vulkan-nouveau-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-vulkan-radeon-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-vulkan-swrast-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/lib32-vulkan-virtio-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/mesa-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/mesa-docs-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/opencl-clover-mesa-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/opencl-rusticl-mesa-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-intel-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-mesa-layers-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-nouveau-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-radeon-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-swrast-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
+	https://github.com/ChimeraOS/mesa-chimeraos/releases/download/24.3.3-chos1-2/vulkan-virtio-1--24.3.3.chos1-2-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/l/libibus/libibus-1.5.30-3-x86_64.pkg.tar.zst \
 	https://archive.archlinux.org/packages/i/ibus/ibus-1.5.30-3-x86_64.pkg.tar.zst \
 "
@@ -268,6 +267,7 @@ export AUR_PACKAGES="\
 	legendary \
 	lib32-extest \
 	linux-firmware-valve \
+	mangohud-git \
 	mission-center \
 	moonlight-qt \
 	nintendo-udev \
@@ -350,6 +350,7 @@ export USER_SERVICES="\
 	pipewire \
 	sk-chos-user-daemon \
 	sk-first-run-daemon \
+	sk-audio-setup \
 	monitor-waydroid \
 "
 
@@ -423,4 +424,6 @@ postinstallhook() {
 	# set permissions for intel_gpu_top and gamescope
 	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
 	setcap 'CAP_SYS_NICE=eip' /usr/bin/gamescope
+
+	setcap cap_perfmon=+ep /usr/bin/mangohud
 }

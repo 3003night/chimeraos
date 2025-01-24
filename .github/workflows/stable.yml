@@ -66,9 +66,11 @@ jobs:
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
       
       - name: Upload Package Archives
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
+        env:
+          PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
         with:
-            name: AUR-packages
+            name: AUR-packages-${{ env.PACKAGE_NAME }}
             path: aur-pkgs/*.pkg.tar*
 
   pkgbuild:
@@ -102,9 +104,11 @@ jobs:
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV 
      
       - name: Upload Package Archives
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
+        env:
+          PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
         with:
-            name: Packages
+            name: Packages-${{ env.PACKAGE_NAME }}
             path: pkgs/*.pkg.tar*
 
   build:
