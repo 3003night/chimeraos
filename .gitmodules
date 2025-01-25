@@ -70,9 +70,6 @@
 [submodule "aur-pkgs/sk-boot-to-windows"]
 	path = aur-pkgs/sk-boot-to-windows
 	url = https://aur.archlinux.org/sk-boot-to-windows.git
-[submodule "aur-pkgs/waydroid"]
-	path = aur-pkgs/waydroid
-	url = https://aur.archlinux.org/waydroid.git
 [submodule "aur-pkgs/waydroid-script-git"]
 	path = aur-pkgs/waydroid-script-git
 	url = https://aur.archlinux.org/waydroid-script-git.git
@@ -121,9 +118,6 @@
 [submodule "aur-pkgs/mission-center"]
 	path = aur-pkgs/mission-center
 	url = https://aur.archlinux.org/mission-center.git
-[submodule "aur-pkgs/amdgpu-test-scripts-git"]
-	path = aur-pkgs/amdgpu-test-scripts-git
-	url = https://aur.archlinux.org/amdgpu-test-scripts-git.git
 [submodule "aur-pkgs/chimeraos-device-quirks-sk-git"]
 	path = aur-pkgs/chimeraos-device-quirks-sk-git
 	url = https://aur.archlinux.org/chimeraos-device-quirks-sk-git.git
