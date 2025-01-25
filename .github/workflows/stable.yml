@@ -77,6 +77,8 @@ jobs:
               aur-pkgs/*.pkg.tar*
               aur-pkgs/sha256sums-${{ env.PACKAGE_NAME }}.txt
             compression-level: 0
+            overwrite: true
+            retention-days: 3
 
   pkgbuild:
     needs:
@@ -121,6 +123,8 @@ jobs:
               pkgs/*.pkg.tar*
               pkgs/sha256sums-${PACKAGE_NAME}.txt
             compression-level: 0
+            overwrite: true
+            retention-days: 3
 
   build:
     needs:
