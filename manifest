@@ -227,7 +227,6 @@ export PACKAGE_OVERRIDES="\
 # Which is often the same as the package name but it can be different.
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
-	amdgpu-test-scripts-git \
 	anydesk-bin \
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
@@ -281,7 +280,6 @@ export AUR_PACKAGES="\
 	steam_notif_daemon \
 	tsukimi-bin \
 	v4l-utils-git \
-	waydroid \
 	waydroid-script-git \
 	yay-git \
 	zenergy-dkms-git \
