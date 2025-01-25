@@ -252,7 +252,6 @@ export AUR_PACKAGES="\
 	evdev-keepalive \
 	frzr-sk \
 	gamescope-session-sk-git \
-	gamescope-session-steam-git \
 	gamescope-session-steam-plus-git \
 	gamescope-sk \
 	gpd-fan-driver-dkms-git \
