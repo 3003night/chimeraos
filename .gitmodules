@@ -10,9 +10,6 @@
 [submodule "aur-pkgs/downgrade"]
 	path = aur-pkgs/downgrade
 	url = https://aur.archlinux.org/downgrade.git
-[submodule "aur-pkgs/gamescope-session-steam-git"]
-	path = aur-pkgs/gamescope-session-steam-git
-	url = https://aur.archlinux.org/gamescope-session-steam-git.git
 [submodule "aur-pkgs/gamescope-session-steam-plus-git"]
 	path = aur-pkgs/gamescope-session-steam-plus-git
 	url = https://aur.archlinux.org/gamescope-session-steam-plus-git.git
