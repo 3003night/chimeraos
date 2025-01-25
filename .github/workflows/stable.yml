@@ -70,7 +70,7 @@ jobs:
         env:
           PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
         with:
-            name: AUR-packages-${{ env.PACKAGE_NAME }}
+            name: AUR-packages-${{ env.PACKAGE_NAME }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
             path: aur-pkgs/*.pkg.tar*
 
   pkgbuild:
@@ -108,7 +108,7 @@ jobs:
         env:
           PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
         with:
-            name: Packages-${{ env.PACKAGE_NAME }}
+            name: Packages-${{ env.PACKAGE_NAME }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
             path: pkgs/*.pkg.tar*
 
   build:
