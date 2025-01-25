@@ -66,30 +66,93 @@ jobs:
             merge-multiple: true
             path: pkgs/
       - name: Verify checksums
+        id: verify_checksums
         run: |
           echo "Verifying package checksums..."
+          failed_aur_packages=""
+          failed_packages=""
+          
           cd aur-pkgs
           for checksum in sha256sums-*.txt; do
             if [ -f "$checksum" ]; then
               echo "Verifying $checksum"
               if ! sha256sum -c "$checksum"; then
-                echo "Error: AUR package checksum verification failed for $checksum"
-                exit 1
+                pkg_name=$(echo "$checksum" | sed 's/sha256sums-\(.*\)\.txt/\1/')
+                failed_aur_packages="$failed_aur_packages AUR-packages-$pkg_name"
+                echo "Warning: AUR package checksum verification failed for $pkg_name"
               fi
             fi
+            echo "------------------------------"
           done
+          
           cd ../pkgs
           for checksum in sha256sums-*.txt; do
             if [ -f "$checksum" ]; then
               echo "Verifying $checksum"
               if ! sha256sum -c "$checksum"; then
-                echo "Error: Package checksum verification failed for $checksum"
+                pkg_name=$(echo "$checksum" | sed 's/sha256sums-\(.*\)\.txt/\1/')
+                failed_packages="$failed_packages Packages-$pkg_name"
+                echo "Warning: Package checksum verification failed for $pkg_name"
+              fi
+            fi
+            echo "------------------------------"
+          done
+          cd ..
+          
+          if [ -n "$failed_aur_packages" ] || [ -n "$failed_packages" ]; then
+            echo "Failed AUR packages: $failed_aur_packages"
+            echo "Failed packages: $failed_packages"
+            echo "failed_aur_packages=$failed_aur_packages" >> $GITHUB_OUTPUT
+            echo "failed_packages=$failed_packages" >> $GITHUB_OUTPUT
+            exit 0  # 不立即失败，继续执行重新下载步骤
+          else
+            echo "All package checksums verified successfully"
+          fi
+
+      - name: Redownload failed AUR packages
+        if: steps.verify_checksums.outputs.failed_aur_packages != ''
+        uses: actions/download-artifact@v4
+        with:
+            pattern: ${{ steps.verify_checksums.outputs.failed_aur_packages }}
+            merge-multiple: true
+            path: aur-pkgs/
+
+      - name: Redownload failed normal packages
+        if: steps.verify_checksums.outputs.failed_packages != ''
+        uses: actions/download-artifact@v4
+        with:
+            pattern: ${{ steps.verify_checksums.outputs.failed_packages }}
+            merge-multiple: true
+            path: pkgs/
+
+      - name: Re-verify packages
+        if: steps.verify_checksums.outputs.failed_aur_packages != '' || steps.verify_checksums.outputs.failed_packages != ''
+        run: |
+          echo "Re-verifying all packages..."
+          cd aur-pkgs
+          for checksum in sha256sums-*.txt; do
+            if [ -f "$checksum" ]; then
+              echo "Re-verifying $checksum"
+              if ! sha256sum -c "$checksum"; then
+                echo "Error: Package still failed after redownload: $checksum"
+                exit 1
+              fi
+            fi
+          done
+          
+          cd ../pkgs
+          for checksum in sha256sums-*.txt; do
+            if [ -f "$checksum" ]; then
+              echo "Re-verifying $checksum"
+              if ! sha256sum -c "$checksum"; then
+                echo "Error: Package still failed after redownload: $checksum"
                 exit 1
               fi
             fi
           done
           cd ..
-          echo "All package checksums verified successfully"
+          echo "All packages verified successfully after redownload"
+
       - name: Check package integrity
         run: |
           echo "Checking package integrity..."
