@@ -65,6 +65,47 @@ jobs:
             name: Packages
             # merge-multiple: true
             path: pkgs/
+      - name: Verify checksums
+        run: |
+          echo "Verifying package checksums..."
+          cd aur-pkgs
+          for checksum in sha256sums-*.txt; do
+            if [ -f "$checksum" ]; then
+              echo "Verifying $checksum"
+              if ! sha256sum -c "$checksum"; then
+                echo "Error: AUR package checksum verification failed for $checksum"
+                exit 1
+              fi
+            fi
+          done
+          cd ../pkgs
+          for checksum in sha256sums-*.txt; do
+            if [ -f "$checksum" ]; then
+              echo "Verifying $checksum"
+              if ! sha256sum -c "$checksum"; then
+                echo "Error: Package checksum verification failed for $checksum"
+                exit 1
+              fi
+            fi
+          done
+          cd ..
+          echo "All package checksums verified successfully"
+      - name: Check package integrity
+        run: |
+          echo "Checking package integrity..."
+          for pkg in aur-pkgs/*.pkg.tar*; do
+            if ! tar -tf "$pkg" >/dev/null 2>&1; then
+              echo "Error: AUR package file may be corrupted: $pkg"
+              exit 1
+            fi
+          done
+          for pkg in pkgs/*.pkg.tar*; do
+            if ! tar -tf "$pkg" >/dev/null 2>&1; then
+              echo "Error: Package file may be corrupted: $pkg"
+              exit 1
+            fi
+          done
+          echo "All package files check passed"
       - name: Build system image
         id: build_image
         run: |

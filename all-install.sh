@@ -29,7 +29,7 @@ if [ "$KERNEL_PACKAGE_ORIGIN" == "local" ] ; then
 	/own_pkgs/${KERNEL_PACKAGE}-*.pkg.tar.zst
 	# rm -rf /own_pkgs/${KERNEL_PACKAGE}-*.pkg.tar.zst
 else
-	pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
+	pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers" --needed
 fi
 
 for package in ${OWN_PACKAGES_TO_DELETE}; do
@@ -37,7 +37,7 @@ for package in ${OWN_PACKAGES_TO_DELETE}; do
 done
 
 # install own override packages
-pacman --noconfirm -U --overwrite '*' /own_pkgs/*
+pacman --noconfirm -U --overwrite '*' /own_pkgs/* --needed
 rm -rf /var/cache/pacman/pkg
 
 # delete packages
@@ -50,7 +50,7 @@ for package in ${PACKAGES_TO_DELETE}; do
 done
 
 # install packages
-pacman --noconfirm -S --overwrite '*' --disable-download-timeout ${PACKAGES}
+pacman --noconfirm -S --overwrite '*' --disable-download-timeout ${PACKAGES} --needed
 rm -rf /var/cache/pacman/pkg
 
 # delete packages
@@ -68,7 +68,7 @@ for package in ${AUR_PACKAGES_TO_DELETE}; do
 done
 
 # install AUR packages
-pacman --noconfirm -U --overwrite '*' /extra_pkgs/*
+pacman --noconfirm -U --overwrite '*' /extra_pkgs/* --needed
 rm -rf /var/cache/pacman/pkg
 
 # enable services
