@@ -73,6 +73,18 @@ mkdir ${BUILD_PATH}/extra_pkgs
 cp -rv aur-pkgs/*.pkg.tar* ${BUILD_PATH}/extra_pkgs
 cp -rv pkgs/*.pkg.tar* ${BUILD_PATH}/own_pkgs
 
+#  检查 ${BUILD_PATH}/own_pkgs 和 ${BUILD_PATH}/extra_pkgs 中的 pkg.tar 的完整性, 判断压缩包是否完整
+check_pkg() {
+	for pkg in $(ls ${BUILD_PATH}/own_pkgs/*.pkg.tar*); do
+		tar -tf $pkg
+	done
+	for pkg in $(ls ${BUILD_PATH}/extra_pkgs/*.pkg.tar*); do
+		tar -tf $pkg
+	done
+}
+
+check_pkg
+
 if [ -n "${PACKAGE_OVERRIDES}" ]; then
 	wget --directory-prefix=/tmp/extra_pkgs ${PACKAGE_OVERRIDES}
 	cp -rv /tmp/extra_pkgs/*.pkg.tar* ${BUILD_PATH}/own_pkgs
