@@ -65,13 +65,19 @@ jobs:
           PACKAGE_NAME=${PACKAGE_NAME%/}
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
       
+      - name: Generate checksums
+        run: |
+          docker run --rm -v $(pwd):/workdir --entrypoint=/bin/bash ${{ steps.meta.outputs.tags }} -c "cd /workdir/aur-pkgs && sha256sum *.pkg.tar* > sha256sums-${PACKAGE_NAME}.txt"
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
         env:
           PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
         with:
-            name: AUR-packages-${{ env.PACKAGE_NAME }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
-            path: aur-pkgs/*.pkg.tar*
+            name: AUR-packages-${{ env.PACKAGE_NAME }}
+            path: |
+              aur-pkgs/*.pkg.tar*
+              aur-pkgs/sha256sums-${{ env.PACKAGE_NAME }}.txt
+            compression-level: 0
 
   pkgbuild:
     needs:
@@ -103,13 +109,19 @@ jobs:
           PACKAGE_NAME=${PACKAGE_NAME%/}
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV 
      
+      - name: Generate checksums for pkgs
+        run: |
+          docker run --rm -v $(pwd):/workdir --entrypoint=/bin/bash ${{ steps.meta.outputs.tags }} -c "cd /workdir/pkgs && sha256sum *.pkg.tar* > sha256sums-${PACKAGE_NAME}.txt"
       - name: Upload Package Archives
         uses: actions/upload-artifact@v4
         env:
           PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
         with:
-            name: Packages-${{ env.PACKAGE_NAME }}-${{ hashFiles(format('{0}/PKGBUILD', matrix.package)) }}
-            path: pkgs/*.pkg.tar*
+            name: Packages-${{ env.PACKAGE_NAME }}
+            path: |
+              pkgs/*.pkg.tar*
+              pkgs/sha256sums-${PACKAGE_NAME}.txt
+            compression-level: 0
 
   build:
     needs:
