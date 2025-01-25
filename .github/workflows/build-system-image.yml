@@ -110,8 +110,8 @@ jobs:
           if [ -n "$failed_aur_packages" ] || [ -n "$failed_packages" ]; then
             echo "Failed AUR packages: $failed_aur_packages"
             echo "Failed packages: $failed_packages"
-            echo "failed_aur_packages={$failed_aur_packages}" >> $GITHUB_OUTPUT
-            echo "failed_packages={$failed_packages}" >> $GITHUB_OUTPUT
+            echo "failed_aur_packages=$failed_aur_packages" >> $GITHUB_OUTPUT
+            echo "failed_packages=$failed_packages" >> $GITHUB_OUTPUT
             exit 0  # 不立即失败，继续执行重新下载步骤
           else
             echo "All package checksums verified successfully"
