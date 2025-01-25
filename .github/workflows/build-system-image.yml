@@ -78,7 +78,11 @@ jobs:
               echo "Verifying $checksum"
               if ! sha256sum -c "$checksum"; then
                 pkg_name=$(echo "$checksum" | sed 's/sha256sums-\(.*\)\.txt/\1/')
-                failed_aur_packages="$failed_aur_packages AUR-packages-$pkg_name"
+                if [ -z "$failed_aur_packages" ]; then
+                  failed_aur_packages="AUR-packages-$pkg_name"
+                else
+                  failed_aur_packages="$failed_aur_packages,AUR-packages-$pkg_name"
+                fi
                 echo "Warning: AUR package checksum verification failed for $pkg_name"
               fi
             fi
@@ -91,7 +95,11 @@ jobs:
               echo "Verifying $checksum"
               if ! sha256sum -c "$checksum"; then
                 pkg_name=$(echo "$checksum" | sed 's/sha256sums-\(.*\)\.txt/\1/')
-                failed_packages="$failed_packages Packages-$pkg_name"
+                if [ -z "$failed_packages" ]; then
+                  failed_packages="Packages-$pkg_name"
+                else
+                  failed_packages="$failed_packages,Packages-$pkg_name"
+                fi
                 echo "Warning: Package checksum verification failed for $pkg_name"
               fi
             fi
@@ -102,8 +110,8 @@ jobs:
           if [ -n "$failed_aur_packages" ] || [ -n "$failed_packages" ]; then
             echo "Failed AUR packages: $failed_aur_packages"
             echo "Failed packages: $failed_packages"
-            echo "failed_aur_packages=$failed_aur_packages" >> $GITHUB_OUTPUT
-            echo "failed_packages=$failed_packages" >> $GITHUB_OUTPUT
+            echo "failed_aur_packages={$failed_aur_packages}" >> $GITHUB_OUTPUT
+            echo "failed_packages={$failed_packages}" >> $GITHUB_OUTPUT
             exit 0  # 不立即失败，继续执行重新下载步骤
           else
             echo "All package checksums verified successfully"
