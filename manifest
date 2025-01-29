@@ -324,6 +324,7 @@ export SERVICES="\
 	overlay-backgrounds \
 	overlay-fonts \
 	overlay-root-home \
+	steam-powerbuttond \
 	sshd \
 	systemd-timesyncd \
 	swapfile \
