@@ -160,3 +160,6 @@
 [submodule "aur-pkgs/mutter-x11-scaling"]
 	path = aur-pkgs/mutter-x11-scaling
 	url = https://aur.archlinux.org/mutter-x11-scaling.git
+[submodule "aur-pkgs/steam-powerbuttond-git"]
+	path = aur-pkgs/steam-powerbuttond-git
+	url = https://aur.archlinux.org/steam-powerbuttond-git.git
