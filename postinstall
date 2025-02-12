@@ -32,6 +32,9 @@ function download_decky_plugin() {
 		unzip -o "${temp_decky}/${basename}" -d $decky_plugin_path
 	fi
 
+	# delete node_modeules if exists
+	rm -rf $decky_plugin_path/*/{node_modules,.git,.vscode}
+
 	rm -rf $temp_decky
 }
 
@@ -88,6 +91,9 @@ postinstall_download() {
 
 	# aarron-lee/LegionGoRemapper
 	download_decky_plugin "aarron-lee/LegionGoRemapper" $decky_plugin_path
+
+	# xXJSONDeruloXx/Decky-Framegen
+	# download_decky_plugin "xXJSONDeruloXx/Decky-Framegen" $decky_plugin_path "Decky-Framegen.zip"
 
 	# pre download css themes
 
