@@ -255,7 +255,6 @@ export AUR_PACKAGES="\
 	inputplumber-bin \
 	kanit-font \
 	legendary \
-	lact \
 	lib32-extest \
 	linux-firmware-valve \
 	mission-center \
