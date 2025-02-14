@@ -230,7 +230,6 @@ export PACKAGE_OVERRIDES="\
 # Check on the AUR webpage if you are unsure
 export AUR_PACKAGES="\
 	anydesk-bin \
-	asusctl \
 	ayaneo-platform-dkms-git \
 	ayn-platform-dkms-git \
 	bcm20702a1-firmware \
@@ -270,7 +269,6 @@ export AUR_PACKAGES="\
 	parui \
 	paruz \
 	pikaur \
-	powerstation-bin \
 	protonup-qt-bin \
 	python-pyclip \
 	python-vdf \
@@ -296,6 +294,7 @@ export PACKAGES_TO_DELETE="\
 	jack2 \
 	lib32-amdvlk \
 	lib32-clang \
+	mutter \
 	openvr \
 	pulseaudio \
 	pulseaudio-alsa \
@@ -317,7 +316,6 @@ export SERVICES="\
 	cec-onboot \
 	cec-onpoweroff \
 	cec-onsleep \
-	ds-inhibit \
 	fstrim.timer \
 	frzr_root-swap-swapfile.swap \
 	haveged \
