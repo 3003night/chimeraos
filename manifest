@@ -153,6 +153,7 @@ export PACKAGES="\
 	ripgrep \
 	rsync \
 	screen \
+	scx-scheds \
 	smartmontools \
 	smbclient \
 	sof-firmware \
