@@ -1,0 +1,2 @@
+default_sched = "scx_lavd"
+default_mode = "Auto"
