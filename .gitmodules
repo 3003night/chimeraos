@@ -49,9 +49,6 @@
 [submodule "aur-pkgs/zenergy-dkms-git"]
 	path = aur-pkgs/zenergy-dkms-git
 	url = https://aur.archlinux.org/zenergy-dkms-git.git
-[submodule "aur-pkgs/anydesk-bin"]
-	path = aur-pkgs/anydesk-bin
-	url = https://aur.archlinux.org/anydesk-bin.git
 [submodule "aur-pkgs/frzr-sk"]
 	path = aur-pkgs/frzr-sk
 	url = https://aur.archlinux.org/frzr-sk.git
