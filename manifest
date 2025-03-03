@@ -68,6 +68,7 @@ export PACKAGES="\
 	gnome-system-monitor \
 	gnome-text-editor \
 	gnome-tweaks \
+	gnome-remote-desktop \
 	gnome-shell-extensions \
 	gnome-shell-extension-appindicator \
 	gnome-shell-extension-desktop-icons-ng \
