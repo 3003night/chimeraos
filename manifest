@@ -242,7 +242,6 @@ export AUR_PACKAGES="\
 	legendary \
 	lib32-extest \
 	linux-firmware-valve \
-	mangohud-git \
 	mission-center \
 	moonlight-qt \
 	mutter-x11-scaling \

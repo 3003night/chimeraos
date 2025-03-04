@@ -1,0 +1,83 @@
+# Maintainer: Darvin Delgado <dnmodder at gmail dot com>
+
+_pkgname=MangoHud
+pkgname=mangohud-git
+pkgver=0.8.0.r21.gb94ce31
+pkgrel=1
+pkgdesc="A Vulkan overlay layer for monitoring FPS, temperatures, CPU/GPU load and more"
+url='https://github.com/flightlessmango/MangoHud'
+license=('MIT')
+arch=('x86_64')
+makedepends=(
+    'appstream'
+    'cmocka'
+    'dbus'
+    'git'
+    'glslang'
+    'libxnvctrl'
+    'libxrandr'
+    'meson'
+    'nlohmann-json'
+    'python-mako'
+    'vulkan-headers'
+)
+depends=(
+    'gcc-libs'
+    'glew'
+    'glfw'
+    'glibc'
+    'hicolor-icon-theme'
+    'libglvnd'
+    'libx11'
+    'libxkbcommon'
+    'python'
+    'python-matplotlib'
+    'python-numpy'
+    'sh'
+    'wayland'
+)
+optdepends=(
+    'dbus: mangohudctl'
+    'libxnvctrl: NVIDIA GPU metrics on older GPUs'
+    'vulkan-icd-loader: Vulkan support'
+)
+provides=('mangohud' 'mangoapp')
+replaces=('mangoapp')
+conflicts=('mangohud' 'mangohud-common-git' 'mangoapp')
+source=(
+    "$_pkgname::git+$url"
+    0001-feat-display-battery-charging-power.patch
+    )
+sha512sums=('SKIP'
+            'bdad2d8112c864dacf4befdfe3d375fda576faea98e322e634a0a66d9af03f84bbac6145a40af0172074ec2911b16a431d32f8e369f86b561b46e5c1f515aced'
+)
+
+pkgver() {
+    cd $_pkgname
+    git describe --tags --long --abbrev=7 | sed 's/^v//;s/-rc[0-9]\+-/-/;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+    cd ${srcdir}/${_pkgname}
+
+    local src
+    for src in "${source[@]}"; do
+        [[ $src = *.patch ]] || continue
+        patch -p1 < "${srcdir}"/$src
+    done
+}
+
+build() {
+    arch-meson "$_pkgname" build \
+        -Dmangoapp=true \
+        -Dmangohudctl=true \
+        --wrap-mode=default
+
+    meson compile -C build
+}
+
+package() {
+    meson install -C build --destdir "$pkgdir"
+
+    install -Dm 0644 "$_pkgname/LICENSE" -t "$pkgdir/usr/share/licenses/$pkgname/"
+}
