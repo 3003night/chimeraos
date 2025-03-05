@@ -1,15 +1,15 @@
-From d330b59e28520ca6c431a3be3806aec260fc62bc Mon Sep 17 00:00:00 2001
+From 5c309efafdc2cf499e9ff8ea2d6681e20de30762 Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
-Date: Wed, 5 Mar 2025 04:16:29 +0800
+Date: Wed, 5 Mar 2025 19:39:39 +0800
 Subject: [PATCH] feat: display battery charging power
 
 - Remove special handling for charging state in getPower() function
 - Display actual power value during battery charging
 - Add +/- prefix to power value to indicate charging/discharging status
 ---
- src/battery.cpp      |  7 ++++---
- src/hud_elements.cpp | 12 +++++++++---
- 2 files changed, 13 insertions(+), 6 deletions(-)
+ src/battery.cpp      | 7 ++++---
+ src/hud_elements.cpp | 8 +++++++-
+ 2 files changed, 11 insertions(+), 4 deletions(-)
 
 diff --git a/src/battery.cpp b/src/battery.cpp
 index e5d311b..297217b 100644
@@ -30,19 +30,10 @@ index e5d311b..297217b 100644
          if (fs::exists(current_power)) {
              std::ifstream input(current_power);
 diff --git a/src/hud_elements.cpp b/src/hud_elements.cpp
-index e820908..c7be0e0 100644
+index e820908..90790fc 100644
 --- a/src/hud_elements.cpp
 +++ b/src/hud_elements.cpp
-@@ -213,7 +213,7 @@ void HudElements::gpu_stats(){
-             else {
-                 right_aligned_text(text_color, HUDElements.ralign_width, "%i", gpu->metrics.load);
-                 ImGui::SameLine(0, 1.0f);
--                HUDElements.TextColored(text_color,"%%");
-+                HUDElements.TextColored(HUDElements.colors.text, "%%");
-                 // ImGui::SameLine(150);
-                 // ImGui::Text("%s", "%");
-             }
-@@ -1038,10 +1038,16 @@ void HudElements::battery(){
+@@ -1038,13 +1038,19 @@ void HudElements::battery(){
              if (Battery_Stats.current_watt != 0) {
                  if (HUDElements.params->enabled[OVERLAY_PARAM_ENABLED_battery_watt]){
                      ImguiNextColumnOrNewRow();
@@ -53,14 +44,16 @@ index e820908..c7be0e0 100644
 +                        prefix = "-"; //
 +                    }
                      if (HUDElements.params->enabled[OVERLAY_PARAM_ENABLED_hud_compact] && Battery_Stats.current_watt >= 10.0f)
--                        right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%.0f", Battery_Stats.current_watt);
-+                        right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%s%.0f", prefix.c_str(), Battery_Stats.current_watt);
+                         right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%.0f", Battery_Stats.current_watt);
                      else
--                        right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%.1f", Battery_Stats.current_watt);
-+                        right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%s%.1f", prefix.c_str(), Battery_Stats.current_watt);
+                         right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%.1f", Battery_Stats.current_watt);
                      ImGui::SameLine(0,1.0f);
                      ImGui::PushFont(HUDElements.sw_stats->font1);
-                     HUDElements.TextColored(HUDElements.colors.text, "W");
+-                    HUDElements.TextColored(HUDElements.colors.text, "W");
++                    HUDElements.TextColored(HUDElements.colors.text, "%sW", prefix.c_str());
+                     ImGui::PopFont();
+                 }
+                 if (HUDElements.params->enabled[OVERLAY_PARAM_ENABLED_battery_time]) {
 -- 
 2.48.1
 
