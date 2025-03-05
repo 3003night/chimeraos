@@ -251,6 +251,7 @@ export AUR_PACKAGES="\
 	hhd \
 	hhd-ui \
 	hhfc-git \
+	hid-msi-claw-dkms-git \
 	ibus-pinyin \
 	inputplumber-bin \
 	kanit-font \
