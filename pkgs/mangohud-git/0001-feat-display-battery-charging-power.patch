@@ -1,34 +1,28 @@
-From 5c309efafdc2cf499e9ff8ea2d6681e20de30762 Mon Sep 17 00:00:00 2001
+From dd5e64613b61dd6959e11f0cb6cad4dfe629952d Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
-Date: Wed, 5 Mar 2025 19:39:39 +0800
-Subject: [PATCH] feat: display battery charging power
+Date: Wed, 5 Mar 2025 20:50:35 +0800
+Subject: [PATCH 1/2] feat: display battery charging power
 
-- Remove special handling for charging state in getPower() function
 - Display actual power value during battery charging
 - Add +/- prefix to power value to indicate charging/discharging status
 ---
- src/battery.cpp      | 7 ++++---
+ src/battery.cpp      | 2 +-
  src/hud_elements.cpp | 8 +++++++-
- 2 files changed, 11 insertions(+), 4 deletions(-)
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/src/battery.cpp b/src/battery.cpp
-index e5d311b..297217b 100644
+index e5d311b..f4ff2d9 100644
 --- a/src/battery.cpp
 +++ b/src/battery.cpp
-@@ -104,9 +104,10 @@ float BatteryStats::getPower() {
+@@ -104,7 +104,7 @@ float BatteryStats::getPower() {
              state[i]=current_status;
          }
  
 -        if (state[i] == "Charging" ||  state[i] == "Unknown" || state[i] == "Full") {
--            return 0;
--        }
-+        // 移除对充电状态的特殊处理，让充电功率也能显示
-+        // if (state[i] == "Charging" ||  state[i] == "Unknown" || state[i] == "Full") {
-+        //     return 0;
-+        // }
++        if (state[i] != "Charging" && state[i] != "Discharging") {
+             return 0;
+         }
  
-         if (fs::exists(current_power)) {
-             std::ifstream input(current_power);
 diff --git a/src/hud_elements.cpp b/src/hud_elements.cpp
 index e820908..90790fc 100644
 --- a/src/hud_elements.cpp

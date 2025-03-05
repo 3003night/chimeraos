@@ -47,10 +47,12 @@ conflicts=('mangohud' 'mangohud-common-git' 'mangoapp')
 source=(
     "$_pkgname::git+$url"
     0001-feat-display-battery-charging-power.patch
+    0002-Add-support-for-more-handheld-devices-to-fan-detecti.patch
     )
 sha256sums=('SKIP'
-            'be2c801398d1a0cf466de5294b410a7c86c194d2c4cc3da678a290c44301d0b6'
-)
+            '2ca0b5ff21c8f65b3c03d6900de8fb6363d8929ceabd5792371d992377978ad4'
+            '0e212dd3a63ce778536b3c0d1c2d3c3577aa78201b9c843c06bf63d972ace71a'
+            )
 
 pkgver() {
     cd $_pkgname
