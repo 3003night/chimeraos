@@ -1,0 +1,39 @@
+From 2d5cd927d0d2fdb8d1589fc10d2a91bc5da6c652 Mon Sep 17 00:00:00 2001
+From: honjow <honjow311@gmail.com>
+Date: Thu, 6 Mar 2025 17:36:44 +0800
+Subject: [PATCH 3/6] Add fan_curve for claw8
+
+---
+ msi-ec.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/msi-ec.c b/msi-ec.c
+index 3c0a25a..7e8feb0 100644
+--- a/msi-ec.c
++++ b/msi-ec.c
+@@ -2933,10 +2933,22 @@ static struct msi_ec_conf CONF401 __initdata = {
+ 	.cpu = {
+ 		.rt_temp_address       = 0x68,
+ 		.rt_fan_speed_address  = 0x71,
++		.fan_curve = {
++			.speed_start_address = 0x72,
++			.temperature_start_address = 0x6a,
++			.entries_count = 7,
++			.apply_strategy = CURVE_APPLY_STRATEGY_NORMAL
++		}
+ 	},
+ 	.gpu = {
+ 		.rt_temp_address      = 0x80,
+ 		.rt_fan_speed_address = 0x89,
++		.fan_curve = {
++			.speed_start_address = 0x8a,
++			.temperature_start_address = 0x82,
++			.entries_count = 7,
++			.apply_strategy = CURVE_APPLY_STRATEGY_NORMAL
++		}
+ 	},
+ 	.leds = {
+ 		.micmute_led_address = MSI_EC_ADDR_UNSUPP,
+-- 
+2.48.1
+

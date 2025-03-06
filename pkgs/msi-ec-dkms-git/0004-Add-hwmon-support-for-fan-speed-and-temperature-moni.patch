@@ -1,0 +1,221 @@
+From de5bc0f584c6bb116ff3c2cfc6e41bcfca2da66f Mon Sep 17 00:00:00 2001
+From: honjow <honjow311@gmail.com>
+Date: Fri, 7 Mar 2025 00:14:32 +0800
+Subject: [PATCH 4/6] Add hwmon support for fan speed and temperature
+ monitoring
+
+---
+ Makefile |   2 +-
+ msi-ec.c | 161 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 162 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index bffcbd4..a8f09af 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,4 @@
+-VERSION         := 0.08
++VERSION         := 0.10
+ DKMS_ROOT_PATH  := /usr/src/msi_ec-$(VERSION)
+ TARGET ?= $(shell uname -r)
+ 
+diff --git a/msi-ec.c b/msi-ec.c
+index 7e8feb0..2b8413a 100644
+--- a/msi-ec.c
++++ b/msi-ec.c
+@@ -39,10 +39,23 @@
+ #include <linux/version.h>
+ #include <linux/rtc.h>
+ #include <linux/string_choices.h>
++#include <linux/hwmon.h>
++#include <linux/hwmon-sysfs.h>
+ 
+ static DEFINE_MUTEX(ec_set_by_mask_mutex);
+ static DEFINE_MUTEX(ec_unset_by_mask_mutex);
+ static DEFINE_MUTEX(ec_set_bit_mutex);
++// ============================================================ //
++// Hwmon device data
++// ============================================================ //
++
++struct msi_ec_hwmon_data {
++	struct device *dev;
++	const char *name;
++};
++
++static struct msi_ec_hwmon_data *hwmon_data;
++static struct device *hwmon_dev;
+ 
+ #define SM_ECO_NAME		"eco"
+ #define SM_COMFORT_NAME		"comfort"
+@@ -4687,6 +4700,133 @@ static int __init load_configuration(void)
+ 	return -EOPNOTSUPP;
+ }
+ 
++// ============================================================ //
++// Hwmon functions
++// ============================================================ //
++
++static umode_t msi_ec_hwmon_is_visible(const void *data, enum hwmon_sensor_types type,
++                                       u32 attr, int channel)
++{
++	switch (type) {
++	case hwmon_temp:
++		if (attr == hwmon_temp_input && 
++		    ((channel == 0 && conf.cpu.rt_temp_address != MSI_EC_ADDR_UNSUPP) || 
++		     (channel == 1 && conf.gpu.rt_temp_address != MSI_EC_ADDR_UNSUPP)))
++			return 0444;
++		break;
++	case hwmon_fan:
++		if (attr == hwmon_fan_input &&
++		    ((channel == 0 && conf.cpu.rt_fan_speed_address != MSI_EC_ADDR_UNSUPP) ||
++		     (channel == 1 && conf.gpu.rt_fan_speed_address != MSI_EC_ADDR_UNSUPP)))
++			return 0444;
++		break;
++	default:
++		break;
++	}
++	
++	return 0;
++}
++
++static int msi_ec_hwmon_read(struct device *dev, enum hwmon_sensor_types type,
++                             u32 attr, int channel, long *val)
++{
++	u8 value;
++	u8 high_byte, low_byte;
++	u16 fan_value;
++	int result;
++	
++	switch (type) {
++	case hwmon_temp:
++		if (attr == hwmon_temp_input) {
++			if (channel == 0 && conf.cpu.rt_temp_address != MSI_EC_ADDR_UNSUPP) {
++				result = ec_read_seq(conf.cpu.rt_temp_address, &value, 1);
++				if (result < 0)
++					return result;
++				*val = value * 1000; // Convert to millidegree Celsius
++				return 0;
++			} else if (channel == 1 && conf.gpu.rt_temp_address != MSI_EC_ADDR_UNSUPP) {
++				result = ec_read_seq(conf.gpu.rt_temp_address, &value, 1);
++				if (result < 0)
++					return result;
++				*val = value * 1000; // Convert to millidegree Celsius
++				return 0;
++			}
++		}
++		break;
++	case hwmon_fan:
++		if (attr == hwmon_fan_input) {
++			if (channel == 0) { // CPU fan
++				// Read high byte (0xC8)
++				result = ec_read_seq(0xC8, &high_byte, 1);
++				if (result < 0)
++					return result;
++				
++				// Read low byte (0xC9)
++				result = ec_read_seq(0xC9, &low_byte, 1);
++				if (result < 0)
++					return result;
++				
++				// Combine into complete fan speed value
++				fan_value = (high_byte << 8) | low_byte;
++				
++				// If value is 0, fan might be stopped
++				if (fan_value == 0)
++					*val = 0;
++				else
++					*val = 478000 / fan_value; // Apply formula RPM = 478000 / value
++				
++				return 0;
++			} else if (channel == 1) { // GPU fan
++				// Read high byte (0xCA)
++				result = ec_read_seq(0xCA, &high_byte, 1);
++				if (result < 0)
++					return result;
++				
++				// Read low byte (0xCB)
++				result = ec_read_seq(0xCB, &low_byte, 1);
++				if (result < 0)
++					return result;
++				
++				// Combine into complete fan speed value
++				fan_value = (high_byte << 8) | low_byte;
++				
++				// If value is 0, fan might be stopped
++				if (fan_value == 0)
++					*val = 0;
++				else
++					*val = 478000 / fan_value; // Apply formula RPM = 478000 / value
++				
++				return 0;
++			}
++		}
++		break;
++	default:
++		break;
++	}
++	
++	return -EOPNOTSUPP;
++}
++
++static const struct hwmon_ops msi_ec_hwmon_ops = {
++	.is_visible = msi_ec_hwmon_is_visible,
++	.read = msi_ec_hwmon_read,
++};
++
++static const struct hwmon_channel_info *msi_ec_hwmon_info[] = {
++	HWMON_CHANNEL_INFO(temp,
++                  HWMON_T_INPUT,  // CPU temperature
++                  HWMON_T_INPUT), // GPU temperature
++	HWMON_CHANNEL_INFO(fan,
++                  HWMON_F_INPUT,  // CPU fan
++                  HWMON_F_INPUT), // GPU fan
++	NULL
++};
++
++static const struct hwmon_chip_info msi_ec_hwmon_chip_info = {
++	.ops = &msi_ec_hwmon_ops,
++	.info = msi_ec_hwmon_info,
++};
++
+ static int __init msi_ec_init(void)
+ {
+ 	int result;
+@@ -4732,6 +4872,23 @@ static int __init msi_ec_init(void)
+ 		led_classdev_register(&msi_platform_device->dev,
+ 				      &msiacpi_led_kbdlight);
+ 
++	// register hwmon device
++	hwmon_data = devm_kzalloc(&msi_platform_device->dev, sizeof(*hwmon_data), GFP_KERNEL);
++	if (!hwmon_data)
++		return -ENOMEM;
++	
++	hwmon_data->dev = &msi_platform_device->dev;
++	hwmon_data->name = "msi_ec";
++	
++	dev_set_drvdata(&msi_platform_device->dev, hwmon_data);
++	
++	hwmon_dev = hwmon_device_register_with_info(&msi_platform_device->dev,
++						      hwmon_data->name, hwmon_data,
++						      &msi_ec_hwmon_chip_info, NULL);
++	
++	if (IS_ERR(hwmon_dev))
++		return PTR_ERR(hwmon_dev);
++
+ 	return 0;
+ }
+ 
+@@ -4752,6 +4909,10 @@ static void __exit msi_ec_exit(void)
+ 			battery_hook_unregister(&battery_hook);
+ 	}
+ 
++	// unregister hwmon device
++	if (hwmon_dev)
++		hwmon_device_unregister(hwmon_dev);
++
+ 	// Destroy curve and load default settings.
+ 	curve_destroy(cpu_curve_package);
+ 	curve_destroy(gpu_curve_package);
+-- 
+2.48.1
+
