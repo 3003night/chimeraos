@@ -3,7 +3,7 @@
 _pkgbase=msi-ec
 pkgname=msi-ec-dkms-git
 pkgver=r415.f169e6a
-pkgrel=3
+pkgrel=4
 pkgdesc="Driver for MSI laptop EC (DKMS)"
 arch=('x86_64')
 license=('GPL2')
@@ -14,21 +14,11 @@ conflicts=("${_pkgbase}")
 source=(
     "git+https://github.com/BeardOverflow/msi-ec.git"
     "dkms.conf"
-    "0001-Add-Claw-8.patch"
-    "0002-Implement-Fan-Thermal-Curve.patch"
-    "0003-Add-fan_curve-for-claw8.patch"
-    "0004-Add-hwmon-support-for-fan-speed-and-temperature-moni.patch"
-    "0005-Add-fan-label-support-to-hwmon-interface.patch"
-    "0006-hwmon-Implement-fan-PWM-control-functionality.patch"
+    "0001-Add-hwmon.patch"
     )
 sha256sums=('SKIP'
             'f2846d9e9b3734dbdeb41dafde34ec5b5fd2353732cb30cf2606ba89083e1875'
-            'f0ea2bda97f7dc775d0d2849ee6aa8385eb42f7f66d6c99a0cc0215177e3ab92'
-            '3c6c47e04e1251f03996114ce4f61aaddf1e2617a34cc77d676ac57cf13918f0'
-            'ec88b925323fe2cfe6cd2717756882df1be6b68559c39b2e313d9e9f49b51b77'
-            '8566ca27181cc5013f39e62bd3211e8282b9632ec1dade19699d30977f741837'
-            '0a82a9ff432eba9b699f1736696a3953464e00e7116ba0ca9bd90d9f7630321c'
-            'efa5cac78de69d7e938d4294c696ff6997bc491d5546af6ca17f628e00165151')
+            'a6f7936cb2a54df999ec606cb72f059e9d1aa1890c50b5ebc3afbfb35c1499e7')
 
 pkgver() {
     cd ${_pkgbase}
